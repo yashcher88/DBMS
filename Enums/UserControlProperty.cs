@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace DBMS.Enums
 {
-    public enum ControlType
+    public enum UserControlProperty
     {
-        Window,
-        MenuItem,
-        TabItem,
-        Button,
-        TextBlock,
-        TextBox
+        Text = 1,
+        Title = 2,
+        Header = 4,
+        ToolTip = 8,
+        Content = 16 
     }
 }

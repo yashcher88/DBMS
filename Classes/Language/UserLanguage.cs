@@ -9,12 +9,6 @@ namespace DBMS.Classes
 {
     public class UserLanguage
     {
-        public string Name;
-        public int Id;
-
-        public UserLanguage(int id, string name) { 
-            Id = id;
-            Name = name;
-        }
+        Dictionary<string, UserControlLanguage> Controls = new Dictionary<string, UserControlLanguage>();
     }
 }

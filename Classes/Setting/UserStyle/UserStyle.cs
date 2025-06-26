@@ -12,6 +12,6 @@ namespace DBMS.Classes
         public int Id;
         public string Code;
         public StyleType StyleType;
-        public List<StyleLanguage> StyleLanguage = new List<StyleLanguage>();
+        public List<UserStyleLanguage> StyleLanguage = new List<UserStyleLanguage>();
     }
 }

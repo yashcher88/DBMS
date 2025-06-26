@@ -7,12 +7,10 @@ using System.Threading.Tasks;
 
 namespace DBMS.Classes
 {
-    public class ControlLanguage
+    public class UserControlLanguage
     {
-        public int Id;
+        public string Code;
         public UserControl UserControl;
-        public UserControlProperty ControlProperty;
-        public UserLanguage UserLanguage;
-        public string Name;
+        Dictionary<string, UserControlLanguage> Controls = new Dictionary<string, UserControlLanguage>();
     }
 }
