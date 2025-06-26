@@ -1,0 +1,18 @@
+﻿using DBMS.Enums;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DBMS.Classes
+{
+    public class ControlLanguage
+    {
+        public int Id;
+        public UserControl UserControl;
+        public ControlProperty ControlProperty;
+        public UserLanguage UserLanguage;
+        public string Name;
+    }
+}

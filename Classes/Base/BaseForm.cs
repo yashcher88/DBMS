@@ -18,17 +18,17 @@ namespace DBMS.Classes
                 ApplyStyles();
             };
             store = Program.store;
-            store.windows.Add(this);
+            //store.windows.Add(this);
         }
         protected virtual void Init(BaseForm F)
         {
             store = F.store;
-            store.interfaceLanguage.ReadFromWindow(this);
+            //store.interfaceLanguage.ReadFromWindow(this);
         }
 
         protected virtual void ApplyLanguage()
         {
-            store.interfaceLanguage.WriteToWindow(this);
+            //store.interfaceLanguage.WriteToWindow(this);
             // Логика применения локализации, например:
             // this.FindControl<TextBlock>("TitleText").Text = Localization.Get("MainWindow_Title");
         }

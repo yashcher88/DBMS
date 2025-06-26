@@ -20,29 +20,29 @@ namespace DBMS
         {
             BuildBlock.Text = $"Build version: " + (Assembly.GetEntryAssembly()?.GetName()?.Version?.ToString() ?? "1.0.0.0");
             StateText.Text = $"Loading drivers";
-            store.LoadPack();
+            //store.LoadPack();
             PackageBlock.Text = $"Package version: " + store.versionPack.ToString();
             await Task.Delay(200);
 
             StateText.Text = $"Load default settings";
-            store.LoadSets();
+            //store.LoadSets();
             await Task.Delay(200);
 
             StateText.Text = $"Load servers";
-            store.LoadServers();
+            //store.LoadServers();
             await Task.Delay(200);
 
             StateText.Text = $"Load user settings";
-            store.LoadUserSets();
+            //store.LoadUserSets();
             await Task.Delay(200);
 
             StateText.Text = $"Load user styles";
-            store.LoadUserStyles();
+            //store.LoadUserStyles();
             await Task.Delay(200);
 
-            var mainWindow = new Main();
-            mainWindow.Init(this);
-            mainWindow.Show();
+            //var mainWindow = new Main();
+            //mainWindow.Init(this);
+            //mainWindow.Show();
             Hide();
         }
     }
