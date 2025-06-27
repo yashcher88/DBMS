@@ -12,7 +12,7 @@ namespace DBMS.Classes
         public int versionPack;
 
         public Store() {
-            Languages.Add(new UserLanguage(Languages.Count, "Русский"));
+            Languages.Add("Русский", new UserLanguage());
         }
     }
 }
