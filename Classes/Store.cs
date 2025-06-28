@@ -39,14 +39,14 @@ namespace DBMS.Classes
             VersionPack = (Convert.ToInt32(VersionPack) + 1).ToString();
             FileUtils.SaveFileToZip(PackPath, "version", VersionPack.ToString());
         }
-        public void LoadLanguage()
+        public void LoadLanguages()
         {
-            string Content = FileUtils.GetFileFromZip(PackPath, "language");
+            string Content = FileUtils.GetFileFromZip(PackPath, "languages");
             if (Content != null) { 
                 
             }
         }
-        public void SaveLanguage() { 
+        public void SaveLanguages() { 
             
         }
     }
