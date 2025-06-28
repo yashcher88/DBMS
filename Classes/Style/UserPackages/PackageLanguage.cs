@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DBMS.Classes
+namespace DBMS.Classes.Style.UserPackages
 {
     public class PackageLanguage
     {
         public int Id;
         public string Name;
-        public Language Language;
+        //public Language Language;
         public PackageStyle PackageStyle;
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DBMS.Enums;
 
-namespace DBMS.Classes
+namespace DBMS.Classes.Style.UserStyle
 {
     public class UserStyle
     {

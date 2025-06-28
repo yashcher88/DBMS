@@ -21,7 +21,7 @@ namespace DBMS
             BuildBlock.Text = $"Build version: " + (Assembly.GetEntryAssembly()?.GetName()?.Version?.ToString() ?? "1.0.0.0");
             StateText.Text = $"Loading drivers";
             //store.LoadPack();
-            PackageBlock.Text = $"Package version: " + store.versionPack.ToString();
+            PackageBlock.Text = $"Package version: " + store.GetUserVersion();
             await Task.Delay(200);
 
             StateText.Text = $"Load default settings";
