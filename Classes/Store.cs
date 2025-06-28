@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json.Nodes;
 using DBMS.Functions;
 
 namespace DBMS.Classes
@@ -42,12 +43,28 @@ namespace DBMS.Classes
         public void LoadLanguages()
         {
             string Content = FileUtils.GetFileFromZip(PackPath, "languages");
-            if (Content != null) { 
-                
+            if (Content != null) {
+                Languages.Clear();
+                var J = JsonNode.Parse(Content);
+                foreach (var item in J.AsObject()) {
+                    var Lang = new UserLanguage();
+                    Lang.LoadFromJson(item.Value.AsObject());
+                    Languages.Add(item.Key, Lang);
+                }
             }
         }
         public void SaveLanguages() { 
-            
+            JsonNode J = new JsonObject();
+            J["list"] = new JsonArray();
+            foreach (var language in Languages)
+            {
+                J["list"].AsArray().Add(language);
+            }
+            FileUtils.SaveFileToZip(PackPath, "languages", J.ToString());
+        }
+
+        public void LoadFromWindow() { 
+        
         }
     }
 }

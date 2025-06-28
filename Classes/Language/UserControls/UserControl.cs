@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
 namespace DBMS.Classes
@@ -15,8 +16,26 @@ namespace DBMS.Classes
         public string Text;
         public string Header;
         public string Content;
-        public string Tooltip;
+        public string ToolTip;
         public string Title;
+        public void LoadFromJson(JsonObject J)
+        {
+            SetText(J["Text"]?.ToString());
+            SetHeader(J["Header"]?.ToString());
+            SetContent(J["Content"]?.ToString());
+            SetToolTip(J["ToolTip"]?.ToString());
+            SetText(J["Title"]?.ToString());
+        }
+
+        public JsonObject SaveToJson(JsonObject J)
+        {
+            if (Text != null) { J["Text"] = Text;}
+            if (Header != null) { J["Header"] = Text; }
+            if (Content != null) { J["Content"] = Text; }
+            if (ToolTip != null) { J["ToolTip"] = Text; }
+            if (Title != null) { J["Title"] = Text; }
+            return J;
+        }
         public void SetText(string value)
         {
             if (ControlProperty.HasFlag(UserControlProperty.Text))
@@ -42,7 +61,7 @@ namespace DBMS.Classes
         {
             if (ControlProperty.HasFlag(UserControlProperty.ToolTip))
             {
-                Tooltip = value;
+                ToolTip = value;
             }
         }
         public void SetTitle(string value)

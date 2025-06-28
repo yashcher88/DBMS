@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using DBMS.Classes;
+using DBMS.Functions;
 using System;
 using System.Reflection;
 using System.Threading.Tasks;
