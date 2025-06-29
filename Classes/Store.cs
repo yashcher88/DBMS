@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json.Nodes;
+using Avalonia.Controls;
 using DBMS.Functions;
 
 namespace DBMS.Classes
@@ -55,16 +56,16 @@ namespace DBMS.Classes
         }
         public void SaveLanguages() { 
             JsonNode J = new JsonObject();
-            J = new JsonObject();
             foreach (var language in Languages)
             {
                 J[language.Key] = language.Value.SaveToJson();
             }
             FileUtils.SaveFileToZip(PackPath, "languages", J.ToString());
         }
-
-        public void LoadFromWindow() { 
-        
+        public void LanguageLoadFromWindow(Window W) {
+            foreach (var node in Languages) {
+                node.Value.LoadFromWindow(W);
+            }
         }
     }
 }

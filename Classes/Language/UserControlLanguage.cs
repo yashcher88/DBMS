@@ -11,7 +11,7 @@ using System.Xml.Linq;
 
 namespace DBMS.Classes.Language
 {
-    /*Объект языкового*/
+    /*Языковой пакет*/
     public class UserControlLanguage
     {
         public string Code;
