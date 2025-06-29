@@ -14,9 +14,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <AvaloniaXaml Remove="Classes\Setting\**" />
     <AvaloniaXaml Remove="Styles\**" />
+    <Compile Remove="Classes\Setting\**" />
     <Compile Remove="Styles\**" />
+    <EmbeddedResource Remove="Classes\Setting\**" />
     <EmbeddedResource Remove="Styles\**" />
+    <None Remove="Classes\Setting\**" />
     <None Remove="Styles\**" />
   </ItemGroup>
   <ItemGroup>
@@ -31,6 +35,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Classes\Setting\" />
+    <Folder Include="Classes\UserSetting\" />
   </ItemGroup>
 </Project>

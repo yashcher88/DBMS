@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DBMS.Classes.Style.UserPackages
+namespace DBMS.Classes
 {
     public class PackageStyle
     {
