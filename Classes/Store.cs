@@ -45,7 +45,7 @@ namespace DBMS.Classes
             string Content = FileUtils.GetFileFromZip(PackPath, "languages");
             if (Content != null) {
                 Languages.Clear();
-                var J = JsonNode.Parse(Content);
+                var J = JsonNode.Parse(Content).AsObject();
                 foreach (var item in J.AsObject()) {
                     var Lang = new UserLanguage();
                     Lang.LoadFromJson(item.Value.AsObject());
@@ -55,10 +55,10 @@ namespace DBMS.Classes
         }
         public void SaveLanguages() { 
             JsonNode J = new JsonObject();
-            J["list"] = new JsonArray();
+            J = new JsonObject();
             foreach (var language in Languages)
             {
-                J["list"].AsArray().Add(language);
+                J[language.Key] = language.Value.SaveToJson();
             }
             FileUtils.SaveFileToZip(PackPath, "languages", J.ToString());
         }
