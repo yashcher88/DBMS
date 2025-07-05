@@ -6,7 +6,7 @@
 
     <Application.Styles>
 		<FluentTheme/>
-		<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Simple.xaml"/>
+		<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
 		<StyleInclude Source="avares://Avalonia.Controls.TreeDataGrid/Themes/Generic.axaml"/>
 		<StyleInclude Source="/Sources/Styles/Button.axaml" />
 		<StyleInclude Source="/Sources/Styles/Grid.axaml" />
@@ -14,5 +14,8 @@
 		<StyleInclude Source="/Sources/Styles/TextBlock.axaml" />
 		<StyleInclude Source="/Sources/Styles/TextBox.axaml" />
 		<StyleInclude Source="/Sources/Styles/Window.axaml" />
+		<StyleInclude Source="/Sources/Styles/DataGrid.axaml" />
+		<StyleInclude Source="/Sources/Styles/GridSplitter.axaml" />
+		<StyleInclude Source="/Sources/Styles/TreeView.axaml" />
 	</Application.Styles>
 </Application>

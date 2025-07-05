@@ -7,7 +7,7 @@
         x:Class="DBMS.Settings"
         Title="Settings" Background="#f0f0f0">
 	<Grid RowDefinitions="*,1,40">
-		<Grid ColumnDefinitions="25*,4,75*" Grid.Row="0" Classes="panel">
+		<Grid ColumnDefinitions="25*,4,75*" Grid.Row="0">
 			<Grid Grid.Column="0" RowDefinitions="26,*">
 					<!--
 					<Grid Grid.Row="1" ColumnDefinitions="*,28">
@@ -17,27 +17,50 @@
 					-->
 					<Panel Grid.Row="0">
 						<TextBox x:Name="FilterTextTree" Classes="simple" Watermark="Текст для поиска"/>
-						<Button x:Name="FilterButtonTree" Classes="inputbutton filter" HorizontalAlignment="Right" VerticalAlignment="Center" Click="FilterButtonTreeClick"/>
+						<Button x:Name="FilterButtonTree" Classes="inputbutton filter" Click="FilterButtonTreeClick"/>
 					</Panel>
-				<TreeView Grid.Row="1" Background="#ffffff">
+				<TreeView Grid.Row="1">
 				</TreeView>
 			</Grid>
-			<GridSplitter Grid.Column="1" Background="#bbbbbb"/>
+			<GridSplitter Grid.Column="1"/>
 			<Grid Grid.Column="2">
 				<Grid Grid.Row="0" RowDefinitions="26,*">
 					<Panel Grid.Row="0">
 						<TextBox x:Name="FilterTextGrid" CornerRadius="0" MinHeight="1" FontSize="12" SelectionForegroundBrush="White" Margin="2" Padding="2" Height="22" Watermark="Текст для поиска"/>
-						<Button x:Name="FilterButton" Classes="inputbutton filter" HorizontalAlignment="Right" VerticalAlignment="Center" Click="FilterButtonGridClick"/>
+						<Button x:Name="FilterButton" Classes="inputbutton filter" Click="FilterButtonGridClick"/>
 					</Panel>
-					<DataGrid Grid.Row="1" Name="SettingGrid"/>
+					<Panel Grid.Row="1">
+						<DataGrid Grid.Row="1" Name="SettingGrid" CanUserResizeColumns="true" CanUserSortColumns="true">
+							<!--
+							<i:Interaction.Behaviors>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+							.
+								<ia:EventTriggerBehavior EventName="KeyUp" SourceObject="{Binding #TodoGrid}">
+									<ia:InvokeCommandAction Command="{Binding $parent[Window].DataContext.DeleteItem}"/>
+								</ia:EventTriggerBehavior>
+								<ia:EventTriggerBehavior EventName="DoubleTapped" SourceObject="{Binding #TodoGrid}">
+									<ia:InvokeCommandAction Command="{Binding $parent[Window].DataContext.UpdateItem}"/>
+								</ia:EventTriggerBehavior>
+								<ia:EventTriggerBehavior EventName="CellEditEnded" SourceObject="{Binding #TodoGrid}">
+									<ia:InvokeCommandAction Command="{Binding $parent[Window].DataContext.UpdateCheck}"/>
+								</ia:EventTriggerBehavior>
+							</i:Interaction.Behaviors>
+							-->
+							<DataGrid.Columns>
+								<DataGridTextColumn Header="Параметр"/>
+								<DataGridTemplateColumn Header="Значение"/>
+								<DataGridTemplateColumn Header="По умолчанию" IsReadOnly="True"/>
+							</DataGrid.Columns>
+						</DataGrid>
+					</Panel>
 				</Grid>
 			</Grid>
 		</Grid>
 		<Border Grid.Row="1" Height="1" Background="Gray" />
 		<Grid Grid.Row="2">
 			<WrapPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
-				<Button x:Name="Close" Margin="0 0 10 0">Отмена</Button>
-				<Button x:Name="Save" Margin="0 0 10 0">Сохранить </Button>
+				<Button x:Name="bSave" Margin="0 0 10 0">Сохранить</Button>
+				<Button x:Name="bDefault" Margin="0 0 10 0">Восстановить по умолчанию</Button>
+				<Button x:Name="bClose" Margin="0 0 10 0">Отмена</Button>
 			</WrapPanel>
 		</Grid>
 	</Grid>

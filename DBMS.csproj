@@ -26,10 +26,13 @@
 
   <ItemGroup>
     <AvaloniaXaml Remove="Sources\Styles\Button.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\DataGrid.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\Grid.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\GridSplitter.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\MenuItem.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\TextBlock.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\TextBox.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\TreeView.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\Window.axaml" />
   </ItemGroup>
   <ItemGroup>
@@ -50,6 +53,12 @@
     <Folder Include="Classes\UserSetting\" />
   </ItemGroup>
   <ItemGroup>
+    <AvaloniaResource Update="Sources\Styles\DataGrid.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\GridSplitter.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
     <AvaloniaResource Update="Sources\Styles\MenuItem.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
@@ -63,6 +72,9 @@
       <SubType>Designer</SubType>
     </AvaloniaResource>
     <AvaloniaResource Update="Sources\Styles\TextBlock.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\TreeView.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
     <AvaloniaResource Update="Sources\Styles\Window.axaml">
