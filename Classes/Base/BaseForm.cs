@@ -25,14 +25,12 @@ namespace DBMS.Classes
             store = F.store;
             //store.interfaceLanguage.ReadFromWindow(this);
         }
-
         protected virtual void ApplyLanguage()
         {
             //store.interfaceLanguage.WriteToWindow(this);
             // Логика применения локализации, например:
             // this.FindControl<TextBlock>("TitleText").Text = Localization.Get("MainWindow_Title");
         }
-
         protected virtual void ApplyStyles()
         {
             // Логика применения стилей, например смена темы

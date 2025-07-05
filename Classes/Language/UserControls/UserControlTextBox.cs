@@ -11,7 +11,7 @@ namespace DBMS.Classes
     {
         public UserControlTextBox() {
             ControlType = UserControlType.TextBox;
-            ControlProperty = UserControlProperty.Text;
+            ControlProperty = UserControlProperty.Text | UserControlProperty.WaterMark;
         }
     }
 }

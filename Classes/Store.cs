@@ -9,6 +9,7 @@ namespace DBMS.Classes
 {
     public class Store
     {
+        public BaseForm Start = null;
         private string PackPath;
         private string SetsPath;
         private string ServersPath;

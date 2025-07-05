@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace DBMS
 {
-    public partial class MainWindow : BaseForm
+    public partial class Start : BaseForm
     {
-        public MainWindow()
+        public Start()
         {
             InitializeComponent();
+            store.Start = this;
         }
         public void AfterShow(object sender, EventArgs e)
         {
@@ -41,9 +42,9 @@ namespace DBMS
             //store.LoadUserStyles();
             await Task.Delay(200);
 
-            //var mainWindow = new Main();
-            //mainWindow.Init(this);
-            //mainWindow.Show();
+            var main = new Main();
+            //main.Init(this);
+            main.Show();
             Hide();
         }
     }

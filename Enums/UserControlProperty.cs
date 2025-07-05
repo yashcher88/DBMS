@@ -12,6 +12,7 @@ namespace DBMS.Enums
         Title = 2,
         Header = 4,
         ToolTip = 8,
-        Content = 16 
+        Content = 16,
+        WaterMark = 32
     }
 }

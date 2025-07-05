@@ -18,6 +18,7 @@ namespace DBMS.Classes
         public string Content;
         public string ToolTip;
         public string Title;
+        public string WaterMark;
         public void LoadFromJson(JsonObject J)
         {
             SetText(J["Text"]?.ToString());
@@ -25,6 +26,7 @@ namespace DBMS.Classes
             SetContent(J["Content"]?.ToString());
             SetToolTip(J["ToolTip"]?.ToString());
             SetText(J["Title"]?.ToString());
+            SetWaterMark(J["WaterMark"]?.ToString());
         }
 
         public JsonObject SaveToJson(JsonObject J)
@@ -34,6 +36,7 @@ namespace DBMS.Classes
             if (Content != null) { J["Content"] = Text; }
             if (ToolTip != null) { J["ToolTip"] = Text; }
             if (Title != null) { J["Title"] = Text; }
+            if (WaterMark != null) { J["WaterMark"] = Text; }
             return J;
         }
         public void SetText(string value)
@@ -69,6 +72,13 @@ namespace DBMS.Classes
             if (ControlProperty.HasFlag(UserControlProperty.Title))
             {
                 Title = value;
+            }
+        }
+        public void SetWaterMark(string value)
+        {
+            if (ControlProperty.HasFlag(UserControlProperty.WaterMark))
+            {
+                WaterMark = value;
             }
         }
 
