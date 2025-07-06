@@ -1,5 +1,4 @@
 ﻿using Avalonia.Controls;
-using DBMS.Classes.Language;
 using DBMS.Functions;
 using System;
 using System.Collections.Generic;
@@ -9,7 +8,7 @@ using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
-namespace DBMS.Classes
+namespace DBMS.Classes.Language.Old
 {
     /*Языковой объект в Controls должны лежать формы, в Objects - дополнительные объекты для перевода*/
     public class UserLanguage
@@ -48,37 +47,54 @@ namespace DBMS.Classes
             }
             return J;
         }
-        public void LoadFromWindow(Window W) {
+        public UserControlLanguage GetUserControlLanguage(Dictionary<string,UserControlLanguage> D,Control C)
+        {
+            UserControlLanguage UControl;
+            var ControlName = C.GetType().Name + "_" + C.Name;
+            if (!Controls.ContainsKey(ControlName))
+            {
+                UControl = new UserControlLanguage();
+                
+
+                UControl.UserControl = new UserControlWindow();
+                
+                UControl.UserControl.SetTitle(C.Title);
+
+                Controls.Add(ControlName, UControl);
+            }
+            else
+            {
+                UControl = Controls[ControlName];
+            }
+            return UControl;
+        }
+        public UserControlLanguage GetWindowControlLanguage(Window W)
+        {
             UserControlLanguage WinControl;
-            var A = Form.GetControls(W);
             var WinName = W.GetType().Name;
             if (!Controls.ContainsKey(WinName))
             {
                 WinControl = new UserControlLanguage();
                 WinControl.UserControl = new UserControlWindow();
                 WinControl.UserControl.SetTitle(W.Title);
-            }
-            else 
-            { 
-                WinControl = Controls[WinName];
-            }
-            foreach (var B in A) 
-            { 
-                
-            }
-
-            /*if (!Objects.ContainsKey(WName))
-            {
-                WObj = new InterfaceLanguageObject();
-                WObj.ObjectType = LanguageTextType.Title;
-                WObj.Objects = new Dictionary<string, InterfaceLanguageObject>();
-                Objects.Add(W.GetType().Name, WObj);
+                Controls.Add(WinName, WinControl);
             }
             else
             {
-                WObj = Objects[WName];
+                WinControl = Controls[WinName];
             }
-            if (W.Title != null) WObj.SetDefaultTitle(W.Title);
+            return WinControl;
+        }
+        public void LoadFromWindow(Window W) {
+            var A = Form.GetControls(W);
+            UserControlLanguage WinControl = GetWindowControlLanguage(W);
+            foreach (var B in A) 
+            {
+                var UserControl = GetUserControlLanguage(WinControl.Controls,B);
+
+            }
+
+            /*
 
             foreach (var B in A)
             {

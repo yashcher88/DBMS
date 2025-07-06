@@ -1,6 +1,9 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.VisualTree;
+using DBMS.Classes;
+using DBMS.Classes.Language;
+using DBMS.Enums;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Enums;
 using System;
@@ -9,7 +12,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using DBMS.Classes;
 
 namespace DBMS.Functions
 {
@@ -34,7 +36,7 @@ namespace DBMS.Functions
             return M;
         }
         public static List<Control> GetControls(Window W) {
-            List<Control> M = new List<Control>();
+            List<Control> M = new List<Control>{W};
             var A = W.GetVisualDescendants().OfType<Control>();
             foreach (var m in A)
             {
@@ -63,14 +65,24 @@ namespace DBMS.Functions
         }
         async static public Task<ButtonResult> ShowErrorModalOk(BaseForm BlockWindow, string message)
         {
+            /*В вызываемой функции необходимо этот метод вызывать с параметром await и функцию помечать как async */
             var messageBox = MessageBoxManager.GetMessageBoxStandard(
                         Assembly.GetEntryAssembly()?.GetName().Name ?? "Unknown",
                         message,
                         ButtonEnum.Ok,
                         MsBox.Avalonia.Enums.Icon.Info
                     );
-            var result = await messageBox.ShowWindowDialogAsync(BlockWindow);
-            return result;
+            return await messageBox.ShowWindowDialogAsync(BlockWindow);
         }
+        /*public static void LoadFromControl(Dictionary<string, UserControlLanguage> D, Control C, bool isWindow)
+        {
+
+
+
+            if (ControlProperty.HasFlag(UserControlProperty.WaterMark))
+            {
+                WaterMark = value;
+            }
+        }*/
     }
 }

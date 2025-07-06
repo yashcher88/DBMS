@@ -1,4 +1,5 @@
 ﻿using Avalonia.Controls;
+using DBMS.Classes.Language;
 using DBMS.Enums;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
-namespace DBMS.Classes
+namespace DBMS.Classes.Language.Old.UserControls
 {
     public class UserControl
     {

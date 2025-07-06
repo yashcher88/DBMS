@@ -18,7 +18,7 @@ namespace DBMS
         {
             Init();
         }
-        public async void Init()
+        async public void Init()
         {
             BuildBlock.Text = $"Build version: " + (Assembly.GetEntryAssembly()?.GetName()?.Version?.ToString() ?? "1.0.0.0");
             StateText.Text = $"Loading drivers";

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json.Nodes;
 using Avalonia.Controls;
+using DBMS.Classes.Language;
+using DBMS.Classes.Language.Old;
 using DBMS.Functions;
 
 namespace DBMS.Classes
@@ -13,8 +15,8 @@ namespace DBMS.Classes
         private string PackPath;
         private string SetsPath;
         private string ServersPath;
-        
-        public Dictionary<string,UserLanguage> Languages = new Dictionary<string,UserLanguage>();
+
+        public LanguageObject LanguageObject;
         public string VersionPack = "0";
 
         public string GetUserVersion() {

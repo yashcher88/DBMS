@@ -1,4 +1,6 @@
-﻿using DBMS.Classes;
+﻿using Avalonia.Controls;
+using DBMS.Classes;
+using DBMS.Classes.Language.Old.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +34,13 @@ namespace DBMS.Functions
                 case "UserControlTextBox": return "TextBox";
                 default: return "";
             }
+        }
+        public static UserControl GetUserControlFromControl(Control C) { 
+            UserControl u;
+            switch (C.GetType().Name) {
+                default: u = new UserControl();
+            }
+            return u;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using DBMS.Enums;
+﻿using DBMS.Classes.Language.Old.UserControls;
+using DBMS.Enums;
 using DBMS.Functions;
 using HarfBuzzSharp;
 using System;
@@ -9,14 +10,14 @@ using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace DBMS.Classes.Language
+namespace DBMS.Classes.Language.Old
 {
     /*Языковой пакет*/
     public class UserControlLanguage
     {
         public string Code;
         public UserControl UserControl;
-        Dictionary<string, UserControlLanguage> Controls = new Dictionary<string, UserControlLanguage>();
+        public Dictionary<string, UserControlLanguage> Controls = new Dictionary<string, UserControlLanguage>();
         public void LoadFromJson(JsonObject J)
         {
             UserControl = CConvert.StringToControlType(J["ControlType"].ToString());

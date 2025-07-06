@@ -1,9 +1,5 @@
 ﻿using Avalonia.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DBMS.Classes
 {
@@ -18,6 +14,7 @@ namespace DBMS.Classes
                 ApplyStyles();
             };
             store = Program.store;
+            store.LanguageLoadFromWindow(this);
             //store.windows.Add(this);
         }
         protected virtual void Init(BaseForm F)

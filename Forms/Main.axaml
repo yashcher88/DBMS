@@ -5,7 +5,8 @@
         mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="768"
 		Width="1024" Height="768"
         x:Class="DBMS.Main"
-        Title="Window1">
+        Title="Database Management Studio"
+		Name="Window">
 	<Grid RowDefinitions="20,*">
 		<Menu DockPanel.Dock="Top">
 			<!--
@@ -24,8 +25,8 @@
 			</MenuItem>
 			-->
 			<MenuItem Header="Параметры">
-				<MenuItem Header="Конфигурация пакета" Click="ShowConfig"/>
-				<MenuItem Header="Настройки" Click="ShowSettings"/>
+				<MenuItem Header="Конфигурация пакета" Click="ShowConfig" Name="menuShowConfig"/>
+				<MenuItem Header="Настройки" Click="ShowSettings" Name="menuShowSettings"/>
 			</MenuItem>
 			<!--
 			<MenuItem Header="_Справка">

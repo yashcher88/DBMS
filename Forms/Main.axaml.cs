@@ -3,6 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using DBMS.Classes;
+using DBMS.Functions;
 using System.ComponentModel;
 
 namespace DBMS;
@@ -21,7 +22,7 @@ public partial class Main : BaseForm
             store.Start.Close();
         }
     }
-    public void ShowConfig(object sender, RoutedEventArgs e)
+     public void ShowConfig(object sender, RoutedEventArgs e)
     {
         ConfigPack configureStore = new ConfigPack();
         configureStore.Show();
