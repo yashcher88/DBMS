@@ -1,9 +1,7 @@
 ﻿using Avalonia.Controls;
-using DBMS.Classes.Language.Old;
-using System;
+using DBMS.Functions;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Collections.ObjectModel;
 using System.Text.Json.Nodes;
 
 namespace DBMS.Classes
@@ -29,14 +27,63 @@ namespace DBMS.Classes
                 node.Value.LoadFromWindow(W, node.Key == DefaultLanguage);
             }
         }
-        public void LoadFromJson(JsonObject J)
+        public void LoadObjectFromJson(JsonObject J)
         {
-
+            Languages.Clear();
+            foreach (var node in J.AsObject()) 
+            {
+                LanguageElement LE = new LanguageElement();
+                LE.LoadElementFromJson(node.Value.AsObject());
+                Languages.Add(node.Key, LE);
+            }
         }
-        public JsonObject SaveToJson()
+        public JsonObject SaveObjectToJson()
         {
             JsonObject J = new JsonObject();
+            foreach (var node in Languages)
+            {
+                J[node.Key] = node.Value.SaveElementToJson();
+            }
             return J;
+        }
+        public void ApplyLanguageOnWindow(Window W) 
+        {
+            string WName = W.GetType().Name;
+            if (Languages.ContainsKey(SelectedLanguage)) { 
+                if (Languages[SelectedLanguage].Windows.ContainsKey(WName))
+                {
+                    Languages[SelectedLanguage].Windows[WName].WriteToWindow(W);
+                }
+            }
+        }
+        public string GetLanguageFromList(string Key) 
+        {
+            return Languages[SelectedLanguage].List[Key];
+        }
+        public void ChangeLanguage(string Language) 
+        {
+            if (!Languages.ContainsKey(Language)) 
+            {
+                FileUtils.Error("Указываемый язык " + Language + " недоступен");
+            }
+            else 
+            { 
+                SelectedLanguage = Language;
+            }
+        }
+        public void SetIsDelete(string WindowName, string ControlName,bool deleted)
+        {
+            foreach (var node in Languages)
+            {
+                if (ControlName != null)
+                {
+                    node.Value.Windows[WindowName].LanguageControls[ControlName].isDelete = deleted;
+                }
+                else 
+                {
+                    node.Value.Windows[WindowName].isDelete = deleted;
+                }
+            }
         }
     }
 }

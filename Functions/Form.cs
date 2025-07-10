@@ -1,34 +1,32 @@
 ﻿using Avalonia.Controls;
-using Avalonia.Controls.Primitives;
 using Avalonia.VisualTree;
 using DBMS.Classes;
-using DBMS.Classes.Language;
-using DBMS.Enums;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DBMS.Functions
 {
     static class Form
     {
-        private static List<Control> GetMenuControls(MenuItem W, ref List<Control> M)
+        private static List<Control> GetMenuControls(MenuItem MI, ref List<Control> M)
         {
-            if (W?.Items != null)
+            if (MI?.Items != null)
             {
-                for (int i = 0; i < W.Items.Count; i++)
+                for (int i = 0; i < MI.Items.Count; i++)
                 {
-                    if (W.Items[i] != null)
+                    if (MI.Items[i] != null)
                     {
-                        if (!string.IsNullOrEmpty((W.Items[i] as Control).Name))
+                        if (!string.IsNullOrEmpty((MI.Items[i] as Control).Name))
                         {
-                            M.Add(W.Items[i] as Control);
-                            GetMenuControls(W.Items[i] as MenuItem, ref M);
+                            M.Add(MI.Items[i] as Control);
+                            GetMenuControls(MI.Items[i] as MenuItem, ref M);
                         }
                     }
                 }
@@ -74,15 +72,29 @@ namespace DBMS.Functions
                     );
             return await messageBox.ShowWindowDialogAsync(BlockWindow);
         }
-        /*public static void LoadFromControl(Dictionary<string, UserControlLanguage> D, Control C, bool isWindow)
+        public static void EditItemList(ListBox L, int item, Func<string, string, int> Fun)
         {
-
-
-
-            if (ControlProperty.HasFlag(UserControlProperty.WaterMark))
+            string s = L.Items[item].ToString();
+            var B = new TextBox();
+            B.KeyDown += (sender, e) => {
+                if (e.Key == Avalonia.Input.Key.Enter) 
+                {
+                    Fun(B.Text, s);
+                    L.Items[item] = B.Text;
+                }
+            };
+            B.LostFocus += (sender, e) =>
             {
-                WaterMark = value;
-            }
-        }*/
+                Fun(B.Text, s);
+                L.Items[item] = B.Text;
+            };
+            B.Text = s;
+            L.Items[item] = B;
+            B.AttachedToVisualTree += (sender, e) =>
+            {
+                B.Focus();
+                B.CaretIndex = B.Text?.Length ?? 0;
+            };
+        }
     }
 }

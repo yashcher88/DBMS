@@ -1,5 +1,6 @@
 ﻿using Avalonia.Controls;
 using System.Collections.Generic;
+using System.Text.Json.Nodes;
 
 namespace DBMS.Classes
 {
@@ -24,8 +25,43 @@ namespace DBMS.Classes
                 Window = new LanguageWindow();
                 Windows.Add(WName, Window);
             }
-            Window.FillAsWindow(W, isRewrite);
-            Window.LoadFromWindow(W, isRewrite);
+            Window.ReadFromWindow(W, isRewrite);
+        }
+        public void LoadElementFromJson(JsonObject J)
+        {
+            if (J["Windows"] != null) 
+            {
+                Windows.Clear();
+                foreach (var node in J["Windows"].AsObject()) 
+                { 
+                    LanguageWindow LW = new LanguageWindow();
+                    LW.LoadWindowFromJson(node.Value.AsObject());
+                    Windows.Add(node.Key, LW);
+                }
+            }
+            if (J["List"] != null)
+            {
+                List.Clear();
+                foreach (var node in J["List"].AsObject())
+                {
+                    List.Add(node.Key,node.Value.ToString());
+                }
+            }
+        }
+        public JsonObject SaveElementToJson()
+        {
+            JsonObject J = new JsonObject();
+            J["Windows"] = new JsonObject();
+            foreach (var node in Windows) 
+            {
+                J["Windows"][node.Key] = node.Value.SaveWindowToJson();
+            }
+            J["List"] = new JsonObject();
+            foreach (var node in List)
+            {
+                J["List"][node.Key] = node.Value;
+            }
+            return J;
         }
     }
 }

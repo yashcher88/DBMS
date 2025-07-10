@@ -14,12 +14,12 @@ namespace DBMS.Classes
                 ApplyStyles();
             };
             store = Program.store;
-            store.LanguageLoadFromWindow(this);
             //store.windows.Add(this);
         }
-        protected virtual void Init(BaseForm F)
+        public void Init()
         {
-            store = F.store;
+            store.LanguageObject.LoadFromWindow(this);
+            store.LanguageObject.ApplyLanguageOnWindow(this);
             //store.interfaceLanguage.ReadFromWindow(this);
         }
         protected virtual void ApplyLanguage()

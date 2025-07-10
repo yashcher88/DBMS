@@ -5,6 +5,7 @@
         mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480"
 		Width="640" Height="480"
         x:Class="DBMS.Settings"
+        WindowStartupLocation="CenterScreen"
         Title="Settings" Background="#f0f0f0">
 	<Grid RowDefinitions="*,1,40">
 		<Grid ColumnDefinitions="25*,4,75*" Grid.Row="0">

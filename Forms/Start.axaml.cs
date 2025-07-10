@@ -16,14 +16,15 @@ namespace DBMS
         }
         public void AfterShow(object sender, EventArgs e)
         {
-            Init();
+            Loading();
         }
-        async public void Init()
+        async public void Loading()
         {
+            Init();
             BuildBlock.Text = $"Build version: " + (Assembly.GetEntryAssembly()?.GetName()?.Version?.ToString() ?? "1.0.0.0");
-            StateText.Text = $"Loading drivers";
-            //store.LoadPack();
+            StateText.Text = $"Loading languages";
             PackageBlock.Text = $"Package version: " + store.GetUserVersion();
+            store.LoadLanguage();
             await Task.Delay(200);
 
             StateText.Text = $"Load default settings";
@@ -43,8 +44,8 @@ namespace DBMS
             await Task.Delay(200);
 
             var main = new Main();
-            //main.Init(this);
             main.Show();
+            main.Init();
             Hide();
         }
     }

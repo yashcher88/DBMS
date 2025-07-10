@@ -25,11 +25,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <AvaloniaXaml Remove="Sources\Styles\Border.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\Button.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\DataGrid.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\Grid.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\GridSplitter.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\ListBox.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\MenuItem.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\TabControl.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\TabItem.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\TextBlock.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\TextBox.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\TreeView.axaml" />
@@ -59,6 +63,9 @@
     <AvaloniaResource Update="Sources\Styles\GridSplitter.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\ListBox.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
     <AvaloniaResource Update="Sources\Styles\MenuItem.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
@@ -66,6 +73,15 @@
       <SubType>Designer</SubType>
     </AvaloniaResource>
     <AvaloniaResource Update="Sources\Styles\Grid.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\Border.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\TabControl.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\TabItem.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
     <AvaloniaResource Update="Sources\Styles\TextBox.axaml">

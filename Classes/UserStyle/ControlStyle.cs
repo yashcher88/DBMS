@@ -1,5 +1,4 @@
-﻿using DBMS.Classes.Language.Old.UserControls;
-using DBMS.Classes.Style.UserStyle;
+﻿using DBMS.Classes.Style.UserStyle;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +11,6 @@ namespace DBMS.Classes.Style
     {
         public int Id;
         public object Value;
-        public UserControl UserControl;
         //public UserStyle UserStyle; 
     }
 }

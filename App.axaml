@@ -5,8 +5,8 @@
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.Styles>
-		<FluentTheme/>
-		<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
+		<SimpleTheme/>
+		<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Simple.xaml"/>
 		<StyleInclude Source="avares://Avalonia.Controls.TreeDataGrid/Themes/Generic.axaml"/>
 		<StyleInclude Source="/Sources/Styles/Button.axaml" />
 		<StyleInclude Source="/Sources/Styles/Grid.axaml" />
@@ -17,5 +17,9 @@
 		<StyleInclude Source="/Sources/Styles/DataGrid.axaml" />
 		<StyleInclude Source="/Sources/Styles/GridSplitter.axaml" />
 		<StyleInclude Source="/Sources/Styles/TreeView.axaml" />
+		<StyleInclude Source="/Sources/Styles/TabItem.axaml" />
+		<StyleInclude Source="/Sources/Styles/TabControl.axaml" />
+		<StyleInclude Source="/Sources/Styles/Border.axaml" />
+		<StyleInclude Source="/Sources/Styles/ListBox.axaml" />
 	</Application.Styles>
 </Application>

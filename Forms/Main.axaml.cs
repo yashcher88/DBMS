@@ -26,6 +26,7 @@ public partial class Main : BaseForm
     {
         ConfigPack configureStore = new ConfigPack();
         configureStore.Show();
+        configureStore.Init();
     }
     public void ShowSettings(object sender, RoutedEventArgs e)
     {

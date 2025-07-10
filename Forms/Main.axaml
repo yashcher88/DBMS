@@ -6,6 +6,7 @@
 		Width="1024" Height="768"
         x:Class="DBMS.Main"
         Title="Database Management Studio"
+        WindowStartupLocation="CenterScreen"
 		Name="Window">
 	<Grid RowDefinitions="20,*">
 		<Menu DockPanel.Dock="Top">

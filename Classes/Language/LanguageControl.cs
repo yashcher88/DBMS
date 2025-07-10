@@ -12,24 +12,26 @@ namespace DBMS.Classes
          */
         public UserControlType ControlType;
         public UserControlProperty ControlProperty = 0;
+        public bool isDelete = false;
         public string Text;
         public string Header;
         public string Content;
         public string ToolTip;
         public string Title;
         public string WaterMark;
-        public void LoadFromJson(JsonObject J)
+        public void LoadControlFromJson(JsonObject J)
         {
             SetText(J["Text"]?.ToString());
             SetHeader(J["Header"]?.ToString());
             SetContent(J["Content"]?.ToString());
             SetToolTip(J["ToolTip"]?.ToString());
-            SetText(J["Title"]?.ToString());
+            SetTitle(J["Title"]?.ToString());
             SetWaterMark(J["WaterMark"]?.ToString());
             ControlType = CConvert.StringToUserControlType(J["ControlType"]?.ToString());
             ControlProperty = CConvert.ArrayToUserControlProperty(J["ControlProperty"].AsArray());
+            isDelete = ((bool?)J["isDelete"]) ?? false;
         }
-        public JsonObject SaveToJson()
+        public JsonObject SaveControlToJson()
         {
             JsonObject J = new JsonObject();
             if (Text != null) { J["Text"] = Text; }
@@ -40,65 +42,139 @@ namespace DBMS.Classes
             if (WaterMark != null) { J["WaterMark"] = Text; }
             J["ControlType"] = CConvert.UserControlTypeToString(ControlType);
             J["ControlProperty"] = CConvert.UserControlPropertyToArray(ControlProperty);
+            J["isDelete"] = isDelete;
             return J;
         }
-        public void LoadFromControl(Control C, bool isRewrite)
+        public void ReadFromControl(Control C, bool isRewrite)
         {
             switch (C.GetType().Name)
             {
                 case "Button":
-                    FillAsButton(C, isRewrite);
+                    ReadFromButton(C as Button, isRewrite);
                     break;
                 case "MenuItem":
-                    FillAsMenuItem(C, isRewrite);
+                    ReadFromMenuItem(C as MenuItem, isRewrite);
                     break;
                 case "TabItem":
-                    FillAsTabItem(C, isRewrite);
+                    ReadFromTabItem(C as TabItem, isRewrite);
                     break;
                 case "TextBlock":
-                    FillAsTextBlock(C, isRewrite);
+                    ReadFromTextBlock(C as TextBlock, isRewrite);
                     break;
                 case "TextBox":
-                    FillAsTextBox(C, isRewrite);
+                    ReadFromTextBox(C as TextBox, isRewrite);
+                    break;
+            }
+        }
+        public void WriteToControl(Control C) 
+        {
+            switch (ControlType) 
+            {
+                case UserControlType.MenuItem:
+                    WriteToMenuItem(C as MenuItem);
+                    break;
+                case UserControlType.Button:
+                    WriteToButton(C as Button);
+                    break;
+                case UserControlType.TabItem:
+                    WriteToTabItem(C as TabItem);
+                    break;
+                case UserControlType.TextBlock:
+                    WriteToTextBlock(C as TextBlock);
+                    break;
+                case UserControlType.TextBox:
+                    WriteToTextBox(C as TextBox);
                     break;
             }
         }
 
-        private void FillAsButton(Control C, bool isRewrite)
+        private void ReadFromButton(Button C, bool isRewrite)
         {
             ControlType = UserControlType.Button;
             ControlProperty = UserControlProperty.Content | UserControlProperty.ToolTip;
-            SetContent((C as Button).Content.ToString(), isRewrite);
+            SetContent(C.Content.ToString(), isRewrite);
             SetToolTip(Avalonia.Controls.ToolTip.GetTip(C)?.ToString(), isRewrite);
         }
-        private void FillAsMenuItem(Control C, bool isRewrite)
+        private void ReadFromMenuItem(MenuItem C, bool isRewrite)
         {
             ControlType = UserControlType.MenuItem;
             ControlProperty = UserControlProperty.Header | UserControlProperty.ToolTip;
-            SetHeader((C as MenuItem).Header?.ToString(), isRewrite);
-            SetContent(Avalonia.Controls.ToolTip.GetTip(C)?.ToString(), isRewrite);
+            SetHeader(C.Header?.ToString(), isRewrite);
+            SetToolTip(Avalonia.Controls.ToolTip.GetTip(C)?.ToString(), isRewrite);
         }
-        private void FillAsTabItem(Control C, bool isRewrite)
+        private void ReadFromTabItem(TabItem C, bool isRewrite)
         {
             ControlType = UserControlType.TabItem;
             ControlProperty = UserControlProperty.Header | UserControlProperty.ToolTip;
-            SetHeader((C as TabItem).Header?.ToString(), isRewrite);
+            SetHeader(C.Header?.ToString(), isRewrite);
             SetContent(Avalonia.Controls.ToolTip.GetTip(C)?.ToString(), isRewrite);
         }
-        private void FillAsTextBlock(Control C, bool isRewrite)
+        private void ReadFromTextBlock(TextBlock C, bool isRewrite)
         {
             ControlType = UserControlType.TextBlock;
             ControlProperty = UserControlProperty.Text;
-            SetText((C as TextBox).Text, isRewrite);
+            SetText(C.Text, isRewrite);
         }
-        private void FillAsTextBox(Control C, bool isRewrite)
+        private void ReadFromTextBox(TextBox C, bool isRewrite)
         {
             ControlType = UserControlType.TextBox;
             ControlProperty = UserControlProperty.Text | UserControlProperty.WaterMark;
-            SetText((C as TextBox).Text, isRewrite);
-            SetWaterMark((C as TextBox).Watermark, isRewrite);
+            SetText(C.Text, isRewrite);
+            SetWaterMark(C.Watermark, isRewrite);
         }
-        public void SetValue(string value, ref string Elem, bool isRewrite, UserControlProperty Property) {
+
+        private void WriteToButton(Button C)
+        {
+            if (Content != null)
+            {
+                C.Content = Content;
+            }
+            if (ToolTip != null) 
+            {
+                Avalonia.Controls.ToolTip.SetTip(C, ToolTip);
+            }
+        }
+        private void WriteToMenuItem(MenuItem C)
+        {
+            if (Header != null)
+            {
+                C.Header = Header;
+            }
+            if (ToolTip != null)
+            {
+                Avalonia.Controls.ToolTip.SetTip(C, ToolTip);
+            }
+        }
+        private void WriteToTabItem(TabItem C)
+        {
+            if (Header != null)
+            {
+                C.Header = Header;
+            }
+            if (Header != null)
+            {
+                Avalonia.Controls.ToolTip.SetTip(C, ToolTip);
+            }
+        }
+        private void WriteToTextBlock(TextBlock C)
+        {
+            if (Text != null) 
+            { 
+                C.Text = Text;
+            }
+        }
+        private void WriteToTextBox(TextBox C)
+        {
+            if (Text != null)
+            {
+                C.Text = Text;
+            }
+            if (WaterMark != null)
+            {
+                C.Watermark = WaterMark;
+            }
+        }
+        private void SetValue(string value, ref string Elem, bool isRewrite, UserControlProperty Property) {
             if (ControlProperty.HasFlag(Property) && (isRewrite || Elem == null)) {
                 Elem = value;
             }
