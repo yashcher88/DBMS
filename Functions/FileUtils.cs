@@ -14,9 +14,8 @@ namespace DBMS.Functions
             Dictionary<string, string> result = new Dictionary<string, string>();
             if (File.Exists(ZipPath))
             {
-                ZipArchive archive;
-                try { 
-                    archive = ZipFile.OpenRead(ZipPath);
+                try {
+                    using ZipArchive archive = ZipFile.OpenRead(ZipPath);
                     foreach (var entry in archive.Entries)
                     {
                         using var stream = entry.Open();

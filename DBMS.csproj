@@ -37,6 +37,7 @@
     <AvaloniaXaml Remove="Sources\Styles\TextBlock.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\TextBox.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\TreeView.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\TreeViewItem.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\Window.axaml" />
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +77,9 @@
       <SubType>Designer</SubType>
     </AvaloniaResource>
     <AvaloniaResource Update="Sources\Styles\Border.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\TreeViewItem.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
     <AvaloniaResource Update="Sources\Styles\TabControl.axaml">

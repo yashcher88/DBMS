@@ -21,5 +21,6 @@
 		<StyleInclude Source="/Sources/Styles/TabControl.axaml" />
 		<StyleInclude Source="/Sources/Styles/Border.axaml" />
 		<StyleInclude Source="/Sources/Styles/ListBox.axaml" />
+		<StyleInclude Source="/Sources/Styles/TreeViewItem.axaml" />
 	</Application.Styles>
 </Application>

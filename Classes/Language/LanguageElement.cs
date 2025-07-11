@@ -63,5 +63,22 @@ namespace DBMS.Classes
             }
             return J;
         }
+        public LanguageElement CloneElement() 
+        {
+            LanguageElement languageElement = new LanguageElement();
+            languageElement.Windows = new Dictionary<string, LanguageWindow>();
+            languageElement.List = new Dictionary<string, string>();
+
+            foreach (var node in Windows)
+            {
+                languageElement.Windows[node.Key] = node.Value.CloneWindow();
+            }
+            foreach (var node in List)
+            {
+                languageElement.List[node.Key] = node.Value;
+            }
+
+            return languageElement;
+        }
     }
 }

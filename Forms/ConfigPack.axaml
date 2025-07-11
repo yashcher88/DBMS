@@ -20,14 +20,14 @@
 							<Grid RowDefinitions="25*,4,75*">
 								<Grid Grid.Row="0" RowDefinitions="18,*" MinHeight="50">
 									<TextBlock Classes="title" Name="LangListLabel" Grid.Row="0" Text="Доступные языки"/>
-									<ListBox Name="LangList" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" DoubleTapped="RenameItemLangList">
+									<ListBox Name="LangList" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" DoubleTapped="FormRenameItemLangList">
 										<!--
 										<TextBox Name="LangListEditor" IsVisible="false" />-->
 										<ListBox.ContextMenu>
 											<ContextMenu>
-												<MenuItem Header="Добавить" Click="AddToLangList"/>
-												<MenuItem Header="Переименовать" Click="RenameItemLangList"/>
-												<MenuItem Header="Удалить" Click="DelFromLangList"/>
+												<MenuItem Header="Добавить" Click="FormAddToLangList"/>
+												<MenuItem Header="Переименовать" Click="FormRenameItemLangList"/>
+												<MenuItem Header="Удалить" Click="FormDelFromLangList"/>
 											</ContextMenu>
 										</ListBox.ContextMenu>
 									</ListBox>
@@ -39,10 +39,10 @@
 										<TreeView Name="LangTree" Grid.Row="1">
 											<TreeView.ContextMenu>
 												<ContextMenu>
-													<MenuItem Header="Удалить" Click="HideLangTree"/>
-													<MenuItem Header="Восстановить" Click="UnHideLangTree"/>
-													<MenuItem Header="Показать с удаленными" Click="ShowUnHideLangTree"/>
-													<MenuItem Header="Спрятать удаленные" Click="ShowHideLangTree"/>
+													<MenuItem Header="Удалить" Click="FormHideLangTree"/>
+													<MenuItem Header="Восстановить" Click="FormUnHideLangTree"/>
+													<MenuItem Header="Показать с удаленными" Click="FormShowUnHideLangTree"/>
+													<MenuItem Header="Спрятать удаленные" Click="FormShowHideLangTree"/>
 												</ContextMenu>
 											</TreeView.ContextMenu>
 										</TreeView>
@@ -69,8 +69,8 @@
 										<DataGrid Grid.Row="1" Name="LangRefGrid" CanUserResizeColumns="true">
 											<DataGrid.ContextMenu>
 												<ContextMenu>
-													<MenuItem Header="Добавить" Click="AddLangRefGrid"/>
-													<MenuItem Header="Удалить" Click="DelLangRefGrid"/>
+													<MenuItem Header="Добавить" Click="FormAddLangRefGrid"/>
+													<MenuItem Header="Удалить" Click="FormDelLangRefGrid"/>
 												</ContextMenu>
 											</DataGrid.ContextMenu>
 											<DataGrid.Columns>
@@ -124,8 +124,8 @@
 		</TabControl>
 		<Border Grid.Row="1" Height="1" Background="Gray"/>
 		<WrapPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="2">
-			<Button x:Name="bSave" Margin="0 0 10 0" Click="SavePackage">Сохранить пакет</Button>
-			<Button x:Name="bClose" Margin="0 0 10 0" Click="Close">Отмена</Button>
+			<Button x:Name="bSave" Margin="0 0 10 0" Click="FormSavePackage">Сохранить пакет</Button>
+			<Button x:Name="bClose" Margin="0 0 10 0" Click="FormClose">Отмена</Button>
 		</WrapPanel>
 	</Grid>
 </Window>

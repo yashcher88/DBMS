@@ -87,6 +87,22 @@ namespace DBMS.Classes
                     break;
             }
         }
+        public LanguageControl CloneControl() 
+        { 
+            LanguageControl L = new LanguageControl();
+
+            L.ControlType = ControlType;
+            L.ControlProperty = ControlProperty;
+            L.isDelete = isDelete;
+            L.Text = Text;
+            L.Header = Header;
+            L.Content = Content;
+            L.ToolTip = ToolTip;
+            L.Title = Title;
+            L.WaterMark = WaterMark;
+
+            return L;
+        }
 
         private void ReadFromButton(Button C, bool isRewrite)
         {
@@ -203,5 +219,6 @@ namespace DBMS.Classes
         {
             SetValue(value, ref WaterMark, isRewrite, UserControlProperty.WaterMark);
         }
+        
     }
 }

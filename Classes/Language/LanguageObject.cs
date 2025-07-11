@@ -30,10 +30,15 @@ namespace DBMS.Classes
         public void LoadObjectFromJson(JsonObject J)
         {
             Languages.Clear();
+            bool isFirst = true;
             foreach (var node in J.AsObject()) 
             {
                 LanguageElement LE = new LanguageElement();
                 LE.LoadElementFromJson(node.Value.AsObject());
+                if (isFirst) {
+                    DefaultLanguage = node.Key;
+                    isFirst = false;
+                }
                 Languages.Add(node.Key, LE);
             }
         }
@@ -84,6 +89,23 @@ namespace DBMS.Classes
                     node.Value.Windows[WindowName].isDelete = deleted;
                 }
             }
+        }
+        public void RenameLanguage(string OldLanguage, string NewLanguage) 
+        {
+            if (OldLanguage != "")
+            {
+                var L = Languages[OldLanguage];
+                Languages.Remove(OldLanguage);
+                Languages.Add(NewLanguage, L);
+            }
+            else
+            {
+                AddLanguage(NewLanguage);
+            }
+        }
+        public void AddLanguage(string NewLanguage) 
+        {
+            Languages.Add(NewLanguage, Languages[DefaultLanguage].CloneElement());
         }
     }
 }

@@ -1,0 +1,10 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<!--
+	<Style Selector="TreeViewItem">
+		<Setter Property="Foreground" Value="Gray"/>
+	</Style>-->
+	<Style Selector="TreeViewItem.disable">
+		<Setter Property="Foreground" Value="Silver"/>
+	</Style>
+</Styles>

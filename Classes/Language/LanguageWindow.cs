@@ -77,5 +77,26 @@ namespace DBMS.Classes
                 }
             }
         }
+        public LanguageWindow CloneWindow() 
+        { 
+            LanguageWindow window = new LanguageWindow();
+
+            window.ControlType = ControlType;
+            window.ControlProperty = ControlProperty;
+            window.isDelete = isDelete;
+            window.Text = Text;
+            window.Header = Header;
+            window.Content = Content;
+            window.ToolTip = ToolTip;
+            window.Title = Title;
+            window.WaterMark = WaterMark;
+
+            window.LanguageControls = new Dictionary<string, LanguageControl>();
+            foreach (var node in LanguageControls) 
+            {
+                window.LanguageControls.Add(node.Key, node.Value.CloneControl());
+            }
+            return window;
+        }
     }
 }
