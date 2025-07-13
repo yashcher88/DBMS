@@ -41,8 +41,16 @@ public partial class ConfigPack : BaseForm
             }
             i = i + 1;
         }
-        LangFormGrid.Columns[i + 1].Header = New;
-        LangRefGrid.Columns[i + 1].Header = New;
+        if (LangFormGrid.Columns.Count <= i + 1)
+        {
+            LangFormGrid.Columns.Add(new DataGridTextColumn { Header = New });
+            LangRefGrid.Columns.Add(new DataGridTextColumn { Header = New });
+        }
+        else
+        {
+            LangFormGrid.Columns[i + 1].Header = New;
+            LangRefGrid.Columns[i + 1].Header = New;
+        }
         store.LanguageObject.RenameLanguage(Old, New);
         return 0;
     }
@@ -80,8 +88,8 @@ public partial class ConfigPack : BaseForm
         }
     }
     public void FillLangGrid() 
-    { 
-        
+    {
+        //LangGrid.Items.Add();
     }
     public void SetHideLangTree(bool isHide) 
     {
@@ -134,6 +142,31 @@ public partial class ConfigPack : BaseForm
             Form.EditItemList(LangList, LangList.SelectedIndex, RenameLangList);
         }
     }
+    public void FormLangTreeSelection(object sender, SelectionChangedEventArgs e)
+    {
+        if (e.AddedItems.Count > 0) 
+        {
+            var sel = (e.AddedItems[0] as TreeViewItem);
+            string W;
+            string C;
+
+            if (sel.Parent != null)
+            {
+                W = (sel.Parent as TreeViewItem).Header.ToString();
+                C = sel.Header.ToString();
+            }
+            else 
+            {
+                W = sel.Header.ToString();
+                C = null;
+            }
+            foreach (var node in store.LanguageObject.Languages)
+            {
+                node.Value[W]
+            }
+        }
+        //var B = ;
+    }
     public void FormDelFromLangList(object sender, RoutedEventArgs e)
     {
         if (LangList.SelectedIndex >= 0)
@@ -153,11 +186,17 @@ public partial class ConfigPack : BaseForm
     public void FormShowUnHideLangTree(object sender, RoutedEventArgs e)
     {
         ShowDeleted = true;
+        LangTreePopupShowWithRemoved.IsVisible = false;
+        LangTreePopupRestore.IsVisible = true;
+        LangTreePopupHideRemoved.IsVisible = true;
         FillLangTree();
     }
     public void FormShowHideLangTree(object sender, RoutedEventArgs e)
     {
         ShowDeleted = false;
+        LangTreePopupShowWithRemoved.IsVisible = true;
+        LangTreePopupRestore.IsVisible = false;
+        LangTreePopupHideRemoved.IsVisible = false;
         FillLangTree();
     }
     public void FormAddLangRefGrid(object sender, RoutedEventArgs e)

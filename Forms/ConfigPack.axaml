@@ -36,13 +36,13 @@
 								<Grid Grid.Row="2">
 									<Grid Grid.Row="0" RowDefinitions="18,*" MinHeight="50">
 										<TextBlock Classes="title" Name="LangTreeLabel" Grid.Row="0" Text="Объекты форм"/>
-										<TreeView Name="LangTree" Grid.Row="1">
+										<TreeView Name="LangTree" Grid.Row="1" SelectionChanged="FormLangTreeSelection">
 											<TreeView.ContextMenu>
 												<ContextMenu>
-													<MenuItem Header="Удалить" Click="FormHideLangTree"/>
-													<MenuItem Header="Восстановить" Click="FormUnHideLangTree"/>
-													<MenuItem Header="Показать с удаленными" Click="FormShowUnHideLangTree"/>
-													<MenuItem Header="Спрятать удаленные" Click="FormShowHideLangTree"/>
+													<MenuItem Header="Удалить" Name="LangTreePopupDelete" Click="FormHideLangTree"/>
+													<MenuItem Header="Восстановить" Name="LangTreePopupRestore" IsVisible="false" Click="FormUnHideLangTree"/>
+													<MenuItem Header="Показать с удаленными" Name="LangTreePopupShowWithRemoved" Click="FormShowUnHideLangTree"/>
+													<MenuItem Header="Спрятать удаленные" Name="LangTreePopupHideRemoved" IsVisible="false" Click="FormShowHideLangTree"/>
 												</ContextMenu>
 											</TreeView.ContextMenu>
 										</TreeView>
