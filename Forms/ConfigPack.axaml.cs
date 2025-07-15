@@ -3,23 +3,47 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using DBMS.Classes;
+using DBMS.Enums;
 using DBMS.Functions;
 using HarfBuzzSharp;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Xml;
 using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DBMS;
-
 
 public partial class ConfigPack : BaseForm
 {
     private bool ShowDeleted = false;
+    public ObservableCollection<LanguageGridRow> Rows { get; set; }
+    public string SelectedLangWindow = "";
+    public string SelectedLangControl = null;
     public ConfigPack()
     {
         InitializeComponent();
+        Rows = new ObservableCollection<LanguageGridRow>();
+        LangFormGrid.ItemsSource = Rows;
+        LangFormGrid.Columns.Add(new DataGridTextColumn
+        {
+            Header = "Свойство",
+            Binding = new Avalonia.Data.Binding("Name"),
+            Width = DataGridLength.Auto
+        });
         FillLangList();
         FillLangTree();
+    }
+
+    /*Функции для Language*/
+    public void AddColumnDataGrid(string colName)
+    {
+        var i = LangFormGrid.Columns.Count - 1;
+        LangFormGrid.Columns.Add(new DataGridTextColumn
+        {
+            Header = colName,
+            Binding = new Avalonia.Data.Binding($"Fields[{i}]")
+        });
     }
     public void FillLangList()
     {
@@ -27,15 +51,16 @@ public partial class ConfigPack : BaseForm
         foreach (var node in store.LanguageObject.Languages)
         {
             LangList.Items.Add(node.Key);
-            LangFormGrid.Columns.Add(new DataGridTextColumn { Header = node.Key });
+            AddColumnDataGrid(node.Key);
             LangRefGrid.Columns.Add(new DataGridTextColumn { Header = node.Key });
         }
     }
-    public int RenameLangList(string New, string Old) 
+    public int RenameLangList(string New, string Old)
     {
         int i = 0;
-        foreach (var node in store.LanguageObject.Languages) {
-            if (node.Key == Old) 
+        foreach (var node in store.LanguageObject.Languages)
+        {
+            if (node.Key == Old)
             {
                 break;
             }
@@ -43,7 +68,7 @@ public partial class ConfigPack : BaseForm
         }
         if (LangFormGrid.Columns.Count <= i + 1)
         {
-            LangFormGrid.Columns.Add(new DataGridTextColumn { Header = New });
+            AddColumnDataGrid(New);
             LangRefGrid.Columns.Add(new DataGridTextColumn { Header = New });
         }
         else
@@ -62,20 +87,19 @@ public partial class ConfigPack : BaseForm
             if (!(!ShowDeleted && WNode.Value.isDelete))
             {
                 TreeViewItem _block = new TreeViewItem();
-                
+
                 _block.Header = WNode.Key;
                 var index = LangTree.Items.Add(_block);
                 if (WNode.Value.isDelete)
                 {
                     _block.Classes.Add("disable");
                 }
-                //LangTree.Items[index].
                 foreach (var CNode in WNode.Value.LanguageControls)
                 {
                     if (!(!ShowDeleted && CNode.Value.isDelete))
                     {
                         TreeViewItem _blockControl = new TreeViewItem();
-                        
+
                         _blockControl.Header = CNode.Key;
                         _block.Items.Add(_blockControl);
                         if (CNode.Value.isDelete)
@@ -87,11 +111,11 @@ public partial class ConfigPack : BaseForm
             }
         }
     }
-    public void FillLangGrid() 
+    public void FillLangGrid()
     {
         //LangGrid.Items.Add();
     }
-    public void SetHideLangTree(bool isHide) 
+    public void SetHideLangTree(bool isHide)
     {
         if (LangTree.SelectedItem != null)
         {
@@ -99,11 +123,11 @@ public partial class ConfigPack : BaseForm
             {
                 (LangTree.SelectedItem as TreeViewItem).Classes.Add("disable");
             }
-            else 
+            else
             {
                 (LangTree.SelectedItem as TreeViewItem).Classes.Remove("disable");
             }
-            if ((LangTree.SelectedItem as TreeViewItem).Parent != null)
+            if ((LangTree.SelectedItem as TreeViewItem).Parent.GetType().Name == "TreeViewItem")
             {
                 store.LanguageObject.SetIsDelete(((LangTree.SelectedItem as TreeViewItem).Parent as TreeViewItem).Header.ToString(), (LangTree.SelectedItem as TreeViewItem).Header.ToString(), isHide);
                 if (!ShowDeleted && isHide)
@@ -121,6 +145,44 @@ public partial class ConfigPack : BaseForm
             }
         }
     }
+    public void FillRowsByControl(LanguageControl C)
+    {
+
+        //Rows.
+    }
+    public void SetParam(UserControlProperty P, UserControlProperty CP, ref List<string> L, string S)
+    {
+        if (CP.HasFlag(P))
+        {
+            if (L == null)
+            {
+                L = new List<string>();
+            }
+            L.Add(S);
+        }
+    }
+    public void AddRowGrid(List<string> L, string S)
+    {
+        if (L != null)
+        {
+            LanguageGridRow GR = new LanguageGridRow();
+            GR.Name = S;
+            GR.Fields = L;
+            Rows.Add(GR);
+        }
+    }
+    public void SetIndexListString(List<string> L, int Index, string Value)
+    {
+        if (Index >= 0)
+        {
+            for (int i = L.Count; i <= Index; i++)
+            {
+                L.Add(L[0]);
+            }
+            L[Index] = Value;
+        }
+    }
+    /* End of Функции для Language */
 
     /* Функции Формы */
     public void FormSavePackage(object sender, RoutedEventArgs e)
@@ -142,15 +204,44 @@ public partial class ConfigPack : BaseForm
             Form.EditItemList(LangList, LangList.SelectedIndex, RenameLangList);
         }
     }
+    public void FormLangFormGridCellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+    {
+        if (e.EditAction == DataGridEditAction.Commit)
+        {
+            var textBox = e.EditingElement as TextBox;
+            string newValue = textBox?.Text ?? string.Empty;
+            int rowIndex = e.Row.Index;
+            int colIndex = e.Column.DisplayIndex;
+            SetIndexListString(Rows[rowIndex].Fields, colIndex - 1, newValue);
+            if (colIndex > 0) { 
+                if (SelectedLangControl == null)
+                {
+                    store.LanguageObject.Languages[e.Column.Header.ToString()].Windows[SelectedLangWindow].SetProperty(Rows[rowIndex].Name, newValue);
+                }
+                else
+                {
+                    store.LanguageObject.Languages[e.Column.Header.ToString()].Windows[SelectedLangWindow].LanguageControls[SelectedLangControl].SetProperty(Rows[rowIndex].Name, newValue);
+                }
+            }
+        }
+    }
     public void FormLangTreeSelection(object sender, SelectionChangedEventArgs e)
     {
+        List<string> LText = null;
+        List<string> LHeader = null;
+        List<string> LContent = null;
+        List<string> LToolTip = null;
+        List<string> LTitle = null;
+        List<string> LWaterMark = null;
+        LanguageControl L;
         if (e.AddedItems.Count > 0) 
         {
-            var sel = (e.AddedItems[0] as TreeViewItem);
+            Rows.Clear();
+            var sel = (LangTree.SelectedItem as TreeViewItem);
             string W;
             string C;
 
-            if (sel.Parent != null)
+            if (sel.Parent.GetType().Name == "TreeViewItem")
             {
                 W = (sel.Parent as TreeViewItem).Header.ToString();
                 C = sel.Header.ToString();
@@ -160,12 +251,32 @@ public partial class ConfigPack : BaseForm
                 W = sel.Header.ToString();
                 C = null;
             }
+            SelectedLangWindow = W;
+            SelectedLangControl = C;
             foreach (var node in store.LanguageObject.Languages)
             {
-                node.Value[W]
+                if (C != null)
+                {
+                    L = node.Value.Windows[W].LanguageControls[C];
+                }
+                else 
+                {
+                    L = node.Value.Windows[W];
+                }
+                SetParam(UserControlProperty.Text, L.ControlProperty, ref LText, L.Text);
+                SetParam(UserControlProperty.Content, L.ControlProperty, ref LContent, L.Content);
+                SetParam(UserControlProperty.Header, L.ControlProperty, ref LHeader, L.Header);
+                SetParam(UserControlProperty.ToolTip, L.ControlProperty, ref LToolTip, L.ToolTip);
+                SetParam(UserControlProperty.Title, L.ControlProperty, ref LTitle, L.Title);
+                SetParam(UserControlProperty.WaterMark, L.ControlProperty, ref LWaterMark, L.WaterMark);
             }
+            AddRowGrid(LText, "Text");
+            AddRowGrid(LContent, "Content");
+            AddRowGrid(LHeader, "Header");
+            AddRowGrid(LToolTip, "ToolTip");
+            AddRowGrid(LTitle, "Title");
+            AddRowGrid(LWaterMark, "WaterMark");
         }
-        //var B = ;
     }
     public void FormDelFromLangList(object sender, RoutedEventArgs e)
     {

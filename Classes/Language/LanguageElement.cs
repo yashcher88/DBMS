@@ -33,7 +33,7 @@ namespace DBMS.Classes
             {
                 Windows.Clear();
                 foreach (var node in J["Windows"].AsObject()) 
-                { 
+                {
                     LanguageWindow LW = new LanguageWindow();
                     LW.LoadWindowFromJson(node.Value.AsObject());
                     Windows.Add(node.Key, LW);

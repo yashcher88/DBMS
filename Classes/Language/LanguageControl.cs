@@ -1,6 +1,7 @@
 ﻿using Avalonia.Controls;
 using DBMS.Enums;
 using DBMS.Functions;
+using System.Collections.Generic;
 using System.Text.Json.Nodes;
 
 namespace DBMS.Classes
@@ -21,25 +22,25 @@ namespace DBMS.Classes
         public string WaterMark;
         public void LoadControlFromJson(JsonObject J)
         {
+            ControlType = CConvert.StringToUserControlType(J["ControlType"]?.ToString());
+            ControlProperty = CConvert.ArrayToUserControlProperty(J["ControlProperty"].AsArray());
             SetText(J["Text"]?.ToString());
             SetHeader(J["Header"]?.ToString());
             SetContent(J["Content"]?.ToString());
             SetToolTip(J["ToolTip"]?.ToString());
             SetTitle(J["Title"]?.ToString());
             SetWaterMark(J["WaterMark"]?.ToString());
-            ControlType = CConvert.StringToUserControlType(J["ControlType"]?.ToString());
-            ControlProperty = CConvert.ArrayToUserControlProperty(J["ControlProperty"].AsArray());
             isDelete = ((bool?)J["isDelete"]) ?? false;
         }
         public JsonObject SaveControlToJson()
         {
             JsonObject J = new JsonObject();
             if (Text != null) { J["Text"] = Text; }
-            if (Header != null) { J["Header"] = Text; }
-            if (Content != null) { J["Content"] = Text; }
-            if (ToolTip != null) { J["ToolTip"] = Text; }
-            if (Title != null) { J["Title"] = Text; }
-            if (WaterMark != null) { J["WaterMark"] = Text; }
+            if (Header != null) { J["Header"] = Header; }
+            if (Content != null) { J["Content"] = Content; }
+            if (ToolTip != null) { J["ToolTip"] = ToolTip; }
+            if (Title != null) { J["Title"] = Title; }
+            if (WaterMark != null) { J["WaterMark"] = WaterMark; }
             J["ControlType"] = CConvert.UserControlTypeToString(ControlType);
             J["ControlProperty"] = CConvert.UserControlPropertyToArray(ControlProperty);
             J["isDelete"] = isDelete;
@@ -103,7 +104,16 @@ namespace DBMS.Classes
 
             return L;
         }
-
+        public void SetProperty(string PropertyName, string Value) {
+            switch (PropertyName) {
+                case "Text": SetText(Value); break;
+                case "Header": SetHeader(Value); break;
+                case "Content": SetContent(Value); break;
+                case "ToolTip": SetToolTip(Value); break;
+                case "Title": SetTitle(Value); break;
+                case "WaterMark": SetWaterMark(Value); break;
+            }
+        }
         private void ReadFromButton(Button C, bool isRewrite)
         {
             ControlType = UserControlType.Button;
