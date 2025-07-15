@@ -17,7 +17,7 @@
 					</Grid>
 					-->
 					<Panel Grid.Row="0">
-						<TextBox x:Name="FilterTextTree" Classes="simple" Watermark="Текст для поиска"/>
+						<TextBox x:Name="FilterTextTree" Classes="simple filter"/>
 						<Button x:Name="FilterButtonTree" Classes="inputbutton filter" Click="FilterButtonTreeClick"/>
 					</Panel>
 				<TreeView Grid.Row="1">
@@ -27,7 +27,7 @@
 			<Grid Grid.Column="2">
 				<Grid Grid.Row="0" RowDefinitions="26,*">
 					<Panel Grid.Row="0">
-						<TextBox x:Name="FilterTextGrid" CornerRadius="0" MinHeight="1" FontSize="12" SelectionForegroundBrush="White" Margin="2" Padding="2" Height="22" Watermark="Текст для поиска"/>
+						<TextBox x:Name="FilterTextGrid" Classes="simple filter" CornerRadius="0" MinHeight="1" FontSize="12" SelectionForegroundBrush="White" Margin="2" Padding="2" Height="22"/>
 						<Button x:Name="FilterButton" Classes="inputbutton filter" Click="FilterButtonGridClick"/>
 					</Panel>
 					<Panel Grid.Row="1">

@@ -32,5 +32,6 @@ public partial class Main : BaseForm
     {
         Settings configureStore = new Settings();
         configureStore.Show();
+        configureStore.Init();
     }
 }

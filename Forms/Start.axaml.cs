@@ -23,6 +23,7 @@ namespace DBMS
             Init();
             BuildBlock.Text = $"Build version: " + (Assembly.GetEntryAssembly()?.GetName()?.Version?.ToString() ?? "1.0.0.0");
             StateText.Text = $"Loading languages";
+            store.LoadVersion(); 
             PackageBlock.Text = $"Package version: " + store.GetUserVersion();
             store.LoadLanguage();
             await Task.Delay(200);

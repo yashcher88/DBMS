@@ -56,7 +56,7 @@
 								<TabItem Header="Объекты форм">
 									<Grid RowDefinitions="2,*">
 										<Border Grid.Row="0" Height="2" Classes="tabitem"/>
-										<DataGrid Name="LangFormGrid" CanUserResizeColumns="true" Grid.Row="1" CellEditEnding="FormLangFormGridCellEditEnding"/>
+										<DataGrid Name="LangFormGrid" CanUserResizeColumns="true" CanUserSortColumns="false" Grid.Row="1" CellEditEnding="FormLangFormGridCellEditEnding"/>
 									</Grid>
 								</TabItem>
 								<TabItem Header="Справочник">

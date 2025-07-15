@@ -118,7 +118,7 @@ namespace DBMS.Classes
         {
             ControlType = UserControlType.Button;
             ControlProperty = UserControlProperty.Content | UserControlProperty.ToolTip;
-            SetContent(C.Content.ToString(), isRewrite);
+            SetContent(C.Content?.ToString(), isRewrite);
             SetToolTip(Avalonia.Controls.ToolTip.GetTip(C)?.ToString(), isRewrite);
         }
         private void ReadFromMenuItem(MenuItem C, bool isRewrite)

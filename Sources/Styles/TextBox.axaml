@@ -13,7 +13,6 @@
 		<Setter Property="Margin" Value="2"/>
 		<Setter Property="Padding" Value="2"/>
 		<Setter Property="Height" Value="22"/>
-		<Setter Property="Watermark" Value="Текст для поиска"/>
 	</Style>
 	<Style Selector="TextBox:focus">
 		<Setter Property="BorderBrush" Value="#007acc"/>
@@ -21,5 +20,8 @@
 	<Style Selector="TextBox.simple">
 		<Setter Property="CornerRadius" Value="0"/>
 		<Setter Property="MinHeight" Value="1"/>
+	</Style>
+	<Style Selector="TextBox.filter">
+		<Setter Property="Watermark" Value="Текст для поиска"/>
 	</Style>
 </Styles>
