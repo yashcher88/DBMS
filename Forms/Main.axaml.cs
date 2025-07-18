@@ -22,13 +22,29 @@ public partial class Main : BaseForm
             store.Start.Close();
         }
     }
-     public void ShowConfig(object sender, RoutedEventArgs e)
+    public void FormConnectToServer(object sender, RoutedEventArgs e)
+    {
+
+    }
+    public void FormDisConnectFromServer(object sender, RoutedEventArgs e)
+    {
+
+    }
+    public void FormCreateQuery(object sender, RoutedEventArgs e)
+    {
+
+    }
+    public void FormOpenQuery(object sender, RoutedEventArgs e)
+    {
+
+    }
+    public void FormShowConfig(object sender, RoutedEventArgs e)
     {
         ConfigPack configureStore = new ConfigPack();
         configureStore.Show();
         configureStore.Init();
     }
-    public void ShowSettings(object sender, RoutedEventArgs e)
+    public void FormShowSettings(object sender, RoutedEventArgs e)
     {
         Settings configureStore = new Settings();
         configureStore.Show();

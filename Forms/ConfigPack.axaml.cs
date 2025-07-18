@@ -17,14 +17,14 @@ namespace DBMS;
 public partial class ConfigPack : BaseForm
 {
     private bool ShowDeleted = false;
-    public ObservableCollection<LanguageGridRow> Rows { get; set; }
+    public ObservableCollection<LanguageFormGridRow> LangFormRows { get; set; }
     public string SelectedLangWindow = "";
     public string SelectedLangControl = null;
     public ConfigPack()
     {
         InitializeComponent();
-        Rows = new ObservableCollection<LanguageGridRow>();
-        LangFormGrid.ItemsSource = Rows;
+        LangFormRows = new ObservableCollection<LanguageFormGridRow>();
+        LangFormGrid.ItemsSource = LangFormRows;
         LangFormGrid.Columns.Add(new DataGridTextColumn
         {
             Header = "Свойство",
@@ -165,10 +165,10 @@ public partial class ConfigPack : BaseForm
     {
         if (L != null)
         {
-            LanguageGridRow GR = new LanguageGridRow();
+            LanguageFormGridRow GR = new LanguageFormGridRow();
             GR.Name = S;
             GR.Fields = L;
-            Rows.Add(GR);
+            LangFormRows.Add(GR);
         }
     }
     public void SetIndexListString(List<string> L, int Index, string Value)
@@ -212,15 +212,15 @@ public partial class ConfigPack : BaseForm
             string newValue = textBox?.Text ?? string.Empty;
             int rowIndex = e.Row.Index;
             int colIndex = e.Column.DisplayIndex;
-            SetIndexListString(Rows[rowIndex].Fields, colIndex - 1, newValue);
+            SetIndexListString(LangFormRows[rowIndex].Fields, colIndex - 1, newValue);
             if (colIndex > 0) { 
                 if (SelectedLangControl == null)
                 {
-                    store.LanguageObject.Languages[e.Column.Header.ToString()].Windows[SelectedLangWindow].SetProperty(Rows[rowIndex].Name, newValue);
+                    store.LanguageObject.Languages[e.Column.Header.ToString()].Windows[SelectedLangWindow].SetProperty(LangFormRows[rowIndex].Name, newValue);
                 }
                 else
                 {
-                    store.LanguageObject.Languages[e.Column.Header.ToString()].Windows[SelectedLangWindow].LanguageControls[SelectedLangControl].SetProperty(Rows[rowIndex].Name, newValue);
+                    store.LanguageObject.Languages[e.Column.Header.ToString()].Windows[SelectedLangWindow].LanguageControls[SelectedLangControl].SetProperty(LangFormRows[rowIndex].Name, newValue);
                 }
             }
         }
@@ -236,7 +236,7 @@ public partial class ConfigPack : BaseForm
         LanguageControl L;
         if (e.AddedItems.Count > 0) 
         {
-            Rows.Clear();
+            LangFormRows.Clear();
             var sel = (LangTree.SelectedItem as TreeViewItem);
             string W;
             string C;
@@ -312,7 +312,7 @@ public partial class ConfigPack : BaseForm
     }
     public void FormAddLangRefGrid(object sender, RoutedEventArgs e)
     {
-
+        //LangRefGrid.
     }
     public void FormDelLangRefGrid(object sender, RoutedEventArgs e)
     {

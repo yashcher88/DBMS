@@ -32,6 +32,7 @@
     <AvaloniaXaml Remove="Sources\Styles\GridSplitter.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\ListBox.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\MenuItem.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\Standard.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\TabControl.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\TabItem.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\TextBlock.axaml" />
@@ -52,6 +53,7 @@
       <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
       <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Avalonia.Themes.Simple" Version="11.3.2" />
     <PackageReference Include="MessageBox.Avalonia" Version="3.2.0" />
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +79,9 @@
       <SubType>Designer</SubType>
     </AvaloniaResource>
     <AvaloniaResource Update="Sources\Styles\Border.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\Standard.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
     <AvaloniaResource Update="Sources\Styles\TreeViewItem.axaml">
@@ -113,6 +118,9 @@
     </Compile>
     <Compile Update="Forms\Settings.axaml.cs">
       <DependentUpon>Settings.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Forms\Connect.axaml.cs">
+      <DependentUpon>Connect.axaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

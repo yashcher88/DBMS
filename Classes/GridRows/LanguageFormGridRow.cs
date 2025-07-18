@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DBMS.Classes
 {
-    public class LanguageGridRow
+    public class LanguageFormGridRow
     {
         public string Name { get; set; }
         public List<string> Fields { get; set; }

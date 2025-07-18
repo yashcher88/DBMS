@@ -10,24 +10,26 @@
 		Name="Window">
 	<Grid RowDefinitions="20,*">
 		<Menu DockPanel.Dock="Top">
-			<!--
-			<MenuItem Header="_Файл" x:Name="E_Menu_File">
-				<MenuItem Header="_Новый" x:Name="E_Menu_File_New"/>
-				<MenuItem Header="_Открыть..." x:Name="E_Menu_File_Open"/>
-				<MenuItem Header="_Сохранить" x:Name="E_Menu_File_Save"/>
+			
+			<MenuItem Header="Файл" x:Name="menuFile">
+				<MenuItem Header="Подключиться к серверу" x:Name="menuFileConnectToServer" Click="FormConnectToServer"/>
+				<MenuItem Header="Отключиться от сервера" x:Name="menuFileDisConnectFromServer" Click="FormDisConnectFromServer"/>
+				<Separator/>
+				<MenuItem Header="Создать" x:Name="menuFileCreateQuery" Click="FormCreateQuery"/>
+				<MenuItem Header="Открыть" x:Name="menuFileOpenQuery" Click="FormOpenQuery"/>
 				<Separator/>
 				<MenuItem Header="_Выход" x:Name="E_Menu_File_Exit"/>
 			</MenuItem>
 
-			<MenuItem Header="_Правка">
+			<MenuItem Header="Правка">
 				<MenuItem Header="_Вырезать"/>
 				<MenuItem Header="_Копировать"/>
 				<MenuItem Header="_Вставить"/>
 			</MenuItem>
-			-->
+			
 			<MenuItem Header="Параметры">
-				<MenuItem Header="Конфигурация пакета" Click="ShowConfig" Name="menuShowConfig"/>
-				<MenuItem Header="Настройки" Click="ShowSettings" Name="menuShowSettings"/>
+				<MenuItem Header="Конфигурация пакета" Click="FormShowConfig" Name="menuShowConfig"/>
+				<MenuItem Header="Настройки" Click="FormShowSettings" Name="menuShowSettings"/>
 			</MenuItem>
 			<!--
 			<MenuItem Header="_Справка">

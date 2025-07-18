@@ -8,6 +8,8 @@
 		<SimpleTheme/>
 		<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Simple.xaml"/>
 		<StyleInclude Source="avares://Avalonia.Controls.TreeDataGrid/Themes/Generic.axaml"/>
+		<StyleInclude Source="/Sources/Styles/Standard.axaml" />
+		<!--
 		<StyleInclude Source="/Sources/Styles/Button.axaml" />
 		<StyleInclude Source="/Sources/Styles/Grid.axaml" />
 		<StyleInclude Source="/Sources/Styles/MenuItem.axaml" />
@@ -21,6 +23,23 @@
 		<StyleInclude Source="/Sources/Styles/TabControl.axaml" />
 		<StyleInclude Source="/Sources/Styles/Border.axaml" />
 		<StyleInclude Source="/Sources/Styles/ListBox.axaml" />
-		<StyleInclude Source="/Sources/Styles/TreeViewItem.axaml" />
+		<StyleInclude Source="/Sources/Styles/TreeViewItem.axaml" />-->
+
+
 	</Application.Styles>
+	<Application.Resources>
+		<FontFamily x:Key="Arial">avares://Sources/Fonts/ARIAL.TTF</FontFamily>
+		<FontFamily x:Key="ArialBold">avares://Sources/Fonts/ARIALBD.TTF</FontFamily>
+		<FontFamily x:Key="ArialBoldItalic">avares://Sources/Fonts/ARIALBI.TTF</FontFamily>
+		<FontFamily x:Key="ArialItalic">avares://Sources/Fonts/ARIALI.TTF</FontFamily>
+		<FontFamily x:Key="ArialNarrow">avares://Sources/Fonts/ARIALN.TTF</FontFamily>
+		<FontFamily x:Key="ArialNarrowBold">avares://Sources/Fonts/ARIALNB.TTF</FontFamily>
+		<FontFamily x:Key="ArialNarrowBoldItalic">avares://Sources/Fonts/ARIALNBI.TTF</FontFamily>
+		<FontFamily x:Key="ArialNarrowItalic">avares://Sources/Fonts/ARIALNI.TTF</FontFamily>
+		<FontFamily x:Key="ArialBlack">avares://Sources/Fonts/ARIBLK.TTF</FontFamily>
+		<FontFamily x:Key="Consolas">avares://Sources/Fonts/CONSOLA.TTF</FontFamily>
+		<FontFamily x:Key="ConsolasBold">avares://Sources/Fonts/CONSOLAB.TTF</FontFamily>
+		<FontFamily x:Key="ConsolasItalic">avares://Sources/Fonts/CONSOLAI.TTF</FontFamily>
+		<FontFamily x:Key="ConsolasBoldItalic">avares://Sources/Fonts/CONSOLAZ.TTF</FontFamily>
+	</Application.Resources>
 </Application>
