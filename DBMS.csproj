@@ -54,6 +54,7 @@
       <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Avalonia.Themes.Simple" Version="11.3.2" />
+    <PackageReference Include="Citrus.Avalonia" Version="2.1.1" />
     <PackageReference Include="MessageBox.Avalonia" Version="3.2.0" />
     <PackageReference Include="ThemeManager" Version="11.3.0" />
   </ItemGroup>
@@ -61,49 +62,49 @@
     <Folder Include="Classes\UserSetting\" />
   </ItemGroup>
   <ItemGroup>
-    <AvaloniaResource Update="Sources\Styles\DataGrid.axaml">
+    <AvaloniaResource Update="Sources\Styles\Old\DataGrid.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\GridSplitter.axaml">
+    <AvaloniaResource Update="Sources\Styles\Old\GridSplitter.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\ListBox.axaml">
+    <AvaloniaResource Update="Sources\Styles\Old\ListBox.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\MenuItem.axaml">
+    <AvaloniaResource Update="Sources\Styles\Old\MenuItem.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\Button.axaml">
+    <AvaloniaResource Update="Sources\Styles\Old\Button.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\Grid.axaml">
+    <AvaloniaResource Update="Sources\Styles\Old\Grid.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\Border.axaml">
+    <AvaloniaResource Update="Sources\Styles\Old\Border.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
     <AvaloniaResource Update="Sources\Styles\Standard.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\TreeViewItem.axaml">
+    <AvaloniaResource Update="Sources\Styles\Old\TreeViewItem.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\TabControl.axaml">
+    <AvaloniaResource Update="Sources\Styles\Old\TabControl.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\TabItem.axaml">
+    <AvaloniaResource Update="Sources\Styles\Old\TabItem.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\TextBox.axaml">
+    <AvaloniaResource Update="Sources\Styles\Old\TextBox.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\TextBlock.axaml">
+    <AvaloniaResource Update="Sources\Styles\Old\TextBlock.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\TreeView.axaml">
+    <AvaloniaResource Update="Sources\Styles\Old\TreeView.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\Window.axaml">
+    <AvaloniaResource Update="Sources\Styles\Old\Window.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
   </ItemGroup>

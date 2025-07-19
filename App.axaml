@@ -5,9 +5,14 @@
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.Styles>
+		<SimpleTheme />
+		<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Simple.xaml"/>
+		<!--<StyleInclude Source="avares://Citrus.Avalonia/Citrus.xaml"/>-->
+		<StyleInclude Source="/Sources/Styles/Standard.axaml" />
+		<!--
 		<StyleInclude Source="avares://Avalonia.Themes.Default/DefaultTheme.xaml"/>
 		<StyleInclude Source="avares://Avalonia.Themes.Default/Accents/BaseLight.xaml"/>
-
+		-->
 
 	</Application.Styles>
 	<Application.Resources>
