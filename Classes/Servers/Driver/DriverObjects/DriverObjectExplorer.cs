@@ -28,7 +28,7 @@ namespace DBMS.Classes
         public string RuleMap = "";
         public string Popup = "";
         public string PopupGroup = "";
-        public TreeNode TNode = null;
+        //public TreeNode TNode = null;
         public Connection C = null;
     }
 }

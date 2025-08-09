@@ -18,7 +18,7 @@ namespace DBMS.Classes
             {
                 for (var i = 0; i < JA.Count; i++) 
                 {
-                    Params.Add(JA[i].ToString());
+                    //Params.Add(JA[i].ToString());
                 }
             }
         }
