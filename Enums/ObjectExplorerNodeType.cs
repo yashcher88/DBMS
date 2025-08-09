@@ -13,11 +13,14 @@ namespace DBMS.Enums
         Database,
         Scheme,
         Table,
-        TableColumn,
+        Column,
+        HashIndex,
+        BTreeIndex,
         Procedure,
         ScalarFunction,
         TableFunction,
-        TableFunctionResult,
+        FunctionResult,
+        FunctionParameter,
         View
     }
 }

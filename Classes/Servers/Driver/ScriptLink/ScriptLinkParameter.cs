@@ -12,11 +12,22 @@ namespace DBMS.Classes
     public class ScriptLinkParameter
     {
         public ScriptLinkParameterType ParameterType;
-        public object Value;
+        public ScriptLinkObjectBase Value;
 
         public void LoadScriptLinkParameterFromJson(JsonObject J)
         {
             ParameterType = CConvert.StringToScriptLinkParameterType(J["ParameterType"].ToString());
+            switch (ParameterType)
+            {
+                case ScriptLinkParameterType.StringType:
+                    Value = new ScriptLinkObjectString();
+                    (Value as ScriptLinkObjectString).LoadScriptLinkObjectStringFromJson(J["Value"].AsObject());
+                    break;
+                case ScriptLinkParameterType.ObjectExplorerNodeType:
+                    Value = new ScriptLinkObjectObjectExplorerNode();
+                    (Value as ScriptLinkObjectObjectExplorerNode).LoadScriptLinkObjectObjectExplorerNodeFromJson(J["Value"].AsObject());
+                    break;
+            }
         }
         public JsonObject SaveScriptLinkParameterToJson()
         {
