@@ -14,7 +14,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace DBMS;
 
-public partial class ConfigPack : BaseForm
+public partial class ConfigPack : BaseWindow
 {
     private bool ShowDeleted = false;
     public ObservableCollection<LanguageFormGridRow> LangFormRows { get; set; }
@@ -195,13 +195,13 @@ public partial class ConfigPack : BaseForm
     }
     public void FormAddToLangList(object sender, RoutedEventArgs e)
     {
-        Form.EditItemList(LangList, LangList.Items.Add(""), RenameLangList);
+        Functions.Form.EditItemList(LangList, LangList.Items.Add(""), RenameLangList);
     }
     public void FormRenameItemLangList(object sender, RoutedEventArgs e)
     {
         if (LangList.SelectedIndex >= 0)
-        { 
-            Form.EditItemList(LangList, LangList.SelectedIndex, RenameLangList);
+        {
+            Functions.Form.EditItemList(LangList, LangList.SelectedIndex, RenameLangList);
         }
     }
     public void FormLangFormGridCellEditEnding(object sender, DataGridCellEditEndingEventArgs e)

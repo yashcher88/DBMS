@@ -3,10 +3,10 @@
 
 namespace DBMS.Classes
 {
-    public class BaseForm : Window
+    public class BaseWindow : Window
     {
         public Store store;
-        public BaseForm()
+        public BaseWindow()
         {
             Opened += (_, _) =>
             {

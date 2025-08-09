@@ -168,9 +168,9 @@
 									</Grid>
 								</TabItem>
 								<TabItem Header="Справочник">
-									<Grid RowDefinitions="2,*">
+									<Grid RowDefinitions="*">
 										<!--<Border Grid.Row="0" Height="2" Classes="tabitem"/>-->
-										<DataGrid Grid.Row="1" Name="LangRefGrid" CanUserResizeColumns="true">
+										<DataGrid Grid.Row="0" Name="LangRefGrid" CanUserResizeColumns="true">
 											<DataGrid.ContextMenu>
 												<ContextMenu>
 													<MenuItem Header="Добавить" Click="FormAddLangRefGrid"/>

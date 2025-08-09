@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.3.2" />
+    <PackageReference Include="Avalonia.Controls.ColorPicker" Version="11.3.2" />
     <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.2" />
     <PackageReference Include="Avalonia.Controls.TreeDataGrid" Version="11.1.1" />
     <PackageReference Include="Avalonia.Desktop" Version="11.3.2" />
@@ -55,11 +56,18 @@
     </PackageReference>
     <PackageReference Include="Avalonia.Themes.Simple" Version="11.3.2" />
     <PackageReference Include="Citrus.Avalonia" Version="2.1.1" />
+    <PackageReference Include="Dock.Avalonia" Version="11.3.0.17" />
+    <PackageReference Include="Dock.Model" Version="11.3.0.17" />
+    <PackageReference Include="Dock.Model.Avalonia" Version="11.3.0.17" />
+    <PackageReference Include="Dock.Model.Mvvm" Version="11.3.0.17" />
+    <PackageReference Include="Dock.Serializer.Newtonsoft" Version="11.3.0.17" />
     <PackageReference Include="MessageBox.Avalonia" Version="3.2.0" />
     <PackageReference Include="ThemeManager" Version="11.3.0" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Classes\UserSetting\" />
+    <Folder Include="Classes\Servers\Database\" />
+    <Folder Include="Classes\UserStyle\UserSetting\" />
+    <Folder Include="UserControls\" />
   </ItemGroup>
   <ItemGroup>
     <AvaloniaResource Update="Sources\Styles\Old\DataGrid.axaml">
@@ -109,20 +117,26 @@
     </AvaloniaResource>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Forms\Start.axaml.cs">
+    <Compile Update="WindowDocks\QueryWindow.axaml.cs">
+      <DependentUpon>QueryWindow.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Windows\Start.axaml.cs">
       <DependentUpon>Start.axaml</DependentUpon>
     </Compile>
-    <Compile Update="Forms\Main.axaml.cs">
+    <Compile Update="Windows\Main.axaml.cs">
       <DependentUpon>Main.axaml</DependentUpon>
     </Compile>
-    <Compile Update="Forms\ConfigPack.axaml.cs">
+    <Compile Update="Windows\ConfigPack.axaml.cs">
       <DependentUpon>ConfigPack.axaml</DependentUpon>
     </Compile>
-    <Compile Update="Forms\Settings.axaml.cs">
+    <Compile Update="Windows\Settings.axaml.cs">
       <DependentUpon>Settings.axaml</DependentUpon>
     </Compile>
-    <Compile Update="Forms\Connect.axaml.cs">
+    <Compile Update="Windows\Connect.axaml.cs">
       <DependentUpon>Connect.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="WindowDocks\ObjectExplorer.axaml.cs">
+      <DependentUpon>ObjectExplorer.axaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

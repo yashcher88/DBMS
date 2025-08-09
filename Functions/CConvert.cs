@@ -1,4 +1,5 @@
-﻿using DBMS.Enums;
+﻿using DBMS.Classes;
+using DBMS.Enums;
 using System.Text.Json.Nodes;
 
 namespace DBMS.Functions
@@ -55,6 +56,30 @@ namespace DBMS.Functions
                 }
             }
             return P;
+        }
+        public static string ScriptLinkParameterTypeToString(ScriptLinkParameterType CType)
+        {
+            switch (CType)
+            {
+                case ScriptLinkParameterType.StringType: return "StringType";
+                case ScriptLinkParameterType.ObjectExplorerNodeType: return "ObjectExplorerNodeType";
+                case ScriptLinkParameterType.ObjectExplorerLevelType: return "ObjectExplorerLevelType";
+                case ScriptLinkParameterType.SettingType: return "SettingType";
+                case ScriptLinkParameterType.LanguageType: return "LanguageType";
+                default: return "";
+            }
+        }
+        public static ScriptLinkParameterType StringToScriptLinkParameterType(string SType)
+        {
+            switch (SType)
+            {
+                case "StringType": return ScriptLinkParameterType.StringType;
+                case "ObjectExplorerNodeType": return ScriptLinkParameterType.ObjectExplorerNodeType;
+                case "ObjectExplorerLevelType": return ScriptLinkParameterType.ObjectExplorerLevelType;
+                case "SettingType": return ScriptLinkParameterType.SettingType;
+                case "LanguageType": return ScriptLinkParameterType.LanguageType;
+                default: return ScriptLinkParameterType.StringType;
+            }
         }
     }
 }

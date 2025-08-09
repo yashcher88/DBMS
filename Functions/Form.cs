@@ -61,7 +61,7 @@ namespace DBMS.Functions
                 (sender as Button).Classes.Add(Class1);
             }
         }
-        async static public Task<ButtonResult> ShowErrorModalOk(BaseForm BlockWindow, string message)
+        async static public Task<ButtonResult> ShowErrorModalOk(BaseWindow BlockWindow, string message)
         {
             /*В вызываемой функции необходимо этот метод вызывать с параметром await и функцию помечать как async */
             var messageBox = MessageBoxManager.GetMessageBoxStandard(

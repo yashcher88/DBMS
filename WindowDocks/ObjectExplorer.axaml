@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 mc:Ignorable="d" d:DesignWidth="200" d:DesignHeight="370"
+			 x:Class="DBMS.WindowDocks.ObjectExplorer"
+	>
+	<Grid RowDefinitions="24,*"
+			 Background="White">
+		<Grid Grid.Row="0" ColumnDefinitions="24,24,24,24,*">
+			<Button VerticalAlignment="Center" Grid.Column="0" Height="24" Width="24" Name="butConnect">
+				<Image Source="/Sources/ButtonIcons/Connect.png"/>
+			</Button>
+			<Button VerticalAlignment="Center" Grid.Column="1" Height="24" Width="24" Name="butDisconnect">
+				<Image Source="/Sources/ButtonIcons/Disconnect.png"/>
+			</Button>
+			<Button VerticalAlignment="Center" Grid.Column="2" Height="24" Width="24" Name="butRefresh">
+				<Image Source="/Sources/ButtonIcons/Refresh.png"/>
+			</Button>
+			<Button VerticalAlignment="Center" Grid.Column="3" Height="24" Width="24" Name="butSearch">
+				<Image Source="/Sources/ButtonIcons/Search.png"/>
+			</Button>
+		</Grid>
+		<TreeView Grid.Row="1">
+		</TreeView>
+	</Grid>
+</UserControl>

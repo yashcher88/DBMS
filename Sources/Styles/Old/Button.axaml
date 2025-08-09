@@ -17,14 +17,14 @@
 		<Setter Property="BorderThickness" Value="0"/>
 		<Setter Property="Background">
 			<Setter.Value>
-				<ImageBrush Source="/Sources/SmallIcons/Search.png" Stretch="UniformToFill" />
+				<ImageBrush Source="/Sources/ButtonIcons/Search.png" Stretch="UniformToFill" />
 			</Setter.Value>
 		</Setter>
 	</Style>
 	<Style Selector="Button.unfilter">
 		<Setter Property="Background">
 			<Setter.Value>
-				<ImageBrush Source="/Sources/SmallIcons/SearchCancel.png" Stretch="UniformToFill" />
+				<ImageBrush Source="/Sources/ButtonIcons/SearchCancel.png" Stretch="UniformToFill" />
 			</Setter.Value>
 		</Setter>
 	</Style>

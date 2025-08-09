@@ -8,6 +8,8 @@ namespace DBMS.Classes
         public string PackPath;
         public string SetsPath;
         public string ServersPath;
+        public string SqlSaveDir;
+        public string SqlHistorySaveDir;
 
         public Pathes() {
             PackPath = AppContext.BaseDirectory + "pack.zip";
@@ -15,10 +17,13 @@ namespace DBMS.Classes
                 Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
                 "DatabaseManagementStudio"
             );
-            Directory.CreateDirectory(AppData);
             SetsPath = Path.Combine(AppData, "sets.zip");
             ServersPath = Path.Combine(AppData, "servers.zip");
+            SqlSaveDir = Path.Combine(AppData, "SQLfiles");
+            SqlHistorySaveDir = Path.Combine(AppData, "History");
+            Directory.CreateDirectory(AppData);
+            Directory.CreateDirectory(SqlSaveDir);
+            Directory.CreateDirectory(SqlHistorySaveDir);
         }
-
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DBMS
 {
-    public partial class Start : BaseForm
+    public partial class Start : BaseWindow
     {
         public Start()
         {
@@ -45,7 +45,9 @@ namespace DBMS
             await Task.Delay(200);
 
             var main = new Main();
+
             main.Show();
+            main.InitializeDock();
             main.Init();
             Hide();
         }

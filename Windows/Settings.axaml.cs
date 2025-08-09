@@ -8,7 +8,7 @@ using System.Reflection;
 
 namespace DBMS;
 
-public partial class Settings : BaseForm
+public partial class Settings : BaseWindow
 {
     public Settings()
     {
@@ -17,11 +17,11 @@ public partial class Settings : BaseForm
     public void FilterButtonTreeClick(object sender, RoutedEventArgs e)
     {
         //var r = Form.ShowErrorModalOk(this, "124124");
-        Form.ToggleButton(sender, "filter", "unfilter");
+        Functions.Form.ToggleButton(sender, "filter", "unfilter");
     }
     public void FilterButtonGridClick(object sender, RoutedEventArgs e)
     {
         //var r = Form.ShowErrorModalOk(this, "124124");
-        Form.ToggleButton(sender, "filter", "unfilter");
+        Functions.Form.ToggleButton(sender, "filter", "unfilter");
     }
 }
