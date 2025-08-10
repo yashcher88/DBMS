@@ -24,11 +24,25 @@ namespace DBMS.Classes
             DefaultPort = Convert.ToInt32(J["DefaultPort"].ToString());
             DefaultDB = J["DefaultDB"].ToString();
             DefaultCodePage = J["DefaultCodePage"].ToString();
+            ServerVersion = new ScriptLink();
+            ServerVersion.LoadScriptLinkFromJson(J["ServerVersion"].AsObject());
+            Pid = new ScriptLink();
+            Pid.LoadScriptLinkFromJson(J["Pid"].AsObject());
+            Terminate = new ScriptLink();
+            Terminate.LoadScriptLinkFromJson(J["Terminate"].AsObject());
+
         }
         public JsonObject SaveDriverInfoToJson()
         {
             JsonObject J = new JsonObject();
-
+            J["Caption"] = Caption;
+            J["DriverName"] = DriverName;
+            J["DefaultPort"] = DefaultPort;
+            J["DefaultDB"] = DefaultDB;
+            J["DefaultCodePage"] = DefaultCodePage;
+            J["ServerVersion"] = ServerVersion.SaveScriptLinkToJson();
+            J["Pid"] = Pid.SaveScriptLinkToJson();
+            J["Terminate"] = Terminate.SaveScriptLinkToJson();
             return J;
         }
     }

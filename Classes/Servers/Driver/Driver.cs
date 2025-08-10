@@ -25,11 +25,11 @@ namespace DBMS.Classes
         {
             Name = _name;
         }
-        public void LoadDriverFromJson(JsonObject J) 
+        public void LoadDriverFromZip(JsonObject J) 
         { 
             
         }
-        public JsonObject SaveDriverToJson()
+        public JsonObject SaveDriverToZip()
         {
             JsonObject J = new JsonObject();
 

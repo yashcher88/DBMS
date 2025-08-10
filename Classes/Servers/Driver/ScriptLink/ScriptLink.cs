@@ -11,24 +11,27 @@ namespace DBMS.Classes
     {
         public string ScriptPath;
         public List<ScriptLinkParameter> Params = new List<ScriptLinkParameter>();
-        public ScriptLink(string path, JsonArray JA)
-        {
-            ScriptPath = path;
-            if (JA != null) 
-            {
-                for (var i = 0; i < JA.Count; i++) 
-                {
-                    //Params.Add(JA[i].ToString());
-                }
-            }
-        }
         public void LoadScriptLinkFromJson(JsonObject J)
         {
-
+            ScriptPath = J["ScriptPath"].ToString();
+            Params.Clear();
+            for (var i = 0; i < J["Params"].AsArray().Count(); i++)
+            { 
+                var P = new ScriptLinkParameter();
+                P.LoadScriptLinkParameterFromJson(J["Params"][i].AsObject());
+                Params.Add(P);
+            }
         }
-        public void SaveScriptLinkToJson(JsonObject J)
+        public JsonObject SaveScriptLinkToJson()
         {
-
+            var J = new JsonObject();
+            J["ScriptPath"] = ScriptPath;
+            J["Params"] = new JsonArray();
+            for (var i = 0; i < Params.Count; i++) 
+            {
+                J["Params"].AsArray().Add(Params[i].SaveScriptLinkParameterToJson());
+            }
+            return J;
         }
     }
 }
