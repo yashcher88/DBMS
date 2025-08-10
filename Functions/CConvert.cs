@@ -81,46 +81,46 @@ namespace DBMS.Functions
                 default: return ScriptLinkParameterType.StringType;
             }
         }
-        public static string ObjectExplorerNodeTypeToString(ObjectExplorerNodeType CType)
+        public static string ObjectExplorerNodeTypeToString(ObjectTreeNodeType CType)
         {
             switch (CType)
             {
-                case ObjectExplorerNodeType.Unknown: return "Unknown";
-                case ObjectExplorerNodeType.Server: return "Server";
-                case ObjectExplorerNodeType.Database: return "Database";
-                case ObjectExplorerNodeType.Scheme: return "Scheme";
-                case ObjectExplorerNodeType.Table: return "Table";
-                case ObjectExplorerNodeType.Column: return "Column";
-                case ObjectExplorerNodeType.HashIndex: return "HashIndex";
-                case ObjectExplorerNodeType.BTreeIndex: return "BTreeIndex";
-                case ObjectExplorerNodeType.Procedure: return "Procedure";
-                case ObjectExplorerNodeType.ScalarFunction: return "ScalarFunction";
-                case ObjectExplorerNodeType.TableFunction: return "TableFunction";
-                case ObjectExplorerNodeType.FunctionResult: return "FunctionResult";
-                case ObjectExplorerNodeType.FunctionParameter: return "FunctionParameter";
-                case ObjectExplorerNodeType.View: return "View";
+                case ObjectTreeNodeType.Unknown: return "Unknown";
+                case ObjectTreeNodeType.Server: return "Server";
+                case ObjectTreeNodeType.Database: return "Database";
+                case ObjectTreeNodeType.Scheme: return "Scheme";
+                case ObjectTreeNodeType.Table: return "Table";
+                case ObjectTreeNodeType.Column: return "Column";
+                case ObjectTreeNodeType.HashIndex: return "HashIndex";
+                case ObjectTreeNodeType.BTreeIndex: return "BTreeIndex";
+                case ObjectTreeNodeType.Procedure: return "Procedure";
+                case ObjectTreeNodeType.ScalarFunction: return "ScalarFunction";
+                case ObjectTreeNodeType.TableFunction: return "TableFunction";
+                case ObjectTreeNodeType.FunctionResult: return "FunctionResult";
+                case ObjectTreeNodeType.FunctionParameter: return "FunctionParameter";
+                case ObjectTreeNodeType.View: return "View";
                 default: return "Unknown";
             }
         }
-        public static ObjectExplorerNodeType StringToObjectExplorerNodeType(string SType)
+        public static ObjectTreeNodeType StringToObjectExplorerNodeType(string SType)
         {
             switch (SType)
             {
-                case "Unknown" : return ObjectExplorerNodeType.Unknown;
-                case "Server" : return ObjectExplorerNodeType.Server;
-                case "Database" : return ObjectExplorerNodeType.Database;
-                case "Scheme" : return ObjectExplorerNodeType.Scheme;
-                case "Table" : return ObjectExplorerNodeType.Table;
-                case "Column" : return ObjectExplorerNodeType.Column;
-                case "HashIndex" : return ObjectExplorerNodeType.HashIndex;
-                case "BTreeIndex" : return ObjectExplorerNodeType.BTreeIndex;
-                case "Procedure" : return ObjectExplorerNodeType.Procedure;
-                case "ScalarFunction" : return ObjectExplorerNodeType.ScalarFunction;
-                case "TableFunction" : return ObjectExplorerNodeType.TableFunction;
-                case "FunctionResult" : return ObjectExplorerNodeType.FunctionResult;
-                case "FunctionParameter" : return ObjectExplorerNodeType.FunctionParameter;
-                case "View" : return ObjectExplorerNodeType.View;
-                default: return ObjectExplorerNodeType.Unknown;
+                case "Unknown" : return ObjectTreeNodeType.Unknown;
+                case "Server" : return ObjectTreeNodeType.Server;
+                case "Database" : return ObjectTreeNodeType.Database;
+                case "Scheme" : return ObjectTreeNodeType.Scheme;
+                case "Table" : return ObjectTreeNodeType.Table;
+                case "Column" : return ObjectTreeNodeType.Column;
+                case "HashIndex" : return ObjectTreeNodeType.HashIndex;
+                case "BTreeIndex" : return ObjectTreeNodeType.BTreeIndex;
+                case "Procedure" : return ObjectTreeNodeType.Procedure;
+                case "ScalarFunction" : return ObjectTreeNodeType.ScalarFunction;
+                case "TableFunction" : return ObjectTreeNodeType.TableFunction;
+                case "FunctionResult" : return ObjectTreeNodeType.FunctionResult;
+                case "FunctionParameter" : return ObjectTreeNodeType.FunctionParameter;
+                case "View" : return ObjectTreeNodeType.View;
+                default: return ObjectTreeNodeType.Unknown;
             }
         }
     }

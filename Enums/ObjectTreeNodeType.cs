@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DBMS.Enums
 {
-    public enum ObjectExplorerNodeType
+    public enum ObjectTreeNodeType
     {
         Unknown,
         Server,

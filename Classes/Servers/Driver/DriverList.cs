@@ -16,7 +16,7 @@ namespace DBMS.Classes
             foreach (var driver in J) 
             {
                 var D = new Driver(driver.Key);
-                D.LoadDriverFromJson(driver.Value.AsObject());
+                D.LoadDriverFromZip(driver.Value.AsObject());
                 Drivers.Add(driver.Key, D);
             }
         }
@@ -25,7 +25,7 @@ namespace DBMS.Classes
             JsonObject J = new JsonObject();
             foreach (var driver in Drivers)
             {
-                J[driver.Key] = driver.Value.SaveDriverToJson();
+                J[driver.Key] = driver.Value.SaveDriverToZip();
             }
             return J;
         }

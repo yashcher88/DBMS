@@ -1,5 +1,6 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Markup.Xaml.Templates;
+using DBMS.Classes;
 using HarfBuzzSharp;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,10 @@ namespace DBMS.Classes
     public class Driver
     {
         public DriverInfo Info;
+        public DriverScriptDictionary Scripts = new DriverScriptDictionary();
+
         public Dictionary<string, DriverPopup> Popups = new Dictionary<string, DriverPopup>();
         public Dictionary<string, DriverLanguage> Languages = new Dictionary<string, DriverLanguage>();
-        public Dictionary<string, DriverScript> Scripts = new Dictionary<string, DriverScript>();
         public Dictionary<string, DriverForm> Forms = new Dictionary<string, DriverForm>();
         public Dictionary<string, DriverScriptTemplate> Templates = new Dictionary<string, DriverScriptTemplate>();
 

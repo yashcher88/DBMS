@@ -11,7 +11,7 @@ namespace DBMS.Classes
 {
     public class ScriptLinkObjectObjectExplorerLevel
     {
-        ObjectExplorerNodeType NodeType;
+        ObjectTreeNodeType NodeType;
         string ParameterName;
 
         public void LoadScriptLinkObjectObjectExplorerNodeFromJson(JsonObject J)
