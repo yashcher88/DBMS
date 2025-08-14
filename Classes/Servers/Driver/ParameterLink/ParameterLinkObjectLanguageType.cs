@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace DBMS.Classes
 {
-    public class ScriptLinkObjectLanguageType : ScriptLinkObjectBase
+    public class ParameterLinkObjectLanguageType : ParameterLinkObjectBase
     {
         string Path;
-        public void LoadScriptLinkObjectLanguageTypeFromJson(JsonObject J)
+        public void LoadFromJson(JsonObject J)
         {
             Path = J["Path"].ToString();
         }
-        public JsonObject SaveScriptLinkObjectLanguageTypeToJson()
+        public JsonObject SaveToJson()
         {
             JsonObject J = new JsonObject();
             J["Path"] = Path;

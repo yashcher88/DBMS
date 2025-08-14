@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace DBMS.Classes
 {
-    public class ScriptLinkObjectObjectExplorerLevel
+    public class ParameterLinkObjectObjectExplorerLevel
     {
         ObjectTreeNodeType NodeType;
         string ParameterName;
 
-        public void LoadScriptLinkObjectObjectExplorerNodeFromJson(JsonObject J)
+        public void LoadFromJson(JsonObject J)
         {
             NodeType = CConvert.StringToObjectExplorerNodeType(J["NodeType"].ToString());
             ParameterName = J["ParameterName"].ToString();
         }
-        public JsonObject SaveScriptLinkObjectObjectExplorerNodeToJson()
+        public JsonObject SaveToJson()
         {
             JsonObject J = new JsonObject();
             J["NodeType"] = CConvert.ObjectExplorerNodeTypeToString(NodeType);

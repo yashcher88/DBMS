@@ -5,16 +5,16 @@ using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
-namespace DBMS.Classes.Servers.Driver.ScriptLink
+namespace DBMS.Classes
 {
-    public class ScriptLinkObjectSettingType : ScriptLinkObjectBase
+    public class ParameterLinkObjectSettingType : ParameterLinkObjectBase
     {
         string Path;
-        public void LoadScriptLinkObjectSettingTypeFromJson(JsonObject J)
+        public void LoadFromJson(JsonObject J)
         {
             Path = J["Path"].ToString();
         }
-        public JsonObject SaveScriptLinkObjectSettingTypeToJson()
+        public JsonObject SaveToJson()
         {
             JsonObject J = new JsonObject();
             J["Path"] = Path;

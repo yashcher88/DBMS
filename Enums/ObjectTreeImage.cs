@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DBMS.Classes
+namespace DBMS.Enums
 {
-    public class ScriptLinkObjectBase
+    public enum ObjectTreeImage
     {
+        Folder,
+        Server,
+        Table,
+        TablePartition,
+
     }
 }

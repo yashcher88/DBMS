@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace DBMS.Classes
 {
-    public class ScriptLinkObjectString : ScriptLinkObjectBase
+    public class ParameterLinkObjectString : ParameterLinkObjectBase
     {
         string Value;
 
-        public void LoadScriptLinkObjectStringFromJson(JsonObject J)
+        public void LoadFromJson(JsonObject J)
         {
             Value = J["Value"].ToString();
         }
-        public JsonObject SaveScriptLinkObjectStringToJson()
+        public JsonObject SaveToJson()
         {
             JsonObject J = new JsonObject();
             J["Value"] = Value;

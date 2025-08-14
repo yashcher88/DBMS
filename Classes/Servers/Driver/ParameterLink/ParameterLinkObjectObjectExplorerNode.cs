@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace DBMS.Classes
 {
-    public class ScriptLinkObjectObjectExplorerNode : ScriptLinkObjectBase
+    public class ParameterLinkObjectObjectExplorerNode : ParameterLinkObjectBase
     {
         int Level;
         string ParameterName;
 
-        public void LoadScriptLinkObjectObjectExplorerNodeFromJson(JsonObject J)
+        public void LoadFromJson(JsonObject J)
         {
             Level = Convert.ToInt32(J["Level"].ToString());
             ParameterName = J["ParameterName"].ToString();
         }
-        public JsonObject SaveScriptLinkObjectObjectExplorerNodeToJson()
+        public JsonObject SaveToJson()
         {
             JsonObject J = new JsonObject();
             J["Level"] = Level;

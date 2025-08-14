@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DBMS.Classes
+namespace DBMS.Classes.Servers.Driver.DriverObjectTree
 {
-    public class DriverPopup
+    public class DriverObjectElement
     {
+
     }
 }

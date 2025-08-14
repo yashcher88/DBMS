@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
-namespace DBMS.Classes
+namespace DBMS.Classes.Servers.Driver
 {
     public class DriverInfo
     {
@@ -14,9 +14,9 @@ namespace DBMS.Classes
         public int DefaultPort;
         public string DefaultDB;
         public string DefaultCodePage;
-        public ScriptLink ServerVersion;
-        public ScriptLink Pid;
-        public ScriptLink Terminate;
+        public DriverScriptLink ServerVersion;
+        public DriverScriptLink Pid;
+        public DriverScriptLink Terminate;
         public void LoadDriverInfoFromJson(JsonObject J)
         {
             Caption = J["Caption"].ToString();
@@ -24,12 +24,12 @@ namespace DBMS.Classes
             DefaultPort = Convert.ToInt32(J["DefaultPort"].ToString());
             DefaultDB = J["DefaultDB"].ToString();
             DefaultCodePage = J["DefaultCodePage"].ToString();
-            ServerVersion = new ScriptLink();
-            ServerVersion.LoadScriptLinkFromJson(J["ServerVersion"].AsObject());
-            Pid = new ScriptLink();
-            Pid.LoadScriptLinkFromJson(J["Pid"].AsObject());
-            Terminate = new ScriptLink();
-            Terminate.LoadScriptLinkFromJson(J["Terminate"].AsObject());
+            ServerVersion = new DriverScriptLink();
+            ServerVersion.LoadFromJson(J["ServerVersion"].AsObject());
+            Pid = new DriverScriptLink();
+            Pid.LoadFromJson(J["Pid"].AsObject());
+            Terminate = new DriverScriptLink();
+            Terminate.LoadFromJson(J["Terminate"].AsObject());
 
         }
         public JsonObject SaveDriverInfoToJson()
@@ -40,9 +40,9 @@ namespace DBMS.Classes
             J["DefaultPort"] = DefaultPort;
             J["DefaultDB"] = DefaultDB;
             J["DefaultCodePage"] = DefaultCodePage;
-            J["ServerVersion"] = ServerVersion.SaveScriptLinkToJson();
-            J["Pid"] = Pid.SaveScriptLinkToJson();
-            J["Terminate"] = Terminate.SaveScriptLinkToJson();
+            J["ServerVersion"] = ServerVersion.SaveToJson();
+            J["Pid"] = Pid.SaveToJson();
+            J["Terminate"] = Terminate.SaveToJson();
             return J;
         }
     }
