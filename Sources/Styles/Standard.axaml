@@ -46,4 +46,17 @@
 		<Setter Property="CornerRadius" Value="0"/>
 		<Setter Property="BorderThickness" Value="0"/>
 	</Style>
+	<Style Selector="ColorPicker">
+		<Style Selector="^ DropDownButton, ^ DropDownButton:pointerover">
+			<Setter Property="MinHeight" Value="22"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="BorderBrush" Value="#99000000"/>
+			<Setter Property="Background" Value="Transparent"/>
+		</Style>
+		<Style Selector="^ PathIcon">
+			<Setter Property="Margin" Value="0,0,9,0"/>
+		</Style>
+		<Setter Property="CornerRadius" Value="0"/>
+		<Setter Property="BorderThickness" Value="0"/>
+	</Style>
 </Styles>
