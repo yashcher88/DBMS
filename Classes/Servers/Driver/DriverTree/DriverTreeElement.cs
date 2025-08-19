@@ -1,9 +1,10 @@
-﻿using System;
+﻿using DBMS.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
-using DBMS.Enums;
 
 namespace DBMS.Classes
 {
@@ -22,6 +23,16 @@ namespace DBMS.Classes
         public DriverTreeElement(DriverTreeElement _parent) 
         { 
             Parent = _parent;
+        }
+        public void LoadFromJson(JsonObject J)
+        {
+
+        }
+        public JsonObject SaveToJson()
+        {
+            JsonObject J = new JsonObject();
+
+            return J;
         }
     }
 }

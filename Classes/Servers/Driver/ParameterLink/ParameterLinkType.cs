@@ -38,6 +38,10 @@ namespace DBMS.Classes
                     Value = new ParameterLinkObjectLanguageType();
                     (Value as ParameterLinkObjectLanguageType).LoadFromJson(J["Value"].AsObject());
                     break;
+                case ScriptLinkParameterType.LanguageDriverType:
+                    Value = new ParameterLinkObjectLanguageType();
+                    (Value as ParameterLinkObjectLanguageDriverType).LoadFromJson(J["Value"].AsObject());
+                    break;
             }
         }
         public JsonObject SaveToJson()
@@ -60,6 +64,9 @@ namespace DBMS.Classes
                     break;
                 case ScriptLinkParameterType.LanguageType:
                     J["Value"] = (Value as ParameterLinkObjectLanguageType).SaveToJson();
+                    break;
+                case ScriptLinkParameterType.LanguageDriverType:
+                    J["Value"] = (Value as ParameterLinkObjectLanguageDriverType).SaveToJson();
                     break;
             }
             return J;

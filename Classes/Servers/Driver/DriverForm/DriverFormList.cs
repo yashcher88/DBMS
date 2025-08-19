@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace DBMS.Classes
 {
-    public class DriverForm
+    public class DriverFormList
     {
-        public void LoadDriverFormFromJson(JsonObject J)
+        public Dictionary<string, DriverForm> Dictionary = new Dictionary<string, DriverForm>();
+        public void LoadFromJson(JsonObject J)
         {
 
         }
-        public JsonObject SaveDriverFormToJson()
+        public JsonObject SaveToJson()
         {
             JsonObject J = new JsonObject();
 

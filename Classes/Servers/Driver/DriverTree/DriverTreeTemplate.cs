@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
 namespace DBMS.Classes
@@ -34,5 +35,16 @@ namespace DBMS.Classes
         public ObjectTreeNodeType NodeType;
 
         public List<string> Childs = new List<string>();
+
+        public void LoadFromJson(JsonObject J)
+        {
+
+        }
+        public JsonObject SaveToJson()
+        {
+            JsonObject J = new JsonObject();
+
+            return J;
+        }
     }
 }

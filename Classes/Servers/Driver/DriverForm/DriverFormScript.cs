@@ -5,19 +5,16 @@ using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
-namespace DBMS.Classes.Servers.Driver.DriverTree
+namespace DBMS.Classes
 {
-    public class DriverTreeTemplateList
+    public class DriverFormScript
     {
-        public Dictionary<string,DriverTreeTemplate> List = new Dictionary<string,DriverTreeTemplate>();
         public void LoadFromJson(JsonObject J)
         {
-
         }
         public JsonObject SaveToJson()
         {
             JsonObject J = new JsonObject();
-
             return J;
         }
     }

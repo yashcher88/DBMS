@@ -8,16 +8,16 @@
 	<Grid RowDefinitions="24,*"
 			 Background="White">
 		<Grid Grid.Row="0" ColumnDefinitions="24,24,24,24,*">
-			<Button VerticalAlignment="Center" Grid.Column="0" Height="24" Width="24" Name="butConnect">
+			<Button VerticalAlignment="Center" Grid.Column="0" Height="24" Width="24" Name="butConnect" Click="FormConnectClick">
 				<Image Source="/Sources/ButtonIcons/Connect.png"/>
 			</Button>
-			<Button VerticalAlignment="Center" Grid.Column="1" Height="24" Width="24" Name="butDisconnect">
+			<Button VerticalAlignment="Center" Grid.Column="1" Height="24" Width="24" Name="butDisconnect" Click="FormDisconnectClick">
 				<Image Source="/Sources/ButtonIcons/Disconnect.png"/>
 			</Button>
-			<Button VerticalAlignment="Center" Grid.Column="2" Height="24" Width="24" Name="butRefresh">
+			<Button VerticalAlignment="Center" Grid.Column="2" Height="24" Width="24" Name="butRefresh" Click="FormRefreshClick">
 				<Image Source="/Sources/ButtonIcons/Refresh.png"/>
 			</Button>
-			<Button VerticalAlignment="Center" Grid.Column="3" Height="24" Width="24" Name="butSearch">
+			<Button VerticalAlignment="Center" Grid.Column="3" Height="24" Width="24" Name="butSearch" Click="FormSearchClick">
 				<Image Source="/Sources/ButtonIcons/Search.png"/>
 			</Button>
 		</Grid>

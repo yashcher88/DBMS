@@ -39,23 +39,23 @@ namespace DBMS.Classes
         }
         public void LoadWindowFromJson(JsonObject J)
         {
-            LoadControlFromJson(J);
+            LoadFromJson(J);
             if (J["LanguageControls"] != null) {
                 foreach (var node in J["LanguageControls"].AsObject()) 
                 { 
                     LanguageControl LControl = new LanguageControl();
-                    LControl.LoadControlFromJson(node.Value.AsObject());
+                    LControl.LoadFromJson(node.Value.AsObject());
                     LanguageControls.Add(node.Key,LControl);
                 }
             }
         }
         public JsonObject SaveWindowToJson()
         {
-            JsonObject J = SaveControlToJson();
+            JsonObject J = SaveToJson();
             J["LanguageControls"] = new JsonObject();
             foreach (var node in LanguageControls)
             {
-                J["LanguageControls"][node.Key] = node.Value.SaveControlToJson();
+                J["LanguageControls"][node.Key] = node.Value.SaveToJson();
             }
             return J;
         }

@@ -10,6 +10,7 @@ namespace DBMS.Classes
     public class Store
     {
         public BaseWindow Start = null;
+        public BaseWindow Main = null;
         public Pathes Path = new Pathes();
         public LanguageObject LanguageObject = new LanguageObject();
         public int VersionPack = 0;

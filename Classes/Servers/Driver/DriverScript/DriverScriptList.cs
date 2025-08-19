@@ -10,21 +10,21 @@ namespace DBMS.Classes
     public class DriverScriptList
     {
         public List<DriverScript> List = new List<DriverScript>();
-        public void LoadDriverScriptListFromJson(JsonArray J)
+        public void LoadFromJson(JsonArray J)
         {
             for (int i = 0; i < J.Count; i++) 
             { 
                 DriverScript Script = new DriverScript();
-                Script.LoadDriverScriptFromJson(J[i].AsObject());
+                Script.LoadFromJson(J[i].AsObject());
                 List.Add(Script);
             }
         }
-        public JsonArray SaveDriverScriptListToJson()
+        public JsonArray SaveToJson()
         {
             JsonArray J = new JsonArray();
             for (int i = 0; i < List.Count; i++) 
             { 
-                J.Add(List[i].SaveDriverScriptToJson());
+                J.Add(List[i].SaveToJson());
             }
             return J;
         }

@@ -9,23 +9,23 @@ namespace DBMS.Classes
 {
     public class DriverScriptDictionary
     {
-        Dictionary<string, DriverScriptList> ScriptDictionary = new Dictionary<string, DriverScriptList>();
+        Dictionary<string, DriverScriptList> Dictionary = new Dictionary<string, DriverScriptList>();
 
-        public void LoadDriverScriptDictionaryFromJson(JsonObject J) 
+        public void LoadFromJson(JsonObject J) 
         {
             foreach (var node in J)
             {
                 DriverScriptList script = new DriverScriptList();
-                script.LoadDriverScriptListFromJson(node.Value.AsArray());
-                ScriptDictionary.Add(node.Key, script);
+                script.LoadFromJson(node.Value.AsArray());
+                Dictionary.Add(node.Key, script);
             }
         }
-        public JsonObject SaveDriverScriptDictionaryFromJson() 
+        public JsonObject SaveFromJson() 
         { 
             JsonObject J = new JsonObject();
-            foreach (var node in ScriptDictionary)
+            foreach (var node in Dictionary)
             {
-                J[node.Key] = node.Value.SaveDriverScriptListToJson();
+                J[node.Key] = node.Value.SaveToJson();
             }
             return J;
         }

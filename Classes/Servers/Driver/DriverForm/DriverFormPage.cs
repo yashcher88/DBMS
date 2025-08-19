@@ -1,18 +1,20 @@
-﻿using System;
+﻿using DBMS.Enums;
+using DBMS.Functions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
-namespace DBMS.Classes.Servers.Driver.DriverTree
+namespace DBMS.Classes
 {
-    public class DriverTreeTemplateList
+    public class DriverFormPage
     {
-        public Dictionary<string,DriverTreeTemplate> List = new Dictionary<string,DriverTreeTemplate>();
+        public FormPageType PageType;
         public void LoadFromJson(JsonObject J)
         {
-
+            
         }
         public JsonObject SaveToJson()
         {

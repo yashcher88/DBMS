@@ -27,7 +27,7 @@ namespace DBMS.Classes
             }
             Window.ReadFromWindow(W, isRewrite);
         }
-        public void LoadElementFromJson(JsonObject J)
+        public void LoadFromJson(JsonObject J)
         {
             if (J["Windows"] != null) 
             {
@@ -48,7 +48,7 @@ namespace DBMS.Classes
                 }
             }
         }
-        public JsonObject SaveElementToJson()
+        public JsonObject SaveToJson()
         {
             JsonObject J = new JsonObject();
             J["Windows"] = new JsonObject();

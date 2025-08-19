@@ -34,7 +34,7 @@ namespace DBMS.Classes
             foreach (var node in J.AsObject()) 
             {
                 LanguageElement LE = new LanguageElement();
-                LE.LoadElementFromJson(node.Value.AsObject());
+                LE.LoadFromJson(node.Value.AsObject());
                 if (isFirst) {
                     DefaultLanguage = node.Key;
                     isFirst = false;
@@ -47,7 +47,7 @@ namespace DBMS.Classes
             JsonObject J = new JsonObject();
             foreach (var node in Languages)
             {
-                J[node.Key] = node.Value.SaveElementToJson();
+                J[node.Key] = node.Value.SaveToJson();
             }
             return J;
         }

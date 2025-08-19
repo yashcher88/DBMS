@@ -13,14 +13,14 @@ namespace DBMS.Classes
         public int MinVersion;
         public int MaxVersion;
         public bool ExecBeforeOpen;
-        public void LoadDriverScriptFromJson(JsonObject J)
+        public void LoadFromJson(JsonObject J)
         {
             Script = J["Script"].ToString();
             MinVersion = Convert.ToInt32(J["MinVersion"]?.ToString() ?? "0");
             MaxVersion = Convert.ToInt32(J["MaxVersion"]?.ToString() ?? "1000000000");
             ExecBeforeOpen = Convert.ToBoolean(J["ExecBeforeOpen"].ToString());
         }
-        public JsonObject SaveDriverScriptToJson()
+        public JsonObject SaveToJson()
         {
             JsonObject J = new JsonObject();
             J["Script"] = Script;

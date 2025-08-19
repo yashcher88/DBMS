@@ -19,6 +19,7 @@ public partial class Main : BaseWindow
     {
         InitializeComponent();
         Closing += Window_Closed;
+        store.Main = this;
     }
     public void InitializeDock()
     {

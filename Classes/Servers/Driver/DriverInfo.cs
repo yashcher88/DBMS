@@ -17,7 +17,7 @@ namespace DBMS.Classes.Servers.Driver
         public DriverScriptLink ServerVersion;
         public DriverScriptLink Pid;
         public DriverScriptLink Terminate;
-        public void LoadDriverInfoFromJson(JsonObject J)
+        public void LoadFromJson(JsonObject J)
         {
             Caption = J["Caption"].ToString();
             DriverName = J["DriverName"].ToString();
@@ -32,7 +32,7 @@ namespace DBMS.Classes.Servers.Driver
             Terminate.LoadFromJson(J["Terminate"].AsObject());
 
         }
-        public JsonObject SaveDriverInfoToJson()
+        public JsonObject SaveToJson()
         {
             JsonObject J = new JsonObject();
             J["Caption"] = Caption;

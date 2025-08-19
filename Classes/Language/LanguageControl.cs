@@ -20,7 +20,7 @@ namespace DBMS.Classes
         public string ToolTip;
         public string Title;
         public string WaterMark;
-        public void LoadControlFromJson(JsonObject J)
+        public void LoadFromJson(JsonObject J)
         {
             ControlType = CConvert.StringToUserControlType(J["ControlType"]?.ToString());
             ControlProperty = CConvert.ArrayToUserControlProperty(J["ControlProperty"].AsArray());
@@ -32,7 +32,7 @@ namespace DBMS.Classes
             SetWaterMark(J["WaterMark"]?.ToString());
             isDelete = ((bool?)J["isDelete"]) ?? false;
         }
-        public JsonObject SaveControlToJson()
+        public JsonObject SaveToJson()
         {
             JsonObject J = new JsonObject();
             if (Text != null) { J["Text"] = Text; }

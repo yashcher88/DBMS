@@ -66,6 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Classes\Servers\Database\" />
+    <Folder Include="Classes\Servers\Driver\DriverLanguage\" />
+    <Folder Include="Classes\Servers\Driver\DriverTemplate\" />
     <Folder Include="Classes\UserStyle\UserSetting\" />
     <Folder Include="UserControls\" />
   </ItemGroup>

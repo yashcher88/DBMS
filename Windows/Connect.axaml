@@ -2,10 +2,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="370"
-		Width="500" Height="350"
+        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="400"
+		Width="500" Height="400"
         x:Class="DBMS.Connect"
-        Title="Подключение к серверу">
+        Title="Подключение к серверу"
+        WindowStartupLocation="CenterScreen"
+		>
 	<Panel>
 		<Image Source="/Sources/Images/connect_db.png" VerticalAlignment="Top" />
 		<Grid RowDefinitions="130,*,1,40">
@@ -13,28 +15,28 @@
 				<TabItem Header="Основные">
 					<Grid RowDefinitions="*,28,28,28,28,28,28,*" ColumnDefinitions="1*,200,200,6*">
 						<TextBlock Grid.Row="1" Grid.Column="1" Text="Название подключения:" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0 0 20 0"/>
-						<TextBox Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Width="200"/>
+						<TextBox Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Width="200" CornerRadius="0"/>
 						<TextBlock Grid.Row="2" Grid.Column="1" Text="Драйвер:" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0 0 20 0"/>
-						<ComboBox Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Width="200"/>
+						<ComboBox Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Width="200" CornerRadius="0" VerticalAlignment="Center"/>
 						<TextBlock Grid.Row="3" Grid.Column="1" Text="Имя сервера:" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0 0 20 0"/>
-						<ComboBox Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" Width="200"/>
+						<ComboBox Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" Width="200" VerticalAlignment="Center" CornerRadius="0"/>
 						<TextBlock Grid.Row="4" Grid.Column="1" Text="Логин:" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0 0 20 0"/>
-						<TextBox Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" Width="200"/>
+						<TextBox Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" Width="200" CornerRadius="0"/>
 						<TextBlock Grid.Row="5" Grid.Column="1" Text="Пароль:" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0 0 20 0"/>
-						<TextBox Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" Width="200" PasswordChar="*"/>
+						<TextBox Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" Width="200" PasswordChar="*" CornerRadius="0"/>
 						<CheckBox Grid.Row="6" Grid.Column="2" HorizontalAlignment="Left" Content="Запомнить пароль" Width="200"/>
 					</Grid>
 				</TabItem>
 				<TabItem Header="Дополнительные">
 					<Grid RowDefinitions="*,28,28,28,28,28,28,*" ColumnDefinitions="1*,200,200,6*">
 						<TextBlock Grid.Row="1" Grid.Column="1" Text="Порт:" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0 0 20 0"/>
-						<TextBox Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Width="200"/>
+						<TextBox Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Width="200" VerticalAlignment="Center" CornerRadius="0"/>
 						<TextBlock Grid.Row="2" Grid.Column="1" Text="База данных:" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0 0 20 0"/>
-						<TextBox Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Width="200"/>
+						<TextBox Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Width="200" VerticalAlignment="Center" CornerRadius="0"/>
 						<TextBlock Grid.Row="3" Grid.Column="1" Text="Кодировка:" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0 0 20 0"/>
-						<ComboBox Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" Width="200"/>
+						<ComboBox Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" Width="200" VerticalAlignment="Center" CornerRadius="0"/>
 						<TextBlock Grid.Row="4" Grid.Column="1" Text="Цвет строки состояния:" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0 0 20 0"/>
-						<ColorPicker Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" Width="200"/>
+						<ColorPicker Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" Width="200" VerticalAlignment="Center" CornerRadius="0"/>
 					</Grid>
 				</TabItem>
 			</TabControl>
