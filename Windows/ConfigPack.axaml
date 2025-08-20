@@ -117,7 +117,6 @@
 
 
 	</Window.Styles>
-	
 	<Grid RowDefinitions="*, 40">
 		<TabControl Grid.Row="0">
 			<TabItem Header="Язык (Формы)">
@@ -221,6 +220,45 @@
 									<DataGridTextColumn Header="Значение по умолчанию"/>
 								</DataGrid.Columns>
 							</DataGrid>
+						</Grid>
+					</Grid>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Драйвера">
+				<Grid RowDefinitions="*">
+					<!--<Border Grid.Row="0" Height="2" Classes="tabitem"/>-->
+					<Grid ColumnDefinitions="25*,4,75*" Grid.Row="0" MinHeight="104">
+						<Grid Grid.Column="0" RowDefinitions="18,*,26" >
+							<TextBlock Classes="title" Name="DriverListLabel" Grid.Row="0" Text="Доступные драйвера"/>
+							<ListBox Name="DriverList" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+							<Button Grid.Row="2" Name="DriverTest" Content="Запустить тест"/>
+						</Grid>
+						<GridSplitter Grid.Column="1" />
+						<Grid Grid.Column="2">
+							<TabControl Grid.Row="0">
+								<TabItem Header="Основные">
+									<Grid RowDefinitions="*">
+										<!--<Border Grid.Row="0" Height="2" Classes="tabitem"/>-->
+										<DataGrid Name="DriverMain" CanUserResizeColumns="true" CanUserSortColumns="false" Grid.Row="1"/>
+									</Grid>
+								</TabItem>
+								<TabItem Header="Справочник">
+									<Grid RowDefinitions="*">
+										<!--<Border Grid.Row="0" Height="2" Classes="tabitem"/>-->
+										<DataGrid Grid.Row="0" Name="LangRefGrid1" CanUserResizeColumns="true">
+											<DataGrid.ContextMenu>
+												<ContextMenu>
+													<MenuItem Header="Добавить" Click="FormAddLangRefGrid"/>
+													<MenuItem Header="Удалить" Click="FormDelLangRefGrid"/>
+												</ContextMenu>
+											</DataGrid.ContextMenu>
+											<DataGrid.Columns>
+												<DataGridTextColumn Header="Имя параметра"/>
+											</DataGrid.Columns>
+										</DataGrid>
+									</Grid>
+								</TabItem>
+							</TabControl>
 						</Grid>
 					</Grid>
 				</Grid>

@@ -14,6 +14,8 @@ namespace DBMS.Classes
         public Pathes Path = new Pathes();
         public LanguageObject LanguageObject = new LanguageObject();
         public int VersionPack = 0;
+        public List<Driver> Drivers = new List<Driver>();
+        public List<Server> Servers = new List<Server>();
 
         public string GetUserVersion() {
             int Vers = Convert.ToInt32(VersionPack);

@@ -8,5 +8,6 @@ namespace DBMS.Classes
 {
     public class Connection
     {
+        public Server server;
     }
 }

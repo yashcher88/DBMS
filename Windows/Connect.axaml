@@ -7,43 +7,44 @@
         x:Class="DBMS.Connect"
         Title="Подключение к серверу"
         WindowStartupLocation="CenterScreen"
+		Opened="FormAfterShow"
 		>
 	<Panel>
 		<Image Source="/Sources/Images/connect_db.png" VerticalAlignment="Top" />
 		<Grid RowDefinitions="130,*,1,40">
 			<TabControl Grid.Row="1" Background="White">
 				<TabItem Header="Основные">
-					<Grid RowDefinitions="*,28,28,28,28,28,28,*" ColumnDefinitions="1*,200,200,6*">
-						<TextBlock Grid.Row="1" Grid.Column="1" Text="Название подключения:" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0 0 20 0"/>
-						<TextBox Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Width="200" CornerRadius="0"/>
-						<TextBlock Grid.Row="2" Grid.Column="1" Text="Драйвер:" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0 0 20 0"/>
-						<ComboBox Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Width="200" CornerRadius="0" VerticalAlignment="Center"/>
-						<TextBlock Grid.Row="3" Grid.Column="1" Text="Имя сервера:" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0 0 20 0"/>
-						<ComboBox Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" Width="200" VerticalAlignment="Center" CornerRadius="0"/>
-						<TextBlock Grid.Row="4" Grid.Column="1" Text="Логин:" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0 0 20 0"/>
-						<TextBox Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" Width="200" CornerRadius="0"/>
-						<TextBlock Grid.Row="5" Grid.Column="1" Text="Пароль:" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0 0 20 0"/>
-						<TextBox Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" Width="200" PasswordChar="*" CornerRadius="0"/>
+					<Grid RowDefinitions="*,28,28,28,28,28,28,*" ColumnDefinitions="1*,150,250,6*">
+						<TextBlock Grid.Row="1" Grid.Column="1" Text="Название:" Classes="ConnectionBlock"/>
+						<AutoCompleteBox Grid.Row="1" Grid.Column="2" Name="NameText" Classes="ConnectionEdit"/>
+						<TextBlock Grid.Row="2" Grid.Column="1" Text="Драйвер:"  Classes="ConnectionBlock"/>
+						<ComboBox Grid.Row="2" Grid.Column="2" Name="DriverText" Classes="ConnectionEdit"/>
+						<TextBlock Grid.Row="3" Grid.Column="1" Text="Имя сервера:" Classes="ConnectionBlock"/>
+						<AutoCompleteBox Grid.Row="3" Grid.Column="2" Name="HostText" Classes="ConnectionEdit"/>
+						<TextBlock Grid.Row="4" Grid.Column="1" Text="Логин:" Classes="ConnectionBlock"/>
+						<TextBox Grid.Row="4" Grid.Column="2" Name="LoginText" Classes="ConnectionEdit"/>
+						<TextBlock Grid.Row="5" Grid.Column="1" Text="Пароль:" Classes="ConnectionBlock"/>
+						<TextBox Grid.Row="5" Grid.Column="2" PasswordChar="*" Name="PasswordText" Classes="ConnectionEdit"/>
 						<CheckBox Grid.Row="6" Grid.Column="2" HorizontalAlignment="Left" Content="Запомнить пароль" Width="200"/>
 					</Grid>
 				</TabItem>
 				<TabItem Header="Дополнительные">
-					<Grid RowDefinitions="*,28,28,28,28,28,28,*" ColumnDefinitions="1*,200,200,6*">
-						<TextBlock Grid.Row="1" Grid.Column="1" Text="Порт:" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0 0 20 0"/>
-						<TextBox Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Width="200" VerticalAlignment="Center" CornerRadius="0"/>
-						<TextBlock Grid.Row="2" Grid.Column="1" Text="База данных:" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0 0 20 0"/>
-						<TextBox Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Width="200" VerticalAlignment="Center" CornerRadius="0"/>
-						<TextBlock Grid.Row="3" Grid.Column="1" Text="Кодировка:" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0 0 20 0"/>
-						<ComboBox Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" Width="200" VerticalAlignment="Center" CornerRadius="0"/>
-						<TextBlock Grid.Row="4" Grid.Column="1" Text="Цвет строки состояния:" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0 0 20 0"/>
-						<ColorPicker Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" Width="200" VerticalAlignment="Center" CornerRadius="0"/>
+					<Grid RowDefinitions="*,28,28,28,28,28,28,*" ColumnDefinitions="1*,150,250,6*">
+						<TextBlock Grid.Row="1" Grid.Column="1" Text="Порт:" Classes="ConnectionBlock"/>
+						<TextBox Grid.Row="1" Grid.Column="2" Name="PortText" Classes="ConnectionEdit"/>
+						<TextBlock Grid.Row="2" Grid.Column="1" Text="База данных:" Classes="ConnectionBlock"/>
+						<TextBox Grid.Row="2" Grid.Column="2" Name="DBText" Classes="ConnectionEdit"/>
+						<TextBlock Grid.Row="3" Grid.Column="1" Text="Кодировка:" Classes="ConnectionBlock"/>
+						<AutoCompleteBox Grid.Row="3" Grid.Column="2" Name="CodePageText" Classes="ConnectionEdit"/>
+						<TextBlock Grid.Row="4" Grid.Column="1" Text="Строка состояния:" Classes="ConnectionBlock"/>
+						<ColorPicker Grid.Row="4" Grid.Column="2" Name="ColorText" Classes="ConnectionEdit"/>
 					</Grid>
 				</TabItem>
 			</TabControl>
 			<Border Grid.Row="2" Background="Gray"/>
-			<WrapPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="3">
-				<Button x:Name="bSave" Margin="0 0 10 0" Click="FormConnect">Подключиться</Button>
-				<Button x:Name="bClose" Margin="0 0 10 0" Click="FormClose">Отмена</Button>
+			<WrapPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3">
+				<Button x:Name="bSave" Margin="0 0 30 0" Padding="20 3" FontSize="12" Height="22" Click="FormConnect" Classes="StdButton">Соединить</Button>
+				<Button x:Name="bClose" Margin="0 0 30 0" Padding="20 3" FontSize="12" Height="22" Click="FormClose" Classes="StdButton">Отмена</Button>
 			</WrapPanel>
 		</Grid>
 	</Panel>
