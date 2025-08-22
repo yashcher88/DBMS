@@ -26,6 +26,7 @@ namespace DBMS.Classes
         public Driver(string _name) 
         {
             Name = _name;
+            Info = new DriverInfo();
         }
         public void LoadFromZip(JsonObject J) 
         { 

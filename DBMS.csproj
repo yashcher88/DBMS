@@ -6,6 +6,7 @@
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    <ApplicationIcon>Sources\Icons\MainIcon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -40,6 +41,10 @@
     <AvaloniaXaml Remove="Sources\Styles\TreeView.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\TreeViewItem.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\Window.axaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Sources\Icons\MainIcon.ico" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.3.4" />

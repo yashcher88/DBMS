@@ -15,7 +15,18 @@ namespace DBMS.Classes
         public LanguageObject LanguageObject = new LanguageObject();
         public int VersionPack = 0;
         public List<Driver> Drivers = new List<Driver>();
-        public List<Server> Servers = new List<Server>();
+        public ServerList Servers = new ServerList();
+
+        public Store() 
+        {
+            AddDriver("PostgreSQL");
+            AddDriver("MySQL");
+        }
+        public void AddDriver(string DriverName) 
+        {
+            var M = new Driver(DriverName);
+            Drivers.Add(M);
+        }
 
         public string GetUserVersion() {
             int Vers = Convert.ToInt32(VersionPack);

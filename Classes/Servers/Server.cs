@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.JavaScript;
 using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
@@ -21,11 +22,11 @@ namespace DBMS.Classes
         public string DefaultDB;
         public bool SavePassword;
         public string CodePage;
-        public Color StateColor;
+        public Avalonia.Media.Color StateColor;
 
         public DateTime LastConnection;
 
-        public Server(string _name, string _host, int _port, string _login, string _password, Driver _driver, string _defaultDB, bool _savePassword, string _codepage, Color _statecolor)
+        public Server(string _name, string _host, int _port, string _login, string _password, Driver _driver, string _defaultDB, bool _savePassword, string _codepage, Avalonia.Media.Color _statecolor)
         {
             Host = _host;
             Port = _port;
@@ -38,7 +39,11 @@ namespace DBMS.Classes
             StateColor = _statecolor;
             if (_name == "")
             {
-                Name = _login+"@"+_host+":"+_port;
+                Name = _login + "@" + _host + ":" + _port;
+            }
+            else 
+            {
+                Name = _name;
             }
         }
 
@@ -67,6 +72,22 @@ namespace DBMS.Classes
             J["SavePassword"] = SavePassword.ToString();
             J["CodePage"] = CodePage;
             J["StateColor"] = StateColor.ToString();
+        }
+        public Server Clone() 
+        {
+            Server S = new Server(
+                Name,
+                Host,
+                Port,
+                Login,
+                Password,
+                Driver,
+                DefaultDB,
+                SavePassword,
+                CodePage,
+                StateColor
+            );
+            return S;
         }
     }
 }

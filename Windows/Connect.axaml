@@ -8,6 +8,7 @@
         Title="Подключение к серверу"
         WindowStartupLocation="CenterScreen"
 		Opened="FormAfterShow"
+		Icon="/Sources/Icons/SmallMainIcon.ico"
 		>
 	<Panel>
 		<Image Source="/Sources/Images/connect_db.png" VerticalAlignment="Top" />
@@ -17,15 +18,15 @@
 					<Grid RowDefinitions="*,28,28,28,28,28,28,*" ColumnDefinitions="1*,150,250,6*">
 						<TextBlock Grid.Row="1" Grid.Column="1" Text="Название:" Classes="ConnectionBlock"/>
 						<AutoCompleteBox Grid.Row="1" Grid.Column="2" Name="NameText" Classes="ConnectionEdit"/>
-						<TextBlock Grid.Row="2" Grid.Column="1" Text="Драйвер:"  Classes="ConnectionBlock"/>
-						<ComboBox Grid.Row="2" Grid.Column="2" Name="DriverText" Classes="ConnectionEdit"/>
+						<TextBlock Grid.Row="2" Grid.Column="1" Text="Драйвер:" Name="DriverLabel" Classes="ConnectionBlock"/>
+						<ComboBox Grid.Row="2" Grid.Column="2" Name="DriverText" Classes="ConnectionEdit" SelectionChanged="FormDriverChange"/>
 						<TextBlock Grid.Row="3" Grid.Column="1" Text="Имя сервера:" Classes="ConnectionBlock"/>
-						<AutoCompleteBox Grid.Row="3" Grid.Column="2" Name="HostText" Classes="ConnectionEdit"/>
+						<TextBox Grid.Row="3" Grid.Column="2" Name="HostText" Classes="ConnectionEdit"/>
 						<TextBlock Grid.Row="4" Grid.Column="1" Text="Логин:" Classes="ConnectionBlock"/>
 						<TextBox Grid.Row="4" Grid.Column="2" Name="LoginText" Classes="ConnectionEdit"/>
 						<TextBlock Grid.Row="5" Grid.Column="1" Text="Пароль:" Classes="ConnectionBlock"/>
-						<TextBox Grid.Row="5" Grid.Column="2" PasswordChar="*" Name="PasswordText" Classes="ConnectionEdit"/>
-						<CheckBox Grid.Row="6" Grid.Column="2" HorizontalAlignment="Left" Content="Запомнить пароль" Width="200"/>
+						<TextBox Grid.Row="5" Grid.Column="2" PasswordChar="*" Name="PasswordText" Classes="ConnectionEdit" TextChanged="FormPasswordChange"/>
+						<CheckBox Grid.Row="6" Grid.Column="2" HorizontalAlignment="Left" Name="isSavePassword" Content="Запомнить пароль" Width="200"/>
 					</Grid>
 				</TabItem>
 				<TabItem Header="Дополнительные">
@@ -43,8 +44,8 @@
 			</TabControl>
 			<Border Grid.Row="2" Background="Gray"/>
 			<WrapPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3">
-				<Button x:Name="bSave" Margin="0 0 30 0" Padding="20 3" FontSize="12" Height="22" Click="FormConnect" Classes="StdButton">Соединить</Button>
-				<Button x:Name="bClose" Margin="0 0 30 0" Padding="20 3" FontSize="12" Height="22" Click="FormClose" Classes="StdButton">Отмена</Button>
+				<Button x:Name="bSave" Margin="0 0 30 0" FontSize="12" Height="22" Click="FormConnect" Classes="StdButton ButtonText">Соединить</Button>
+				<Button x:Name="bClose" Margin="0 0 30 0" FontSize="12" Height="22" Click="FormClose" Classes="StdButton ButtonText">Отмена</Button>
 			</WrapPanel>
 		</Grid>
 	</Panel>

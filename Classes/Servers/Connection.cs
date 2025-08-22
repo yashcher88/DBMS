@@ -8,6 +8,12 @@ namespace DBMS.Classes
 {
     public class Connection
     {
-        public Server server;
+        public Server Server;
+        public bool TestConnection() 
+        { 
+            bool result = false;
+
+            return result;
+        }
     }
 }
