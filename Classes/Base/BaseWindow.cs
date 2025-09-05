@@ -6,6 +6,7 @@ namespace DBMS.Classes
     public class BaseWindow : Window
     {
         public Store store;
+        public UserStyle Style { get; } = Program.store.Style;
         public BaseWindow()
         {
             Opened += (_, _) =>

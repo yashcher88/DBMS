@@ -31,7 +31,6 @@
     <AvaloniaXaml Remove="Sources\Styles\DataGrid.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\Grid.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\GridSplitter.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\ListBox.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\MenuItem.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\Standard.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\TabControl.axaml" />
@@ -53,6 +52,7 @@
     <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.4" />
     <PackageReference Include="Avalonia.Controls.TreeDataGrid" Version="11.1.1" />
     <PackageReference Include="Avalonia.Desktop" Version="11.3.4" />
+    <PackageReference Include="Avalonia.Labs.Gif" Version="11.3.1" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.4" />
     <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.4" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
@@ -79,8 +79,7 @@
     <Folder Include="Classes\Servers\Database\" />
     <Folder Include="Classes\Servers\Driver\DriverLanguage\" />
     <Folder Include="Classes\Servers\Driver\DriverTemplate\" />
-    <Folder Include="Classes\UserStyle\UserSetting\" />
-    <Folder Include="UserControls\" />
+    <Folder Include="Sources\StateIcons\" />
   </ItemGroup>
   <ItemGroup>
     <AvaloniaResource Update="Sources\Styles\Old\DataGrid.axaml">
@@ -89,7 +88,7 @@
     <AvaloniaResource Update="Sources\Styles\Old\GridSplitter.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\Old\ListBox.axaml">
+    <AvaloniaResource Update="Sources\Styles\Old\ListBox1.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
     <AvaloniaResource Update="Sources\Styles\Old\MenuItem.axaml">
@@ -130,7 +129,7 @@
     </AvaloniaResource>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="WindowDocks\QueryWindow.axaml.cs">
+    <Compile Update="UserControls\QueryWindow.axaml.cs">
       <DependentUpon>QueryWindow.axaml</DependentUpon>
     </Compile>
     <Compile Update="Windows\Start.axaml.cs">
@@ -148,7 +147,7 @@
     <Compile Update="Windows\Connect.axaml.cs">
       <DependentUpon>Connect.axaml</DependentUpon>
     </Compile>
-    <Compile Update="WindowDocks\ObjectExplorer.axaml.cs">
+    <Compile Update="UserControls\ObjectExplorer.axaml.cs">
       <DependentUpon>ObjectExplorer.axaml</DependentUpon>
     </Compile>
   </ItemGroup>

@@ -8,12 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DBMS.Classes.Base
+namespace DBMS.Classes
 {
-    public class BaseWindowTool : UserControl
+    public class BaseUserControl : UserControl
     {
         public Store store;
-        public BaseWindowTool()
+        public UserStyle Style { get; } = Program.store.Style;
+        public BaseUserControl()
         {
             /*Opened += (_, _) =>
             {
@@ -25,8 +26,8 @@ namespace DBMS.Classes.Base
         }
         public void Init()
         {
-            //store.LanguageObject.LoadFromWindow(this);
-            //store.LanguageObject.ApplyLanguageOnWindow(this);
+            store.LanguageObject.LoadFromUserControl(this);
+            store.LanguageObject.ApplyLanguageOnUserControl(this);
             //store.interfaceLanguage.ReadFromWindow(this);
         }
         protected virtual void ApplyLanguage()

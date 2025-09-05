@@ -45,10 +45,9 @@ namespace DBMS
             await Task.Delay(200);
 
             var main = new Main();
-
-            main.Show();
             main.InitializeDock();
             main.Init();
+            main.Show();
             Hide();
         }
     }

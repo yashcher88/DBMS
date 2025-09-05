@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace DBMS.Classes
 {
-    public class Connection
+    public class ViewTableRow
     {
-        public Server Server;
-        public bool TestConnection() 
-        { 
-            bool result = false;
-
-            return result;
+        public List<string> Fields { get; set; }
+        public ViewTableRow(List<string> L)
+        {
+            Fields = L;
         }
     }
 }

@@ -2,16 +2,15 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using DBMS.Classes;
-using DBMS.Classes.Base;
 using Dock.Model.Core;
 using Dock.Model.Mvvm.Core;
 using Dock.Model.Avalonia.Controls;
 using System.Security.Cryptography.X509Certificates;
 using Avalonia.Interactivity;
 
-namespace DBMS.WindowDocks;
+namespace DBMS.UserControls;
 
-public partial class ObjectExplorer : Tool
+public partial class ObjectExplorer : BaseUserControl
 {
     public ObjectExplorer()
     {

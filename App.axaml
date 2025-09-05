@@ -4,20 +4,6 @@
 			 Name="DatabaseManagementStudio"
              RequestedThemeVariant="Default">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
-	
-    <Application.Styles>
-		<FluentTheme />
-		<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
-		<StyleInclude Source="avares://Avalonia.Controls.ColorPicker/Themes/Fluent/Fluent.xaml" />
-		<StyleInclude Source="avares://AvaloniaEdit/Themes/Fluent/AvaloniaEdit.xaml" />
-		<DockFluentTheme />
-		<!--<StyleInclude Source="avares://Citrus.Avalonia/Citrus.xaml"/>-->
-		<StyleInclude Source="/Sources/Styles/Standard.axaml" />
-		<!--
-		<StyleInclude Source="avares://Avalonia.Themes.Default/DefaultTheme.xaml"/>
-		<StyleInclude Source="avares://Avalonia.Themes.Default/Accents/BaseLight.xaml"/>
-		-->
-	</Application.Styles>
 	<Application.Resources>
 		<FontFamily x:Key="Arial">avares://Sources/Fonts/ARIAL.TTF</FontFamily>
 		<FontFamily x:Key="ArialBold">avares://Sources/Fonts/ARIALBD.TTF</FontFamily>
@@ -33,4 +19,13 @@
 		<FontFamily x:Key="ConsolasItalic">avares://Sources/Fonts/CONSOLAI.TTF</FontFamily>
 		<FontFamily x:Key="ConsolasBoldItalic">avares://Sources/Fonts/CONSOLAZ.TTF</FontFamily>
 	</Application.Resources>
+    <Application.Styles>
+		<FluentTheme />
+		<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
+		<StyleInclude Source="avares://Avalonia.Controls.ColorPicker/Themes/Fluent/Fluent.xaml" />
+		<StyleInclude Source="avares://AvaloniaEdit/Themes/Fluent/AvaloniaEdit.xaml" />
+		<DockFluentTheme />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/Standard.axaml" />
+	</Application.Styles>
+
 </Application>

@@ -49,6 +49,23 @@ namespace DBMS.Functions
             }
             return M;
         }
+        public static List<Control> GetControlsFormUserControl(BaseUserControl B) 
+        {
+            List<Control> M = new List<Control> { B };
+            var A = B.GetVisualDescendants().OfType<Control>();
+            foreach (var m in A)
+            {
+                if (!string.IsNullOrEmpty(m.Name))
+                {
+                    M.Add(m);
+                }
+                if (m is MenuItem)
+                {
+                    GetMenuControls(m as MenuItem, ref M);
+                }
+            }
+            return M;
+        }
         public static void ToggleButton(object sender, string Class1, string Class2) {
             if ((sender as Button).Classes.Contains(Class1))
             {
@@ -68,7 +85,7 @@ namespace DBMS.Functions
                         Assembly.GetEntryAssembly()?.GetName().Name ?? "Unknown",
                         message,
                         ButtonEnum.Ok,
-                        MsBox.Avalonia.Enums.Icon.Info
+                        Icon.Error
                     );
             return await messageBox.ShowWindowDialogAsync(BlockWindow);
         }

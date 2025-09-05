@@ -27,6 +27,13 @@ namespace DBMS.Classes
                 node.Value.LoadFromWindow(W, node.Key == DefaultLanguage);
             }
         }
+        public void LoadFromUserControl(BaseUserControl B)
+        {
+            foreach (var node in Languages)
+            {
+                node.Value.LoadFromUserControl(B, node.Key == DefaultLanguage);
+            }
+        }
         public void LoadObjectFromJson(JsonObject J)
         {
             Languages.Clear();
@@ -58,6 +65,17 @@ namespace DBMS.Classes
                 if (Languages[SelectedLanguage].Windows.ContainsKey(WName))
                 {
                     Languages[SelectedLanguage].Windows[WName].WriteToWindow(W);
+                }
+            }
+        }
+        public void ApplyLanguageOnUserControl(BaseUserControl B)
+        {
+            string WName = B.GetType().Name;
+            if (Languages.ContainsKey(SelectedLanguage))
+            {
+                if (Languages[SelectedLanguage].Windows.ContainsKey(WName))
+                {
+                    Languages[SelectedLanguage].Windows[WName].WriteToUserControl(B);
                 }
             }
         }

@@ -25,6 +25,8 @@ namespace DBMS.Classes
         public Avalonia.Media.Color StateColor;
 
         public DateTime LastConnection;
+        public ServerStatistic Statistic;
+
 
         public Server(string _name, string _host, int _port, string _login, string _password, Driver _driver, string _defaultDB, bool _savePassword, string _codepage, Avalonia.Media.Color _statecolor)
         {

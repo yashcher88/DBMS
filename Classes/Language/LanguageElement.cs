@@ -27,6 +27,21 @@ namespace DBMS.Classes
             }
             Window.ReadFromWindow(W, isRewrite);
         }
+        public void LoadFromUserControl(BaseUserControl W, bool isRewrite)
+        {
+            LanguageWindow Window;
+            string WName = W.GetType().Name;
+            if (Windows.ContainsKey(WName))
+            {
+                Window = Windows[WName];
+            }
+            else
+            {
+                Window = new LanguageWindow();
+                Windows.Add(WName, Window);
+            }
+            Window.ReadFromUserControl(W, isRewrite);
+        }
         public void LoadFromJson(JsonObject J)
         {
             if (J["Windows"] != null) 

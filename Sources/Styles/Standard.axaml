@@ -91,6 +91,14 @@
 		<Setter Property="BorderBrush" Value="#ADADAD"/>
 		<Setter Property="BorderThickness" Value="1"/>
 	</Style>
+	<Style Selector="AutoCompleteBox#PART_SuggestionsContainer">
+		<Setter Property="CornerRadius" Value="0"/>
+	</Style>
+	<Style Selector="AutoCompleteBox ListBoxItem">
+		<Setter Property="Padding" Value="3 3 3 0"/>
+		<Setter Property="Margin" Value="0"/>
+		<Setter Property="FontSize" Value="12"/>
+	</Style>
 	<Style Selector="ColorPicker.ConnectionEdit DropDownButton:pointerover, ColorPicker.ConnectionEdit DropDownButton">
 		<Setter Property="BorderBrush" Value="#ADADAD"/>
 		<Setter Property="BorderThickness" Value="1"/>

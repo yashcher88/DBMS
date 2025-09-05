@@ -5,10 +5,10 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using DBMS.Classes;
 using DBMS.Functions;
-using DBMS.WindowDocks;
+using DBMS.UserControls;
 using System.Collections.Generic;
 using System.ComponentModel;
-
+using Dock.Model.Avalonia.Controls;
 
 namespace DBMS;
 
@@ -25,9 +25,6 @@ public partial class Main : BaseWindow
     {
         mainDockControl = new MainDockControl(MainDock);
     }
-
-
-
     public void Window_Closed(object sender, CancelEventArgs e)
     {
         if (store.Start != null)
@@ -38,17 +35,26 @@ public partial class Main : BaseWindow
     public void FormShowObjectExplorer(object sender, RoutedEventArgs e)
     {
         //leftToolDock = new Dock.Model.Avalonia.Controls.ToolDock();
-
-        var document = new ObjectExplorer();
-        document.Id = "ObjectExplorer";
-        document.Title = "Обозреватель объектов";
+        var V = new ObjectExplorer();
+        V.Init();
+        var document = new Tool
+        {
+            Id = "ObjectExplorer",
+            Title = "Обозреватель объектов",
+            Content = V
+        };
         mainDockControl.AddToolLeft(document);
     }
     public void FormCloseObjectExplorer(object sender, RoutedEventArgs e)
     {
-        var document = new QueryWindow();
-        document.Id = "QueryWindow";
-        document.Title = "Query1";
+        var Q = new QueryWindow();
+        Q.Init();
+        var document = new Document
+        {
+            Id = "QueryWindow",
+            Title = "Query1",
+            Content = Q
+        };
         mainDockControl.AddDocument(document);
     }
     public void FormCreateQuery(object sender, RoutedEventArgs e)

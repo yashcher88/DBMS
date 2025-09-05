@@ -14,8 +14,9 @@ namespace DBMS.Classes
         public Pathes Path = new Pathes();
         public LanguageObject LanguageObject = new LanguageObject();
         public int VersionPack = 0;
-        public List<Driver> Drivers = new List<Driver>();
+        public DriverList Drivers = new DriverList();
         public ServerList Servers = new ServerList();
+        public UserStyle Style = new UserStyle();
 
         public Store() 
         {
@@ -25,7 +26,7 @@ namespace DBMS.Classes
         public void AddDriver(string DriverName) 
         {
             var M = new Driver(DriverName);
-            Drivers.Add(M);
+            Drivers.List.Add(DriverName,M);
         }
 
         public string GetUserVersion() {

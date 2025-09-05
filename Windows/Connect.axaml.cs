@@ -3,8 +3,10 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using DBMS.Classes;
+using DBMS.Functions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DBMS;
 
@@ -14,18 +16,18 @@ public partial class Connect : BaseWindow
     private string NowPassword = "";
     public Connection Connection;
     public Server Server;
+    public int SelectedServerIndex = -1;
     public Driver SelectedDriver;
     public List<string> Names = new List<string>();
+    public string[] Codes = FileUtils.GetCodePages();
     public Connect()
     {
         InitializeComponent();
-        for (var i = 0; i < store.Drivers.Count; i++) 
+        foreach (var node in store.Drivers.List) 
         {
-            DriverText.Items.Add(store.Drivers[i].Name);
+            DriverText.Items.Add(node.Key);
         }
-        NameText.ItemsSource = Names;
-
-
+        CodePageText.ItemsSource = Codes;
     }
     public void SelectDriver(Driver driver) 
     {
@@ -36,15 +38,35 @@ public partial class Connect : BaseWindow
 //        ColorText.Color = #177caa;
     }
     public void SelectServer(int ServerIndex) 
-    { 
-        
+    {
+        SelectedServerIndex = ServerIndex;
+        var S = store.Servers.List[ServerIndex];
+        NameText.SelectedItem = S.Name; //Не проставляется
+        DriverText.SelectedIndex = DriverText.Items.IndexOf(S.Driver.Name);
+        HostText.Text = S.Host;
+        PortText.Text = Convert.ToString(S.Port);
+        LoginText.Text = S.Login;
+        PasswordText.Text = HidePassword;
+        if (S.SavePassword)
+        {
+            NowPassword = S.Password;
+        }
+        else 
+        {
+            NowPassword = "";
+        }
+        isSavePassword.IsChecked = S.SavePassword;
+        DBText.Text = S.DefaultDB;
+        CodePageText.Text = S.CodePage;
+        ColorText.Color = S.StateColor;
+
     }
 
     public void FormClose(object sender, RoutedEventArgs e)
     {
         Close();
     }
-    public void FormConnect(object sender, RoutedEventArgs e)
+    async public void FormConnect(object sender, RoutedEventArgs e)
     {
         /*
          План:
@@ -80,13 +102,17 @@ public partial class Connect : BaseWindow
         }
         Connection = new Connection();
         Connection.Server = S;
-        if (Connection.TestConnection()) 
-        { 
+        var M = Connection.CheckConnection();
+        if (M) 
+        {
             //Добавляем сервер
+            store.Servers.ChangeServer(S, SelectedServerIndex);
+            Close();
         }
         else
         {
             //Показываем ошибку
+            await Form.ShowErrorModalOk(this, Connection.GetLastError().Message);
         }
     }
     public void FormAfterShow(object sender, EventArgs e)
@@ -97,10 +123,15 @@ public partial class Connect : BaseWindow
         {
             Names.Add(store.Servers.List[i].Name);
         }
+        NameText.ItemsSource = Names;
+        if (Names.Count > 0) { 
+            SelectServer(Names.Count - 1);
+        }
+
     }
     public void FormDriverChange(object sender, SelectionChangedEventArgs e)
     {
-        SelectDriver(store.Drivers[DriverText.Items.IndexOf(e.AddedItems[0])]);
+        SelectDriver(store.Drivers.List[e.AddedItems[0].ToString()]);
     }
     public void FormPasswordChange(object sender, RoutedEventArgs e)
     {

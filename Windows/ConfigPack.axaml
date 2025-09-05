@@ -7,8 +7,8 @@
 		Width="640" Height="480"
         x:Class="DBMS.ConfigPack"
         WindowStartupLocation="CenterScreen"
-		xmlns:local="clr-namespace:DBMS"
-        Title="Window1">
+		xmlns:local="clr-namespace:DBMS.UserControls"
+        Title="Конфигурация пакетов">
 	
 	<Window.Styles>
 		<!-- 
@@ -120,72 +120,7 @@
 	<Grid RowDefinitions="*, 40">
 		<TabControl Grid.Row="0">
 			<TabItem Header="Язык (Формы)">
-				<Grid RowDefinitions="*">
-					<!--<Border Grid.Row="0" Height="2" Classes="tabitem"/>-->
-					<Grid ColumnDefinitions="25*,4,75*" Grid.Row="0" MinHeight="104">
-						<Grid Grid.Column="0">
-							<Grid RowDefinitions="25*,4,75*">
-								<Grid Grid.Row="0" RowDefinitions="18,*" MinHeight="50">
-									<TextBlock Classes="title" Name="LangListLabel" Grid.Row="0" Text="Доступные языки"/>
-									<ListBox Name="LangList" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" DoubleTapped="FormRenameItemLangList">
-										<!--
-										<TextBox Name="LangListEditor" IsVisible="false" />-->
-										<ListBox.ContextMenu>
-											<ContextMenu>
-												<MenuItem Header="Добавить" Click="FormAddToLangList"/>
-												<MenuItem Header="Переименовать" Click="FormRenameItemLangList"/>
-												<MenuItem Header="Удалить" Click="FormDelFromLangList"/>
-											</ContextMenu>
-										</ListBox.ContextMenu>
-									</ListBox>
-								</Grid>
-								<GridSplitter Grid.Row="1" />
-								<Grid Grid.Row="2">
-									<Grid Grid.Row="0" RowDefinitions="18,*" MinHeight="50">
-										<TextBlock Classes="title" Name="LangTreeLabel" Grid.Row="0" Text="Объекты форм"/>
-										<TreeView Name="LangTree" Grid.Row="1" SelectionChanged="FormLangTreeSelection">
-											<TreeView.ContextMenu>
-												<ContextMenu>
-													<MenuItem Header="Удалить" Name="LangTreePopupDelete" Click="FormHideLangTree"/>
-													<MenuItem Header="Восстановить" Name="LangTreePopupRestore" IsVisible="false" Click="FormUnHideLangTree"/>
-													<MenuItem Header="Показать с удаленными" Name="LangTreePopupShowWithRemoved" Click="FormShowUnHideLangTree"/>
-													<MenuItem Header="Спрятать удаленные" Name="LangTreePopupHideRemoved" IsVisible="false" Click="FormShowHideLangTree"/>
-												</ContextMenu>
-											</TreeView.ContextMenu>
-										</TreeView>
-									</Grid>
-								</Grid>
-							</Grid>
-						</Grid>
-						<GridSplitter Grid.Column="1" />
-						<Grid Grid.Column="2">
-							<TabControl Grid.Row="0">
-								<TabItem Header="Объекты форм">
-									<Grid RowDefinitions="*">
-										<!--<Border Grid.Row="0" Height="2" Classes="tabitem"/>-->
-										<DataGrid Name="LangFormGrid" CanUserResizeColumns="true" CanUserSortColumns="false" Grid.Row="1" CellEditEnding="FormLangFormGridCellEditEnding"/>
-									</Grid>
-								</TabItem>
-								<TabItem Header="Справочник">
-									<Grid RowDefinitions="*">
-										<!--<Border Grid.Row="0" Height="2" Classes="tabitem"/>-->
-										<DataGrid Grid.Row="0" Name="LangRefGrid" CanUserResizeColumns="true">
-											<DataGrid.ContextMenu>
-												<ContextMenu>
-													<MenuItem Header="Добавить" Click="FormAddLangRefGrid"/>
-													<MenuItem Header="Удалить" Click="FormDelLangRefGrid"/>
-												</ContextMenu>
-											</DataGrid.ContextMenu>
-											<DataGrid.Columns>
-												<DataGridTextColumn Header="Имя параметра"/>
-											</DataGrid.Columns>
-										</DataGrid>
-									</Grid>
-								</TabItem>
-							</TabControl>
-						</Grid>
-					</Grid>
-				</Grid>
+				<local:LanguageForm />
 			</TabItem>
 			<TabItem Header="Настройки">
 				<Grid RowDefinitions="*">
@@ -248,8 +183,8 @@
 										<DataGrid Grid.Row="0" Name="LangRefGrid1" CanUserResizeColumns="true">
 											<DataGrid.ContextMenu>
 												<ContextMenu>
-													<MenuItem Header="Добавить" Click="FormAddLangRefGrid"/>
-													<MenuItem Header="Удалить" Click="FormDelLangRefGrid"/>
+													<MenuItem Header="Добавить"/>
+													<MenuItem Header="Удалить"/>
 												</ContextMenu>
 											</DataGrid.ContextMenu>
 											<DataGrid.Columns>

@@ -9,21 +9,21 @@ namespace DBMS.Classes
 {
     public class DriverList
     {
-        public Dictionary<string,Driver> Drivers = new Dictionary<string,Driver>();
+        public Dictionary<string,Driver> List = new Dictionary<string,Driver>();
         public void LoadDriversFromJson(JsonObject J) 
         {
-            Drivers.Clear();
+            List.Clear();
             foreach (var driver in J) 
             {
                 var D = new Driver(driver.Key);
                 D.LoadFromZip(driver.Value.AsObject());
-                Drivers.Add(driver.Key, D);
+                List.Add(driver.Key, D);
             }
         }
         public JsonObject SaveDriversToJson() 
         {
             JsonObject J = new JsonObject();
-            foreach (var driver in Drivers)
+            foreach (var driver in List)
             {
                 J[driver.Key] = driver.Value.SaveToZip();
             }

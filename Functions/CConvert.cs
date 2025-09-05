@@ -1,4 +1,5 @@
 ﻿using Avalonia.Controls;
+using Avalonia.Media;
 using DBMS.Classes;
 using DBMS.Enums;
 using HarfBuzzSharp;
@@ -251,6 +252,31 @@ namespace DBMS.Functions
                 case FormPageType.Script: return "Script";
                 case FormPageType.Action: return "Action";
                 default: return "SingleTable";
+            }
+        }
+        public static string SecsToString(int i) 
+        {
+            int hour;
+            int minute;
+            int second;
+            hour = i / 3600;
+            minute = (i % 3660 / 60);
+            second = i % 60;
+            return ("0" + hour)[^2..] + ":" + ("0" + minute)[^2..] + ":" + ("0" + second)[^2..];
+        }
+        public static IBrush FromHex(string hex)
+        {
+            if (string.IsNullOrWhiteSpace(hex))
+                return Brushes.Transparent;
+
+            try
+            {
+                var color = Color.Parse(hex); // понимает #RGB, #RRGGBB, #AARRGGBB
+                return new SolidColorBrush(color);
+            }
+            catch
+            {
+                return Brushes.Transparent;
             }
         }
     }

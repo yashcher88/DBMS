@@ -12,13 +12,14 @@ namespace DBMS.Classes
          * Объект окна, содержит в себе все элементы, которые есть в окне
          */
         public Dictionary<string,LanguageControl> LanguageControls = new Dictionary<string,LanguageControl>();
-        public void ReadFromWindow(Window W, bool isRewrite) {
+        public void ReadFromWindow(Window W, bool isRewrite)
+        {
             ControlType = UserControlType.Window;
             ControlProperty = UserControlProperty.Title;
             SetTitle(W.Title, isRewrite);
 
             var A = Functions.Form.GetControls(W);
-            for (var i = 0; i < A.Count; i++) 
+            for (var i = 0; i < A.Count; i++)
             {
                 if (!string.IsNullOrEmpty(A[i].Name))
                 {
@@ -33,7 +34,33 @@ namespace DBMS.Classes
                         LC = new LanguageControl();
                         LanguageControls.Add(CName, LC);
                     }
-                    LC.ReadFromControl(A[i],isRewrite);
+                    LC.ReadFromControl(A[i], isRewrite);
+                }
+            }
+        }
+        public void ReadFromUserControl(BaseUserControl W, bool isRewrite)
+        {
+            ControlType = UserControlType.Window;
+            ControlProperty = UserControlProperty.Title;
+            //SetTitle(W.Title, isRewrite);
+
+            var A = Functions.Form.GetControlsFormUserControl(W);
+            for (var i = 0; i < A.Count; i++)
+            {
+                if (!string.IsNullOrEmpty(A[i].Name))
+                {
+                    LanguageControl LC;
+                    string CName = A[i].GetType().Name + "_" + A[i].Name;
+                    if (LanguageControls.ContainsKey(CName))
+                    {
+                        LC = LanguageControls[CName];
+                    }
+                    else
+                    {
+                        LC = new LanguageControl();
+                        LanguageControls.Add(CName, LC);
+                    }
+                    LC.ReadFromControl(A[i], isRewrite);
                 }
             }
         }
@@ -63,7 +90,25 @@ namespace DBMS.Classes
             if (Title != null)
             {
                 W.Title = Title;
-                var A = Functions.Form.GetControls(W);
+                var A = Form.GetControls(W);
+                for (var i = 0; i < A.Count; i++)
+                {
+                    if (!string.IsNullOrEmpty(A[i].Name))
+                    {
+                        string CName = A[i].GetType().Name + "_" + A[i].Name;
+                        if (LanguageControls.ContainsKey(CName))
+                        {
+                            LanguageControls[CName].WriteToControl(A[i]);
+                        }
+                    }
+                }
+            }
+        }
+        public void WriteToUserControl(BaseUserControl W)
+        {
+            if (Title != null)
+            {
+                var A = Form.GetControlsFormUserControl(W);
                 for (var i = 0; i < A.Count; i++)
                 {
                     if (!string.IsNullOrEmpty(A[i].Name))

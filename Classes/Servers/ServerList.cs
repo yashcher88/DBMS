@@ -20,5 +20,25 @@ namespace DBMS.Classes
             }
             return null;
         }
+        public void ChangeServer(Server NewServer, int OldServerIndex = -1) 
+        {
+            if (OldServerIndex != -1)
+            {
+                /*int index = List.Count - OldServerIndex;
+                var S = List[index];
+                List.RemoveAt(index);
+                S.Name = NewServer.Name;
+                S.StateColor = NewServer.StateColor;
+                S.SavePassword = NewServer.SavePassword;
+                S.Password = NewServer.Password;
+                S.CodePage = NewServer.CodePage;
+                S.DefaultDB = NewServer.DefaultDB;*/
+                List.Add(NewServer);
+            }
+            else 
+            {
+                List.Add(NewServer);
+            }
+        }
     }
 }
