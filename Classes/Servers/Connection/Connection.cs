@@ -76,7 +76,7 @@ namespace DBMS.Classes
             }
             return res;
         }
-        public void Execute(string Batch)
+        public bool Execute(string Batch)
         {
             State = ConnectionStateType.Executing;
             LastStart = DateTime.Now;
@@ -112,6 +112,70 @@ namespace DBMS.Classes
                 }
             }
             Results.Add(dataTable);
+            return true;
+        }
+        public async Task<bool> ExecuteAsync(string batch)
+        {
+            State = ConnectionStateType.Executing;
+            LastStart = DateTime.Now;
+            Results.Clear();
+
+            try
+            {
+                await using var connection = await (dataSource as NpgsqlDataSource).OpenConnectionAsync();
+                await using var command = new NpgsqlCommand(batch, connection);
+
+                await using var reader = await command.ExecuteReaderAsync();
+
+                if (reader.HasRows)
+                {
+                    // Чтение результата
+                    var dataTable = new ViewTable();
+                    bool headerFilled = false;
+
+                    while (await reader.ReadAsync())
+                    {
+                        if (!headerFilled)
+                        {
+                            List<string> columns = new List<string>();
+                            for (int i = 0; i < reader.FieldCount; i++)
+                                columns.Add(reader.GetName(i));
+                            dataTable.FillColumns(columns);
+                            headerFilled = true;
+                        }
+
+                        List<string> row = new List<string>();
+                        for (int i = 0; i < reader.FieldCount; i++)
+                            row.Add(reader.GetValue(i)?.ToString() ?? "NULL");
+                        dataTable.AddRow(row);
+                    }
+
+                    Results.Add(dataTable);
+                }
+                else
+                {
+                    // Нет строк → это был DML/DDL
+                    int affected = reader.RecordsAffected;
+                    Messages.Add(new ConnectionMessage()
+                    {
+                        ErrorType = ConnectionTypeError.Info,
+                        Message = $"Выполнено успешно, затронуто строк: {affected}"
+                    });
+                }
+
+                State = ConnectionStateType.Complete;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                State = ConnectionStateType.CompleteError;
+                Messages.Add(new ConnectionMessage()
+                {
+                    ErrorType = ConnectionTypeError.Error,
+                    Message = ex.Message
+                });
+                return false;
+            }
         }
         public ConnectionMessage GetLastError()
         {

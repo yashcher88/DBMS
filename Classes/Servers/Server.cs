@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBMS.Functions;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace DBMS.Classes
     {
         public string Name;
 
-        public Driver Driver;
+        public Driver driver;
         public string Host;
         public int Port;
         public string Login;
@@ -28,13 +29,13 @@ namespace DBMS.Classes
         public ServerStatistic Statistic;
 
 
-        public Server(string _name, string _host, int _port, string _login, string _password, Driver _driver, string _defaultDB, bool _savePassword, string _codepage, Avalonia.Media.Color _statecolor)
+        public void FillServer(string _name, string _host, int _port, string _login, string _password, Driver _driver, string _defaultDB, bool _savePassword, string _codepage, Avalonia.Media.Color _statecolor)
         {
             Host = _host;
             Port = _port;
             Login = _login;
             Password = _password;
-            Driver = _driver;
+            driver = _driver;
             DefaultDB = _defaultDB;
             SavePassword = _savePassword;
             CodePage = _codepage;
@@ -52,11 +53,12 @@ namespace DBMS.Classes
         public JsonObject SaveServerToJson()
         {
             JsonObject J = new JsonObject();
+            J["Name"] = Name;
             J["Host"] = Host;
             J["Port"] = Port;
             J["Login"] = Login;
-            J["Password"] = Password;
-            J["Driver"] = Driver.DriverType;
+            J["Password"] = CConvert.Encrypt(Password);
+            J["Driver"] = driver.Name;
             J["DefaultDB"] = DefaultDB;
             J["SavePassword"] = SavePassword.ToString();
             J["CodePage"] = CodePage;
@@ -65,30 +67,30 @@ namespace DBMS.Classes
         }
         public void LoadServerFromJson(JsonNode J)
         {
+            Name = J["Name"].ToString();
             Host = J["Host"].ToString();
-            J["Port"] = Port;
-            J["Login"] = Login;
-            J["Password"] = Password;
-            J["Driver"] = Driver.DriverType;
-            J["DefaultDB"] = DefaultDB;
-            J["SavePassword"] = SavePassword.ToString();
-            J["CodePage"] = CodePage;
-            J["StateColor"] = StateColor.ToString();
+            Port = Convert.ToInt32(J["Port"].ToString());
+            Login = J["Login"].ToString();
+            Password = CConvert.Decrypt(J["Password"].ToString());
+            driver = Program.store.Drivers.List[J["Driver"].ToString()];
+            DefaultDB = J["DefaultDB"].ToString();
+            SavePassword =  Convert.ToBoolean(J["SavePassword"].ToString());
+            CodePage = J["CodePage"].ToString();
+            StateColor = Avalonia.Media.Color.Parse(J["StateColor"].ToString());
         }
         public Server Clone() 
         {
-            Server S = new Server(
-                Name,
+            Server S = new Server();
+            S.FillServer(Name,
                 Host,
                 Port,
                 Login,
                 Password,
-                Driver,
+                driver,
                 DefaultDB,
                 SavePassword,
                 CodePage,
-                StateColor
-            );
+                StateColor);
             return S;
         }
     }

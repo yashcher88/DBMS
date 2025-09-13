@@ -22,7 +22,6 @@ namespace DBMS.Classes
         public Dictionary<string, DriverScriptTemplate> Templates = new Dictionary<string, DriverScriptTemplate>();
 
         public string Name;
-        public string DriverType;
         public Driver(string _name) 
         {
             Name = _name;

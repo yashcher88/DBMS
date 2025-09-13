@@ -79,7 +79,6 @@
     <Folder Include="Classes\Servers\Database\" />
     <Folder Include="Classes\Servers\Driver\DriverLanguage\" />
     <Folder Include="Classes\Servers\Driver\DriverTemplate\" />
-    <Folder Include="Sources\StateIcons\" />
   </ItemGroup>
   <ItemGroup>
     <AvaloniaResource Update="Sources\Styles\Old\DataGrid.axaml">

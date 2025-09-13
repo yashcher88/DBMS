@@ -33,7 +33,7 @@ namespace DBMS
             await Task.Delay(200);
 
             StateText.Text = $"Load servers";
-            //store.LoadServers();
+            store.LoadServers();
             await Task.Delay(200);
 
             StateText.Text = $"Load user settings";

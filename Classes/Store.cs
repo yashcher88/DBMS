@@ -60,5 +60,18 @@ namespace DBMS.Classes
             SaveLanguage();
             SaveVersion();
         }
+        public void SaveServers()
+        {
+            FileUtils.SaveFileToZip(Path.ServersPath, "servers", Servers.SaveObjectToJson().ToString());
+        }
+        public void LoadServers()
+        {
+            string Content = FileUtils.GetFileFromZip(Path.ServersPath, "servers");
+            if (Content != null)
+            {
+                var J = JsonNode.Parse(Content);
+                Servers.LoadObjectFromJson(J.AsArray());
+            }
+        }
     }
 }

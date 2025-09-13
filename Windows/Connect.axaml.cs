@@ -42,7 +42,7 @@ public partial class Connect : BaseWindow
         SelectedServerIndex = ServerIndex;
         var S = store.Servers.List[ServerIndex];
         NameText.SelectedItem = S.Name; //Не проставляется
-        DriverText.SelectedIndex = DriverText.Items.IndexOf(S.Driver.Name);
+        DriverText.SelectedIndex = DriverText.Items.IndexOf(S.driver.Name);
         HostText.Text = S.Host;
         PortText.Text = Convert.ToString(S.Port);
         LoginText.Text = S.Login;
@@ -77,7 +77,8 @@ public partial class Connect : BaseWindow
         Server S;
         if (Server == null)
         {
-            S = new Server(
+            S = new Server();
+            S.FillServer(
                 NameText.Text,
                 HostText.Text,
                 Convert.ToInt32(PortText.Text),
@@ -107,6 +108,7 @@ public partial class Connect : BaseWindow
         {
             //Добавляем сервер
             store.Servers.ChangeServer(S, SelectedServerIndex);
+            store.SaveServers();
             Close();
         }
         else
@@ -139,6 +141,16 @@ public partial class Connect : BaseWindow
     }
     public void FormServerChange(object sender, RoutedEventArgs e)
     {
-        //SelectDriver();
+        if (NameText.SelectedItem != null) 
+        {
+            for (var i = 0; i < store.Servers.List.Count; i++) 
+            {
+                if (store.Servers.List[i].Name == NameText.SelectedItem.ToString()) 
+                {
+                    SelectServer(i);
+                    break;
+                }
+            }
+        }
     }
 }

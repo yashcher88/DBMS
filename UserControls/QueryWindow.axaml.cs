@@ -5,6 +5,7 @@ using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
+using Avalonia.Threading;
 using AvaloniaEdit;
 using DBMS.Classes;
 using DBMS.Enums;
@@ -19,15 +20,37 @@ public partial class QueryWindow : BaseUserControl
 {
     public Connection Connection;
     public object Form;
+    public DispatcherTimer Timer;
     //private TextBlock QueryStateControl => this.FindControl<TextBlock>("QueryState");
     public QueryWindow()
     {
         Form = this;
         InitializeComponent();
+        Timer = new DispatcherTimer
+        {
+            Interval = TimeSpan.FromMilliseconds(100)
+        };
+        Timer.Tick += OnTimer;
     }
-    public void ExecuteQuery(object sender, RoutedEventArgs e)
+    public void OnTimer(object sender, EventArgs e) 
     {
-
+        QueryTime.Text = CConvert.SecsToString(System.DateTime.Now.Subtract(Connection.LastStart).Seconds);
+    }
+    async public void ExecuteQuery(object sender, RoutedEventArgs e)
+    {
+        Timer.Start();
+        string Batch = "";
+        if (QueryText.SelectedText != "")
+        {
+            Batch = QueryText.SelectedText;
+        }
+        else 
+        {
+            Batch = QueryText.Text;
+        }
+        await Connection.ExecuteAsync(Batch);
+        RefreshState();
+        Timer.Stop();
     }
     public void RefreshState() 
     {
@@ -56,17 +79,17 @@ public partial class QueryWindow : BaseUserControl
                     break;
                 case ConnectionStateType.Complete:
                     QueryState.Text = "Выполнено";
-                    ImageState.Source = new Bitmap(AssetLoader.Open(new Uri("avares://DBMS/Sources/ButtonIcons/Complete.png")));
+                    ImageState.Source = new Bitmap(AssetLoader.Open(new Uri("avares://DBMS/Sources/StateIcons/Complete.png")));
                     QueryTime.Text = CConvert.SecsToString(System.DateTime.Now.Subtract(Connection.LastStart).Seconds);
                     break;
                 case ConnectionStateType.CompleteError:
                     QueryState.Text = "Выполнено с ошибками";
-                    ImageState.Source = new Bitmap(AssetLoader.Open(new Uri("avares://DBMS/Sources/ButtonIcons/CompleteError.png")));
+                    ImageState.Source = new Bitmap(AssetLoader.Open(new Uri("avares://DBMS/Sources/StateIcons/CompleteError.png")));
                     QueryTime.Text = CConvert.SecsToString(System.DateTime.Now.Subtract(Connection.LastStart).Seconds);
                     break;
                 case ConnectionStateType.Canceled:
                     QueryState.Text = "Отменено";
-                    ImageState.Source = new Bitmap("/Sources/ButtonIcons/CompleteError.png");
+                    ImageState.Source = new Bitmap("/Sources/ButtonIcons/Canceled.png");
                     QueryTime.Text = CConvert.SecsToString(System.DateTime.Now.Subtract(Connection.LastStart).Seconds);
                     break;
             }

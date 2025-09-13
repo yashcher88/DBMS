@@ -9,6 +9,7 @@
         WindowStartupLocation="CenterScreen"
 		Opened="FormAfterShow"
 		Icon="/Sources/Icons/SmallMainIcon.ico"
+		CanResize="false"
 		>
 	<Panel>
 		<Image Source="/Sources/Images/connect_db.png" VerticalAlignment="Top" />
@@ -17,7 +18,7 @@
 				<TabItem Header="Основные">
 					<Grid RowDefinitions="*,28,28,28,28,28,28,*" ColumnDefinitions="1*,150,250,6*">
 						<TextBlock Grid.Row="1" Grid.Column="1" Text="Название:" Classes="ConnectionBlock"/>
-						<AutoCompleteBox Grid.Row="1" Grid.Column="2" Name="NameText" Classes="ConnectionEdit"/>
+						<AutoCompleteBox Grid.Row="1" Grid.Column="2" Name="NameText" Classes="ConnectionEdit" FilterMode="Contains" SelectionChanged="FormServerChange"/>
 						<TextBlock Grid.Row="2" Grid.Column="1" Text="Драйвер:" Name="DriverLabel" Classes="ConnectionBlock"/>
 						<ComboBox Grid.Row="2" Grid.Column="2" Name="DriverText" Classes="ConnectionEdit" SelectionChanged="FormDriverChange"/>
 						<TextBlock Grid.Row="3" Grid.Column="1" Text="Имя сервера:" Classes="ConnectionBlock"/>
