@@ -9,6 +9,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tmds.DBus.Protocol;
 
 namespace DBMS.Classes
 {
@@ -123,6 +124,13 @@ namespace DBMS.Classes
             try
             {
                 await using var connection = await (dataSource as NpgsqlDataSource).OpenConnectionAsync();
+                if (ReadNotice) 
+                { 
+                    connection.Notice += (sender, args) =>
+                    {
+                        Messages.Add(new ConnectionMessage() { ErrorType = ConnectionTypeError.Info, Message = "NOTICE: "+args.Notice.MessageText });
+                    };
+                }
                 await using var command = new NpgsqlCommand(batch, connection);
 
                 await using var reader = await command.ExecuteReaderAsync();
@@ -151,6 +159,11 @@ namespace DBMS.Classes
                     }
 
                     Results.Add(dataTable);
+                    Messages.Add(new ConnectionMessage()
+                    {
+                        ErrorType = ConnectionTypeError.Info,
+                        Message = $"(затронуто строк: {dataTable.Rows.Count})"
+                    });
                 }
                 else
                 {
@@ -159,10 +172,14 @@ namespace DBMS.Classes
                     Messages.Add(new ConnectionMessage()
                     {
                         ErrorType = ConnectionTypeError.Info,
-                        Message = $"Выполнено успешно, затронуто строк: {affected}"
+                        Message = $"(затронуто строк: {affected})"
                     });
                 }
-
+                Messages.Add(new ConnectionMessage()
+                {
+                    ErrorType = ConnectionTypeError.Info,
+                    Message = $"Время выполнения " + DateTime.Now.ToString("O")
+                });
                 State = ConnectionStateType.Complete;
                 return true;
             }

@@ -103,6 +103,7 @@ public partial class Connect : BaseWindow
         }
         Connection = new Connection();
         Connection.Server = S;
+        Connection.NowDatabase = DBText.Text;
         var M = Connection.CheckConnection();
         if (M) 
         {

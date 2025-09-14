@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Avalonia.Controls;
+using Avalonia.Media.Imaging;
+using Avalonia.Platform;
+using DBMS.Functions;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json.Nodes;
-using Avalonia.Controls;
-using DBMS.Functions;
 
 namespace DBMS.Classes
 {
@@ -17,7 +20,7 @@ namespace DBMS.Classes
         public DriverList Drivers = new DriverList();
         public ServerList Servers = new ServerList();
         public UserStyle Style = new UserStyle();
-
+        public Dictionary<string,Bitmap> Images = new Dictionary<string,Bitmap>();
         public Store() 
         {
             AddDriver("PostgreSQL");
@@ -72,6 +75,24 @@ namespace DBMS.Classes
                 var J = JsonNode.Parse(Content);
                 Servers.LoadObjectFromJson(J.AsArray());
             }
+        }
+        public void LoadImages() 
+        {
+            Images.Add("ButtonIcons.Connect", new Bitmap(AssetLoader.Open(new Uri("avares://DBMS/Sources/ButtonIcons/Connect.png"))));
+            Images.Add("ButtonIcons.Disconnect", new Bitmap(AssetLoader.Open(new Uri("avares://DBMS/Sources/ButtonIcons/Disconnect.png"))));
+            Images.Add("StateIcons.Complete", new Bitmap(AssetLoader.Open(new Uri("avares://DBMS/Sources/StateIcons/Complete.png"))));
+            Images.Add("StateIcons.CompleteError", new Bitmap(AssetLoader.Open(new Uri("avares://DBMS/Sources/StateIcons/CompleteError.png"))));
+            Images.Add("StateIcons.Canceled", new Bitmap(AssetLoader.Open(new Uri("avares://DBMS/Sources/StateIcons/Canceled.png"))));
+            Images.Add("StateIcons.Executing.0", new Bitmap(AssetLoader.Open(new Uri("avares://DBMS/Sources/StateIcons/Executing/0.png"))));
+            Images.Add("StateIcons.Executing.1", new Bitmap(AssetLoader.Open(new Uri("avares://DBMS/Sources/StateIcons/Executing/1.png"))));
+            Images.Add("StateIcons.Executing.2", new Bitmap(AssetLoader.Open(new Uri("avares://DBMS/Sources/StateIcons/Executing/2.png"))));
+            Images.Add("StateIcons.Executing.3", new Bitmap(AssetLoader.Open(new Uri("avares://DBMS/Sources/StateIcons/Executing/3.png"))));
+            Images.Add("StateIcons.Executing.4", new Bitmap(AssetLoader.Open(new Uri("avares://DBMS/Sources/StateIcons/Executing/4.png"))));
+            Images.Add("StateIcons.Executing.5", new Bitmap(AssetLoader.Open(new Uri("avares://DBMS/Sources/StateIcons/Executing/5.png"))));
+            Images.Add("StateIcons.Executing.6", new Bitmap(AssetLoader.Open(new Uri("avares://DBMS/Sources/StateIcons/Executing/6.png"))));
+            Images.Add("StateIcons.Executing.7", new Bitmap(AssetLoader.Open(new Uri("avares://DBMS/Sources/StateIcons/Executing/7.png"))));
+            Images.Add("StateIcons.Executing.8", new Bitmap(AssetLoader.Open(new Uri("avares://DBMS/Sources/StateIcons/Executing/8.png"))));
+            Images.Add("StateIcons.Executing.9", new Bitmap(AssetLoader.Open(new Uri("avares://DBMS/Sources/StateIcons/Executing/9.png"))));
         }
     }
 }

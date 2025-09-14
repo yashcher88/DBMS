@@ -28,6 +28,10 @@ namespace DBMS
             store.LoadLanguage();
             await Task.Delay(200);
 
+            StateText.Text = $"Load files";
+            store.LoadImages();
+            await Task.Delay(200);
+
             StateText.Text = $"Load default settings";
             //store.LoadSets();
             await Task.Delay(200);
