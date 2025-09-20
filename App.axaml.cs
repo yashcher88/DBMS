@@ -18,6 +18,7 @@ namespace DBMS
         public override void OnFrameworkInitializationCompleted()
         {
 
+            Resources["UserColors"] = Program.store.Style.Colors;
             base.OnFrameworkInitializationCompleted();
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {

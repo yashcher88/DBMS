@@ -35,13 +35,12 @@ public partial class Connect : BaseWindow
         PortText.Text = driver.Info.DefaultPort.ToString();
         DBText.Text = driver.Info.DefaultDB;
         CodePageText.Text = driver.Info.DefaultDB;
-//        ColorText.Color = #177caa;
     }
     public void SelectServer(int ServerIndex) 
     {
         SelectedServerIndex = ServerIndex;
         var S = store.Servers.List[ServerIndex];
-        NameText.SelectedItem = S.Name; //Не проставляется
+        NameText.SelectedItem = S.Name;
         DriverText.SelectedIndex = DriverText.Items.IndexOf(S.driver.Name);
         HostText.Text = S.Host;
         PortText.Text = Convert.ToString(S.Port);
@@ -68,12 +67,6 @@ public partial class Connect : BaseWindow
     }
     async public void FormConnect(object sender, RoutedEventArgs e)
     {
-        /*
-         План:
-        1)  Выполняем проверку соединения
-            Если проверка выполнена необходимо добавить Server в список и Connection в список
-         
-         */
         Server S;
         if (Server == null)
         {
@@ -138,7 +131,10 @@ public partial class Connect : BaseWindow
     }
     public void FormPasswordChange(object sender, RoutedEventArgs e)
     {
-        NowPassword = PasswordText.Text;
+        if (PasswordText.Text != HidePassword) 
+        { 
+            NowPassword = PasswordText.Text;
+        }
     }
     public void FormServerChange(object sender, RoutedEventArgs e)
     {

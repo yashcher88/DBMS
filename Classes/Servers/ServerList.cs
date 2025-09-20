@@ -24,7 +24,12 @@ namespace DBMS.Classes
         public void ChangeServer(Server NewServer, int OldServerIndex = -1) 
         {
             /*Нужно искать по Хосту+Логин+Порт+Драйвер*/
-            if (OldServerIndex != -1)
+            if (OldServerIndex != -1 &&
+                NewServer.Host == List[OldServerIndex].Host &&
+                NewServer.Login == List[OldServerIndex].Login &&
+                NewServer.Port == List[OldServerIndex].Port &&
+                NewServer.driver == List[OldServerIndex].driver
+                )
             {
                 var S = List[OldServerIndex];
                 List.RemoveAt(OldServerIndex);

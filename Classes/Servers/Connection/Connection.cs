@@ -32,7 +32,7 @@ namespace DBMS.Classes
             State = ConnectionStateType.Disconnected;
             if (dataSource == null)
             {
-                var connectionString = "Host=" + Server.Host + ":" + Server.Port + ";Username=" + Server.Login + ";Password=" + Server.Password + ";Database=" + NowDatabase;
+                var connectionString = "Host=" + Server.Host + ":" + Server.Port + ";Username=" + Server.Login + ";Password=" + Server.Password + ";Database=" + NowDatabase+ ";Timeout=10; CommandTimeout=0";
                 var builder = new NpgsqlDataSourceBuilder(connectionString);
                 dataSource = builder.Build();
             }

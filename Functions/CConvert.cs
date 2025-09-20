@@ -257,14 +257,14 @@ namespace DBMS.Functions
                 default: return "SingleTable";
             }
         }
-        public static string SecsToString(int i) 
+        public static string SecsToString(TimeSpan i) 
         {
             int hour;
             int minute;
             int second;
-            hour = i / 3600;
-            minute = (i % 3660 / 60);
-            second = i % 60;
+            hour = i.Hours + (i.Days * 24);
+            minute = i.Minutes;
+            second = i.Seconds;
             return ("0" + hour)[^2..] + ":" + ("0" + minute)[^2..] + ":" + ("0" + second)[^2..];
         }
         public static IBrush FromHex(string hex)

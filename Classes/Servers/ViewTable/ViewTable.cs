@@ -18,7 +18,9 @@ namespace DBMS.Classes
         }
         public void AddRow(List<string> Values)
         {
-            Rows.Add(new ViewTableRow(Values));
+            var R = new ViewTableRow(Values);
+            R.Index = Rows.Count + 1;
+            Rows.Add(R);
         }
         public void FillDataGrid(DataGrid D)
         {
@@ -26,6 +28,11 @@ namespace DBMS.Classes
             D.AutoGenerateColumns = false;
             D.Columns.Clear();
             D.ItemsSource = Rows;
+            DataGridTextColumn TC1 = new DataGridTextColumn();
+            TC1.Header = "";
+            TC1.Binding = new Binding("Index");
+            D.Columns.Add(TC1);
+
             for (int i = 0; i < Columns.Count; i++)
             {
                 DataGridTextColumn TC = new DataGridTextColumn();

@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<SyntaxDefinition name="PostgreSQL" extensions=".pgsql;.psql;.sql" xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+
+  <Color name="Comment" foreground="Green"/>
+  <Color name="String" foreground="Maroon"/>
+  <Color name="Number" foreground="Blue"/>
+  <Color name="Keyword" foreground="Blue" fontWeight="bold"/>
+  <Color name="Type" foreground="Teal" fontWeight="bold"/>
+  <Color name="Function" foreground="Purple"/>
+  <Color name="Operator" foreground="DarkCyan"/>
+
+  <RuleSet ignoreCase="true">
+    <!-- Comments -->
+    <Span color="Comment" begin="--" end="\n"/>
+    <Span color="Comment" begin="/\*" end="\*/"/>
+
+    <!-- Strings -->
+    <Span color="String" begin="'" end="'" escapeCharacter="\"/>
+    <Span color="String" begin="E'" end="'" escapeCharacter="\"/>
+    <Span color="String" begin="&quot;" end="&quot;" escapeCharacter="\"/>
+
+    <!-- SQL & PostgreSQL Keywords -->
+    <Keywords color="Keyword">
+      <Word>SELECT</Word>
+      <Word>INSERT</Word>
+      <Word>UPDATE</Word>
+      <Word>DELETE</Word>
+      <Word>FROM</Word>
+      <Word>WHERE</Word>
+      <Word>GROUP</Word>
+      <Word>BY</Word>
+      <Word>ORDER</Word>
+      <Word>LIMIT</Word>
+      <Word>OFFSET</Word>
+      <Word>JOIN</Word>
+      <Word>INNER</Word>
+      <Word>LEFT</Word>
+      <Word>RIGHT</Word>
+      <Word>FULL</Word>
+      <Word>OUTER</Word>
+      <Word>ON</Word>
+      <Word>AS</Word>
+      <Word>AND</Word>
+      <Word>OR</Word>
+      <Word>NOT</Word>
+      <Word>IN</Word>
+      <Word>IS</Word>
+      <Word>NULL</Word>
+      <Word>TRUE</Word>
+      <Word>FALSE</Word>
+      <Word>RETURNING</Word>
+      <Word>WITH</Word>
+      <Word>RECURSIVE</Word>
+      <Word>UNION</Word>
+      <Word>ALL</Word>
+      <Word>DISTINCT</Word>
+      <Word>EXCEPT</Word>
+      <Word>INTERSECT</Word>
+      <Word>CASE</Word>
+      <Word>WHEN</Word>
+      <Word>THEN</Word>
+      <Word>ELSE</Word>
+      <Word>END</Word>
+      <Word>DEFAULT</Word>
+      <Word>CHECK</Word>
+      <Word>PRIMARY</Word>
+      <Word>FOREIGN</Word>
+      <Word>REFERENCES</Word>
+      <Word>CONSTRAINT</Word>
+      <Word>UNIQUE</Word>
+      <Word>INDEX</Word>
+      <Word>SEQUENCE</Word>
+      <Word>TRIGGER</Word>
+      <Word>VIEW</Word>
+      <Word>MATERIALIZED</Word>
+      <Word>TABLE</Word>
+      <Word>SCHEMA</Word>
+      <Word>DATABASE</Word>
+      <Word>USER</Word>
+      <Word>ROLE</Word>
+      <Word>GRANT</Word>
+      <Word>REVOKE</Word>
+      <Word>BEGIN</Word>
+      <Word>COMMIT</Word>
+      <Word>ROLLBACK</Word>
+      <Word>SAVEPOINT</Word>
+      <Word>RELEASE</Word>
+      <Word>DO</Word>
+      <Word>DECLARE</Word>
+      <Word>EXCEPTION</Word>
+      <Word>RAISE</Word>
+      <Word>LANGUAGE</Word>
+      <Word>PLPGSQL</Word>
+      <Word>IMMUTABLE</Word>
+      <Word>STABLE</Word>
+      <Word>VOLATILE</Word>
+    </Keywords>
+
+    <!-- PostgreSQL Data Types -->
+    <Keywords color="Type">
+      <Word>SMALLINT</Word>
+      <Word>INTEGER</Word>
+      <Word>BIGINT</Word>
+      <Word>SERIAL</Word>
+      <Word>BIGSERIAL</Word>
+      <Word>DECIMAL</Word>
+      <Word>NUMERIC</Word>
+      <Word>REAL</Word>
+      <Word>DOUBLE</Word>
+      <Word>PRECISION</Word>
+      <Word>MONEY</Word>
+      <Word>BOOLEAN</Word>
+      <Word>CHAR</Word>
+      <Word>VARCHAR</Word>
+      <Word>TEXT</Word>
+      <Word>BYTEA</Word>
+      <Word>UUID</Word>
+      <Word>DATE</Word>
+      <Word>TIME</Word>
+      <Word>TIMESTAMP</Word>
+      <Word>TIMESTAMPTZ</Word>
+      <Word>INTERVAL</Word>
+      <Word>JSON</Word>
+      <Word>JSONB</Word>
+      <Word>XML</Word>
+      <Word>POINT</Word>
+      <Word>LINE</Word>
+      <Word>LSEG</Word>
+      <Word>BOX</Word>
+      <Word>PATH</Word>
+      <Word>POLYGON</Word>
+      <Word>CIRCLE</Word>
+      <Word>CIDR</Word>
+      <Word>INET</Word>
+      <Word>MACADDR</Word>
+      <Word>TSVECTOR</Word>
+      <Word>TSQUERY</Word>
+      <Word>ARRAY</Word>
+      <Word>HSTORE</Word>
+    </Keywords>
+
+    <!-- Functions -->
+    <Keywords color="Function">
+      <Word>NOW</Word>
+      <Word>CURRENT_DATE</Word>
+      <Word>CURRENT_TIME</Word>
+      <Word>CURRENT_TIMESTAMP</Word>
+      <Word>EXTRACT</Word>
+      <Word>AGE</Word>
+      <Word>TO_CHAR</Word>
+      <Word>TO_DATE</Word>
+      <Word>TO_TIMESTAMP</Word>
+      <Word>CAST</Word>
+      <Word>COALESCE</Word>
+      <Word>NULLIF</Word>
+      <Word>GREATEST</Word>
+      <Word>LEAST</Word>
+      <Word>STRING_AGG</Word>
+      <Word>ARRAY_AGG</Word>
+      <Word>JSONB_BUILD_OBJECT</Word>
+      <Word>JSONB_BUILD_ARRAY</Word>
+      <Word>JSONB_AGG</Word>
+      <Word>ROW_TO_JSON</Word>
+      <Word>ARRAY_TO_JSON</Word>
+    </Keywords>
+
+    <!-- Operators -->
+    <Keywords color="Operator">
+      <Word>LIKE</Word>
+      <Word>ILIKE</Word>
+      <Word>SIMILAR</Word>
+      <Word>BETWEEN</Word>
+    </Keywords>
+  </RuleSet>
+</SyntaxDefinition>

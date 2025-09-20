@@ -13,7 +13,7 @@
 		<Style Selector="AvaloniaEdit|TextEditor">
 			<Setter Property="Background" Value="{Binding Style.Colors[ControlBackground]}"/>
 			<Setter Property="BorderBrush" Value="{Binding Style.Colors[ControlBorder]}"/>
-			<Setter Property="BorderThickness" Value="1"/>			
+			<Setter Property="BorderThickness" Value="1 1 1 0"/>			
 		</Style>
 		<Style Selector="SelectableTextBlock">
 			<Setter Property="Background" Value="{Binding Style.Colors[ControlBackground]}"/>
@@ -51,8 +51,23 @@
 		<Style Selector="DataGridCell TextBlock">
 			<Setter Property="Margin" Value="0"/>
 		</Style>
+		<Style Selector="GridSplitter">
+			<Setter Property="BorderBrush" Value="{Binding Style.Colors[ControlBorder]}"/>
+			<Setter Property="BorderThickness" Value="1 1 1 0"/>
+		</Style>
+		<!-- скрываем фон выделенной строки -->
+		<Style Selector="DataGridRow:selected /template/ Rectangle">
+			<Setter Property="Fill" Value="Transparent"/>
+		</Style>
+
+		<!-- выделяем только ту ячейку, в которой фокус (или редактор внутри нее) -->
+		<Style Selector="DataGridCell:focus-within /template/ Border">
+			<Setter Property="Background" Value="#DCEEFF"/>
+			<Setter Property="BorderBrush" Value="#3399FF"/>
+			<Setter Property="BorderThickness" Value="1"/>
+		</Style>
 	</UserControl.Styles>
-	<Grid RowDefinitions="*,4,*,22">
+	<Grid RowDefinitions="*,0,0,22" x:Name="MainGrid">
 		<AvaloniaEdit:TextEditor Text="Hello AvaloniaEdit!"
                                 ShowLineNumbers="True"
                                 FontFamily="Consolas" Grid.Row="0" x:Name="QueryText">
@@ -67,7 +82,8 @@
 		<GridSplitter Grid.Row="1" Name="ResultSplitter" IsVisible="true"/>
 		<TabControl Grid.Row="2" Name="Result" IsVisible="true">
 			<TabItem Header="Результаты" x:Name="ResultTab">
-				<DataGrid x:Name="ResultGrid" IsReadOnly="true" Margin="2">
+				<DataGrid x:Name="ResultGrid" IsReadOnly="true" Margin="2" CanUserSortColumns="false"
+						  SelectionMode="Extended">
 					
 				</DataGrid>
 			</TabItem>

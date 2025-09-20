@@ -9,6 +9,7 @@ namespace DBMS.Classes
     public class ViewTableRow
     {
         public List<string> Fields { get; set; }
+        public int Index { get; set; }
         public ViewTableRow(List<string> L)
         {
             Fields = L;

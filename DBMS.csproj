@@ -25,9 +25,10 @@
     <None Remove="Styles\**" />
   </ItemGroup>
 
-  <ItemGroup>
+  <!--<ItemGroup>
     <AvaloniaXaml Remove="Sources\Styles\Border.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\Button.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\CustomStyles.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\DataGrid.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\Grid.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\GridSplitter.axaml" />
@@ -40,7 +41,7 @@
     <AvaloniaXaml Remove="Sources\Styles\TreeView.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\TreeViewItem.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\Window.axaml" />
-  </ItemGroup>
+  </ItemGroup>-->
 
   <ItemGroup>
     <Content Include="Sources\Icons\MainIcon.ico" />
@@ -83,7 +84,7 @@
     <Folder Include="Resources\StateIcons\Executing\" />
     <Folder Include="Sources\StateIcons\Executing\" />
   </ItemGroup>
-  <ItemGroup>
+  <!--<ItemGroup>
     <AvaloniaResource Update="Sources\Styles\Old\DataGrid.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
@@ -103,6 +104,9 @@
       <SubType>Designer</SubType>
     </AvaloniaResource>
     <AvaloniaResource Update="Sources\Styles\Old\Border.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\CustomStyles.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
     <AvaloniaResource Update="Sources\Styles\Standard.axaml">
@@ -129,7 +133,7 @@
     <AvaloniaResource Update="Sources\Styles\Old\Window.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-  </ItemGroup>
+  </ItemGroup>-->
   <ItemGroup>
     <Compile Update="UserControls\QueryWindow.axaml.cs">
       <DependentUpon>QueryWindow.axaml</DependentUpon>

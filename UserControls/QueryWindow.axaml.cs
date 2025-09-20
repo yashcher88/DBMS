@@ -8,12 +8,17 @@ using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using Avalonia.Threading;
 using AvaloniaEdit;
+using AvaloniaEdit.Highlighting;
+using AvaloniaEdit.Highlighting.Xshd;
 using DBMS.Classes;
 using DBMS.Enums;
 using DBMS.Functions;
+using DocumentFormat.OpenXml.Bibliography;
 using System;
+using System.IO;
 using System.Numerics;
 using System.Reflection;
+using System.Xml;
 
 namespace DBMS.UserControls;
 
@@ -35,6 +40,12 @@ public partial class QueryWindow : BaseUserControl
             Interval = TimeSpan.FromMilliseconds(100)
         };
         Timer.Tick += OnTimer;
+        var reader = XmlReader.Create(AssetLoader.Open(new Uri("avares://DBMS/Sources/Syntax/postgresql.xshd")));
+        var highlighting = HighlightingLoader.Load(reader, HighlightingManager.Instance);
+        HighlightingManager.Instance.RegisterHighlighting(
+            "PostgreSQL", new[] { ".pgsql", ".psql", ".sql" }, highlighting);
+
+        QueryText.SyntaxHighlighting = highlighting;
     }
     public void AddMessage(int Id) 
     {
@@ -63,13 +74,20 @@ public partial class QueryWindow : BaseUserControl
                 Connection.Results[0].FillDataGrid(ResultGrid);
                 ResultTab.IsVisible = true;
             }
-            
+            var rowDefinitions = MainGrid.RowDefinitions;
+
+            if (rowDefinitions[1].Height.Value == 0) { 
+                // Изменяем определения строк: 50% для первой, 4 для разделителя, 50% для третьей
+                rowDefinitions[0].Height = new GridLength(1, GridUnitType.Star); // 50%
+                rowDefinitions[1].Height = new GridLength(4); // Разделитель
+                rowDefinitions[2].Height = new GridLength(1, GridUnitType.Star); // 50%
+            }
         }
     }
     public void OnTimer(object sender, EventArgs e)
     {
         var S = System.DateTime.Now.Subtract(Connection.LastStart);
-        QueryTime.Text = CConvert.SecsToString(S.Seconds);
+        QueryTime.Text = CConvert.SecsToString(S);
         ImageState.Source = store.Images["StateIcons.Executing." + (S.Milliseconds / 100)];
         ShowResult();
     }
@@ -79,7 +97,7 @@ public partial class QueryWindow : BaseUserControl
         ResultTab.IsVisible = false;
         ResultText.IsVisible = false;
         QueryPlan.IsVisible = false;
-        Messages.Text = "";
+        Messages.Inlines.Clear();
         Connection.Results.Clear();
         Connection.Messages.Clear();
     }
@@ -88,6 +106,7 @@ public partial class QueryWindow : BaseUserControl
         if (Connection != null)
         {
             ClearResults();
+            Connection.LastStart = DateTime.Now;
             Timer.Start();
             Connection.State = ConnectionStateType.Executing;
             RefreshState();
@@ -129,22 +148,22 @@ public partial class QueryWindow : BaseUserControl
                     break;
                 case ConnectionStateType.Executing:
                     QueryState.Text = "Выполняется";
-                    QueryTime.Text = CConvert.SecsToString(System.DateTime.Now.Subtract(Connection.LastStart).Seconds);
+                    QueryTime.Text = CConvert.SecsToString(System.DateTime.Now.Subtract(Connection.LastStart));
                     break;
                 case ConnectionStateType.Complete:
                     QueryState.Text = "Выполнено";
                     ImageState.Source = store.Images["StateIcons.Complete"];
-                    QueryTime.Text = CConvert.SecsToString(System.DateTime.Now.Subtract(Connection.LastStart).Seconds);
+                    QueryTime.Text = CConvert.SecsToString(System.DateTime.Now.Subtract(Connection.LastStart));
                     break;
                 case ConnectionStateType.CompleteError:
                     QueryState.Text = "Выполнено с ошибками";
                     ImageState.Source = store.Images["StateIcons.CompleteError"];
-                    QueryTime.Text = CConvert.SecsToString(System.DateTime.Now.Subtract(Connection.LastStart).Seconds);
+                    QueryTime.Text = CConvert.SecsToString(System.DateTime.Now.Subtract(Connection.LastStart));
                     break;
                 case ConnectionStateType.Canceled:
                     QueryState.Text = "Отменено";
                     ImageState.Source = store.Images["StateIcons.Canceled"];
-                    QueryTime.Text = CConvert.SecsToString(System.DateTime.Now.Subtract(Connection.LastStart).Seconds);
+                    QueryTime.Text = CConvert.SecsToString(System.DateTime.Now.Subtract(Connection.LastStart));
                     break;
             }
 
@@ -158,8 +177,8 @@ public partial class QueryWindow : BaseUserControl
         if (T.Connection != null) 
         { 
             Connection = T.Connection;
-        }
-        StatePanel.Background = new SolidColorBrush(Connection.Server.StateColor);
+            StatePanel.Background = new SolidColorBrush(Connection.Server.StateColor);
+        }        
         RefreshState();
     }
     public void CancelQuery(object sender, RoutedEventArgs e)

@@ -26,6 +26,7 @@
 		<StyleInclude Source="avares://AvaloniaEdit/Themes/Fluent/AvaloniaEdit.xaml" />
 		<DockFluentTheme />
 		<StyleInclude Source="avares://DBMS/Sources/Styles/Standard.axaml" />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/CustomStyles.axaml"/>
 	</Application.Styles>
 
 </Application>
