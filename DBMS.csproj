@@ -25,6 +25,25 @@
     <None Remove="Styles\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <AvaloniaXaml Remove="Sources\Styles\AutoCompleteBox.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\Button.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\CheckBox.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\ColorPicker.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\ComboBox.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\ContextMenu.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\DataGrid.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\DockControl.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\GridSplitter.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\ListBox.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\Menu.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\SelectableTextBlock.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\TabControl.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\TextBlock.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\TextEditor.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\TreeView.axaml" />
+  </ItemGroup>
+
   <!--<ItemGroup>
     <AvaloniaXaml Remove="Sources\Styles\Border.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\Button.axaml" />
@@ -83,6 +102,56 @@
     <Folder Include="Classes\Servers\Driver\DriverTemplate\" />
     <Folder Include="Resources\StateIcons\Executing\" />
     <Folder Include="Sources\StateIcons\Executing\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Update="Sources\Styles\CheckBox.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\ColorPicker.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\ComboBox.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\AutoCompleteBox.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\ContextMenu.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\TabControl.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\DockControl.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\Menu.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\TextBlock.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\SelectableTextBlock.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\DataGrid.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\GridSplitter.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\TreeView.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\ListBox.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\TextEditor.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\Button.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
   </ItemGroup>
   <!--<ItemGroup>
     <AvaloniaResource Update="Sources\Styles\Old\DataGrid.axaml">

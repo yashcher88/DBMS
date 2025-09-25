@@ -18,7 +18,7 @@ namespace DBMS.Classes
             ControlProperty = UserControlProperty.Title;
             SetTitle(W.Title, isRewrite);
 
-            var A = Functions.Form.GetControls(W);
+            var A = Form.GetControls(W);
             for (var i = 0; i < A.Count; i++)
             {
                 if (!string.IsNullOrEmpty(A[i].Name))
@@ -44,7 +44,7 @@ namespace DBMS.Classes
             ControlProperty = UserControlProperty.Title;
             //SetTitle(W.Title, isRewrite);
 
-            var A = Functions.Form.GetControlsFormUserControl(W);
+            var A = Form.GetControlsFormUserControl(W);
             for (var i = 0; i < A.Count; i++)
             {
                 if (!string.IsNullOrEmpty(A[i].Name))

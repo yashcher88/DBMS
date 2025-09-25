@@ -69,8 +69,13 @@
 	</UserControl.Styles>
 	<Grid RowDefinitions="*,0,0,22" x:Name="MainGrid">
 		<AvaloniaEdit:TextEditor Text="Hello AvaloniaEdit!"
-                                ShowLineNumbers="True"
-                                FontFamily="Consolas" Grid.Row="0" x:Name="QueryText">
+                                 ShowLineNumbers="True"
+                                 FontFamily="Consolas" 
+								 Grid.Row="0" 
+								 x:Name="QueryText" 
+								 Background="{Binding Style.Colors[ControlBackground]}" 
+								 BorderBrush="{Binding Style.Colors[ControlBorder]}"
+								 >
 			<AvaloniaEdit:TextEditor.ContextMenu>
 				<ContextMenu>
 					<MenuItem Header="Подключиться к серверу" Click="ConnectToServer"/>
@@ -83,7 +88,11 @@
 		<TabControl Grid.Row="2" Name="Result" IsVisible="true">
 			<TabItem Header="Результаты" x:Name="ResultTab">
 				<DataGrid x:Name="ResultGrid" IsReadOnly="true" Margin="2" CanUserSortColumns="false"
-						  SelectionMode="Extended">
+						  SelectionMode="Extended" 
+						  Background="{Binding Style.Colors[ControlBackground]}" 
+						  BorderBrush="{Binding Style.Colors[ControlBorder]}"
+						  
+				>
 					
 				</DataGrid>
 			</TabItem>
@@ -95,7 +104,10 @@
 			</TabItem>
 			<TabItem Header="Сообщения" x:Name="QueryMessages">
 				<Border BorderBrush="Gray" BorderThickness="1" Margin="2">
-					<SelectableTextBlock x:Name="Messages" TextWrapping="Wrap" FontFamily="Courier New"/>
+					<SelectableTextBlock x:Name="Messages" TextWrapping="Wrap" FontFamily="Courier New"
+						  Background="{Binding Style.Colors[ControlBackground]}"
+										 SelectionBrush="{Binding Style.Colors[ControlBackgroundSelected]}"
+						/>
 				</Border>
 			</TabItem>
 		</TabControl>

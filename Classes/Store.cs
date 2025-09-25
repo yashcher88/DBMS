@@ -1,5 +1,4 @@
-﻿using Avalonia.Controls;
-using Avalonia.Media.Imaging;
+﻿using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using DBMS.Functions;
 using System;
@@ -12,14 +11,13 @@ namespace DBMS.Classes
 {
     public class Store
     {
+        /* Настройки, Перевод */
+        public Sets Sets = new Sets();
         public BaseWindow Start = null;
         public BaseWindow Main = null;
-        public Pathes Path = new Pathes();
-        public LanguageObject LanguageObject = new LanguageObject();
         public int VersionPack = 0;
         public DriverList Drivers = new DriverList();
         public ServerList Servers = new ServerList();
-        public UserStyle Style = new UserStyle();
         public Dictionary<string,Bitmap> Images = new Dictionary<string,Bitmap>();
         public Store() 
         {
@@ -38,16 +36,16 @@ namespace DBMS.Classes
         }
         public void LoadVersion()
         {
-            VersionPack = Convert.ToInt32(FileUtils.GetFileFromZip(Path.PackPath, "version") ?? "0");
+            VersionPack = Convert.ToInt32(FileUtils.GetFileFromZip(Sets.Path.PackPath, "version") ?? "0");
         }
         public void SaveVersion()
         {
             VersionPack = VersionPack + 1;
-            FileUtils.SaveFileToZip(Path.PackPath, "version", VersionPack.ToString());
+            FileUtils.SaveFileToZip(Sets.Path.PackPath, "version", VersionPack.ToString());
         }
         public void LoadLanguage()
         {
-            string Content = FileUtils.GetFileFromZip(Path.PackPath, "languages");
+            string Content = FileUtils.GetFileFromZip(Sets.Path.PackPath, "languages");
             if (Content != null)
             {
                 var J = JsonNode.Parse(Content);
@@ -56,7 +54,7 @@ namespace DBMS.Classes
         }
         public void SaveLanguage()
         {
-            FileUtils.SaveFileToZip(Path.PackPath, "languages", LanguageObject.SaveObjectToJson().ToString());
+            FileUtils.SaveFileToZip(Sets.Path.PackPath, "languages", LanguageObject.SaveObjectToJson().ToString());
         }
         public void SavePack() 
         {
@@ -65,11 +63,11 @@ namespace DBMS.Classes
         }
         public void SaveServers()
         {
-            FileUtils.SaveFileToZip(Path.ServersPath, "servers", Servers.SaveObjectToJson().ToString());
+            FileUtils.SaveFileToZip(Sets.Path.ServersPath, "servers", Servers.SaveObjectToJson().ToString());
         }
         public void LoadServers()
         {
-            string Content = FileUtils.GetFileFromZip(Path.ServersPath, "servers");
+            string Content = FileUtils.GetFileFromZip(Sets.Path.ServersPath, "servers");
             if (Content != null)
             {
                 var J = JsonNode.Parse(Content);

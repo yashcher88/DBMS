@@ -2,7 +2,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Avalonia.Markup.Xaml.Styling;
-using DBMS.Classes;
+using DBMS.Classes.ProgramSetting.UserStyle;
 using System;
 
 namespace DBMS
@@ -18,7 +18,6 @@ namespace DBMS
         public override void OnFrameworkInitializationCompleted()
         {
 
-            Resources["UserColors"] = Program.store.Style.Colors;
             base.OnFrameworkInitializationCompleted();
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {

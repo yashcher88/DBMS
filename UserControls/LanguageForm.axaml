@@ -14,15 +14,6 @@
 			<!--Не работает-->
 			<!--<Setter Property="SelectionBrush" Value="{Binding Style.Colors[ControlBackgroundSelected]}"/>-->
 		</Style>
-		<Style Selector="ListBox">
-			<Setter Property="Background" Value="{Binding Style.Colors[ControlBackground]}"/>
-			<Setter Property="BorderBrush" Value="{Binding Style.Colors[ControlBorder]}"/>
-			<Setter Property="BorderThickness" Value="1"/>
-		</Style>
-		<Style Selector="ListBoxItem">
-			<Setter Property="Padding" Value="5 2 5 2"/>
-			<Setter Property="MinHeight" Value="10"/>
-		</Style>
 		<Style Selector="TreeView">
 			<Setter Property="Background" Value="{Binding Style.Colors[ControlBackground]}"/>
 			<Setter Property="BorderBrush" Value="{Binding Style.Colors[ControlBorder]}"/>
@@ -80,7 +71,14 @@
 				<Grid RowDefinitions="25*,4,75*">
 					<Grid Grid.Row="0" RowDefinitions="18,*" MinHeight="50">
 						<TextBlock Classes="title label" Name="LangListLabel" Grid.Row="0" Text="Доступные языки"/>
-						<ListBox Name="LangList" Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" DoubleTapped="FormRenameItemLangList">
+						<ListBox 
+							Name="LangList" 
+							Grid.Row="1" 
+							ScrollViewer.VerticalScrollBarVisibility="Auto" 
+							DoubleTapped="FormRenameItemLangList" 
+							Background="{Binding Style.Colors[ControlBackground]}"
+							BorderBrush="{Binding Style.Colors[ControlBorder]}"
+						>
 							<!--
 										<TextBox Name="LangListEditor" IsVisible="false" />-->
 							<ListBox.ContextMenu>

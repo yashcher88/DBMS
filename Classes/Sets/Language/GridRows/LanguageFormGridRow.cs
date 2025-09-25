@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DBMS.Classes.Language.GridRows
+namespace DBMS.Classes.ProgramSetting.Language.GridRows
 {
     public class LanguageFormGridRow
     {

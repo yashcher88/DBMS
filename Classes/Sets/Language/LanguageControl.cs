@@ -30,7 +30,7 @@ namespace DBMS.Classes
             SetToolTip(J["ToolTip"]?.ToString());
             SetTitle(J["Title"]?.ToString());
             SetWaterMark(J["WaterMark"]?.ToString());
-            isDelete = ((bool?)J["isDelete"]) ?? false;
+            isDelete = (bool?)J["isDelete"] ?? false;
         }
         public JsonObject SaveToJson()
         {
