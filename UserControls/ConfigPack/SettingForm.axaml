@@ -1,0 +1,41 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="DBMS.UserControls.SettingForm">
+	<Grid RowDefinitions="*">
+		<Grid ColumnDefinitions="25*,4,75*" Grid.Row="1">
+			<Grid Grid.Column="0">
+				<Grid Grid.Row="0" RowDefinitions="18,*">
+					<TextBlock Classes="title" Name="SettingTreeLabel" Grid.Row="0" Text="Объекты форм"/>
+					<TreeView Name="SettingTree" Grid.Row="1">
+						<TreeView.ContextMenu>
+							<ContextMenu>
+								<MenuItem Header="Copy"/>
+								<MenuItem Header="Paste"/>
+							</ContextMenu>
+						</TreeView.ContextMenu>
+					</TreeView>
+				</Grid>
+			</Grid>
+			<GridSplitter Grid.Column="1" />
+			<Grid Grid.Column="2">
+				<DataGrid
+					Name="SettingGrid"
+					CanUserResizeColumns="true">
+					<DataGrid.ContextMenu>
+						<ContextMenu>
+							<MenuItem Header="Copy"/>
+							<MenuItem Header="Paste"/>
+						</ContextMenu>
+					</DataGrid.ContextMenu>
+					<DataGrid.Columns>
+						<DataGridTextColumn Header="Свойство"/>
+						<DataGridTextColumn Header="Значение по умолчанию"/>
+					</DataGrid.Columns>
+				</DataGrid>
+			</Grid>
+		</Grid>
+	</Grid>
+</UserControl>

@@ -5,76 +5,15 @@
 			 xmlns:AvaloniaEdit="clr-namespace:AvaloniaEdit;assembly=AvaloniaEdit"
 			 DataContext="{Binding $self}"
              mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="400"
-			 Background="{Binding Style.Colors[FormBackground]}"
-			 Foreground="{Binding Style.Colors[FormForeground]}"
-			 FontSize="{Binding Style.Sizes[LabelFontSize]}"
+			 FontSize="12"
              x:Class="DBMS.UserControls.QueryWindow">
-	<UserControl.Styles>
-		<Style Selector="AvaloniaEdit|TextEditor">
-			<Setter Property="Background" Value="{Binding Style.Colors[ControlBackground]}"/>
-			<Setter Property="BorderBrush" Value="{Binding Style.Colors[ControlBorder]}"/>
-			<Setter Property="BorderThickness" Value="1 1 1 0"/>			
-		</Style>
-		<Style Selector="SelectableTextBlock">
-			<Setter Property="Background" Value="{Binding Style.Colors[ControlBackground]}"/>
-			<Setter Property="Padding" Value="25 16 25 16"/>
-		</Style>
-		<Style Selector="DataGrid">
-			<Setter Property="Background" Value="{Binding Style.Colors[ControlBackground]}"/>
-			<Setter Property="BorderBrush" Value="{Binding Style.Colors[ControlBorder]}"/>
-			<Setter Property="BorderThickness" Value="1"/>
-		</Style>
-		<Style Selector="DataGridColumnHeader">
-			<Setter Property="Background" Value="{Binding Style.Colors[ButtonBackground]}"/>
-			<Setter Property="Foreground" Value="{Binding Style.Colors[ButtonForeground]}"/>
-			<Setter Property="Padding" Value="5 2 5 2"/>
-			<Setter Property="MinHeight" Value="10"/>
-		</Style>
-		<Style Selector="DataGridRow">
-			<Setter Property="Background" Value="Transparent"/>
-			<Setter Property="Padding" Value="0"/>
-			<Setter Property="MinHeight" Value="10"/>
-		</Style>
-		<Style Selector="DataGridRow:selected">
-			<Setter Property="Background" Value="{Binding Style.Colors[ControlBackgroundSelected]}"/>
-			<Setter Property="Foreground" Value="{Binding Style.Colors[ControlForegroundSelected]}"/>
-		</Style>
-		<Style Selector="DataGridCell">
-			<Setter Property="Padding" Value="5 2 5 2"/>
-			<Setter Property="Margin" Value="0"/>
-			<Setter Property="BorderThickness" Value="0 0 1 1"/>
-			<Setter Property="Background" Value="{Binding Style.Colors[ControlBackgroundSelected]}"/>
-			<Setter Property="BorderBrush" Value="{Binding Style.Colors[SplitterColor]}"/>
-			<Setter Property="FontSize" Value="{Binding Style.Sizes[LabelFontSize]}"/>
-			<Setter Property="MinHeight" Value="10"/>
-		</Style>
-		<Style Selector="DataGridCell TextBlock">
-			<Setter Property="Margin" Value="0"/>
-		</Style>
-		<Style Selector="GridSplitter">
-			<Setter Property="BorderBrush" Value="{Binding Style.Colors[ControlBorder]}"/>
-			<Setter Property="BorderThickness" Value="1 1 1 0"/>
-		</Style>
-		<!-- скрываем фон выделенной строки -->
-		<Style Selector="DataGridRow:selected /template/ Rectangle">
-			<Setter Property="Fill" Value="Transparent"/>
-		</Style>
-
-		<!-- выделяем только ту ячейку, в которой фокус (или редактор внутри нее) -->
-		<Style Selector="DataGridCell:focus-within /template/ Border">
-			<Setter Property="Background" Value="#DCEEFF"/>
-			<Setter Property="BorderBrush" Value="#3399FF"/>
-			<Setter Property="BorderThickness" Value="1"/>
-		</Style>
-	</UserControl.Styles>
+	
 	<Grid RowDefinitions="*,0,0,22" x:Name="MainGrid">
 		<AvaloniaEdit:TextEditor Text="Hello AvaloniaEdit!"
                                  ShowLineNumbers="True"
                                  FontFamily="Consolas" 
 								 Grid.Row="0" 
 								 x:Name="QueryText" 
-								 Background="{Binding Style.Colors[ControlBackground]}" 
-								 BorderBrush="{Binding Style.Colors[ControlBorder]}"
 								 >
 			<AvaloniaEdit:TextEditor.ContextMenu>
 				<ContextMenu>
@@ -89,8 +28,6 @@
 			<TabItem Header="Результаты" x:Name="ResultTab">
 				<DataGrid x:Name="ResultGrid" IsReadOnly="true" Margin="2" CanUserSortColumns="false"
 						  SelectionMode="Extended" 
-						  Background="{Binding Style.Colors[ControlBackground]}" 
-						  BorderBrush="{Binding Style.Colors[ControlBorder]}"
 						  
 				>
 					
@@ -105,8 +42,7 @@
 			<TabItem Header="Сообщения" x:Name="QueryMessages">
 				<Border BorderBrush="Gray" BorderThickness="1" Margin="2">
 					<SelectableTextBlock x:Name="Messages" TextWrapping="Wrap" FontFamily="Courier New"
-						  Background="{Binding Style.Colors[ControlBackground]}"
-										 SelectionBrush="{Binding Style.Colors[ControlBackgroundSelected]}"
+
 						/>
 				</Border>
 			</TabItem>

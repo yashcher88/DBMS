@@ -19,7 +19,6 @@ public partial class ObjectExplorer : BaseUserControl
     public void FormConnectClick(object sender, RoutedEventArgs e)
     {
         var T = new Connect();
-        T.Init();
         T.ShowDialog(Program.store.Main);
     }
     public void FormDisconnectClick(object sender, RoutedEventArgs e)

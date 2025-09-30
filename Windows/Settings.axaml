@@ -5,6 +5,7 @@
         mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480"
 		Width="640" Height="480"
         x:Class="DBMS.Settings"
+		DataContext="{Binding $self}"
         WindowStartupLocation="CenterScreen"
         Title="Settings" Background="#f0f0f0">
 	<Grid RowDefinitions="*,1,40">
@@ -59,9 +60,9 @@
 		<Border Grid.Row="1" Height="1" Background="Gray" />
 		<Grid Grid.Row="2">
 			<WrapPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
-				<Button x:Name="bSave" Margin="0 0 10 0">Сохранить</Button>
-				<Button x:Name="bDefault" Margin="0 0 10 0">Восстановить по умолчанию</Button>
-				<Button x:Name="bClose" Margin="0 0 10 0">Отмена</Button>
+				<Button x:Name="bSave" Margin="0 0 10 0" Content="Сохранить"/>
+				<Button x:Name="bDefault" Margin="0 0 10 0" Content="Восстановить по умолчанию"/>
+				<Button x:Name="bClose" Margin="0 0 10 0" Content="Отмена"/>
 			</WrapPanel>
 		</Grid>
 	</Grid>

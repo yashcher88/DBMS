@@ -4,8 +4,6 @@ using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Styling;
 using DBMS.Classes;
-using DBMS.Classes.ProgramSetting.Language;
-using DBMS.Classes.ProgramSetting.Language.GridRows;
 using DBMS.Enums;
 using DBMS.Functions;
 using System.Collections.Generic;
@@ -16,25 +14,15 @@ namespace DBMS.UserControls;
 
 public partial class LanguageForm : BaseUserControl
 {
-    public ObservableCollection<LanguageFormGridRow> LangFormRows { get; set; }
-    private bool ShowDeleted = false;
-    public string SelectedLangWindow = "";
-    public string SelectedLangControl = null;
     public LanguageForm()
     {
         InitializeComponent();
-        LangFormRows = new ObservableCollection<LanguageFormGridRow>();
-        LangFormGrid.ItemsSource = LangFormRows;
-        LangFormGrid.Columns.Add(new DataGridTextColumn
-        {
-            Header = "Свойство",
-            Binding = new Avalonia.Data.Binding("Name"),
-            Width = DataGridLength.Auto
-        });
-        FillLangList();
-        FillLangTree();
-        FillRefList();
     }
+    /*public ObservableCollection<LanguageFormGridRow> LangFormRows { get; set; }
+    private bool ShowDeleted = false;
+    public string SelectedLangWindow = "";
+    public string SelectedLangControl = null;
+    
     public void AddColumnDataGrid(string colName)
     {
         var i = LangFormGrid.Columns.Count - 1;
@@ -307,5 +295,5 @@ public partial class LanguageForm : BaseUserControl
     public void FormDelLangRefGrid(object sender, RoutedEventArgs e)
     {
 
-    }
+    }*/
 }

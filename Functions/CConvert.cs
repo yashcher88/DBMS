@@ -267,7 +267,7 @@ namespace DBMS.Functions
             second = i.Seconds;
             return ("0" + hour)[^2..] + ":" + ("0" + minute)[^2..] + ":" + ("0" + second)[^2..];
         }
-        public static IBrush FromHex(string hex)
+        public static IBrush HexToColor(string hex)
         {
             if (string.IsNullOrWhiteSpace(hex))
                 return Brushes.Transparent;

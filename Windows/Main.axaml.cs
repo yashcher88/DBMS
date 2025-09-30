@@ -36,7 +36,6 @@ public partial class Main : BaseWindow
     {
         //leftToolDock = new Dock.Model.Avalonia.Controls.ToolDock();
         var V = new ObjectExplorer();
-        V.Init();
         var document = new Tool
         {
             Id = "ObjectExplorer",
@@ -48,7 +47,6 @@ public partial class Main : BaseWindow
     public void FormCloseObjectExplorer(object sender, RoutedEventArgs e)
     {
         var Q = new QueryWindow();
-        Q.Init();
         var document = new Document
         {
             Id = "QueryWindow",
@@ -69,12 +67,10 @@ public partial class Main : BaseWindow
     {
         ConfigPack configureStore = new ConfigPack();
         configureStore.Show();
-        configureStore.Init();
     }
     public void FormShowSettings(object sender, RoutedEventArgs e)
     {
         Settings configureStore = new Settings();
         configureStore.Show();
-        configureStore.Init();
     }
 }

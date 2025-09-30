@@ -8,160 +8,18 @@
         x:Class="DBMS.ConfigPack"
         WindowStartupLocation="CenterScreen"
 		xmlns:local="clr-namespace:DBMS.UserControls"
+		DataContext="{Binding $self}"
         Title="Конфигурация пакетов">
-	
-	<Window.Styles>
-		<!-- 
-		<Style Selector="Button, TextBox, TreeViewItem, TreeView, DataGrid, TabItem, TabControl">
-			<Setter Property="FontFamily" Value="Arial"/>
-			<Setter Property="FontSize" Value="12"/>
-		</Style>
-		<Style Selector="TabStrip">
-			<Setter Property="BorderBrush" Value="Black"/>
-			<Setter Property="BorderThickness" Value="1"/>
-		</Style>
-		<Style Selector="TabStripItem">
-			<Setter Property="BorderBrush" Value="Blue"/>
-			<Setter Property="BorderThickness" Value="1"/>
-		</Style>
-		<Style Selector="TabControl">
-			<Setter Property="BorderBrush" Value="Green"/>
-			<Setter Property="BorderThickness" Value="1"/>
-		</Style>
-		<Style Selector="TabControl /template/ ItemsPresenter#PART_ItemsPresenter">
-			<Setter Property="BorderBrush" Value="Green"/>
-			
-		</Style>
-		<Style Selector="TabItem">
-			<Setter Property="BorderBrush" Value="Red"/>
-			<Setter Property="BorderThickness" Value="1"/>
-		</Style>
-		<Style Selector="TabControl[TabStripPlacement=Top]">
-			<Setter Property="Padding" Value="0"/>
-			<Setter Property="Margin" Value="0"/>
-		</Style>
-		
-		<Style Selector="TabControl /template/ HeaderedItemsControl">
-			<Setter Property="BorderBrush" Value="black"/>
-			<Setter Property="BorderThickness" Value="1 1 1 1"/>
-		</Style>
-		<Style Selector="TabItem">
-			<Setter Property="Background" Value="#f0f0f0"/>
-			<Setter Property="Foreground" Value="Black"/>
-			<Setter Property="MinHeight" Value="1"/>
-			<Setter Property="BorderBrush" Value="#d9d9d9"/>
-			<Style Selector="^:not(:pointerover):not(:selected) /template/ ContentPresenter">
-				<Setter Property="Margin" Value="0 2 0 0"/>
-				<Setter Property="Padding" Value="5 3 5 3"/>
-				<Setter Property="BorderThickness" Value="0 1 0 0"/>
-			</Style>
-			<Style Selector="^:pointerover:not(:selected) /template/ ContentPresenter">
-				<Setter Property="Background" Value="#d8eaf9" />
-				<Setter Property="TextElement.Foreground" Value="Black" />
-				<Setter Property="Margin" Value="0 2 0 0"/>
-				<Setter Property="Padding" Value="5 3 5 3"/>
-				<Setter Property="BorderThickness" Value="0 1 0 0"/>
-			</Style>
-			<Style Selector="^:pointerover:selected /template/ ContentPresenter">
-				<Setter Property="Background" Value="#ffffff" />
-				<Setter Property="TextElement.Foreground" Value="Black" />
-				<Setter Property="Margin" Value="0 0 0 -1"/>
-				<Setter Property="Padding" Value="10 5 10 3"/>
-				<Setter Property="BorderThickness" Value="1 1 1 0"/>
-			</Style>
-		</Style>
-		<Style Selector="TabItem:selected:not(:pointerover) /template/ ContentPresenter">
-			<Setter Property="Background" Value="#ffffff"/>
-			<Setter Property="Foreground" Value="Black"/>
-			<Setter Property="Margin" Value="0 0 0 -1"/>
-			<Setter Property="Padding" Value="10 5 10 3"/>
-			<Setter Property="BorderThickness" Value="1 1 1 0"/>
-		</Style>
-
-		
-		<Style Selector="Button">
-			<Setter Property="Padding" Value="10 2"/>
-		</Style>
-
-		<Style Selector="Button.inputbutton">
-			<Setter Property="BorderThickness" Value="0"/>
-			<Setter Property="HorizontalAlignment" Value="Right"/>
-			<Setter Property="VerticalAlignment" Value="Center"/>
-			<Setter Property="Margin" Value="0 0 4 0"/>
-			<Setter Property="Width" Value="16"/>
-			<Setter Property="Height" Value="16"/>
-		</Style>
-		<Style Selector="Button.filter">
-			<Setter Property="BorderThickness" Value="0"/>
-			<Setter Property="Background">
-				<Setter.Value>
-					<ImageBrush Source="/Sources/SmallIcons/Search.png" Stretch="UniformToFill" />
-				</Setter.Value>
-			</Setter>
-		</Style>
-		<Style Selector="Button.unfilter">
-			<Setter Property="Background">
-				<Setter.Value>
-					<ImageBrush Source="/Sources/SmallIcons/SearchCancel.png" Stretch="UniformToFill" />
-				</Setter.Value>
-			</Setter>
-		</Style>
-
-		<Style Selector="Border">
-			<Setter Property="Background" Value="Gray"/>
-		</Style>
-		<Style Selector="Border.tabitem">
-			<Setter Property="Background" Value="#006cbe"/>
-		</Style>
-		-->
-
-
-	</Window.Styles>
 	<Grid RowDefinitions="*, 40">
 		<TabControl Grid.Row="0">
-			<TabItem Header="Язык (Формы)">
+			<TabItem Header="Настройки перевода">
 				<local:LanguageForm />
 			</TabItem>
 			<TabItem Header="Настройки">
-				<Grid RowDefinitions="*">
-					<!--<Border Grid.Row="0" Height="2" Classes="tabitem"/>-->
-					<Grid ColumnDefinitions="25*,4,75*" Grid.Row="1">
-						<Grid Grid.Column="0">
-							<Grid Grid.Row="0" RowDefinitions="18,*">
-								<TextBlock Classes="title" Name="SettingTreeLabel" Grid.Row="0" Text="Объекты форм"/>
-								<TreeView Name="SettingTree" Grid.Row="1">
-									<TreeView.ContextMenu>
-										<ContextMenu>
-											<MenuItem Header="Copy"/>
-											<MenuItem Header="Paste"/>
-										</ContextMenu>
-									</TreeView.ContextMenu>
-								</TreeView>
-							</Grid>
-						</Grid>
-						<GridSplitter Grid.Column="1" />
-						<Grid Grid.Column="2">
-							<DataGrid
-								Name="SettingGrid"
-								CanUserResizeColumns="true">
-								<DataGrid.ContextMenu>
-									<ContextMenu>
-										<MenuItem Header="Copy"/>
-										<MenuItem Header="Paste"/>
-									</ContextMenu>
-								</DataGrid.ContextMenu>
-								<DataGrid.Columns>
-									<DataGridTextColumn Header="Свойство"/>
-									<DataGridTextColumn Header="Значение по умолчанию"/>
-								</DataGrid.Columns>
-							</DataGrid>
-						</Grid>
-					</Grid>
-				</Grid>
+				
 			</TabItem>
 			<TabItem Header="Драйвера">
 				<Grid RowDefinitions="*">
-					<!--<Border Grid.Row="0" Height="2" Classes="tabitem"/>-->
 					<Grid ColumnDefinitions="25*,4,75*" Grid.Row="0" MinHeight="104">
 						<Grid Grid.Column="0" RowDefinitions="18,*,26" >
 							<TextBlock Classes="title" Name="DriverListLabel" Grid.Row="0" Text="Доступные драйвера"/>
@@ -202,8 +60,8 @@
 		<!--
 		<Border Grid.Row="1" Height="1" Background="Gray"/>-->
 		<WrapPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="1">
-			<Button x:Name="bSave" Margin="0 0 10 0" Click="FormSavePackage" Classes="StdButton">Сохранить пакет</Button>
-			<Button x:Name="bClose" Margin="0 0 10 0" Click="FormClose" Classes="StdButton">Отмена</Button>
+			<Button x:Name="bSave" Margin="0 0 10 0" Click="FormSavePackage" Classes="Std" Content="{Binding store.Lang[SavePackage]}"/>
+			<Button x:Name="bClose" Margin="0 0 10 0" Click="FormClose" Classes="Std" Content="{Binding store.Lang[Cancel]}"/>
 		</WrapPanel>
 	</Grid>
 </Window>

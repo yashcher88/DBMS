@@ -20,37 +20,31 @@ namespace DBMS
         }
         async public void Loading()
         {
-            Init();
             BuildBlock.Text = $"Build version: " + (Assembly.GetEntryAssembly()?.GetName()?.Version?.ToString() ?? "1.0.0.0");
-            StateText.Text = $"Loading languages";
-            store.LoadVersion(); 
+            StateText.Text = $"Loading System Settings";
+            store.LoadVersion();
             PackageBlock.Text = $"Package version: " + store.GetUserVersion();
-            store.LoadLanguage();
+            store.LoadSystemSettings();
+            await Task.Delay(200);
+
+            StateText.Text = $"Loading User Settings";
+            store.LoadUserSettings();
             await Task.Delay(200);
 
             StateText.Text = $"Load files";
             store.LoadImages();
             await Task.Delay(200);
 
-            StateText.Text = $"Load default settings";
-            //store.LoadSets();
-            await Task.Delay(200);
-
             StateText.Text = $"Load servers";
             store.LoadServers();
             await Task.Delay(200);
 
-            StateText.Text = $"Load user settings";
-            //store.LoadUserSets();
-            await Task.Delay(200);
-
-            StateText.Text = $"Load user styles";
-            //store.LoadUserStyles();
+            StateText.Text = $"Apply styles";
+            store.Sets.Style.ApplyStyleSettings();
             await Task.Delay(200);
 
             var main = new Main();
             main.InitializeDock();
-            main.Init();
             main.Show();
             Hide();
         }

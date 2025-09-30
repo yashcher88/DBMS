@@ -1,6 +1,24 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-	<Style Selector="Button">
+	<Style Selector="Button.Std">
 		<Setter Property="Margin" Value="0"/>
+		<Setter Property="Background" Value="{DynamicResource FormBackground}"/>
+		<Setter Property="Padding" Value="5 2"/>
+	</Style>
+	<Style Selector="Button.StdButton">
+		<Setter Property="Height" Value="22"/>
+		<Setter Property="BorderBrush" Value="#ADADAD"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="FontSize" Value="12"/>
+		<Setter Property="FontFamily" Value="Arial"/>
+		<Setter Property="Background" Value="#E1E1E1"/>
+		<Setter Property="Foreground" Value="#282828"/>
+		<Style Selector="^:pointerover /template/ ContentPresenter">
+			<Setter Property="BorderBrush" Value="#ADADAD"/>
+			<Setter Property="BorderThickness" Value="1"/>
+		</Style>
+	</Style>
+	<Style Selector="Button.ButtonText">
+		<Setter Property="Padding" Value="20 3"/>
 	</Style>
 </Styles>

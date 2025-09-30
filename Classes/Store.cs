@@ -12,13 +12,15 @@ namespace DBMS.Classes
     public class Store
     {
         /* Настройки, Перевод */
-        public Sets Sets = new Sets();
+        public SettingObject Sets = new SettingObject();
         public BaseWindow Start = null;
         public BaseWindow Main = null;
         public int VersionPack = 0;
         public DriverList Drivers = new DriverList();
         public ServerList Servers = new ServerList();
         public Dictionary<string,Bitmap> Images = new Dictionary<string,Bitmap>();
+        public LanguageObject Lang { get { return Sets.Language; } }
+        public StyleObject Style { get { return Sets.Style; } }
         public Store() 
         {
             AddDriver("PostgreSQL");
@@ -36,38 +38,51 @@ namespace DBMS.Classes
         }
         public void LoadVersion()
         {
-            VersionPack = Convert.ToInt32(FileUtils.GetFileFromZip(Sets.Path.PackPath, "version") ?? "0");
+            VersionPack = Convert.ToInt32(FileUtils.GetFileFromZip(Sets.SystemPath.PackPath, "version") ?? "0");
         }
         public void SaveVersion()
         {
             VersionPack = VersionPack + 1;
-            FileUtils.SaveFileToZip(Sets.Path.PackPath, "version", VersionPack.ToString());
+            FileUtils.SaveFileToZip(Sets.SystemPath.PackPath, "version", VersionPack.ToString());
         }
-        public void LoadLanguage()
+        public void LoadSystemSettings()
         {
-            string Content = FileUtils.GetFileFromZip(Sets.Path.PackPath, "languages");
+            string Content = FileUtils.GetFileFromZip(Sets.SystemPath.PackPath, "settings");
             if (Content != null)
             {
                 var J = JsonNode.Parse(Content);
-                LanguageObject.LoadObjectFromJson(J.AsObject());
+                Sets.LoadSystemFromJson(J.AsObject());
             }
         }
-        public void SaveLanguage()
+        public void SaveSystemSettings()
         {
-            FileUtils.SaveFileToZip(Sets.Path.PackPath, "languages", LanguageObject.SaveObjectToJson().ToString());
+            FileUtils.SaveFileToZip(Sets.SystemPath.PackPath, "settings", Sets.SaveSystemToJson().ToString());
+        }
+        public void LoadUserSettings()
+        {
+            string Content = FileUtils.GetFileFromZip(Sets.SystemPath.SetsPath, "settings");
+            if (Content != null)
+            {
+                var J = JsonNode.Parse(Content);
+                Sets.LoadUserFromJson(J.AsObject());
+            }
+        }
+        public void SaveUserSettings()
+        {
+            FileUtils.SaveFileToZip(Sets.SystemPath.SetsPath, "settings", Sets.SaveUserToJson().ToString());
         }
         public void SavePack() 
         {
-            SaveLanguage();
+            SaveSystemSettings();
             SaveVersion();
         }
         public void SaveServers()
         {
-            FileUtils.SaveFileToZip(Sets.Path.ServersPath, "servers", Servers.SaveObjectToJson().ToString());
+            FileUtils.SaveFileToZip(Sets.SystemPath.ServersPath, "servers", Servers.SaveObjectToJson().ToString());
         }
         public void LoadServers()
         {
-            string Content = FileUtils.GetFileFromZip(Sets.Path.ServersPath, "servers");
+            string Content = FileUtils.GetFileFromZip(Sets.SystemPath.ServersPath, "servers");
             if (Content != null)
             {
                 var J = JsonNode.Parse(Content);

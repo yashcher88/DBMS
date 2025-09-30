@@ -172,7 +172,6 @@ public partial class QueryWindow : BaseUserControl
     async public void ConnectToServer(object sender, RoutedEventArgs e)
     {
         var T = new Connect();
-        T.Init();
         await T.ShowDialog(Program.store.Main);
         if (T.Connection != null) 
         { 

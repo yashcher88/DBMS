@@ -207,6 +207,12 @@
     <Compile Update="UserControls\QueryWindow.axaml.cs">
       <DependentUpon>QueryWindow.axaml</DependentUpon>
     </Compile>
+	<Compile Update="UserControls\SettingForm.axaml.cs">
+		<DependentUpon>SettingForm.axaml</DependentUpon>
+	</Compile>
+	<Compile Update="UserControls\StyleForm.axaml.cs">
+		<DependentUpon>StyleForm.axaml</DependentUpon>
+	</Compile>
     <Compile Update="Windows\Start.axaml.cs">
       <DependentUpon>Start.axaml</DependentUpon>
     </Compile>

@@ -18,6 +18,99 @@
 		<FontFamily x:Key="ConsolasBold">avares://Sources/Fonts/CONSOLAB.TTF</FontFamily>
 		<FontFamily x:Key="ConsolasItalic">avares://Sources/Fonts/CONSOLAI.TTF</FontFamily>
 		<FontFamily x:Key="ConsolasBoldItalic">avares://Sources/Fonts/CONSOLAZ.TTF</FontFamily>
+		<SolidColorBrush x:Key="FormBackground" Color="#cfd6e3" />
+		<SolidColorBrush x:Key="FormForeground" Color="#000000" />
+		<SolidColorBrush x:Key="PanelBackground" Color="#cfd6e3" />
+		<SolidColorBrush x:Key="PanelForeground" Color="#000000" />
+		<SolidColorBrush x:Key="PanelBorder" Color="#000000" />
+		<SolidColorBrush x:Key="MenuHeaderNormalBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="MenuHeaderNormalTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="MenuHeaderNormalBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="MenuHeaderDisableBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="MenuHeaderDisableTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="MenuHeaderDisableBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="MenuHeaderFocusBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="MenuHeaderFocusTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="MenuHeaderFocusBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="MenuPanelBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="MenuPanelTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="MenuPanelBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="MenuItemNormalBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="MenuItemNormalTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="MenuItemNormalBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="MenuItemDisableBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="MenuItemDisableTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="MenuItemDisableBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="MenuItemFocusBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="MenuItemFocusTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="MenuItemFocusBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="GridHeaderNormalBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="GridHeaderNormalTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="GridHeaderNormalBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="GridHeaderFocusBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="GridHeaderFocusTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="GridHeaderFocusBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="GridHeaderHoverBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="GridHeaderHoverTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="GridHeaderHoverBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="GridHeaderClickedBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="GridHeaderClickedTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="GridHeaderClickedBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="GridCellNormalBgColor1" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="GridCellNormalTextColor1" Color="#000000" />
+		<SolidColorBrush x:Key="GridCellNormalBorderColor1" Color="#adadad" />
+		<SolidColorBrush x:Key="GridCellFocusBgColor1" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="GridCellFocusTextColor1" Color="#000000" />
+		<SolidColorBrush x:Key="GridCellFocusBorderColor1" Color="#adadad" />
+		<SolidColorBrush x:Key="GridCellNullBgColor1" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="GridCellNullTextColor1" Color="#000000" />
+		<SolidColorBrush x:Key="GridCellNullBorderColor1" Color="#adadad" />
+		<SolidColorBrush x:Key="GridCellNormalBgColor2" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="GridCellNormalTextColor2" Color="#000000" />
+		<SolidColorBrush x:Key="GridCellNormalBorderColor2" Color="#adadad" />
+		<SolidColorBrush x:Key="GridCellFocusBgColor2" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="GridCellFocusTextColor2" Color="#000000" />
+		<SolidColorBrush x:Key="GridCellFocusBorderColor2" Color="#adadad" />
+		<SolidColorBrush x:Key="GridCellNullBgColor2" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="GridCellNullTextColor2" Color="#000000" />
+		<SolidColorBrush x:Key="GridCellNullBorderColor2" Color="#adadad" />
+		<SolidColorBrush x:Key="ControlNormalBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="ControlNormalTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="ControlNormalBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="ControlDisableBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="ControlDisableTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="ControlDisableBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="ControlFocusBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="ControlFocusTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="ControlFocusBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="ControlSelectionBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="ControlSelectionTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="ButtonNormalBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="ButtonNormalTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="ButtonNormalBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="ButtonDisableBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="ButtonDisableTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="ButtonDisableBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="ButtonHoverBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="ButtonHoverTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="ButtonHoverBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="ButtonClickedBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="ButtonClickedTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="ButtonClickedBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="MainButtonNormalBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="MainButtonNormalTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="MainButtonNormalBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="MainButtonDisableBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="MainButtonDisableTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="MainButtonDisableBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="MainButtonHoverBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="MainButtonHoverTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="MainButtonHoverBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="MainButtonClickedBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="MainButtonClickedTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="MainButtonClickedBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="SplitterNormalColor" Color="#f0f0f0" />
+		<SolidColorBrush x:Key="SplitterActiveColor" Color="#f0f0f0" />
 	</Application.Resources>
     <Application.Styles>
 		<FluentTheme />
@@ -43,5 +136,4 @@
 		<StyleInclude Source="avares://DBMS/Sources/Styles/TextEditor.axaml" />
 		<StyleInclude Source="avares://DBMS/Sources/Styles/TreeView.axaml" />
 	</Application.Styles>
-
 </Application>

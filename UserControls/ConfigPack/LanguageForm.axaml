@@ -1,0 +1,117 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 DataContext="{Binding $self}"
+             x:Class="DBMS.UserControls.LanguageForm"
+			 FontSize="12"
+	>
+	<UserControl.Styles>
+		<Style Selector="TextBox">
+			<!--Не работает-->
+			<!--<Setter Property="SelectionBrush" Value="{Binding Style.Colors[ControlBackgroundSelected]}"/>-->
+		</Style>
+		<Style Selector="TreeView">
+			<!--<Setter Property="Background" Value="{Binding store.Sets.Style.Colors[ControlBackground]}"/>
+			<Setter Property="BorderBrush" Value="{Binding store.Sets.Style.Colors[ControlBorder]}"/>-->
+			<Setter Property="BorderThickness" Value="1"/>
+		</Style>
+		<!--<Style Selector="GridSplitter">
+			<Setter Property="Background" Value="{Binding store.Sets.Style.Colors[SplitterColor]}"/>
+		</Style>-->
+		<Style Selector="TextBlock.label">
+			<Setter Property="Padding" Value="5 2 5 2"/>
+		</Style>
+		<Style Selector="GridSplitter.V">
+			<Setter Property="Margin" Value="1 0 1 0"/>
+		</Style>
+		<Style Selector="GridSplitter.H">
+			<Setter Property="Margin" Value="0 1 0 1"/>
+		</Style>
+		
+	</UserControl.Styles>
+	<Grid RowDefinitions="*">
+		<!--<Border Grid.Row="0" Height="2" Classes="tabitem"/>-->
+		<Grid ColumnDefinitions="25*,4,75*" Grid.Row="0" MinHeight="104">
+			<Grid Grid.Column="0">
+				<Grid RowDefinitions="25*,4,75*">
+					<Grid Grid.Row="0" RowDefinitions="18,*" MinHeight="50">
+						<TextBlock Classes="title label" Name="LangListLabel" Grid.Row="0" Text="Доступные языки"/>
+						<ListBox 
+							Name="LangList" 
+							Grid.Row="1" 
+							ScrollViewer.VerticalScrollBarVisibility="Auto" 
+							 
+						>
+							<!--DoubleTapped="FormRenameItemLangList"-->
+							<!--
+										<TextBox Name="LangListEditor" IsVisible="false" />-->
+							<ListBox.ContextMenu>
+								<ContextMenu>
+									<MenuItem Header="Добавить" />
+									<!-- Click="FormAddToLangList"-->
+									<MenuItem Header="Переименовать" />
+									<!-- Click="FormRenameItemLangList"-->
+									<MenuItem Header="Удалить"/>
+									<!-- Click="FormDelFromLangList"-->
+								</ContextMenu>
+							</ListBox.ContextMenu>
+						</ListBox>
+					</Grid>
+					<GridSplitter Grid.Row="1" Classes="H"/>
+					<Grid Grid.Row="2">
+						<Grid Grid.Row="0" RowDefinitions="18,*" MinHeight="50">
+							<TextBlock Classes="title label" Name="LangTreeLabel" Grid.Row="0" Text="Объекты форм"/>
+							<TreeView Name="LangTree" Grid.Row="1" >
+								<!--SelectionChanged="FormLangTreeSelection"-->
+								<TreeView.ContextMenu>
+									<ContextMenu>
+										<MenuItem Header="Удалить" Name="LangTreePopupDelete"/>
+										<!-- Click="FormHideLangTree"-->
+										<MenuItem Header="Восстановить" Name="LangTreePopupRestore" IsVisible="false"/>
+										<!-- Click="FormUnHideLangTree"-->
+										<MenuItem Header="Показать с удаленными" Name="LangTreePopupShowWithRemoved"/>
+										<!-- Click="FormShowUnHideLangTree"-->
+										<MenuItem Header="Спрятать удаленные" Name="LangTreePopupHideRemoved" IsVisible="false"/>
+										<!-- Click="FormShowHideLangTree"-->
+									</ContextMenu>
+								</TreeView.ContextMenu>
+							</TreeView>
+						</Grid>
+					</Grid>
+				</Grid>
+			</Grid>
+			<GridSplitter Grid.Column="1" Classes="V"/>
+			<Grid Grid.Column="2">
+				<TabControl Grid.Row="0">
+					<TabItem Header="Объекты форм">
+						<Grid RowDefinitions="*">
+							<!--<Border Grid.Row="0" Height="2" Classes="tabitem"/>-->
+							<DataGrid Name="LangFormGrid" CanUserResizeColumns="true" CanUserSortColumns="false" Grid.Row="1" />
+							<!--CellEditEnding="FormLangFormGridCellEditEnding"-->
+						</Grid>
+					</TabItem>
+					<TabItem Header="Справочник">
+						<Grid RowDefinitions="*">
+							<!--<Border Grid.Row="0" Height="2" Classes="tabitem"/>-->
+							<DataGrid Grid.Row="0" Name="LangRefGrid" CanUserResizeColumns="true">
+								<DataGrid.ContextMenu>
+									<ContextMenu>
+										<MenuItem Header="Добавить"/>
+										<!-- Click="FormAddLangRefGrid" -->
+										<MenuItem Header="Удалить"/>
+										<!-- Click="FormDelLangRefGrid" -->
+									</ContextMenu>
+								</DataGrid.ContextMenu>
+								<DataGrid.Columns>
+									<DataGridTextColumn Header="Имя параметра"/>
+								</DataGrid.Columns>
+							</DataGrid>
+						</Grid>
+					</TabItem>
+				</TabControl>
+			</Grid>
+		</Grid>
+	</Grid>
+</UserControl>
