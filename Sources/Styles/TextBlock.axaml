@@ -1,3 +1,26 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style Selector="TextBlock.Std">
+		<Setter Property="Padding" Value="5 2 5 2"/>
+		<Setter Property="Foreground" Value="{DynamicResource FormForeground}"/>
+	</Style>
+	<Style Selector="TextBlock.ConnectionBlock">
+		<Setter Property="HorizontalAlignment" Value="Right"/>
+		<Setter Property="VerticalAlignment" Value="Center"/>
+		<Setter Property="Padding" Value="0 0 20 0"/>
+		<Setter Property="FontSize" Value="12"/>
+		<Setter Property="FontFamily" Value="Arial"/>
+	</Style>
+	<Style Selector="TextBox.ConnectionEdit">
+		<Setter Property="HorizontalAlignment" Value="Left"/>
+		<Setter Property="VerticalAlignment" Value="Center"/>
+		<Setter Property="CornerRadius" Value="0"/>
+		<Setter Property="FontSize" Value="12"/>
+		<Setter Property="FontFamily" Value="Arial"/>
+		<Setter Property="Width" Value="250"/>
+		<Setter Property="Height" Value="22"/>
+		<Setter Property="MinHeight" Value="22"/>
+		<Setter Property="BorderBrush" Value="#ADADAD"/>
+		<Setter Property="BorderThickness" Value="1"/>
+	</Style>
 </Styles>

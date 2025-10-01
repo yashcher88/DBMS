@@ -18,11 +18,11 @@
 		<FontFamily x:Key="ConsolasBold">avares://Sources/Fonts/CONSOLAB.TTF</FontFamily>
 		<FontFamily x:Key="ConsolasItalic">avares://Sources/Fonts/CONSOLAI.TTF</FontFamily>
 		<FontFamily x:Key="ConsolasBoldItalic">avares://Sources/Fonts/CONSOLAZ.TTF</FontFamily>
-		<SolidColorBrush x:Key="FormBackground" Color="#cfd6e3" />
-		<SolidColorBrush x:Key="FormForeground" Color="#000000" />
-		<SolidColorBrush x:Key="PanelBackground" Color="#cfd6e3" />
-		<SolidColorBrush x:Key="PanelForeground" Color="#000000" />
-		<SolidColorBrush x:Key="PanelBorder" Color="#000000" />
+		<SolidColorBrush x:Key="FormBgColor" Color="#cfd6e3" />
+		<SolidColorBrush x:Key="FormTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="PanelBgColor" Color="#cfd6e3" />
+		<SolidColorBrush x:Key="PanelTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="PanelBorderColor" Color="#000000" />
 		<SolidColorBrush x:Key="MenuHeaderNormalBgColor" Color="#e1e1e1" />
 		<SolidColorBrush x:Key="MenuHeaderNormalTextColor" Color="#000000" />
 		<SolidColorBrush x:Key="MenuHeaderNormalBorderColor" Color="#adadad" />
@@ -44,6 +44,8 @@
 		<SolidColorBrush x:Key="MenuItemFocusBgColor" Color="#e1e1e1" />
 		<SolidColorBrush x:Key="MenuItemFocusTextColor" Color="#000000" />
 		<SolidColorBrush x:Key="MenuItemFocusBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="GridTextColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="GridBgColor" Color="#e1e1e1" />
 		<SolidColorBrush x:Key="GridHeaderNormalBgColor" Color="#e1e1e1" />
 		<SolidColorBrush x:Key="GridHeaderNormalTextColor" Color="#000000" />
 		<SolidColorBrush x:Key="GridHeaderNormalBorderColor" Color="#adadad" />
@@ -109,8 +111,8 @@
 		<SolidColorBrush x:Key="MainButtonClickedBgColor" Color="#e1e1e1" />
 		<SolidColorBrush x:Key="MainButtonClickedTextColor" Color="#000000" />
 		<SolidColorBrush x:Key="MainButtonClickedBorderColor" Color="#adadad" />
-		<SolidColorBrush x:Key="SplitterNormalColor" Color="#f0f0f0" />
-		<SolidColorBrush x:Key="SplitterActiveColor" Color="#f0f0f0" />
+		<SolidColorBrush x:Key="SplitterNormalBgColor" Color="#f0f0f0" />
+		<SolidColorBrush x:Key="SplitterActiveBgColor" Color="#f0f0f0" />
 	</Application.Resources>
     <Application.Styles>
 		<FluentTheme />
@@ -134,6 +136,7 @@
 		<StyleInclude Source="avares://DBMS/Sources/Styles/TabControl.axaml" />
 		<StyleInclude Source="avares://DBMS/Sources/Styles/TextBlock.axaml" />
 		<StyleInclude Source="avares://DBMS/Sources/Styles/TextEditor.axaml" />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/TextBox.axaml" />
 		<StyleInclude Source="avares://DBMS/Sources/Styles/TreeView.axaml" />
 	</Application.Styles>
 </Application>

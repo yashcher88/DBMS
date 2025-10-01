@@ -40,6 +40,7 @@
     <AvaloniaXaml Remove="Sources\Styles\SelectableTextBlock.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\TabControl.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\TextBlock.axaml" />
+    <AvaloniaXaml Remove="Sources\Styles\TextBox.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\TextEditor.axaml" />
     <AvaloniaXaml Remove="Sources\Styles\TreeView.axaml" />
   </ItemGroup>
@@ -138,6 +139,9 @@
       <SubType>Designer</SubType>
     </AvaloniaResource>
     <AvaloniaResource Update="Sources\Styles\GridSplitter.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\TextBox.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
     <AvaloniaResource Update="Sources\Styles\TreeView.axaml">

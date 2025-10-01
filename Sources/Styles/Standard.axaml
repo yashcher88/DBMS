@@ -1,105 +1,21 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style Selector="UserControl">
+		<Setter Property="Background" Value="{DynamicResource FormBgColor}"/>
+		<Setter Property="Foreground" Value="{DynamicResource FormTextColor}"/>
+	</Style>
+	<Style Selector="Window">
+		<Setter Property="Background" Value="{DynamicResource FormBgColor}"/>
+		<Setter Property="Foreground" Value="{DynamicResource FormTextColor}"/>
+	</Style>
 	<!-- Main -->
-	<Style Selector="TabItem">
-		<Setter Property="Padding" Value="5 2"/>
-		<Setter Property="Margin" Value="0"/>
-		<Setter Property="Foreground" Value="#282828"/>
-		<Setter Property="FontSize" Value="14"/>
-	</Style>
-	<Style Selector="TabControl">
-		<Setter Property="Padding" Value="0"/>
-		<Setter Property="Margin" Value="0"/>
-	</Style>
-	<Style Selector="TabControl[TabStripPlacement=Top]">
-		<Setter Property="Padding" Value="0"/>
-		<Setter Property="Margin" Value="0"/>
-	</Style>
-	<Style Selector="DataGrid TextBox">
-		<Setter Property="Foreground" Value="White"/>
-	</Style>
-	<Style Selector="TextBox">
-		<Setter Property="MinHeight" Value="1"/>
-		<Setter Property="FontSize" Value="12"/>
-		<Setter Property="Height" Value="22"/>
-		<Setter Property="Padding" Value="5 2"/>
-	</Style>
-	<Style Selector="ComboBox">
-		<Setter Property="MinHeight" Value="1"/>
-		<Setter Property="FontSize" Value="12"/>
-		<Setter Property="Height" Value="22"/>
-		<Setter Property="Padding" Value="5 2"/>
-	</Style>
-	<Style Selector="AutoCompleteBox">
-		<Setter Property="MinHeight" Value="1"/>
-		<Setter Property="FontSize" Value="12"/>
-		<Setter Property="Height" Value="22"/>
-		<Setter Property="Padding" Value="5 2"/>
-	</Style>
-	<Style Selector="ColorPicker">
-		<Setter Property="MinHeight" Value="1"/>
-		<Setter Property="FontSize" Value="12"/>
-		<Setter Property="Height" Value="22"/>
-		<Setter Property="Padding" Value="5 2"/>
-	</Style>
-	<Style Selector="CheckBox">
-		<Setter Property="MinHeight" Value="1"/>
-		<Setter Property="FontSize" Value="12"/>
-	</Style>
-	<Style Selector="Button">
-		<Setter Property="CornerRadius" Value="0"/>
-		<Setter Property="BorderThickness" Value="0"/>
-	</Style>
-	<Style Selector="ColorPicker">
-		<Style Selector="^ DropDownButton, ^ DropDownButton:pointerover">
-			<Setter Property="MinHeight" Value="22"/>
-			<Setter Property="BorderThickness" Value="1"/>
-			<Setter Property="BorderBrush" Value="#99000000"/>
-			<Setter Property="Background" Value="Transparent"/>
-		</Style>
-		<Style Selector="^ PathIcon">
-			<Setter Property="Margin" Value="0,0,9,0"/>
-		</Style>
-		<Setter Property="CornerRadius" Value="0"/>
-		<Setter Property="BorderThickness" Value="0"/>
-	</Style>
+	
+
+
+
 
 	<!-- Classes -->
-	<Style Selector="TextBlock.ConnectionBlock">
-		<Setter Property="HorizontalAlignment" Value="Right"/>
-		<Setter Property="VerticalAlignment" Value="Center"/>
-		<Setter Property="Padding" Value="0 0 20 0"/>
-		<Setter Property="FontSize" Value="12"/>
-		<Setter Property="FontFamily" Value="Arial"/>
-	</Style>
-	<Style Selector="TextBox.ConnectionEdit, AutoCompleteBox.ConnectionEdit, ComboBox.ConnectionEdit, ColorPicker.ConnectionEdit">
-		<Setter Property="HorizontalAlignment" Value="Left"/>
-		<Setter Property="VerticalAlignment" Value="Center"/>
-		<Setter Property="CornerRadius" Value="0"/>
-		<Setter Property="FontSize" Value="12"/>
-		<Setter Property="FontFamily" Value="Arial"/>
-		<Setter Property="Width" Value="250"/>
-		<Setter Property="Height" Value="22"/>
-		<Setter Property="MinHeight" Value="22"/>
-		<Setter Property="BorderBrush" Value="#ADADAD"/>
-		<Setter Property="BorderThickness" Value="1"/>
-	</Style>
-	<Style Selector="AutoCompleteBox.ConnectionEdit:pointerover /template/ ContentPresenter">
-		<Setter Property="BorderBrush" Value="#ADADAD"/>
-		<Setter Property="BorderThickness" Value="1"/>
-	</Style>
-	<Style Selector="AutoCompleteBox#PART_SuggestionsContainer">
-		<Setter Property="CornerRadius" Value="0"/>
-	</Style>
-	<Style Selector="AutoCompleteBox ListBoxItem">
-		<Setter Property="Padding" Value="3 3 3 0"/>
-		<Setter Property="Margin" Value="0"/>
-		<Setter Property="FontSize" Value="12"/>
-	</Style>
-	<Style Selector="ColorPicker.ConnectionEdit DropDownButton:pointerover, ColorPicker.ConnectionEdit DropDownButton">
-		<Setter Property="BorderBrush" Value="#ADADAD"/>
-		<Setter Property="BorderThickness" Value="1"/>
-	</Style>
+
 	
 	
 </Styles>

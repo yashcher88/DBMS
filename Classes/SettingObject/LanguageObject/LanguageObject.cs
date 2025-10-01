@@ -18,6 +18,10 @@ namespace DBMS.Classes
             _text["Cancel"] = "Отмена";
             _text["RestoreDefaults"] = "Восстановить по умолчанию";
             _text["SavePackage"] = "Сохранить пакет";
+            _text["AvailableLanguage"] = "Доступные языки";
+            _text["Add"] = "Добавить";
+            _text["Rename"] = "Переименовать";
+            _text["Delete"] = "Удалить";
         }
         public void ApplyFromLanguageObject(LanguageObject C)
         {

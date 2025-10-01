@@ -21,13 +21,13 @@ namespace DBMS.Classes
              */
 
             /* Цвета Формы */
-            _colors["FormBackground"] = CConvert.HexToColor("#cfd6e3");
-            _colors["FormForeground"] = CConvert.HexToColor("#000000");
+            _colors["FormBgColor"] = CConvert.HexToColor("#cfd6e3");
+            _colors["FormTextColor"] = CConvert.HexToColor("#000000");
 
             /* Цвета Панелей */
-            _colors["PanelBackground"] = CConvert.HexToColor("#cfd6e3");
-            _colors["PanelForeground"] = CConvert.HexToColor("#000000");
-            _colors["PanelBorder"] = CConvert.HexToColor("#000000");
+            _colors["PanelBgColor"] = CConvert.HexToColor("#cfd6e3");
+            _colors["PanelTextColor"] = CConvert.HexToColor("#000000");
+            _colors["PanelBorderColor"] = CConvert.HexToColor("#000000");
 
             /* Цвета Пунктов меню */
             _colors["MenuHeaderNormalBgColor"] = CConvert.HexToColor("#e1e1e1");

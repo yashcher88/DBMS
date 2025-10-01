@@ -15,8 +15,11 @@
 			<TabItem Header="Настройки перевода">
 				<local:LanguageForm />
 			</TabItem>
+			<TabItem Header="Настройки стилей">
+
+			</TabItem>
 			<TabItem Header="Настройки">
-				
+
 			</TabItem>
 			<TabItem Header="Драйвера">
 				<Grid RowDefinitions="*">
