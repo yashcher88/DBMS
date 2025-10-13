@@ -2,51 +2,61 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="400"
-		Width="500" Height="400"
+        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="370"
+		Width="500" Height="370"
         x:Class="DBMS.Connect"
         Title="Подключение к серверу"
         WindowStartupLocation="CenterScreen"
 		Opened="FormAfterShow"
 		Icon="/Sources/Icons/SmallMainIcon.ico"
 		CanResize="false"
+		DataContext="{Binding $self}"
 		>
 	<Panel>
 		<Image Source="/Sources/Images/connect_db.png" VerticalAlignment="Top" />
-		<Grid RowDefinitions="130,*,1,40">
-			<TabControl Grid.Row="1" Background="White">
-				<TabItem Header="Основные">
-					<Grid RowDefinitions="*,28,28,28,28,28,28,*" ColumnDefinitions="1*,150,250,6*">
-						<TextBlock Grid.Row="1" Grid.Column="1" Text="Название:" Classes="ConnectionBlock"/>
-						<AutoCompleteBox Grid.Row="1" Grid.Column="2" Name="NameText" Classes="ConnectionEdit" FilterMode="Contains" SelectionChanged="FormServerChange"/>
-						<TextBlock Grid.Row="2" Grid.Column="1" Text="Драйвер:" Name="DriverLabel" Classes="ConnectionBlock"/>
-						<ComboBox Grid.Row="2" Grid.Column="2" Name="DriverText" Classes="ConnectionEdit" SelectionChanged="FormDriverChange"/>
-						<TextBlock Grid.Row="3" Grid.Column="1" Text="Имя сервера:" Classes="ConnectionBlock"/>
-						<TextBox Grid.Row="3" Grid.Column="2" Name="HostText" Classes="ConnectionEdit"/>
-						<TextBlock Grid.Row="4" Grid.Column="1" Text="Логин:" Classes="ConnectionBlock"/>
-						<TextBox Grid.Row="4" Grid.Column="2" Name="LoginText" Classes="ConnectionEdit"/>
-						<TextBlock Grid.Row="5" Grid.Column="1" Text="Пароль:" Classes="ConnectionBlock"/>
-						<TextBox Grid.Row="5" Grid.Column="2" PasswordChar="*" Name="PasswordText" Classes="ConnectionEdit" TextChanged="FormPasswordChange"/>
-						<CheckBox Grid.Row="6" Grid.Column="2" HorizontalAlignment="Left" Name="isSavePassword" Content="Запомнить пароль" Width="200"/>
+		<Grid RowDefinitions="129,200,40,*">
+			<TabControl Grid.Row="1" Classes="Std">
+				<TabItem Header="Основные" Classes="Std">
+					<Grid RowDefinitions="15,20,5,20,5,20,5,20,5,20,5,20,15" ColumnDefinitions="1*,150,250,6*">
+						<TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding store.Lang[Name]}" Classes="ConnectionBlock"/>
+						<Panel Grid.Row="1" Grid.Column="2" >
+							<AutoCompleteBox Grid.Row="1" Grid.Column="2" Name="NameText" Classes="Std ConnectionEdit" FilterMode="Contains" MinimumPrefixLength="0" SelectionChanged="FormServerChange"/>
+							<Button Classes="AutoCompleteBoxBut" Click="OnDropDownClickNameText">
+								<Path Data="M-1,2 L6,9 M6,9 L13,2"/>
+							</Button>
+						</Panel>
+						<TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding store.Lang[Driver]}" Name="DriverLabel" Classes="ConnectionBlock"/>
+						<ComboBox Grid.Row="3" Grid.Column="2" Name="DriverText" Classes="Std ConnectionEdit" SelectionChanged="FormDriverChange"/>
+						<TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding store.Lang[NameServer]}" Classes="ConnectionBlock"/>
+						<TextBox Grid.Row="5" Grid.Column="2" Name="HostText" Classes="Std ConnectionEdit"/>
+						<TextBlock Grid.Row="7" Grid.Column="1" Text="{Binding store.Lang[Login]}" Classes="ConnectionBlock"/>
+						<TextBox Grid.Row="7" Grid.Column="2" Name="LoginText" Classes="Std ConnectionEdit"/>
+						<TextBlock Grid.Row="9" Grid.Column="1" Text="{Binding store.Lang[Password]}" Classes="ConnectionBlock"/>
+						<TextBox Grid.Row="9" Grid.Column="2" PasswordChar="*" Name="PasswordText" Classes="Std ConnectionEdit" TextChanged="FormPasswordChange"/>
+						<CheckBox Grid.Row="11" Grid.Column="2" HorizontalAlignment="Left" Name="isSavePassword" Content="{Binding store.Lang[SavePassword]}" Width="200" Classes="Std"/>
 					</Grid>
 				</TabItem>
-				<TabItem Header="Дополнительные">
-					<Grid RowDefinitions="*,28,28,28,28,28,28,*" ColumnDefinitions="1*,150,250,6*">
-						<TextBlock Grid.Row="1" Grid.Column="1" Text="Порт:" Classes="ConnectionBlock"/>
-						<TextBox Grid.Row="1" Grid.Column="2" Name="PortText" Classes="ConnectionEdit"/>
-						<TextBlock Grid.Row="2" Grid.Column="1" Text="База данных:" Classes="ConnectionBlock"/>
-						<TextBox Grid.Row="2" Grid.Column="2" Name="DBText" Classes="ConnectionEdit"/>
-						<TextBlock Grid.Row="3" Grid.Column="1" Text="Кодировка:" Classes="ConnectionBlock"/>
-						<AutoCompleteBox Grid.Row="3" Grid.Column="2" Name="CodePageText" Classes="ConnectionEdit"/>
-						<TextBlock Grid.Row="4" Grid.Column="1" Text="Строка состояния:" Classes="ConnectionBlock"/>
-						<ColorPicker Grid.Row="4" Grid.Column="2" Name="ColorText" Classes="ConnectionEdit"/>
+				<TabItem Header="Дополнительные" Classes="Std">
+					<Grid RowDefinitions="15,20,5,20,5,20,5,20,5,20,5,20,15" ColumnDefinitions="1*,150,250,6*">
+						<TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding store.Lang[Port]}" Classes="ConnectionBlock"/>
+						<TextBox Grid.Row="1" Grid.Column="2" Name="PortText" Classes="Std ConnectionEdit"/>
+						<TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding store.Lang[Database]}" Classes="ConnectionBlock"/>
+						<TextBox Grid.Row="3" Grid.Column="2" Name="DBText" Classes="Std ConnectionEdit"/>
+						<TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding store.Lang[CodePage]}" Classes="ConnectionBlock"/>
+						<Panel Grid.Row="5" Grid.Column="2">
+							<AutoCompleteBox Grid.Row="3" Grid.Column="2" Name="CodePageText" Classes="Std ConnectionEdit" MinimumPrefixLength="0"/>
+							<Button Classes="AutoCompleteBoxBut" Click="OnDropDownClickCodePageText">
+								<Path Data="M-1,2 L6,9 M6,9 L13,2"/>
+							</Button>
+						</Panel>
+						<TextBlock Grid.Row="7" Grid.Column="1" Text="{Binding store.Lang[StateBar]}" Classes="ConnectionBlock"/>
+						<ColorPicker Grid.Row="7" Grid.Column="2" Name="ColorText" Classes="Std ConnectionEdit"/>
 					</Grid>
 				</TabItem>
 			</TabControl>
-			<Border Grid.Row="2" Background="Gray"/>
-			<WrapPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3">
-				<Button x:Name="bSave" Margin="0 0 30 0" FontSize="12" Height="22" Click="FormConnect" Classes="StdButton ButtonText">Соединить</Button>
-				<Button x:Name="bClose" Margin="0 0 30 0" FontSize="12" Height="22" Click="FormClose" Classes="StdButton ButtonText">Отмена</Button>
+			<WrapPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2">
+				<Button x:Name="bSave" Margin="0 0 30 0" FontSize="12" Height="22" Click="FormConnect" Classes="StdButton ButtonText" Content="{Binding store.Lang[Connect]}"/>
+				<Button x:Name="bClose" Margin="0 0 30 0" FontSize="12" Height="22" Click="FormClose" Classes="StdButton ButtonText" Content="{Binding store.Lang[Cancel]}"/>
 			</WrapPanel>
 		</Grid>
 	</Panel>

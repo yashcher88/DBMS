@@ -150,4 +150,12 @@ public partial class Connect : BaseWindow
             }
         }
     }
+    public void OnDropDownClickNameText(object sender, RoutedEventArgs e)
+    {
+        NameText.IsDropDownOpen = true;
+    }
+    public void OnDropDownClickCodePageText(object sender, RoutedEventArgs e)
+    {
+        CodePageText.IsDropDownOpen = true;
+    }
 }

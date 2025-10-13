@@ -18,9 +18,12 @@
 		<FontFamily x:Key="ConsolasBold">avares://Sources/Fonts/CONSOLAB.TTF</FontFamily>
 		<FontFamily x:Key="ConsolasItalic">avares://Sources/Fonts/CONSOLAI.TTF</FontFamily>
 		<FontFamily x:Key="ConsolasBoldItalic">avares://Sources/Fonts/CONSOLAZ.TTF</FontFamily>
-		<SolidColorBrush x:Key="FormBgColor" Color="#cfd6e3" />
+	</Application.Resources>
+	
+	<Application.Resources>
+		<SolidColorBrush x:Key="FormBgColor" Color="#f0f0f0" />
 		<SolidColorBrush x:Key="FormTextColor" Color="#000000" />
-		<SolidColorBrush x:Key="PanelBgColor" Color="#cfd6e3" />
+		<SolidColorBrush x:Key="PanelBgColor" Color="#f0f0f0" />
 		<SolidColorBrush x:Key="PanelTextColor" Color="#000000" />
 		<SolidColorBrush x:Key="PanelBorderColor" Color="#000000" />
 		<SolidColorBrush x:Key="MenuHeaderNormalBgColor" Color="#e1e1e1" />
@@ -76,17 +79,28 @@
 		<SolidColorBrush x:Key="GridCellNullBgColor2" Color="#e1e1e1" />
 		<SolidColorBrush x:Key="GridCellNullTextColor2" Color="#000000" />
 		<SolidColorBrush x:Key="GridCellNullBorderColor2" Color="#adadad" />
-		<SolidColorBrush x:Key="ControlNormalBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="ControlNormalBgColor" Color="#ffffff" />
 		<SolidColorBrush x:Key="ControlNormalTextColor" Color="#000000" />
 		<SolidColorBrush x:Key="ControlNormalBorderColor" Color="#adadad" />
 		<SolidColorBrush x:Key="ControlDisableBgColor" Color="#e1e1e1" />
 		<SolidColorBrush x:Key="ControlDisableTextColor" Color="#000000" />
 		<SolidColorBrush x:Key="ControlDisableBorderColor" Color="#adadad" />
-		<SolidColorBrush x:Key="ControlFocusBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="ControlFocusBgColor" Color="#ffffff" />
 		<SolidColorBrush x:Key="ControlFocusTextColor" Color="#000000" />
 		<SolidColorBrush x:Key="ControlFocusBorderColor" Color="#adadad" />
 		<SolidColorBrush x:Key="ControlSelectionBgColor" Color="#e1e1e1" />
 		<SolidColorBrush x:Key="ControlSelectionTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="TextEditorNormalBgColor" Color="#ffffff" />
+		<SolidColorBrush x:Key="TextEditorNormalTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="TextEditorNormalBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="TextEditorDisableBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="TextEditorDisableTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="TextEditorDisableBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="TextEditorFocusBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="TextEditorFocusTextColor" Color="#000000" />
+		<SolidColorBrush x:Key="TextEditorFocusBorderColor" Color="#adadad" />
+		<SolidColorBrush x:Key="TextEditorSelectionBgColor" Color="#e1e1e1" />
+		<SolidColorBrush x:Key="TextEditorSelectionTextColor" Color="#000000" />
 		<SolidColorBrush x:Key="ButtonNormalBgColor" Color="#e1e1e1" />
 		<SolidColorBrush x:Key="ButtonNormalTextColor" Color="#000000" />
 		<SolidColorBrush x:Key="ButtonNormalBorderColor" Color="#adadad" />
@@ -120,6 +134,7 @@
 		<StyleInclude Source="avares://Avalonia.Controls.ColorPicker/Themes/Fluent/Fluent.xaml" />
 		<StyleInclude Source="avares://AvaloniaEdit/Themes/Fluent/AvaloniaEdit.xaml" />
 		<DockFluentTheme />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/TabControl.axaml" />
 		<StyleInclude Source="avares://DBMS/Sources/Styles/AutoCompleteBox.axaml" />
 		<StyleInclude Source="avares://DBMS/Sources/Styles/Button.axaml" />
 		<StyleInclude Source="avares://DBMS/Sources/Styles/CheckBox.axaml" />
@@ -133,7 +148,6 @@
 		<StyleInclude Source="avares://DBMS/Sources/Styles/Menu.axaml" />
 		<StyleInclude Source="avares://DBMS/Sources/Styles/SelectableTextBlock.axaml" />
 		<StyleInclude Source="avares://DBMS/Sources/Styles/Standard.axaml" />
-		<StyleInclude Source="avares://DBMS/Sources/Styles/TabControl.axaml" />
 		<StyleInclude Source="avares://DBMS/Sources/Styles/TextBlock.axaml" />
 		<StyleInclude Source="avares://DBMS/Sources/Styles/TextEditor.axaml" />
 		<StyleInclude Source="avares://DBMS/Sources/Styles/TextBox.axaml" />

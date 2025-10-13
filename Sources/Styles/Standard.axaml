@@ -8,14 +8,15 @@
 		<Setter Property="Background" Value="{DynamicResource FormBgColor}"/>
 		<Setter Property="Foreground" Value="{DynamicResource FormTextColor}"/>
 	</Style>
-	<!-- Main -->
-	
-
-
-
-
-	<!-- Classes -->
-
-	
-	
+	<Style Selector="Panel.PanelState">
+		<Setter Property="Margin" Value="0 0 3 0"/>
+	</Style>
+	<Style Selector="Panel.PanelState>TextBlock">
+		<Setter Property="Margin" Value="2 3 5 3"/>
+	</Style>
+	<Style Selector="Panel.PanelState>Border">
+		<Setter Property="BorderBrush" Value="{DynamicResource PanelBorderColor}"/>
+		<Setter Property="BorderThickness" Value="0 0 1 0"/>
+		<Setter Property="Margin" Value="0 4"/>
+	</Style>
 </Styles>

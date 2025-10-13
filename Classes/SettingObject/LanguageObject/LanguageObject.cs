@@ -15,6 +15,7 @@ namespace DBMS.Classes
             _text = new Dictionary<string, string>();
             /* Цвета Формы */
             _text["Save"] = "Сохранить";
+            _text["Connect"] = "Соединить";
             _text["Cancel"] = "Отмена";
             _text["RestoreDefaults"] = "Восстановить по умолчанию";
             _text["SavePackage"] = "Сохранить пакет";
@@ -22,6 +23,25 @@ namespace DBMS.Classes
             _text["Add"] = "Добавить";
             _text["Rename"] = "Переименовать";
             _text["Delete"] = "Удалить";
+            _text["Name"] = "Название:";
+            _text["Driver"] = "Драйвер:";
+            _text["NameServer"] = "Имя сервера:";
+            _text["Login"] = "Логин:";
+            _text["Password"] = "Пароль:";
+            _text["SavePassword"] = "Запомнить пароль";
+            _text["Port"] = "Порт:";
+            _text["Database"] = "База данных:";
+            _text["CodePage"] = "Кодировка:";
+            _text["StateBar"] = "Строка состояния:";
+
+            _text["QueryStateConnected"] = "Подключено";
+            _text["QueryStateNotConnected"] = "Не подключено";
+            _text["QueryStateExecuting"] = "Выполняется";
+            _text["QueryStateComplete"] = "Выполнено";
+            _text["QueryStateCompleteError"] = "Выполнено с ошибками";
+            _text["QueryStateCancel"] = "Отменено";
+
+
         }
         public void ApplyFromLanguageObject(LanguageObject C)
         {

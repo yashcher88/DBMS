@@ -1,7 +1,37 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-	<Style Selector="CheckBox">
+	<Style Selector="CheckBox.Std">
 		<Setter Property="MinHeight" Value="1"/>
 		<Setter Property="FontSize" Value="12"/>
+		<Setter Property="CornerRadius" Value="0"/>
+		<Setter Property="Height" Value="20"/>
+		<Setter Property="Padding" Value="0"/>
+		<Setter Property="Margin" Value="-4 0 0 0"/>
+	</Style>
+	<Style Selector="CheckBox.Std /template/ Border#NormalRectangle">
+		<Setter Property="Height" Value="12"/>
+		<Setter Property="Width" Value="12"/>
+		<Setter Property="Background" Value="{DynamicResource ControlNormalBgColor}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlNormalBorderColor}"/>
+	</Style>
+	<Style Selector="CheckBox.Std:focus /template/ Border#NormalRectangle">
+		<Setter Property="Height" Value="12"/>
+		<Setter Property="Width" Value="12"/>
+		<Setter Property="Background" Value="{DynamicResource ControlFocusBgColor}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlFocusBorderColor}"/>
+	</Style>
+	<Style Selector="CheckBox.Std /template/ Grid > Grid">
+		<Setter Property="Height" Value="20"/>
+		<Setter Property="HorizontalAlignment" Value="Left"/>
+	</Style>
+	<Style Selector="CheckBox.Std /template/ Path">
+		<Setter Property="Fill" Value="{DynamicResource ControlNormalTextColor}"/>
+		<Setter Property="Height" Value="5"/>
+		<Setter Property="Width" Value="7"/>
+	</Style>
+	<Style Selector="CheckBox.Std:focus /template/ Path">
+		<Setter Property="Fill" Value="{DynamicResource ControlFocusBorderColor}"/>
+		<Setter Property="Height" Value="5"/>
+		<Setter Property="Width" Value="7"/>
 	</Style>
 </Styles>

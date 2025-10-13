@@ -4,8 +4,8 @@
 		<Setter Property="Foreground" Value="White"/>
 	</Style>
 	<Style Selector="DataGrid.Std">
-		<Setter Property="Background" Value="{DynamicResource MenuPanelBgColor}{Binding Style.Colors[ControlBackground]}"/>
-		<Setter Property="BorderBrush" Value="{Binding Style.Colors[ControlBorder]}"/>
+		<Setter Property="Background" Value="{DynamicResource MenuPanelBgColor}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource MenuPanelBgColor}"/>
 		<Setter Property="BorderThickness" Value="1"/>
 	</Style>
 	<Style Selector="DataGridColumnHeader">

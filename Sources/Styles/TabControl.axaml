@@ -1,17 +1,58 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-	<Style Selector="TabItem">
-		<Setter Property="Padding" Value="5 2"/>
-		<Setter Property="Margin" Value="0"/>
-		<Setter Property="Foreground" Value="#282828"/>
-		<Setter Property="FontSize" Value="14"/>
+	<Style Selector="TabItem.Std">
+		<Setter Property="Foreground" Value="{DynamicResource ControlDisableTextColor}"/>
+		<Setter Property="FontSize" Value="12"/>
+		<Setter Property="MinHeight" Value="21"/>
+		<Setter Property="Height" Value="21"/>
+		<Setter Property="VerticalAlignment" Value="Bottom"/>
+		<Setter Property="FontFamily" Value="Arial"/>
+		<Setter Property="Padding" Value="5 2 5 0"/>
+		<Setter Property="Margin" Value="-1 0 0 0"/>
 	</Style>
-	<Style Selector="TabControl">
-		<Setter Property="Padding" Value="0"/>
-		<Setter Property="Margin" Value="0"/>
+	<Style Selector="TabItem.Std:pointerover">
+		<Setter Property="Foreground" Value="{DynamicResource ControlDisableTextColor}"/>
 	</Style>
-	<Style Selector="TabControl[TabStripPlacement=Top]">
-		<Setter Property="Padding" Value="0"/>
-		<Setter Property="Margin" Value="0"/>
+	<Style Selector="TabItem.Std:selected">
+		<Setter Property="Foreground" Value="{DynamicResource ControlNormalTextColor}"/>
+		<Setter Property="Height" Value="23"/>
+		<Setter Property="Padding" Value="7 2 7 0"/>
+		<Setter Property="Margin" Value="-3 0 0 0"/>
+	</Style>
+	<Style Selector="TabItem.Std:pointerover:selected">
+		<Setter Property="Foreground" Value="{DynamicResource ControlNormalTextColor}"/>
+	</Style>
+
+	<Style Selector="TabControl.Std>Border>DockPanel>ItemsPresenter#PART_ItemsPresenter">
+		<Setter Property="Margin" Value="3 0 0 0"/>
+		<Setter Property="Height" Value="23"/>
+		<Setter Property="ZIndex" Value="1"/>
+	</Style>
+	<Style Selector="TabItem.Std>Border#PART_LayoutRoot">
+		<Setter Property="Background" Value="{DynamicResource ControlDisableBgColor}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlDisableBorderColor}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+	</Style>
+	<Style Selector="TabItem.Std:selected>Border#PART_LayoutRoot">
+		<Setter Property="BorderThickness" Value="1 1 1 0"/>
+	</Style>
+	<Style Selector="TabItem.Std:pointerover>Border#PART_LayoutRoot">
+		<Setter Property="Background" Value="{DynamicResource ControlDisableBgColor}"/>
+	</Style>
+	<Style Selector="TabItem.Std:selected>Border#PART_LayoutRoot">
+		<Setter Property="Background" Value="{DynamicResource ControlNormalBgColor}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlNormalBorderColor}"/>
+	</Style>
+	<Style Selector="TabItem.Std:pointerover:selected>Border#PART_LayoutRoot">
+		<Setter Property="Background" Value="{DynamicResource ControlNormalBgColor}"/>
+	</Style>
+	<Style Selector="TabItem.Std:selected>Border#PART_LayoutRoot Border#PART_SelectedPipe">
+		<Setter Property="IsVisible" Value="False"/>
+	</Style>
+	<Style Selector="TabControl.Std ContentPresenter#PART_SelectedContentHost">
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlNormalBorderColor}"/>
+		<Setter Property="Background" Value="{DynamicResource ControlNormalBgColor}"/>
+		<Setter Property="Margin" Value="0 -1 0 0"/>
 	</Style>
 </Styles>

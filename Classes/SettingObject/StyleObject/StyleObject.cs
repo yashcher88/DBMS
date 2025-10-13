@@ -21,13 +21,13 @@ namespace DBMS.Classes
              */
 
             /* Цвета Формы */
-            _colors["FormBgColor"] = CConvert.HexToColor("#cfd6e3");
+            _colors["FormBgColor"] = CConvert.HexToColor("#f0f0f0");
             _colors["FormTextColor"] = CConvert.HexToColor("#000000");
 
             /* Цвета Панелей */
-            _colors["PanelBgColor"] = CConvert.HexToColor("#cfd6e3");
+            _colors["PanelBgColor"] = CConvert.HexToColor("#f0f0f0");
             _colors["PanelTextColor"] = CConvert.HexToColor("#000000");
-            _colors["PanelBorderColor"] = CConvert.HexToColor("#000000");
+            _colors["PanelBorderColor"] = CConvert.HexToColor("#adadad");
 
             /* Цвета Пунктов меню */
             _colors["MenuHeaderNormalBgColor"] = CConvert.HexToColor("#e1e1e1");
@@ -49,7 +49,7 @@ namespace DBMS.Classes
             _colors["MenuItemDisableTextColor"] = CConvert.HexToColor("#000000");
             _colors["MenuItemDisableBorderColor"] = CConvert.HexToColor("#adadad");
             _colors["MenuItemFocusBgColor"] = CConvert.HexToColor("#e1e1e1");
-            _colors["MenuItemFocusTextColor"] = CConvert.HexToColor("#000000");
+            _colors["MenuItemFocusTextColor"] = CConvert.HexToColor("#ffffff");
             _colors["MenuItemFocusBorderColor"] = CConvert.HexToColor("#adadad");
 
             /* Цвета Таблиц */
@@ -87,30 +87,30 @@ namespace DBMS.Classes
             _colors["GridCellNullBorderColor2"] = CConvert.HexToColor("#adadad");
 
             /* Цвета Текстового редактора */
-            _colors["ControlNormalBgColor"] = CConvert.HexToColor("#e1e1e1");
-            _colors["ControlNormalTextColor"] = CConvert.HexToColor("#000000");
-            _colors["ControlNormalBorderColor"] = CConvert.HexToColor("#adadad");
-            _colors["ControlDisableBgColor"] = CConvert.HexToColor("#e1e1e1");
-            _colors["ControlDisableTextColor"] = CConvert.HexToColor("#000000");
-            _colors["ControlDisableBorderColor"] = CConvert.HexToColor("#adadad");
-            _colors["ControlFocusBgColor"] = CConvert.HexToColor("#e1e1e1");
-            _colors["ControlFocusTextColor"] = CConvert.HexToColor("#000000");
-            _colors["ControlFocusBorderColor"] = CConvert.HexToColor("#adadad");
-            _colors["ControlSelectionBgColor"] = CConvert.HexToColor("#e1e1e1");
-            _colors["ControlSelectionTextColor"] = CConvert.HexToColor("#000000");
+            _colors["TextEditorNormalBgColor"] = CConvert.HexToColor("#ffffff");
+            _colors["TextEditorNormalTextColor"] = CConvert.HexToColor("#000000");
+            _colors["TextEditorNormalBorderColor"] = CConvert.HexToColor("#adadad");
+            _colors["TextEditorDisableBgColor"] = CConvert.HexToColor("#e1e1e1");
+            _colors["TextEditorDisableTextColor"] = CConvert.HexToColor("#000000");
+            _colors["TextEditorDisableBorderColor"] = CConvert.HexToColor("#adadad");
+            _colors["TextEditorFocusBgColor"] = CConvert.HexToColor("#e1e1e1");
+            _colors["TextEditorFocusTextColor"] = CConvert.HexToColor("#000000");
+            _colors["TextEditorFocusBorderColor"] = CConvert.HexToColor("#adadad");
+            _colors["TextEditorSelectionBgColor"] = CConvert.HexToColor("#e1e1e1");
+            _colors["TextEditorSelectionTextColor"] = CConvert.HexToColor("#000000");
 
             /* Цвета элементов ввода */
-            _colors["ControlNormalBgColor"] = CConvert.HexToColor("#e1e1e1");
+            _colors["ControlNormalBgColor"] = CConvert.HexToColor("#ffffff");
             _colors["ControlNormalTextColor"] = CConvert.HexToColor("#000000");
             _colors["ControlNormalBorderColor"] = CConvert.HexToColor("#adadad");
             _colors["ControlDisableBgColor"] = CConvert.HexToColor("#e1e1e1");
             _colors["ControlDisableTextColor"] = CConvert.HexToColor("#000000");
             _colors["ControlDisableBorderColor"] = CConvert.HexToColor("#adadad");
-            _colors["ControlFocusBgColor"] = CConvert.HexToColor("#e1e1e1");
+            _colors["ControlFocusBgColor"] = CConvert.HexToColor("#ffffff");
             _colors["ControlFocusTextColor"] = CConvert.HexToColor("#000000");
-            _colors["ControlFocusBorderColor"] = CConvert.HexToColor("#adadad");
-            _colors["ControlSelectionBgColor"] = CConvert.HexToColor("#e1e1e1");
-            _colors["ControlSelectionTextColor"] = CConvert.HexToColor("#000000");
+            _colors["ControlFocusBorderColor"] = CConvert.HexToColor("#0078D7"); //Синий
+            _colors["ControlSelectionBgColor"] = CConvert.HexToColor("#0078D7"); //Голубой
+            _colors["ControlSelectionTextColor"] = CConvert.HexToColor("#ffffff");
 
             /* Цвета кнопок */
             _colors["ButtonNormalBgColor"] = CConvert.HexToColor("#e1e1e1");
@@ -141,8 +141,8 @@ namespace DBMS.Classes
             _colors["MainButtonClickedBorderColor"] = CConvert.HexToColor("#adadad");
 
             /*Цвет Splitter*/
-            _colors["SplitterNormalColor"] = CConvert.HexToColor("#f0f0f0");
-            _colors["SplitterActiveColor"] = CConvert.HexToColor("#f0f0f0");
+            _colors["SplitterNormalColor"] = CConvert.HexToColor("#d0d0d0");
+            _colors["SplitterActiveColor"] = CConvert.HexToColor("#d0d0d0");
         }
         public void ApplyStyleSettings() 
         {

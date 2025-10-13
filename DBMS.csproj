@@ -67,32 +67,32 @@
     <Content Include="Sources\Icons\MainIcon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.3.6" />
+    <PackageReference Include="Avalonia" Version="11.3.7" />
     <PackageReference Include="Avalonia.AvaloniaEdit" Version="11.3.0" />
-    <PackageReference Include="Avalonia.Controls.ColorPicker" Version="11.3.6" />
-    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.6" />
+    <PackageReference Include="Avalonia.Controls.ColorPicker" Version="11.3.7" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.7" />
     <PackageReference Include="Avalonia.Controls.TreeDataGrid" Version="11.1.1" />
-    <PackageReference Include="Avalonia.Desktop" Version="11.3.6" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.3.7" />
     <PackageReference Include="Avalonia.Labs.Gif" Version="11.3.1" />
-    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.6" />
-    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.6" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.7" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.7" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-    <PackageReference Include="Avalonia.Diagnostics" Version="11.3.6">
+    <PackageReference Include="Avalonia.Diagnostics" Version="11.3.7">
       <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
       <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Avalonia.Themes.Simple" Version="11.3.6" />
+    <PackageReference Include="Avalonia.Themes.Simple" Version="11.3.7" />
     <PackageReference Include="AvaloniaEdit.TextMate" Version="11.3.0" />
     <PackageReference Include="AvaloniaEdit.TextMate.Grammars" Version="0.10.12" />
     <PackageReference Include="Citrus.Avalonia" Version="2.1.1" />
-    <PackageReference Include="Dock.Avalonia" Version="11.3.2.2" />
-    <PackageReference Include="Dock.Avalonia.Themes.Fluent" Version="11.3.2.2" />
-    <PackageReference Include="Dock.Model" Version="11.3.2.2" />
-    <PackageReference Include="Dock.Model.Avalonia" Version="11.3.2.2" />
-    <PackageReference Include="Dock.Model.Mvvm" Version="11.3.2.2" />
-    <PackageReference Include="Dock.Serializer.Newtonsoft" Version="11.3.2.2" />
+    <PackageReference Include="Dock.Avalonia" Version="11.3.6.3" />
+    <PackageReference Include="Dock.Avalonia.Themes.Fluent" Version="11.3.6.3" />
+    <PackageReference Include="Dock.Model" Version="11.3.6.3" />
+    <PackageReference Include="Dock.Model.Avalonia" Version="11.3.6.3" />
+    <PackageReference Include="Dock.Model.Mvvm" Version="11.3.6.3" />
+    <PackageReference Include="Dock.Serializer.Newtonsoft" Version="11.3.6.3" />
     <PackageReference Include="MessageBox.Avalonia" Version="3.2.0" />
-    <PackageReference Include="Npgsql" Version="9.0.3" />
+    <PackageReference Include="Npgsql" Version="9.0.4" />
     <PackageReference Include="Simplecto.Avalonia.RichTextBox" Version="1.3.9" />
     <PackageReference Include="TextMateSharp.Grammars" Version="1.0.70" />
     <PackageReference Include="ThemeManager" Version="11.3.0" />

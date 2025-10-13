@@ -20,12 +20,13 @@
 					<MenuItem Header="Подключиться к серверу" Click="ConnectToServer"/>
 					<MenuItem Header="Выполнить" Click="ExecuteQuery"/>
 					<MenuItem Header="Отменить выполнение" Click="CancelQuery"/>
+					<MenuItem Header="Найти" Click="Find"/>
 				</ContextMenu>
 			</AvaloniaEdit:TextEditor.ContextMenu>
 		</AvaloniaEdit:TextEditor>
-		<GridSplitter Grid.Row="1" Name="ResultSplitter" IsVisible="true"/>
-		<TabControl Grid.Row="2" Name="Result" IsVisible="true">
-			<TabItem Header="Результаты" x:Name="ResultTab">
+		<GridSplitter Grid.Row="1" Name="ResultSplitter" IsVisible="true" Classes="Std"/>
+		<TabControl Grid.Row="2" Name="Result" IsVisible="true" Classes="Std">
+			<TabItem Header="Результаты" x:Name="ResultTab" Classes="Std">
 				<DataGrid x:Name="ResultGrid" IsReadOnly="true" Margin="2" CanUserSortColumns="false"
 						  SelectionMode="Extended" 
 						  
@@ -33,13 +34,13 @@
 					
 				</DataGrid>
 			</TabItem>
-			<TabItem Header="Результаты" x:Name="ResultText">
+			<TabItem Header="Результаты" x:Name="ResultText" Classes="Std">
 				
 			</TabItem>
-			<TabItem Header="План запроса" x:Name="QueryPlan">
+			<TabItem Header="План запроса" x:Name="QueryPlan" Classes="Std">
 
 			</TabItem>
-			<TabItem Header="Сообщения" x:Name="QueryMessages">
+			<TabItem Header="Сообщения" x:Name="QueryMessages" Classes="Std">
 				<Border BorderBrush="Gray" BorderThickness="1" Margin="2">
 					<SelectableTextBlock x:Name="Messages" TextWrapping="Wrap" FontFamily="Courier New"
 
@@ -49,7 +50,7 @@
 		</TabControl>
 		<Grid Grid.Row="3">
 			<Panel Name="StatePanel" Background="#f7e78c">
-				<Border BorderBrush="Gray" BorderThickness="0 1 0 0"></Border>
+				<Border BorderBrush="Gray" BorderThickness="0 1 0 0"/>
 				<Grid ColumnDefinitions="*,Auto,Auto,Auto,Auto,Auto,Auto">
 					<Panel Grid.Column="0">
 						<Grid ColumnDefinitions="24,*">
@@ -57,28 +58,28 @@
 							<TextBlock Text="Не подключено" x:Name="QueryState" Grid.Column="1" Margin="2 3 2 0"/>
 						</Grid>
 					</Panel>
-					<Panel Grid.Column="1" Margin="0 0 3 0">
-						<TextBlock Margin="2 3 2 0"/>
+					<Panel Grid.Column="1" Classes="PanelState">
+						<TextBlock/>
 						<Border BorderBrush="Gray" BorderThickness="0 0 1 0" Margin="0 4"/>
 					</Panel>
-					<Panel Grid.Column="2" Margin="0 0 3 0">
-						<TextBlock Text="Сервер" x:Name="QueryServer" Margin="2 3 5 3"/>
+					<Panel Grid.Column="2" Classes="PanelState">
+						<TextBlock Text="Сервер" x:Name="QueryServer"/>
 						<Border BorderBrush="Gray" BorderThickness="0 0 1 0" Margin="0 4"/>
 					</Panel>
-					<Panel Grid.Column="3" Margin="0 0 3 0">
-						<TextBlock Text="Пользователь" x:Name="QueryUser" Margin="2 3 5 3"/>
+					<Panel Grid.Column="3" Classes="PanelState">
+						<TextBlock Text="Пользователь" x:Name="QueryUser"/>
 						<Border BorderBrush="Gray" BorderThickness="0 0 1 0" Margin="0 4"/>
 					</Panel>
-					<Panel Grid.Column="4" Margin="0 0 3 0">
-						<TextBlock Text="База данных" x:Name="QueryDB" Margin="2 3 5 3"/>
+					<Panel Grid.Column="4" Classes="PanelState">
+						<TextBlock Text="База данных" x:Name="QueryDB"/>
 						<Border BorderBrush="Gray" BorderThickness="0 0 1 0" Margin="0 4"/>
 					</Panel>
-					<Panel Grid.Column="5" Margin="0 0 3 0">
-						<TextBlock Text="00:00:00" x:Name="QueryTime" Margin="2 3 5 3"/>
-						<Border BorderBrush="Gray" BorderThickness="0 0 1 0" Margin="0 4"/>
+					<Panel Grid.Column="5" Classes="PanelState">
+						<TextBlock Text="00:00:00" x:Name="QueryTime"/>
+						<Border/>
 					</Panel>
-					<Panel Grid.Column="6" Margin="0 0 3 0">
-						<TextBlock Text="0 строк" x:Name="QueryRows" Grid.Column="6" Margin="2 3 5 0" />
+					<Panel Grid.Column="6" Classes="PanelState">
+						<TextBlock Text="0 строк" x:Name="QueryRows" Grid.Column="6"/>
 					</Panel>
 				</Grid>
 			</Panel>

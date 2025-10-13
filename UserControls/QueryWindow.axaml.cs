@@ -137,31 +137,31 @@ public partial class QueryWindow : BaseUserControl
             switch (Connection.State) 
             {
                 case ConnectionStateType.Connected:
-                    QueryState.Text = "Подключено";
+                    QueryState.Text = store.Lang["QueryStateConnected"];
                     ImageState.Source = store.Images["ButtonIcons.Connect"];
                     QueryTime.Text = "00:00:00";
                     break;
                 case ConnectionStateType.Disconnected:
-                    QueryState.Text = "Не подключено";
+                    QueryState.Text = store.Lang["QueryStateNotConnected"];
                     ImageState.Source = store.Images["ButtonIcons.Disconnect"];
                     QueryTime.Text = "00:00:00";
                     break;
                 case ConnectionStateType.Executing:
-                    QueryState.Text = "Выполняется";
+                    QueryState.Text = store.Lang["QueryStateExecuting"];
                     QueryTime.Text = CConvert.SecsToString(System.DateTime.Now.Subtract(Connection.LastStart));
                     break;
                 case ConnectionStateType.Complete:
-                    QueryState.Text = "Выполнено";
+                    QueryState.Text = store.Lang["QueryStateComplete"];
                     ImageState.Source = store.Images["StateIcons.Complete"];
                     QueryTime.Text = CConvert.SecsToString(System.DateTime.Now.Subtract(Connection.LastStart));
                     break;
                 case ConnectionStateType.CompleteError:
-                    QueryState.Text = "Выполнено с ошибками";
+                    QueryState.Text = store.Lang["QueryStateCompleteError"];
                     ImageState.Source = store.Images["StateIcons.CompleteError"];
                     QueryTime.Text = CConvert.SecsToString(System.DateTime.Now.Subtract(Connection.LastStart));
                     break;
                 case ConnectionStateType.Canceled:
-                    QueryState.Text = "Отменено";
+                    QueryState.Text = store.Lang["QueryStateCancel"];
                     ImageState.Source = store.Images["StateIcons.Canceled"];
                     QueryTime.Text = CConvert.SecsToString(System.DateTime.Now.Subtract(Connection.LastStart));
                     break;
@@ -183,5 +183,9 @@ public partial class QueryWindow : BaseUserControl
     public void CancelQuery(object sender, RoutedEventArgs e)
     {
 
+    }
+    public void Find(object sender, RoutedEventArgs e) 
+    { 
+        
     }
 }

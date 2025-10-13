@@ -1,33 +1,92 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-	<Style Selector="AutoCompleteBox">
-		<Setter Property="MinHeight" Value="1"/>
+	<Style Selector="AutoCompleteBox.Std">
+		<Setter Property="Background" Value="{DynamicResource ControlNormalBgColor}"/>
+		<Setter Property="Foreground" Value="{DynamicResource ControlNormalTextColor}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlNormalBorderColor}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="MinHeight" Value="20"/>
 		<Setter Property="FontSize" Value="12"/>
-		<Setter Property="Height" Value="22"/>
-		<Setter Property="Padding" Value="5 2"/>
+		<Setter Property="Height" Value="20"/>
+		<Setter Property="Padding" Value="2"/>
+		<Setter Property="FontFamily" Value="Arial"/>
+		<Setter Property="CornerRadius" Value="0"/>
+	</Style>
+	<Style Selector="AutoCompleteBox.Std /template/ TextBox">
+		<Setter Property="Background" Value="{DynamicResource ControlNormalBgColor}"/>
+		<Setter Property="Foreground" Value="{DynamicResource ControlNormalTextColor}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlNormalBorderColor}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="SelectionBrush" Value="{DynamicResource ControlSelectionBgColor}"/>
+		<Setter Property="SelectionForegroundBrush" Value="{DynamicResource ControlSelectionTextColor}"/>
+		<Setter Property="MinHeight" Value="20"/>
+		<Setter Property="FontSize" Value="12"/>
+		<Setter Property="Height" Value="20"/>
+		<Setter Property="Padding" Value="2"/>
+		<Setter Property="FontFamily" Value="Arial"/>
+		<Setter Property="CornerRadius" Value="0"/>
+	</Style>
+	<Style Selector="AutoCompleteBox.Std /template/ TextBox:pointerover /template/ Border#PART_BorderElement">
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlNormalBorderColor}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+	</Style>
+	<Style Selector="AutoCompleteBox.Std /template/ TextBox:pointerover">
+		<Setter Property="Background" Value="{DynamicResource ControlNormalBgColor}"/>
+		<Setter Property="Foreground" Value="{DynamicResource ControlNormalTextColor}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlNormalBorderColor}"/>
+	</Style>
+	<Style Selector="AutoCompleteBox.Std /template/ TextBox:focus">
+		<Setter Property="Background" Value="{DynamicResource ControlFocusBgColor}"/>
+		<Setter Property="Foreground" Value="{DynamicResource ControlFocusTextColor}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlFocusBorderColor}"/>
+	</Style>
+	<Style Selector="AutoCompleteBox.Std /template/ TextBox:focus /template/ Border#PART_BorderElement">
+		<Setter Property="Background" Value="{DynamicResource ControlFocusBgColor}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlFocusBorderColor}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+	</Style>
+	<Style Selector="AutoCompleteBox.Std /template/ TextBox">
+		<Setter Property="MinHeight" Value="20"/>
+		<Setter Property="Height" Value="20"/>
 	</Style>
 	<Style Selector="AutoCompleteBox.ConnectionEdit">
 		<Setter Property="HorizontalAlignment" Value="Left"/>
 		<Setter Property="VerticalAlignment" Value="Center"/>
-		<Setter Property="CornerRadius" Value="0"/>
-		<Setter Property="FontSize" Value="12"/>
-		<Setter Property="FontFamily" Value="Arial"/>
 		<Setter Property="Width" Value="250"/>
-		<Setter Property="Height" Value="22"/>
-		<Setter Property="MinHeight" Value="22"/>
-		<Setter Property="BorderBrush" Value="#ADADAD"/>
-		<Setter Property="BorderThickness" Value="1"/>
 	</Style>
-	<Style Selector="AutoCompleteBox.ConnectionEdit:pointerover /template/ ContentPresenter">
-		<Setter Property="BorderBrush" Value="#ADADAD"/>
-		<Setter Property="BorderThickness" Value="1"/>
-	</Style>
-	<Style Selector="AutoCompleteBox#PART_SuggestionsContainer">
-		<Setter Property="CornerRadius" Value="0"/>
-	</Style>
-	<Style Selector="AutoCompleteBox ListBoxItem">
-		<Setter Property="Padding" Value="3 3 3 0"/>
-		<Setter Property="Margin" Value="0"/>
+	<Style Selector="AutoCompleteBox.Std /template/ ListBox > ListBoxItem">
+		<Setter Property="Padding" Value="2"/>
+		<Setter Property="Margin" Value="1 0 1 0"/>
 		<Setter Property="FontSize" Value="12"/>
+	</Style>
+	<Style Selector="AutoCompleteBox.Std /template/ ListBox > ListBoxItem /template/ ContentPresenter">
+		<Setter Property="Background" Value="{DynamicResource ControlNormalBgColor}"/>
+		<Setter Property="Foreground" Value="{DynamicResource ControlNormalTextColor}"/>
+	</Style>
+	<Style Selector="AutoCompleteBox.Std /template/ ListBox > ListBoxItem /template/ ContentPresenter:pointerover">
+		<Setter Property="Background" Value="{DynamicResource ControlSelectionBgColor}"/>
+		<Setter Property="Foreground" Value="{DynamicResource ControlSelectionTextColor}"/>
+	</Style>
+	<Style Selector="AutoCompleteBox.Std /template/ Border#PART_SuggestionsContainer">
+		<Setter Property="CornerRadius" Value="0"/>
+		<Setter Property="Padding" Value="0"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlNormalBorderColor}"/>
+	</Style>
+
+	<Style Selector="Button.AutoCompleteBoxBut">
+		<Setter Property="HorizontalAlignment" Value="Right"/>
+		<Setter Property="Margin" Value="0 0 5 0"/>
+		<Setter Property="Width" Value="14"/>
+		<Setter Property="Background" Value="Transparent"/>
+	</Style>
+	<Style Selector="Button.AutoCompleteBoxBut /template/ ContentPresenter">
+		<Setter Property="Background" Value="Transparent"/>
+	</Style>
+	<Style Selector="Button.AutoCompleteBoxBut > Path">
+		<Setter Property="StrokeThickness" Value="1"/>
+		<Setter Property="Stroke" Value="{DynamicResource ControlNormalBorderColor}"/>
+		<Setter Property="Width" Value="14"/>
+		<Setter Property="Height" Value="8"/>
 	</Style>
 </Styles>
