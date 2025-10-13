@@ -1,13 +1,32 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-	<Style Selector="Button">
-		<Setter Property="CornerRadius" Value="0"/>
-		<Setter Property="BorderThickness" Value="0"/>
-	</Style>
 	<Style Selector="Button.Std">
+		<Setter Property="CornerRadius" Value="0"/>
+		<Setter Property="BorderThickness" Value="1"/>
 		<Setter Property="Margin" Value="0"/>
-		<Setter Property="Background" Value="{DynamicResource FormBackground}"/>
 		<Setter Property="Padding" Value="5 2"/>
+		<Setter Property="FontSize" Value="12"/>
+		<Setter Property="Height" Value="22"/>
+
+		<Setter Property="Foreground" Value="{DynamicResource ButtonNormalTextColor}"/>
+	</Style>
+	<Style Selector="Button.Std>ContentPresenter">
+		<Setter Property="BorderBrush" Value="{DynamicResource ButtonNormalBorderColor}"/>
+		<Setter Property="Background" Value="{DynamicResource ButtonNormalBgColor}"/>
+	</Style>
+	<Style Selector="Button.Std:pointerover">
+		<Setter Property="Foreground" Value="{DynamicResource ButtonHoverTextColor}"/>
+	</Style>
+	<Style Selector="Button.Std:pointerover>ContentPresenter">
+		<Setter Property="BorderBrush" Value="{DynamicResource ButtonHoverBorderColor}"/>
+		<Setter Property="Background" Value="{DynamicResource ButtonHoverBgColor}"/>
+	</Style>
+	<Style Selector="Button.Std:pressed>ContentPresenter">
+		<Setter Property="BorderBrush" Value="{DynamicResource ButtonClickedBorderColor}"/>
+		<Setter Property="Background" Value="{DynamicResource ButtonClickedBgColor}"/>
+	</Style>
+	<Style Selector="Button.Std:pressed">
+		<Setter Property="Foreground" Value="{DynamicResource ButtonClickedTextColor}"/>
 	</Style>
 	<Style Selector="Button.StdButton">
 		<Setter Property="Height" Value="22"/>
@@ -21,14 +40,5 @@
 			<Setter Property="BorderBrush" Value="#ADADAD"/>
 			<Setter Property="BorderThickness" Value="1"/>
 		</Style>
-	</Style>
-	<Style Selector="Button.ButtonText">
-		<Setter Property="Padding" Value="20 3"/>
-	</Style>
-	<Style Selector="Button.AutoCompleteBoxButton">
-		<Setter Property="HorizontalAlignment" Value="Right"/>
-		<Setter Property="Width" Value="14"/>
-		<Setter Property="Margin" Value="0 0 5 0"/>
-		<Setter Property="Background" Value="Transparent"/>
 	</Style>
 </Styles>

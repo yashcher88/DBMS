@@ -53,7 +53,7 @@ namespace DBMS.Classes
             _colors["MenuItemFocusBorderColor"] = CConvert.HexToColor("#adadad");
 
             /* Цвета Таблиц */
-            _colors["GridHeaderNormalBgColor"] = CConvert.HexToColor("#e1e1e1");
+            _colors["GridHeaderNormalBgColor"] = CConvert.HexToColor("#f0f0f0");
             _colors["GridHeaderNormalTextColor"] = CConvert.HexToColor("#000000");
             _colors["GridHeaderNormalBorderColor"] = CConvert.HexToColor("#adadad");
             _colors["GridHeaderFocusBgColor"] = CConvert.HexToColor("#e1e1e1");
@@ -66,10 +66,10 @@ namespace DBMS.Classes
             _colors["GridHeaderClickedTextColor"] = CConvert.HexToColor("#000000");
             _colors["GridHeaderClickedBorderColor"] = CConvert.HexToColor("#adadad");
 
-            _colors["GridCellNormalBgColor1"] = CConvert.HexToColor("#e1e1e1");
+            _colors["GridCellNormalBgColor1"] = CConvert.HexToColor("#ffffff");
             _colors["GridCellNormalTextColor1"] = CConvert.HexToColor("#000000");
             _colors["GridCellNormalBorderColor1"] = CConvert.HexToColor("#adadad");
-            _colors["GridCellFocusBgColor1"] = CConvert.HexToColor("#e1e1e1");
+            _colors["GridCellFocusBgColor1"] = CConvert.HexToColor("#ffffff");
             _colors["GridCellFocusTextColor1"] = CConvert.HexToColor("#000000");
             _colors["GridCellFocusBorderColor1"] = CConvert.HexToColor("#adadad");
             _colors["GridCellNullBgColor1"] = CConvert.HexToColor("#e1e1e1");
@@ -119,9 +119,9 @@ namespace DBMS.Classes
             _colors["ButtonDisableBgColor"] = CConvert.HexToColor("#e1e1e1");
             _colors["ButtonDisableTextColor"] = CConvert.HexToColor("#000000");
             _colors["ButtonDisableBorderColor"] = CConvert.HexToColor("#adadad");
-            _colors["ButtonHoverBgColor"] = CConvert.HexToColor("#e1e1e1");
+            _colors["ButtonHoverBgColor"] = CConvert.HexToColor("#e5f1fb");
             _colors["ButtonHoverTextColor"] = CConvert.HexToColor("#000000");
-            _colors["ButtonHoverBorderColor"] = CConvert.HexToColor("#adadad");
+            _colors["ButtonHoverBorderColor"] = CConvert.HexToColor("#0078d7");
             _colors["ButtonClickedBgColor"] = CConvert.HexToColor("#e1e1e1");
             _colors["ButtonClickedTextColor"] = CConvert.HexToColor("#000000");
             _colors["ButtonClickedBorderColor"] = CConvert.HexToColor("#adadad");

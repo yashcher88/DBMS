@@ -31,6 +31,7 @@ namespace DBMS.Classes
             DataGridTextColumn TC1 = new DataGridTextColumn();
             TC1.Header = "";
             TC1.Binding = new Binding("Index");
+            TC1.CellStyleClasses.Add("First");
             D.Columns.Add(TC1);
 
             for (int i = 0; i < Columns.Count; i++)

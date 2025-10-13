@@ -28,7 +28,8 @@
 		<TabControl Grid.Row="2" Name="Result" IsVisible="true" Classes="Std">
 			<TabItem Header="Результаты" x:Name="ResultTab" Classes="Std">
 				<DataGrid x:Name="ResultGrid" IsReadOnly="true" Margin="2" CanUserSortColumns="false"
-						  SelectionMode="Extended" 
+						  SelectionMode="Extended"
+						  Classes="Result"
 						  
 				>
 					
@@ -43,7 +44,7 @@
 			<TabItem Header="Сообщения" x:Name="QueryMessages" Classes="Std">
 				<Border BorderBrush="Gray" BorderThickness="1" Margin="2">
 					<SelectableTextBlock x:Name="Messages" TextWrapping="Wrap" FontFamily="Courier New"
-
+						Classes="Std"
 						/>
 				</Border>
 			</TabItem>

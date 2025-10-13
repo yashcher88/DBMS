@@ -55,8 +55,8 @@
 				</TabItem>
 			</TabControl>
 			<WrapPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2">
-				<Button x:Name="bSave" Margin="0 0 30 0" FontSize="12" Height="22" Click="FormConnect" Classes="StdButton ButtonText" Content="{Binding store.Lang[Connect]}"/>
-				<Button x:Name="bClose" Margin="0 0 30 0" FontSize="12" Height="22" Click="FormClose" Classes="StdButton ButtonText" Content="{Binding store.Lang[Cancel]}"/>
+				<Button x:Name="bSave" Margin="0 0 30 0" Click="FormConnect" Classes="Std" Content="{Binding store.Lang[Connect]}"/>
+				<Button x:Name="bClose" Margin="0 0 30 0" FontSize="12" Height="22" Click="FormClose" Classes="Std" Content="{Binding store.Lang[Cancel]}"/>
 			</WrapPanel>
 		</Grid>
 	</Panel>
