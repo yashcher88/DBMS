@@ -1,25 +1,25 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:classes="using:DBMS.Classes"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 DataContext="{Binding $self}"
+			 x:DataType="classes:BaseUserControl"
              x:Class="DBMS.UserControls.LanguageForm"
 			 FontSize="12"
+			 AttachedToVisualTree="OnAttachedToVisualTree"
 	>
 	<Grid ColumnDefinitions="1*,4,3*">
 		<Grid Grid.Column="0">
 			<Grid RowDefinitions="20,*">
 				<TextBlock Classes="Std" Text="{Binding store.Lang[AvailableLanguage]}" Grid.Row="0"/>
-				<ListBox Grid.Row="1" Classes="Std" Name="LangList">
+				<ListBox Grid.Row="1" Classes="Std" Name="LangItems">
 					<ListBox.ContextMenu>
-						<ContextMenu>
-							<MenuItem Header="{Binding store.Lang[Add]}" />
-							<!-- Click="FormAddToLangList"-->
-							<MenuItem Header="{Binding store.Lang[Rename]}" />
-							<!-- Click="FormRenameItemLangList"-->
-							<MenuItem Header="{Binding store.Lang[Delete]}"/>
-							<!-- Click="FormDelFromLangList"-->
+						<ContextMenu Classes="Std">
+							<MenuItem Header="{Binding store.Lang[Add]}" Click="FormAddLangList"/>
+							<MenuItem Header="{Binding store.Lang[Rename]}" Click="FormRenameLangList"/>
+							<MenuItem Header="{Binding store.Lang[Delete]}" Click="FormDeleteLangList"/>
 						</ContextMenu>
 					</ListBox.ContextMenu>
 				</ListBox>
@@ -28,20 +28,7 @@
 		<GridSplitter Grid.Column="1" Classes="Std V"/>
 		<Grid Grid.Column="2">
 			<DataGrid Name="LangGrid" CanUserResizeColumns="true" CanUserSortColumns="false" Classes="Std">
-				<DataGrid.ContextMenu>
-					<ContextMenu>
-						<MenuItem Header="{Binding store.Lang[Add]}" />
-						<!-- Click="FormAddToLangList"-->
-						<MenuItem Header="{Binding store.Lang[Rename]}" />
-						<!-- Click="FormRenameItemLangList"-->
-						<MenuItem Header="{Binding store.Lang[Delete]}"/>
-						<!-- Click="FormDelFromLangList"-->
-					</ContextMenu>
-				</DataGrid.ContextMenu>
-				<DataGrid.Columns>
-					<DataGridTextColumn Header="Свойство"/>
-					<DataGridTextColumn Header="Значение по умолчанию"/>
-				</DataGrid.Columns>
+				
 			</DataGrid>
 		</Grid>
 	</Grid>

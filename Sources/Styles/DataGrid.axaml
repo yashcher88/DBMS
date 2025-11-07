@@ -1,100 +1,176 @@
-<Styles xmlns="https://github.com/avaloniaui"
+﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-	<Style Selector="DataGrid.Result TextBox">
+	<Style Selector="DataGrid.Std TextBox">
 		<Setter Property="Foreground" Value="White"/>
 	</Style>
-	<Style Selector="DataGrid.Result">
+	<Style Selector="DataGrid.Std">
 		<Setter Property="Background" Value="{DynamicResource GridCellNormalBgColor1}"/>
 		<Setter Property="BorderBrush" Value="{DynamicResource GridCellNormalBorderColor1}"/>
 		<Setter Property="BorderThickness" Value="1"/>
 	</Style>
-	<Style Selector="DataGrid.Result DataGridColumnHeader">
+	<Style Selector="DataGrid.Std DataGridColumnHeader">
 		<Setter Property="Padding" Value="5 2 5 2"/>
 		<Setter Property="MinHeight" Value="20"/>
 	</Style>
-	<Style Selector="DataGrid.Result DataGridRow">
+	<Style Selector="DataGrid.Std DataGridRow">
 		<Setter Property="Background" Value="Transparent"/>
 		<Setter Property="Padding" Value="0"/>
 		<Setter Property="MinHeight" Value="20"/>
 	</Style>
-	<Style Selector="DataGrid.Result DataGridCell">
-		<Setter Property="Padding" Value="5 2 5 2"/>
+	<Style Selector="DataGrid.Std DataGridRow Rectangle#BackgroundRectangle">
+		<Setter Property="Fill" Value="Transparent"/>
+	</Style>
+	<Style Selector="DataGrid.Std DataGridCell">
+		<Setter Property="Padding" Value="0"/>
 		<Setter Property="Margin" Value="0"/>
 		<Setter Property="BorderThickness" Value="0 0 1 1"/>
 		<Setter Property="MinHeight" Value="20"/>
 	</Style>
-	<Style Selector="DataGrid.Result DataGridCell:selected">
-		<Setter Property="Padding" Value="5 2 5 2"/>
+	<Style Selector="DataGrid.Std DataGridCell TextBlock">
+		<Setter Property="Padding" Value="3"/>
+	</Style>
+	<Style Selector="DataGrid.Std DataGridCell.selected">
+		<Setter Property="Padding" Value="0"/>
 		<Setter Property="Margin" Value="0"/>
 		<Setter Property="BorderThickness" Value="1"/>
 	</Style>
-	<Style Selector="DataGrid.Result DataGridCell TextBlock">
+	<Style Selector="DataGrid.Std DataGridCell TextBlock">
 		<Setter Property="Margin" Value="0"/>
-		<Setter Property="FontSize" Value="12"/>
-		<Setter Property="FontFamily" Value="Arial"/>
+		<Setter Property="TextElement.FontSize" Value="12"/>
+		<Setter Property="TextElement.FontFamily" Value="Arial"/>
 	</Style>
 
-	<Style Selector="DataGrid.Result DataGridColumnHeader>Border>Grid#PART_ColumnHeaderRoot">
+	<Style Selector="DataGrid.Std DataGridColumnHeader>Border>Grid#PART_ColumnHeaderRoot">
 		<Setter Property="Background" Value="{DynamicResource GridHeaderNormalBgColor}"/>
 	</Style>
-	<Style Selector="DataGrid.Result DataGridColumnHeader">
+	<Style Selector="DataGrid.Std DataGridColumnHeader">
 		<Setter Property="SeparatorBrush" Value="{DynamicResource GridHeaderNormalBorderColor}"/>
 	</Style>
-	<Style Selector="DataGrid.Result DataGridColumnHeader>Border>Grid#PART_ColumnHeaderRoot TextBlock">
-		<Setter Property="Foreground" Value="{DynamicResource GridHeaderNormalTextColor}"/>
+	<Style Selector="DataGrid.Std DataGridColumnHeader TextBlock">
+		<Setter Property="TextElement.Foreground" Value="{DynamicResource GridHeaderNormalTextColor}"/>
 	</Style>
-	<Style Selector="DataGrid.Result Rectangle#PART_ColumnHeadersAndRowsSeparator">
+	<Style Selector="DataGrid.Std Rectangle#PART_ColumnHeadersAndRowsSeparator">
 		<Setter Property="Fill" Value="{DynamicResource GridHeaderNormalBorderColor}"/>
 	</Style>
 
-	<Style Selector="DataGrid.Result DataGridColumnHeader:pointerover>Border>Grid#PART_ColumnHeaderRoot">
+	<Style Selector="DataGrid.Std DataGridColumnHeader:pointerover>Border>Grid#PART_ColumnHeaderRoot">
 		<Setter Property="Background" Value="{DynamicResource GridHeaderHoverBgColor}"/>
 	</Style>
-	<Style Selector="DataGrid.Result DataGridColumnHeader:pointerover">
+	<Style Selector="DataGrid.Std DataGridColumnHeader:pointerover">
 		<Setter Property="SeparatorBrush" Value="{DynamicResource GridHeaderHoverBorderColor}"/>
 	</Style>
-	<Style Selector="DataGrid.Result DataGridColumnHeader:pointerover>Border>Grid#PART_ColumnHeaderRoot TextBlock">
+	<Style Selector="DataGrid.Std DataGridColumnHeader:pointerover>Border>Grid#PART_ColumnHeaderRoot TextBlock">
 		<Setter Property="Foreground" Value="{DynamicResource GridHeaderHoverTextColor}"/>
 	</Style>
-	<Style Selector="DataGrid.Result DataGridColumnHeader:pressed>Border>Grid#PART_ColumnHeaderRoot">
+	<Style Selector="DataGrid.Std DataGridColumnHeader:pressed>Border>Grid#PART_ColumnHeaderRoot">
 		<Setter Property="Background" Value="{DynamicResource GridHeaderClickedBgColor}"/>
 	</Style>
-	<Style Selector="DataGrid.Result DataGridColumnHeader:pressed">
+	<Style Selector="DataGrid.Std DataGridColumnHeader:pressed">
 		<Setter Property="SeparatorBrush" Value="{DynamicResource GridHeaderClickedBorderColor}"/>
 	</Style>
-	<Style Selector="DataGrid.Result DataGridColumnHeader:pressed>Border>Grid#PART_ColumnHeaderRoot TextBlock">
-		<Setter Property="Foreground" Value="{DynamicResource GridHeaderClickedTextColor}"/>
+	<Style Selector="DataGrid.Std DataGridColumnHeader:pressed>Border>Grid#PART_ColumnHeaderRoot TextBlock">
+		<Setter Property="TextElement.Foreground" Value="{DynamicResource GridHeaderClickedTextColor}"/>
 	</Style>
-
-
-
-	<Style Selector="DataGrid.Result DataGridRow DataGridCell.First">
-		<Setter Property="Background" Value="{DynamicResource GridHeaderNormalBgColor}"/>
-		<Setter Property="BorderBrush" Value="{DynamicResource GridHeaderNormalBorderColor}"/>
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell:pointerover">
+		<Setter Property="Background" Value="{DynamicResource GridCellNormalBgColor1}"/>
 	</Style>
-	<Style Selector="DataGrid.Result DataGridRow DataGridCell Grid#FocusVisual Rectangle:nth-child(1)">
+	
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell Grid#FocusVisual Rectangle:nth-child(1)">
 		<Setter Property="Stroke" Value="Black"/>
 		<Setter Property="StrokeThickness" Value="1"/>
 	</Style>
 
-	<Style Selector="DataGrid.Result DataGridRow DataGridCell Grid#FocusVisual Rectangle:nth-child(2)">
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell Grid#FocusVisual Rectangle:nth-child(2)">
 		<Setter Property="Margin" Value="1"/>
 	</Style>
-	<Style Selector="DataGrid.Result DataGridRow DataGridCell.First TextBlock">
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell.First Grid#FocusVisual">
+		<Setter Property="IsVisible" Value="False"/>
+	</Style>
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell.First">
+		<Setter Property="Background" Value="{DynamicResource GridHeaderNormalBgColor}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource GridHeaderNormalBorderColor}"/>
+	</Style>
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell.First TextBlock">
 		<Setter Property="Foreground" Value="{DynamicResource GridHeaderNormalTextColor}"/>
 	</Style>
-	<Style Selector="DataGrid.Result DataGridRow DataGridCell:pointerover.First">
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell:pointerover.First">
 		<Setter Property="Background" Value="{DynamicResource GridHeaderHoverBgColor}"/>
 		<Setter Property="BorderBrush" Value="{DynamicResource GridHeaderHoverBorderColor}"/>
 	</Style>
-	<Style Selector="DataGrid.Result DataGridRow DataGridCell:pointerover.First TextBlock">
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell:pointerover.First TextBlock">
 		<Setter Property="Foreground" Value="{DynamicResource GridHeaderHoverTextColor}"/>
 	</Style>
-	<Style Selector="DataGrid.Result DataGridRow DataGridCell:pressed.First">
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell:pressed.First">
 		<Setter Property="Background" Value="{DynamicResource GridHeaderClickedBgColor}"/>
 		<Setter Property="BorderBrush" Value="{DynamicResource GridHeaderClickedBorderColor}"/>
 	</Style>
-	<Style Selector="DataGrid.Result DataGridRow DataGridCell:pressed.First TextBlock">
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell:pressed.First TextBlock">
 		<Setter Property="Foreground" Value="{DynamicResource GridHeaderClickedTextColor}"/>
+	</Style>
+
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell.UnFirst">
+		<Setter Property="Background" Value="{DynamicResource GridCellNormalBgColor1}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource GridCellNormalBorderColor1}"/>
+	</Style>
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell.UnFirst TextBlock">
+		<Setter Property="Foreground" Value="{DynamicResource GridCellNormalTextColor1}"/>
+	</Style>
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell:pointerover.UnFirst">
+		<Setter Property="Background" Value="{DynamicResource GridCellNormalBgColor1}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource GridCellNormalBorderColor1}"/>
+	</Style>
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell:pointerover.UnFirst TextBlock">
+		<Setter Property="Foreground" Value="{DynamicResource GridCellNormalTextColor1}"/>
+	</Style>
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell:pressed.UnFirst">
+		<Setter Property="Background" Value="{DynamicResource GridCellNormalBgColor1}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource GridCellNormalBorderColor1}"/>
+	</Style>
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell:pressed.UnFirst TextBlock">
+		<Setter Property="Foreground" Value="{DynamicResource GridCellNormalTextColor1}"/>
+	</Style>
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell.selected.UnFirst">
+		<Setter Property="Background" Value="{DynamicResource GridCellFocusBgColor1}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource GridCellFocusBorderColor1}"/>
+	</Style>
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell.selected.UnFirst TextBlock">
+		<Setter Property="Foreground" Value="{DynamicResource GridCellFocusTextColor1}"/>
+	</Style>
+
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell>Border#CellBorder">
+		<Setter Property="BorderThickness" Value="0 0 1 1"/>
+	</Style>
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell TextBox">
+		<Setter Property="Background" Value="{DynamicResource ControlNormalBgColor}"/>
+		<Setter Property="Foreground" Value="{DynamicResource ControlNormalTextColor}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlNormalBorderColor}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="SelectionBrush" Value="{DynamicResource ControlSelectionBgColor}"/>
+		<Setter Property="SelectionForegroundBrush" Value="{DynamicResource ControlSelectionTextColor}"/>
+		<Setter Property="MinHeight" Value="20"/>
+		<Setter Property="FontSize" Value="12"/>
+		<Setter Property="Height" Value="20"/>
+		<Setter Property="Padding" Value="2"/>
+		<Setter Property="FontFamily" Value="Arial"/>
+		<Setter Property="CornerRadius" Value="0"/>
+	</Style>
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell TextBox:pointerover /template/ Border#PART_BorderElement">
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlNormalBorderColor}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+	</Style>
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell TextBox:pointerover">
+		<Setter Property="Background" Value="{DynamicResource ControlNormalBgColor}"/>
+		<Setter Property="Foreground" Value="{DynamicResource ControlNormalTextColor}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlNormalBorderColor}"/>
+	</Style>
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell TextBox:focus">
+		<Setter Property="Background" Value="{DynamicResource ControlFocusBgColor}"/>
+		<Setter Property="Foreground" Value="{DynamicResource ControlFocusTextColor}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlFocusBorderColor}"/>
+	</Style>
+	<Style Selector="DataGrid.Std DataGridRow DataGridCell TextBox:focus /template/ Border#PART_BorderElement">
+		<Setter Property="Background" Value="{DynamicResource ControlFocusBgColor}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlFocusBorderColor}"/>
+		<Setter Property="BorderThickness" Value="1"/>
 	</Style>
 </Styles>

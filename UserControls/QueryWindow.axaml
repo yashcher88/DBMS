@@ -1,4 +1,4 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -9,7 +9,7 @@
              x:Class="DBMS.UserControls.QueryWindow">
 	
 	<Grid RowDefinitions="*,0,0,22" x:Name="MainGrid">
-		<AvaloniaEdit:TextEditor Text="Hello AvaloniaEdit!"
+		<AvaloniaEdit:TextEditor Text="select oid,proname from pg_proc"
                                  ShowLineNumbers="True"
                                  FontFamily="Consolas" 
 								 Grid.Row="0" 
@@ -29,8 +29,11 @@
 			<TabItem Header="Результаты" x:Name="ResultTab" Classes="Std">
 				<DataGrid x:Name="ResultGrid" IsReadOnly="true" Margin="2" CanUserSortColumns="false"
 						  SelectionMode="Extended"
-						  Classes="Result"
-						  
+						  Classes="Std"
+						  CanUserResizeColumns="True"
+					      PointerPressed="FormGridClick"
+						  KeyDown="FormGridKeyDown"
+					      KeyUp="FormGridKeyUp"
 				>
 					
 				</DataGrid>

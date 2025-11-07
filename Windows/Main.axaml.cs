@@ -1,4 +1,4 @@
-using Avalonia;
+п»їusing Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Controls.ApplicationLifetimes;
@@ -34,12 +34,11 @@ public partial class Main : BaseWindow
     }
     public void FormShowObjectExplorer(object sender, RoutedEventArgs e)
     {
-        //leftToolDock = new Dock.Model.Avalonia.Controls.ToolDock();
         var V = new ObjectExplorer();
         var document = new Tool
         {
             Id = "ObjectExplorer",
-            Title = "Обозреватель объектов",
+            Title = "РћР±РѕР·СЂРµРІР°С‚РµР»СЊ РѕР±СЉРµРєС‚РѕРІ",
             Content = V
         };
         mainDockControl.AddToolLeft(document);

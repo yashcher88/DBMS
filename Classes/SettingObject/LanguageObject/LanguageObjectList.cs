@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using DocumentFormat.OpenXml.Office2010.ExcelAc;
+using System.Collections.Generic;
 using System.Text.Json.Nodes;
 
 namespace DBMS.Classes
@@ -22,6 +23,7 @@ namespace DBMS.Classes
             LanguageObject M = new LanguageObject();
             if (List.ContainsKey(OldName)) 
             {
+                //List[OldName]
                 M = List[OldName];
                 List.Remove(OldName);
             }

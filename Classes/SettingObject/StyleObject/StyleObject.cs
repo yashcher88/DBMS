@@ -48,7 +48,7 @@ namespace DBMS.Classes
             _colors["MenuItemDisableBgColor"] = CConvert.HexToColor("#e1e1e1");
             _colors["MenuItemDisableTextColor"] = CConvert.HexToColor("#000000");
             _colors["MenuItemDisableBorderColor"] = CConvert.HexToColor("#adadad");
-            _colors["MenuItemFocusBgColor"] = CConvert.HexToColor("#e1e1e1");
+            _colors["MenuItemFocusBgColor"] = CConvert.HexToColor("#0078D7");
             _colors["MenuItemFocusTextColor"] = CConvert.HexToColor("#ffffff");
             _colors["MenuItemFocusBorderColor"] = CConvert.HexToColor("#adadad");
 
@@ -69,8 +69,8 @@ namespace DBMS.Classes
             _colors["GridCellNormalBgColor1"] = CConvert.HexToColor("#ffffff");
             _colors["GridCellNormalTextColor1"] = CConvert.HexToColor("#000000");
             _colors["GridCellNormalBorderColor1"] = CConvert.HexToColor("#adadad");
-            _colors["GridCellFocusBgColor1"] = CConvert.HexToColor("#ffffff");
-            _colors["GridCellFocusTextColor1"] = CConvert.HexToColor("#000000");
+            _colors["GridCellFocusBgColor1"] = CConvert.HexToColor("#0078D7");
+            _colors["GridCellFocusTextColor1"] = CConvert.HexToColor("#ffffff");
             _colors["GridCellFocusBorderColor1"] = CConvert.HexToColor("#adadad");
             _colors["GridCellNullBgColor1"] = CConvert.HexToColor("#e1e1e1");
             _colors["GridCellNullTextColor1"] = CConvert.HexToColor("#000000");
@@ -79,8 +79,8 @@ namespace DBMS.Classes
             _colors["GridCellNormalBgColor2"] = CConvert.HexToColor("#e1e1e1");
             _colors["GridCellNormalTextColor2"] = CConvert.HexToColor("#000000");
             _colors["GridCellNormalBorderColor2"] = CConvert.HexToColor("#adadad");
-            _colors["GridCellFocusBgColor2"] = CConvert.HexToColor("#e1e1e1");
-            _colors["GridCellFocusTextColor2"] = CConvert.HexToColor("#000000");
+            _colors["GridCellFocusBgColor2"] = CConvert.HexToColor("#0078D7");
+            _colors["GridCellFocusTextColor2"] = CConvert.HexToColor("#ffffff");
             _colors["GridCellFocusBorderColor2"] = CConvert.HexToColor("#adadad");
             _colors["GridCellNullBgColor2"] = CConvert.HexToColor("#e1e1e1");
             _colors["GridCellNullTextColor2"] = CConvert.HexToColor("#000000");

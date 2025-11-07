@@ -89,29 +89,5 @@ namespace DBMS.Functions
                     );
             return await messageBox.ShowWindowDialogAsync(BlockWindow);
         }
-        public static void EditItemList(ListBox L, int item, Func<string, string, int> Fun)
-        {
-            string s = L.Items[item].ToString();
-            var B = new TextBox();
-            B.KeyDown += (sender, e) => {
-                if (e.Key == Avalonia.Input.Key.Enter) 
-                {
-                    Fun(B.Text, s);
-                    L.Items[item] = B.Text;
-                }
-            };
-            B.LostFocus += (sender, e) =>
-            {
-                Fun(B.Text, s);
-                L.Items[item] = B.Text;
-            };
-            B.Text = s;
-            L.Items[item] = B;
-            B.AttachedToVisualTree += (sender, e) =>
-            {
-                B.Focus();
-                B.CaretIndex = B.Text?.Length ?? 0;
-            };
-        }
     }
 }

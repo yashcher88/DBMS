@@ -102,7 +102,8 @@
 		<Setter Property="Margin" Value="0"/>
 	</Style>
 
-
+	<Style Selector="ColorPicker.Std FlyoutPresenter TabControl ContentPresenter#PART_SelectedContentHost Grid">
+	</Style>
 	<!--
 	<Style Selector="ColorPicker.Std FlyoutPresenter TabControl TabItem:selected, ColorPicker.Std FlyoutPresenter TabControl TabItem:pointerover">
 		<Setter Property="Background" Value="{DynamicResource ControlSelectionBgColor}"/>

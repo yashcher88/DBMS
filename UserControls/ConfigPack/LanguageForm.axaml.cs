@@ -1,11 +1,17 @@
-using Avalonia;
+﻿using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Data;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Styling;
 using DBMS.Classes;
 using DBMS.Enums;
 using DBMS.Functions;
+using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.EMMA;
+using DocumentFormat.OpenXml.Presentation;
+using DynamicData;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -14,10 +20,115 @@ namespace DBMS.UserControls;
 
 public partial class LanguageForm : BaseUserControl
 {
+    InterfaceSetting ISetting;
     public LanguageForm()
     {
         InitializeComponent();
+        ISetting = new InterfaceSetting(LangGrid, LangItems, store.Sets.LanguageList);
     }
+    public void OnAttachedToVisualTree(object sender, VisualTreeAttachmentEventArgs e)
+    {
+        ISetting.Refresh();
+    }
+    public void FormAddLangList(object sender, RoutedEventArgs e)
+    {
+        ISetting.AddItem(); 
+    }
+    public void FormRenameLangList(object sender, RoutedEventArgs e)
+    {
+        ISetting.RenameItem();
+    }
+    public void FormDeleteLangList(object sender, RoutedEventArgs e)
+    {
+        ISetting.RemoveItem();
+    }
+
+    /*Старые функции*/
+    /*
+
+    public void FillLangRows()
+    {
+        LangRows.Clear();
+        foreach (var node1 in store.Sets.LanguageList.List)
+        {
+            AddColumnDataGrid(node1.Key);
+        }
+
+        foreach (var node in store.Sets.Language._text)
+        {
+            var D = new DataRowString();
+            D.SetName(node.Key);
+            foreach (var node1 in store.Sets.LanguageList.List)
+            {
+                string S;
+                S = node1.Value[node.Key];
+                D.Fields.Add(S);
+            }
+            LangRows.Add(D);
+        }
+    }
+    public void AddColumnDataGrid(string colName)
+    {
+        var i = LangGrid.Columns.Count - 1;
+        var TC = new DataGridTextColumn
+        {
+            Header = colName,
+            Binding = new Binding($"Fields[{i}]")
+        };
+        TC.CellStyleClasses.Add("UnFirst");
+        LangGrid.Columns.Add(TC);
+        LangList.Add(colName);
+    }
+    public int RenameItemLangList(string New, string Old) 
+    {
+        int i = 0;
+        foreach (var node in store.Sets.LanguageList.List)
+        {
+            if (node.Key == Old)
+            {
+                break;
+            }
+            i = i + 1;
+        }
+        if (LangGrid.Columns.Count <= i + 1)
+        {
+            AddColumnDataGrid(New);
+        }
+        else
+        {
+            LangGrid.Columns[i + 1].Header = New;
+        }
+        store.Sets.LanguageList.Change(Old, New);
+        return 0;
+    }
+    public int RenameLangList(string New, string Old)
+    {
+        int i = 0;
+        foreach (var node in store.Sets.LanguageList.List)
+        {
+            if (node.Key == Old)
+            {
+                break;
+            }
+            i = i + 1;
+        }
+        if (LangGrid.Columns.Count <= i + 1)
+        {
+            AddColumnDataGrid(New);
+            LangList.Add(New);
+        }
+        else
+        {
+            LangGrid.Columns[i + 1].Header = New;
+            LangList[i + 1] = New;
+        }
+        store.Sets.LanguageList.Change(Old, New);
+        return 0;
+    }
+    */
+    
+
+
     /*public ObservableCollection<LanguageFormGridRow> LangFormRows { get; set; }
     private bool ShowDeleted = false;
     public string SelectedLangWindow = "";

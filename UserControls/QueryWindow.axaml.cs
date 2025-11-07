@@ -1,6 +1,7 @@
-using Avalonia;
+п»їusing Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Documents;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
@@ -77,9 +78,9 @@ public partial class QueryWindow : BaseUserControl
             var rowDefinitions = MainGrid.RowDefinitions;
 
             if (rowDefinitions[1].Height.Value == 0) { 
-                // Изменяем определения строк: 50% для первой, 4 для разделителя, 50% для третьей
+                // РР·РјРµРЅСЏРµРј РѕРїСЂРµРґРµР»РµРЅРёСЏ СЃС‚СЂРѕРє: 50% РґР»СЏ РїРµСЂРІРѕР№, 4 РґР»СЏ СЂР°Р·РґРµР»РёС‚РµР»СЏ, 50% РґР»СЏ С‚СЂРµС‚СЊРµР№
                 rowDefinitions[0].Height = new GridLength(1, GridUnitType.Star); // 50%
-                rowDefinitions[1].Height = new GridLength(4); // Разделитель
+                rowDefinitions[1].Height = new GridLength(4); // Р Р°Р·РґРµР»РёС‚РµР»СЊ
                 rowDefinitions[2].Height = new GridLength(1, GridUnitType.Star); // 50%
             }
         }
@@ -187,5 +188,20 @@ public partial class QueryWindow : BaseUserControl
     public void Find(object sender, RoutedEventArgs e) 
     { 
         
+    }
+    public void FormGridClick(object sender, PointerPressedEventArgs e) 
+    {
+        ResultGrid.InvalidateVisual();
+        ResultGrid.UpdateLayout();
+    }
+    public void FormGridKeyDown(object sender, KeyEventArgs e)
+    {
+        ResultGrid.InvalidateVisual();
+        ResultGrid.UpdateLayout();
+    }
+    public void FormGridKeyUp(object sender, KeyEventArgs e)
+    {
+        ResultGrid.InvalidateVisual();
+        ResultGrid.UpdateLayout();
     }
 }

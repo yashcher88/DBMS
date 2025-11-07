@@ -39,6 +39,7 @@ namespace DBMS.Classes
                 DataGridTextColumn TC = new DataGridTextColumn();
                 TC.Header = Columns[i];
                 TC.Binding = new Binding($"Fields[{i}]");
+                TC.CellStyleClasses.Add("UnFirst");
                 D.Columns.Add(TC);
             }
         }

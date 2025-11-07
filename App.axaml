@@ -18,9 +18,7 @@
 		<FontFamily x:Key="ConsolasBold">avares://Sources/Fonts/CONSOLAB.TTF</FontFamily>
 		<FontFamily x:Key="ConsolasItalic">avares://Sources/Fonts/CONSOLAI.TTF</FontFamily>
 		<FontFamily x:Key="ConsolasBoldItalic">avares://Sources/Fonts/CONSOLAZ.TTF</FontFamily>
-	</Application.Resources>
-	
-	<Application.Resources>
+
 		<SolidColorBrush x:Key="FormBgColor" Color="#f0f0f0" />
 		<SolidColorBrush x:Key="FormTextColor" Color="#000000" />
 		<SolidColorBrush x:Key="PanelBgColor" Color="#f0f0f0" />

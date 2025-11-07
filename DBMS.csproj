@@ -7,91 +7,39 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     <ApplicationIcon>Sources\Icons\MainIcon.ico</ApplicationIcon>
+	  <SelfContained>true</SelfContained>
+	  <UseAppHost>true</UseAppHost>
+	  <PublishSingleFile>true</PublishSingleFile>
   </PropertyGroup>
-
   <ItemGroup>
 	<AvaloniaResource Include="Sources\**\*" />
 	<AvaloniaResource Include="Sources\*" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <AvaloniaXaml Remove="Classes\Setting\**" />
-    <AvaloniaXaml Remove="Styles\**" />
-    <Compile Remove="Classes\Setting\**" />
-    <Compile Remove="Styles\**" />
-    <EmbeddedResource Remove="Classes\Setting\**" />
-    <EmbeddedResource Remove="Styles\**" />
-    <None Remove="Classes\Setting\**" />
-    <None Remove="Styles\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <AvaloniaXaml Remove="Sources\Styles\AutoCompleteBox.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\Button.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\CheckBox.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\ColorPicker.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\ComboBox.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\ContextMenu.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\DataGrid.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\DockControl.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\GridSplitter.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\ListBox.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\Menu.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\SelectableTextBlock.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\TabControl.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\TextBlock.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\TextBox.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\TextEditor.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\TreeView.axaml" />
-  </ItemGroup>
-
-  <!--<ItemGroup>
-    <AvaloniaXaml Remove="Sources\Styles\Border.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\Button.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\CustomStyles.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\DataGrid.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\Grid.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\GridSplitter.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\MenuItem.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\Standard.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\TabControl.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\TabItem.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\TextBlock.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\TextBox.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\TreeView.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\TreeViewItem.axaml" />
-    <AvaloniaXaml Remove="Sources\Styles\Window.axaml" />
-  </ItemGroup>-->
-
-  <ItemGroup>
-    <Content Include="Sources\Icons\MainIcon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.3.7" />
+	<Content Include="Sources\Icons\MainIcon.ico" />
+	<PackageReference Include="Avalonia" Version="11.3.8" />
     <PackageReference Include="Avalonia.AvaloniaEdit" Version="11.3.0" />
-    <PackageReference Include="Avalonia.Controls.ColorPicker" Version="11.3.7" />
-    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.7" />
-    <PackageReference Include="Avalonia.Controls.TreeDataGrid" Version="11.1.1" />
-    <PackageReference Include="Avalonia.Desktop" Version="11.3.7" />
+    <PackageReference Include="Avalonia.Controls.ColorPicker" Version="11.3.8" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.8" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.3.8" />
     <PackageReference Include="Avalonia.Labs.Gif" Version="11.3.1" />
-    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.7" />
-    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.7" />
+
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.8" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.8" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-    <PackageReference Include="Avalonia.Diagnostics" Version="11.3.7">
+    <PackageReference Include="Avalonia.Diagnostics" Version="11.3.8">
       <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
       <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Avalonia.Themes.Simple" Version="11.3.7" />
+    <PackageReference Include="Avalonia.Themes.Simple" Version="11.3.8" />
     <PackageReference Include="AvaloniaEdit.TextMate" Version="11.3.0" />
     <PackageReference Include="AvaloniaEdit.TextMate.Grammars" Version="0.10.12" />
     <PackageReference Include="Citrus.Avalonia" Version="2.1.1" />
-    <PackageReference Include="Dock.Avalonia" Version="11.3.6.3" />
-    <PackageReference Include="Dock.Avalonia.Themes.Fluent" Version="11.3.6.3" />
-    <PackageReference Include="Dock.Model" Version="11.3.6.3" />
-    <PackageReference Include="Dock.Model.Avalonia" Version="11.3.6.3" />
-    <PackageReference Include="Dock.Model.Mvvm" Version="11.3.6.3" />
-    <PackageReference Include="Dock.Serializer.Newtonsoft" Version="11.3.6.3" />
-    <PackageReference Include="MessageBox.Avalonia" Version="3.2.0" />
+    <PackageReference Include="Dock.Avalonia" Version="11.3.6.5" />
+    <PackageReference Include="Dock.Avalonia.Themes.Fluent" Version="11.3.6.5" />
+    <PackageReference Include="Dock.Model" Version="11.3.6.5" />
+    <PackageReference Include="Dock.Model.Avalonia" Version="11.3.6.5" />
+    <PackageReference Include="Dock.Model.Mvvm" Version="11.3.6.5" />
+    <PackageReference Include="Dock.Serializer.Newtonsoft" Version="11.3.6.5" />
+    <PackageReference Include="MessageBox.Avalonia" Version="3.3.0" />
     <PackageReference Include="Npgsql" Version="9.0.4" />
     <PackageReference Include="Simplecto.Avalonia.RichTextBox" Version="1.3.9" />
     <PackageReference Include="TextMateSharp.Grammars" Version="1.0.70" />
@@ -157,56 +105,7 @@
       <SubType>Designer</SubType>
     </AvaloniaResource>
   </ItemGroup>
-  <!--<ItemGroup>
-    <AvaloniaResource Update="Sources\Styles\Old\DataGrid.axaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\Old\GridSplitter.axaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\Old\ListBox1.axaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\Old\MenuItem.axaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\Old\Button.axaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\Old\Grid.axaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\Old\Border.axaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\CustomStyles.axaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\Standard.axaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\Old\TreeViewItem.axaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\Old\TabControl.axaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\Old\TabItem.axaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\Old\TextBox.axaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\Old\TextBlock.axaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\Old\TreeView.axaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\Old\Window.axaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
-  </ItemGroup>-->
+
   <ItemGroup>
     <Compile Update="UserControls\QueryWindow.axaml.cs">
       <DependentUpon>QueryWindow.axaml</DependentUpon>

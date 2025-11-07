@@ -11,17 +11,17 @@
 		DataContext="{Binding $self}"
         Title="Конфигурация пакетов">
 	<Grid RowDefinitions="*, 40">
-		<TabControl Grid.Row="0">
-			<TabItem Header="Настройки перевода">
+		<TabControl Grid.Row="0" Classes="Std">
+			<TabItem Header="Настройки перевода" Classes="Std">
 				<local:LanguageForm />
 			</TabItem>
-			<TabItem Header="Настройки стилей">
+			<TabItem Header="Настройки стилей" Classes="Std">
+				<local:StyleForm />
+			</TabItem>
+			<TabItem Header="Настройки" Classes="Std">
 
 			</TabItem>
-			<TabItem Header="Настройки">
-
-			</TabItem>
-			<TabItem Header="Драйвера">
+			<TabItem Header="Драйвера" Classes="Std">
 				<Grid RowDefinitions="*">
 					<Grid ColumnDefinitions="25*,4,75*" Grid.Row="0" MinHeight="104">
 						<Grid Grid.Column="0" RowDefinitions="18,*,26" >

@@ -33,6 +33,7 @@ namespace DBMS.Classes
             _text["Database"] = "База данных:";
             _text["CodePage"] = "Кодировка:";
             _text["StateBar"] = "Строка состояния:";
+            _text["Property"] = "Свойство";
 
             _text["QueryStateConnected"] = "Подключено";
             _text["QueryStateNotConnected"] = "Не подключено";
