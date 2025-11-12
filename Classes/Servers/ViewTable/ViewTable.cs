@@ -40,6 +40,7 @@ namespace DBMS.Classes
                 TC.Header = Columns[i];
                 TC.Binding = new Binding($"Fields[{i}]");
                 TC.CellStyleClasses.Add("UnFirst");
+                TC.Width = DataGridLength.SizeToCells;
                 D.Columns.Add(TC);
             }
         }

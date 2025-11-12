@@ -1,0 +1,36 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:classes="using:DBMS.Classes"
+			 mc:Ignorable="d" d:DesignWidth="200" d:DesignHeight="370"
+			 x:Class="DBMS.Pages.ObjectExplorer"
+	>
+	<Grid RowDefinitions="24,*"
+			 Background="White">
+		<Grid Grid.Row="0" ColumnDefinitions="24,24,24,24,*">
+			<Button VerticalAlignment="Center" Grid.Column="0" Height="24" Width="24" Name="butConnect" Click="FormConnectClick" Classes="Std">
+				<Image Source="/Sources/ButtonIcons/Connect.png"/>
+			</Button>
+			<Button VerticalAlignment="Center" Grid.Column="1" Height="24" Width="24" Name="butDisconnect" Click="FormDisconnectClick" Classes="Std">
+				<Image Source="/Sources/ButtonIcons/Disconnect.png"/>
+			</Button>
+			<Button VerticalAlignment="Center" Grid.Column="2" Height="24" Width="24" Name="butRefresh" Click="FormRefreshClick" Classes="Std">
+				<Image Source="/Sources/ButtonIcons/Refresh.png"/>
+			</Button>
+			<Button VerticalAlignment="Center" Grid.Column="3" Height="24" Width="24" Name="butSearch" Click="FormSearchClick" Classes="Std">
+				<Image Source="/Sources/ButtonIcons/Search.png"/>
+			</Button>
+		</Grid>
+		<TreeView Grid.Row="1" Name="MainTree">
+			 <TreeView.ItemTemplate>
+				<TreeDataTemplate ItemsSource="{Binding Child}" DataType="classes:DriverTreeElement">
+					<StackPanel Orientation="Horizontal" Spacing="5">
+						<Image Source="{Binding ImageSrc}" Width="16" Height="16"/>
+						<TextBlock Text="{Binding Name}"/>
+					</StackPanel>
+				</TreeDataTemplate>
+			</TreeView.ItemTemplate>
+		</TreeView>
+	</Grid>
+</UserControl>

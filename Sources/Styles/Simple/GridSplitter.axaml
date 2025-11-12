@@ -1,0 +1,14 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style Selector="GridSplitter.Std">
+		<Setter Property="Background" Value="{DynamicResource SplitterNormalColor}"/>
+	</Style>
+	<Style Selector="GridSplitter.H">
+		<Setter Property="Height" Value="4"/>
+		<Setter Property="Margin" Value="0 1 0 1"/>
+	</Style>
+	<Style Selector="GridSplitter.V">
+		<Setter Property="Width" Value="4"/>
+		<Setter Property="Margin" Value="1 0 1 0"/>
+	</Style>
+</Styles>

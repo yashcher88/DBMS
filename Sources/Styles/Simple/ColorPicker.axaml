@@ -1,0 +1,119 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style Selector="ColorPicker.Std">
+		<Setter Property="Foreground" Value="{DynamicResource ControlNormalTextColor}"/>
+		<Setter Property="MinHeight" Value="20"/>
+		<Setter Property="FontSize" Value="12"/>
+		<Setter Property="Height" Value="20"/>
+		<Setter Property="Padding" Value="2"/>
+		<Setter Property="FontFamily" Value="Arial"/>
+		<Setter Property="CornerRadius" Value="0"/>
+	</Style>
+	<Style Selector="ColorPicker.Std /template/ DropDownButton /template/ Border#RootBorder">
+		<Setter Property="Height" Value="20"/>
+		<Setter Property="Background" Value="{DynamicResource ControlNormalBgColor}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlNormalBorderColor}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+	</Style>
+	<Style Selector="ColorPicker.Std /template/ DropDownButton:pressed">
+		<Setter Property="RenderTransform" Value="{x:Null}"/>
+	</Style>
+	<Style Selector="ColorPicker.Std /template/ DropDownButton:focus /template/ Border#RootBorder, ColorPicker.Std /template/ DropDownButton:flyout-open /template/ Border#RootBorder">
+		<Setter Property="Height" Value="20"/>
+		<Setter Property="Background" Value="{DynamicResource ControlFocusBgColor}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlFocusBorderColor}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+	</Style>
+	<Style Selector="ColorPicker.Std /template/ DropDownButton /template/ PathIcon">
+		<Setter Property="Margin" Value="0 0 4 0"/>
+		<Setter Property="Width" Value="14"/>
+		<Setter Property="Height" Value="14"/>
+		<Setter Property="TextElement.Foreground" Value="{DynamicResource ControlDisableBorderColor}"/>
+	</Style>
+	<Style Selector="ColorPicker.Std /template/ DropDownButton /template/ ContentPresenter">
+		<Setter Property="Padding" Value="0 0 5 0"/>
+	</Style>
+	<Style Selector="ColorPicker.ConnectionEdit">
+		<Setter Property="HorizontalAlignment" Value="Left"/>
+		<Setter Property="VerticalAlignment" Value="Center"/>
+		<Setter Property="Width" Value="250"/>
+	</Style>
+	<!-- Оформление Окна выбора цвета -->
+	<Style Selector="ColorPicker.Std FlyoutPresenter">
+		<Setter Property="CornerRadius" Value="0"/>
+		<Setter Property="FontSize" Value="12"/>
+	</Style>
+	<Style Selector="ColorPicker.Std FlyoutPresenter Border#TabBackgroundBorder">
+		<Setter Property="CornerRadius" Value="0"/>
+		<Setter Property="Height" Value="24"/>
+	</Style>
+	<Style Selector="ColorPicker.Std FlyoutPresenter TabControl TabItem">
+		<Setter Property="MinHeight" Value="24"/>
+		<Setter Property="Background" Value="{DynamicResource ControlNormalBorderColor}"/>
+		<Setter Property="Height" Value="24"/>
+	</Style>
+	<Style Selector="ColorPicker.Std FlyoutPresenter TabControl ItemsPresenter#PART_ItemsPresenter">
+		<Setter Property="Margin" Value="0"/>
+	</Style>
+	<Style Selector="ColorPicker.Std FlyoutPresenter TabControl ItemsPresenter#PART_ItemsPresenter">
+		<Setter Property="Margin" Value="0"/>
+	</Style>
+	<Style Selector="ColorPicker.Std FlyoutPresenter TabControl TabItem Border#PART_SelectedPipe">
+		<Setter Property="Background" Value="Transparent"/>
+	</Style>
+	<Style Selector="ColorPicker.Std FlyoutPresenter TabControl">
+		<Setter Property="Height" Value="200"/>
+		<Setter Property="Width" Value="240"/>
+	</Style>
+	<Style Selector="ColorPicker.Std FlyoutPresenter TabControl TabItem:selected, ColorPicker.Std FlyoutPresenter TabControl TabItem:pointerover">
+		<Setter Property="Background" Value="{DynamicResource ControlSelectionBgColor}"/>
+	</Style>
+	<Style Selector="ColorPicker.Std FlyoutPresenter TabControl TabItem:selected PathIcon">
+		<Setter Property="TextElement.Foreground" Value="{DynamicResource ControlSelectedTextColor}"/>
+	</Style>
+	<Style Selector="ColorPicker.Std FlyoutPresenter TabControl TabItem PathIcon">
+		<Setter Property="Height" Value="14"/>
+	</Style>
+	<Style Selector="ColorPicker.Std FlyoutPresenter TabControl NumericUpDown">
+		<Setter Property="MinHeight" Value="20"/>
+		<Setter Property="Height" Value="20"/>
+	</Style>
+	<Style Selector="ColorPicker.Std FlyoutPresenter TabControl ButtonSpinner">
+		<Setter Property="MinHeight" Value="20"/>
+		<Setter Property="Height" Value="20"/>
+	</Style>
+	<Style Selector="ColorPicker.Std FlyoutPresenter TabControl TextBox#PART_TextBox">
+		<Setter Property="MinHeight" Value="20"/>
+		<Setter Property="Height" Value="20"/>
+		<Setter Property="Padding" Value="2"/>
+	</Style>
+	<Style Selector="ColorPicker.Std FlyoutPresenter TabControl ColorSlider:vertical">
+		<Setter Property="Width" Value="12"/>
+	</Style>
+	<Style Selector="ColorPicker.Std FlyoutPresenter TabControl ColorSlider:horizontal">
+		<Setter Property="Height" Value="12"/>
+	</Style>
+
+	<Style Selector="ColorPicker.Std FlyoutPresenter Border#ContentBackgroundBorder">
+		<Setter Property="Margin" Value="0,24,0,0"/>
+	</Style>
+
+	<Style Selector="ColorPicker.Std FlyoutPresenter TabControl ContentPresenter#PART_SelectedContentHost Grid">
+		<Setter Property="Margin" Value="0"/>
+	</Style>
+
+	<Style Selector="ColorPicker.Std FlyoutPresenter TabControl ContentPresenter#PART_SelectedContentHost Grid">
+	</Style>
+	<!--
+	<Style Selector="ColorPicker.Std FlyoutPresenter TabControl TabItem:selected, ColorPicker.Std FlyoutPresenter TabControl TabItem:pointerover">
+		<Setter Property="Background" Value="{DynamicResource ControlSelectionBgColor}"/>
+	</Style>
+	<Style Selector="ColorPicker.Std FlyoutPresenter TabControl TabItem PathIcon">
+		<Setter Property="TextElement.Foreground" Value="{DynamicResource ControlNormalTextColor}"/>
+	</Style>
+	<Style Selector="ColorPicker.Std FlyoutPresenter TabControl TabItem:selected PathIcon, ColorPicker.Std FlyoutPresenter TabControl TabItem:pointerover PathIcon">
+		<Setter Property="TextElement.Foreground" Value="{DynamicResource ControlSelectionTextColor}"/>
+	</Style>
+	-->
+
+</Styles>

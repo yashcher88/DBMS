@@ -35,6 +35,7 @@
     <PackageReference Include="Citrus.Avalonia" Version="2.1.1" />
     <PackageReference Include="Dock.Avalonia" Version="11.3.6.5" />
     <PackageReference Include="Dock.Avalonia.Themes.Fluent" Version="11.3.6.5" />
+    <PackageReference Include="Dock.Avalonia.Themes.Simple" Version="11.3.6.5" />
     <PackageReference Include="Dock.Model" Version="11.3.6.5" />
     <PackageReference Include="Dock.Model.Avalonia" Version="11.3.6.5" />
     <PackageReference Include="Dock.Model.Mvvm" Version="11.3.6.5" />
@@ -51,71 +52,117 @@
     <Folder Include="Classes\Servers\Driver\DriverTemplate\" />
     <Folder Include="Resources\StateIcons\Executing\" />
     <Folder Include="Sources\StateIcons\Executing\" />
+    <Folder Include="Sources\TreeIcons\" />
   </ItemGroup>
   <ItemGroup>
-    <AvaloniaResource Update="Sources\Styles\CheckBox.axaml">
+    <AvaloniaResource Update="Sources\Styles\Fluent\AutoCompleteBox.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\ColorPicker.axaml">
+    <AvaloniaResource Update="Sources\Styles\Fluent\Button.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\ComboBox.axaml">
+    <AvaloniaResource Update="Sources\Styles\Fluent\CheckBox.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\AutoCompleteBox.axaml">
+    <AvaloniaResource Update="Sources\Styles\Fluent\ColorPicker.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\ContextMenu.axaml">
+    <AvaloniaResource Update="Sources\Styles\Fluent\ComboBox.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\TabControl.axaml">
+    <AvaloniaResource Update="Sources\Styles\Fluent\ContextMenu.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\DockControl.axaml">
+    <AvaloniaResource Update="Sources\Styles\Fluent\DataGrid.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\Menu.axaml">
+    <AvaloniaResource Update="Sources\Styles\Fluent\DockControl.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\TextBlock.axaml">
+    <AvaloniaResource Update="Sources\Styles\Fluent\GridSplitter.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\SelectableTextBlock.axaml">
+    <AvaloniaResource Update="Sources\Styles\Fluent\ListBox.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\DataGrid.axaml">
+    <AvaloniaResource Update="Sources\Styles\Fluent\Menu.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\GridSplitter.axaml">
+    <AvaloniaResource Update="Sources\Styles\Fluent\SelectableTextBlock.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\TextBox.axaml">
+    <AvaloniaResource Update="Sources\Styles\Fluent\TabControl.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\TreeView.axaml">
+    <AvaloniaResource Update="Sources\Styles\Fluent\TextBlock.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\ListBox.axaml">
+    <AvaloniaResource Update="Sources\Styles\Fluent\TextBox.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\TextEditor.axaml">
+    <AvaloniaResource Update="Sources\Styles\Fluent\TextEditor.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
-    <AvaloniaResource Update="Sources\Styles\Button.axaml">
+    <AvaloniaResource Update="Sources\Styles\Fluent\TreeView.axaml">
       <SubType>Designer</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\Simple\AutoCompleteBox.axaml">
+      <SubType>AvaloniaXaml</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\Simple\Button.axaml">
+      <SubType>AvaloniaXaml</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\Simple\CheckBox.axaml">
+      <SubType>AvaloniaXaml</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\Simple\ColorPicker.axaml">
+      <SubType>AvaloniaXaml</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\Simple\ComboBox.axaml">
+      <SubType>AvaloniaXaml</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\Simple\ContextMenu.axaml">
+      <SubType>AvaloniaXaml</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\Simple\DataGrid.axaml">
+      <SubType>AvaloniaXaml</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\Simple\DockControl.axaml">
+      <SubType>AvaloniaXaml</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\Simple\GridSplitter.axaml">
+      <SubType>AvaloniaXaml</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\Simple\ListBox.axaml">
+      <SubType>AvaloniaXaml</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\Simple\Menu.axaml">
+      <SubType>AvaloniaXaml</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\Simple\SelectableTextBlock.axaml">
+      <SubType>AvaloniaXaml</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\Simple\TabControl.axaml">
+      <SubType>AvaloniaXaml</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\Simple\TextBlock.axaml">
+      <SubType>AvaloniaXaml</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\Simple\TextBox.axaml">
+      <SubType>AvaloniaXaml</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\Simple\TextEditor.axaml">
+      <SubType>AvaloniaXaml</SubType>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Sources\Styles\Simple\TreeView.axaml">
+      <SubType>AvaloniaXaml</SubType>
     </AvaloniaResource>
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="UserControls\QueryWindow.axaml.cs">
-      <DependentUpon>QueryWindow.axaml</DependentUpon>
-    </Compile>
-	<Compile Update="UserControls\SettingForm.axaml.cs">
-		<DependentUpon>SettingForm.axaml</DependentUpon>
-	</Compile>
-	<Compile Update="UserControls\StyleForm.axaml.cs">
-		<DependentUpon>StyleForm.axaml</DependentUpon>
-	</Compile>
+	  <Compile Update="Pages\QueryWindow.axaml.cs">
+		  <DependentUpon>QueryWindow.axaml</DependentUpon>
+	  </Compile>
     <Compile Update="Windows\Start.axaml.cs">
       <DependentUpon>Start.axaml</DependentUpon>
     </Compile>
@@ -131,7 +178,7 @@
     <Compile Update="Windows\Connect.axaml.cs">
       <DependentUpon>Connect.axaml</DependentUpon>
     </Compile>
-    <Compile Update="UserControls\ObjectExplorer.axaml.cs">
+    <Compile Update="Pages\ObjectExplorer.axaml.cs">
       <DependentUpon>ObjectExplorer.axaml</DependentUpon>
     </Compile>
   </ItemGroup>

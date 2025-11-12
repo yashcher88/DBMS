@@ -1,4 +1,4 @@
-using Avalonia;
+п»їusing Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
@@ -22,19 +22,21 @@ public partial class ConfigPack : BaseWindow
         InitializeComponent();
     }
 
-    /*Функции для Language*/
+    /*Р¤СѓРЅРєС†РёРё РґР»СЏ Language*/
     
     public void FillLangGrid()
     {
         //LangGrid.Items.Add();
     }
     
-    /* End of Функции для Language */
+    /* End of Р¤СѓРЅРєС†РёРё РґР»СЏ Language */
 
-    /* Функции Формы */
+    /* Р¤СѓРЅРєС†РёРё Р¤РѕСЂРјС‹ */
     public void FormSavePackage(object sender, RoutedEventArgs e)
     {
         store.SavePack();
+        store.ApplyStyles();
+        store.ApplySettings();
     }
     public void FormClose(object sender, RoutedEventArgs e)
     {

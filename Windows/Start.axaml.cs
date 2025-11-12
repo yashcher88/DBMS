@@ -1,4 +1,4 @@
-using Avalonia.Controls;
+﻿using Avalonia.Controls;
 using DBMS.Classes;
 using DBMS.Functions;
 using System;
@@ -40,7 +40,11 @@ namespace DBMS
             await Task.Delay(200);
 
             StateText.Text = $"Apply styles";
-            store.Sets.Style.ApplyStyleSettings();
+            store.ApplyStyles();
+            await Task.Delay(200);
+
+            StateText.Text = $"Apply settings";
+            store.ApplySettings();
             await Task.Delay(200);
 
             var main = new Main();

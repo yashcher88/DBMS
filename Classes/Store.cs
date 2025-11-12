@@ -107,5 +107,34 @@ namespace DBMS.Classes
             Images.Add("StateIcons.Executing.8", new Bitmap(AssetLoader.Open(new Uri("avares://DBMS/Sources/StateIcons/Executing/8.png"))));
             Images.Add("StateIcons.Executing.9", new Bitmap(AssetLoader.Open(new Uri("avares://DBMS/Sources/StateIcons/Executing/9.png"))));
         }
+        public string GetSetting(string SettingName) 
+        {
+            return "";
+        }
+        public void ApplyStyles()
+        {
+            var S = GetSetting("Style");
+            foreach (var node in Sets.StyleList.List) 
+            {
+                if (S == node.Key || S == "")
+                {
+                    Sets.Style.ApplyFromStyleObject(node.Value);
+                    break;
+                }
+            }
+            
+        }
+        public void ApplySettings()
+        {
+            var S = GetSetting("Style");
+            foreach (var node in Sets.LanguageList.List)
+            {
+                if (S == node.Key || S == "")
+                {
+                    Sets.Language.ApplyFromLanguageObject(node.Value);
+                    break;
+                }
+            }
+        }
     }
 }

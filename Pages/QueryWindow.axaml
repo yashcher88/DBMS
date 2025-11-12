@@ -1,0 +1,92 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:AvaloniaEdit="clr-namespace:AvaloniaEdit;assembly=AvaloniaEdit"
+			 DataContext="{Binding $self}"
+             mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="400"
+			 FontSize="12"
+             x:Class="DBMS.Pages.QueryWindow">
+	
+	<Grid RowDefinitions="*,0,0,22" x:Name="MainGrid">
+		<AvaloniaEdit:TextEditor Text="select oid,proname from pg_proc"
+                                 ShowLineNumbers="True"
+                                 FontFamily="Consolas" 
+								 Grid.Row="0" 
+								 x:Name="QueryText" 
+								 >
+			<AvaloniaEdit:TextEditor.ContextMenu>
+				<ContextMenu>
+					<MenuItem Header="Подключиться к серверу" Click="ConnectToServer"/>
+					<MenuItem Header="Выполнить" Click="ExecuteQuery"/>
+					<MenuItem Header="Отменить выполнение" Click="CancelQuery"/>
+					<MenuItem Header="Найти" Click="Find"/>
+				</ContextMenu>
+			</AvaloniaEdit:TextEditor.ContextMenu>
+		</AvaloniaEdit:TextEditor>
+		<GridSplitter Grid.Row="1" Name="ResultSplitter" IsVisible="true" Classes="Std"/>
+		<TabControl Grid.Row="2" Name="Result" IsVisible="true" Classes="Std">
+			<TabItem Header="Результаты" x:Name="ResultTab" Classes="Std">
+				<DataGrid x:Name="ResultGrid" IsReadOnly="true" Margin="2" CanUserSortColumns="false"
+						  SelectionMode="Extended"
+						  Classes="Std"
+						  CanUserResizeColumns="True"
+					      PointerPressed="FormGridClick"
+						  KeyDown="FormGridKeyDown"
+					      KeyUp="FormGridKeyUp"
+				>
+					
+				</DataGrid>
+			</TabItem>
+			<TabItem Header="Результаты" x:Name="ResultText" Classes="Std">
+				
+			</TabItem>
+			<TabItem Header="План запроса" x:Name="QueryPlan" Classes="Std">
+
+			</TabItem>
+			<TabItem Header="Сообщения" x:Name="QueryMessages" Classes="Std">
+				<Border BorderBrush="Gray" BorderThickness="1" Margin="2">
+					<SelectableTextBlock x:Name="Messages" TextWrapping="Wrap" FontFamily="Courier New"
+						Classes="Std"
+						/>
+				</Border>
+			</TabItem>
+		</TabControl>
+		<Grid Grid.Row="3">
+			<Panel Name="StatePanel" Background="#f7e78c">
+				<Border BorderBrush="Gray" BorderThickness="0 1 0 0"/>
+				<Grid ColumnDefinitions="*,Auto,Auto,Auto,Auto,Auto,Auto">
+					<Panel Grid.Column="0">
+						<Grid ColumnDefinitions="24,*">
+							<Image Grid.Column="0" Name="ImageState" Source="avares://DBMS/Sources/ButtonIcons/Disconnect.png" Width="14" Height="14" Margin="2"/>
+							<TextBlock Text="Не подключено" x:Name="QueryState" Grid.Column="1" Margin="2 3 2 0"/>
+						</Grid>
+					</Panel>
+					<Panel Grid.Column="1" Classes="PanelState">
+						<TextBlock/>
+						<Border BorderBrush="Gray" BorderThickness="0 0 1 0" Margin="0 4"/>
+					</Panel>
+					<Panel Grid.Column="2" Classes="PanelState">
+						<TextBlock Text="Сервер" x:Name="QueryServer"/>
+						<Border BorderBrush="Gray" BorderThickness="0 0 1 0" Margin="0 4"/>
+					</Panel>
+					<Panel Grid.Column="3" Classes="PanelState">
+						<TextBlock Text="Пользователь" x:Name="QueryUser"/>
+						<Border BorderBrush="Gray" BorderThickness="0 0 1 0" Margin="0 4"/>
+					</Panel>
+					<Panel Grid.Column="4" Classes="PanelState">
+						<TextBlock Text="База данных" x:Name="QueryDB"/>
+						<Border BorderBrush="Gray" BorderThickness="0 0 1 0" Margin="0 4"/>
+					</Panel>
+					<Panel Grid.Column="5" Classes="PanelState">
+						<TextBlock Text="00:00:00" x:Name="QueryTime"/>
+						<Border/>
+					</Panel>
+					<Panel Grid.Column="6" Classes="PanelState">
+						<TextBlock Text="0 строк" x:Name="QueryRows" Grid.Column="6"/>
+					</Panel>
+				</Grid>
+			</Panel>
+		</Grid>
+	</Grid>
+</UserControl>

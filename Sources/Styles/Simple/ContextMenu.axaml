@@ -1,0 +1,37 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style Selector="ContextMenu.Std">
+        <Setter Property="Background" Value="{DynamicResource MenuPanelBgColor}"/>
+        <Setter Property="CornerRadius" Value="0"/>
+        <Setter Property="Padding" Value="2"/>
+
+        <!-- Вложенный стиль должен быть с контекстом родителя -->
+        <Style Selector="^ ItemsPresenter">
+            <Setter Property="Margin" Value="0"/>
+
+            <!-- Вложенный стиль для MenuItem внутри ItemsPresenter -->
+        </Style>
+        <Style Selector="^ MenuItem">
+            <Setter Property="Padding" Value="6 3"/>
+            <Setter Property="FontSize" Value="12"/>
+
+            <Style Selector="^ Border#PART_LayoutRoot">
+                <Setter Property="Background" Value="{DynamicResource MenuItemNormalBgColor}"/>
+                <Style Selector="^ ContentPresenter#PART_HeaderPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource MenuItemNormalTextColor}"/>
+                </Style>
+            </Style>
+        </Style>
+                
+        <Style Selector="^ MenuItem:selected">
+            <Style Selector="^ Border#PART_LayoutRoot">
+                <Setter Property="Background" Value="{DynamicResource MenuItemFocusBgColor}"/>
+
+                <Style Selector="^ ContentPresenter#PART_HeaderPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource MenuItemFocusTextColor}"/>
+                </Style>
+            </Style>
+        </Style>
+    </Style>
+</Styles>

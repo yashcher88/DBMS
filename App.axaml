@@ -1,4 +1,4 @@
-<Application xmlns="https://github.com/avaloniaui"
+﻿<Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="DBMS.App"
 			 Name="DatabaseManagementStudio"
@@ -127,28 +127,28 @@
 		<SolidColorBrush x:Key="SplitterActiveBgColor" Color="#f0f0f0" />
 	</Application.Resources>
     <Application.Styles>
-		<FluentTheme />
-		<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
-		<StyleInclude Source="avares://Avalonia.Controls.ColorPicker/Themes/Fluent/Fluent.xaml" />
-		<StyleInclude Source="avares://AvaloniaEdit/Themes/Fluent/AvaloniaEdit.xaml" />
-		<DockFluentTheme />
-		<StyleInclude Source="avares://DBMS/Sources/Styles/TabControl.axaml" />
-		<StyleInclude Source="avares://DBMS/Sources/Styles/AutoCompleteBox.axaml" />
-		<StyleInclude Source="avares://DBMS/Sources/Styles/Button.axaml" />
-		<StyleInclude Source="avares://DBMS/Sources/Styles/CheckBox.axaml" />
-		<StyleInclude Source="avares://DBMS/Sources/Styles/ColorPicker.axaml" />
-		<StyleInclude Source="avares://DBMS/Sources/Styles/ComboBox.axaml" />
-		<StyleInclude Source="avares://DBMS/Sources/Styles/ContextMenu.axaml" />
-		<StyleInclude Source="avares://DBMS/Sources/Styles/DataGrid.axaml" />
-		<StyleInclude Source="avares://DBMS/Sources/Styles/DockControl.axaml" />
-		<StyleInclude Source="avares://DBMS/Sources/Styles/GridSplitter.axaml" />
-		<StyleInclude Source="avares://DBMS/Sources/Styles/ListBox.axaml" />
-		<StyleInclude Source="avares://DBMS/Sources/Styles/Menu.axaml" />
-		<StyleInclude Source="avares://DBMS/Sources/Styles/SelectableTextBlock.axaml" />
-		<StyleInclude Source="avares://DBMS/Sources/Styles/Standard.axaml" />
-		<StyleInclude Source="avares://DBMS/Sources/Styles/TextBlock.axaml" />
-		<StyleInclude Source="avares://DBMS/Sources/Styles/TextEditor.axaml" />
-		<StyleInclude Source="avares://DBMS/Sources/Styles/TextBox.axaml" />
-		<StyleInclude Source="avares://DBMS/Sources/Styles/TreeView.axaml" />
+		<SimpleTheme />
+		<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Simple.xaml"/>
+		<StyleInclude Source="avares://Avalonia.Controls.ColorPicker/Themes/Simple/Simple.xaml" />
+		<StyleInclude Source="avares://AvaloniaEdit/Themes/Simple/AvaloniaEdit.xaml" />
+		<DockSimpleTheme />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/Simple/TabControl.axaml" />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/Simple/AutoCompleteBox.axaml" />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/Simple/Button.axaml" />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/Simple/CheckBox.axaml" />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/Simple/ColorPicker.axaml" />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/Simple/ComboBox.axaml" />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/Simple/ContextMenu.axaml" />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/Simple/DataGrid.axaml" />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/Simple/DockControl.axaml" />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/Simple/GridSplitter.axaml" />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/Simple/ListBox.axaml" />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/Simple/Menu.axaml" />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/Simple/SelectableTextBlock.axaml" />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/Simple/Standard.axaml" />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/Simple/TextBlock.axaml" />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/Simple/TextEditor.axaml" />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/Simple/TextBox.axaml" />
+		<StyleInclude Source="avares://DBMS/Sources/Styles/Simple/TreeView.axaml" />
 	</Application.Styles>
 </Application>

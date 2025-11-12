@@ -23,6 +23,8 @@ namespace DBMS.Classes
             /* Цвета Формы */
             _colors["FormBgColor"] = CConvert.HexToColor("#f0f0f0");
             _colors["FormTextColor"] = CConvert.HexToColor("#000000");
+            _colors["DataGridGridLinesBrush"] = CConvert.HexToColor("#00ff00");
+            
 
             /* Цвета Панелей */
             _colors["PanelBgColor"] = CConvert.HexToColor("#f0f0f0");

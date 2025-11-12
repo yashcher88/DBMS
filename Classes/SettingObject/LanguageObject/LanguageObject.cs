@@ -22,6 +22,8 @@ namespace DBMS.Classes
             _text["AvailableLanguage"] = "Доступные языки";
             _text["Add"] = "Добавить";
             _text["Rename"] = "Переименовать";
+            _text["SelectAll"] = "Переименовать";
+            _text["Copy"] = "Копировать";
             _text["Delete"] = "Удалить";
             _text["Name"] = "Название:";
             _text["Driver"] = "Драйвер:";

@@ -1,0 +1,69 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style Selector="ComboBox.Std">
+		<Setter Property="Background" Value="{DynamicResource ControlDisableBgColor}"/>
+		<Setter Property="Foreground" Value="{DynamicResource ControlDisableTextColor}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlDisableBorderColor}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="MinHeight" Value="20"/>
+		<Setter Property="FontSize" Value="12"/>
+		<Setter Property="Height" Value="20"/>
+		<Setter Property="Padding" Value="2"/>
+		<Setter Property="FontFamily" Value="Arial"/>
+		<Setter Property="CornerRadius" Value="0"/>
+	</Style>
+	<Style Selector="ComboBox.Std:pointerover /template/ Border#Background">
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlDisableBorderColor}"/>
+		<Setter Property="Background" Value="{DynamicResource ControlDisableBgColor}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+	</Style>
+	<Style Selector="ComboBox.Std:pointerover">
+		<Setter Property="Background" Value="{DynamicResource ControlDisableBgColor}"/>
+		<Setter Property="Foreground" Value="{DynamicResource ControlDisableTextColor}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlDisableBorderColor}"/>
+	</Style>
+	<Style Selector="ComboBox.Std /template/ PathIcon">
+		<Setter Property="Margin" Value="0 0 5 0"/>
+		<Setter Property="Width" Value="14"/>
+		<Setter Property="Height" Value="14"/>
+		<Setter Property="TextElement.Foreground" Value="{DynamicResource ControlDisableBorderColor}"/>
+	</Style>
+	<Style Selector="ComboBox.Std:focus /template/ PathIcon, ComboBox.Std:dropdownopen /template/ PathIcon">
+		<Setter Property="TextElement.Foreground" Value="{DynamicResource ControlDisableBorderColor}"/>
+	</Style>
+	<Style Selector="ComboBox.Std:focus, ComboBox.Std:dropdownopen">
+		<Setter Property="Background" Value="{DynamicResource ControlNormalBgColor}"/>
+		<Setter Property="Foreground" Value="{DynamicResource ControlNormalTextColor}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlNormalBorderColor}"/>
+	</Style>
+	<Style Selector="ComboBox.Std:focus /template/ Border#Background, ComboBox.Std:dropdownopen /template/ Border#Background" >
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlDisableBorderColor}"/>
+		<Setter Property="Background" Value="{DynamicResource ControlDisableBgColor}"/>
+		<Setter Property="BorderThickness" Value="1"/>
+	</Style>
+	<Style Selector="ComboBox.Std > ComboBoxItem">
+		<Setter Property="Padding" Value="2"/>
+	</Style>
+	<Style Selector="ComboBox.Std > ComboBoxItem /template/ ContentPresenter, ComboBox.Std > ComboBoxItem:selected /template/ ContentPresenter, ComboBox.Std > ComboBoxItem:focus /template/ ContentPresenter">
+		<Setter Property="Background" Value="{DynamicResource ControlNormalBgColor}"/>
+		<Setter Property="Foreground" Value="{DynamicResource ControlNormalTextColor}"/>
+	</Style>
+	<Style Selector="ComboBox.Std > ComboBoxItem:pointerover /template/ ContentPresenter">
+		<Setter Property="Background" Value="{DynamicResource ControlSelectionBgColor}"/>
+		<Setter Property="Foreground" Value="{DynamicResource ControlSelectionTextColor}"/>
+	</Style>
+	<Style Selector="ComboBox.Std /template/ Popup#PART_Popup Border">
+		<Setter Property="CornerRadius" Value="0"/>
+		<Setter Property="Padding" Value="0"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlNormalBorderColor}"/>
+	</Style>
+	<Style Selector="ComboBox.Std /template/ ItemsPresenter">
+		<Setter Property="Margin" Value="0"/>
+	</Style>
+
+	<Style Selector="ComboBox.ConnectionEdit">
+		<Setter Property="HorizontalAlignment" Value="Left"/>
+		<Setter Property="VerticalAlignment" Value="Center"/>
+		<Setter Property="Width" Value="250"/>
+	</Style>
+</Styles>

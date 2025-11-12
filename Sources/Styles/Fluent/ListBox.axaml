@@ -1,0 +1,19 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style Selector="ListBox.Std">
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="Background" Value="{DynamicResource ControlNormalBgColor}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource ControlNormalBorderColor}"/>
+		<Style Selector="^ ListBoxItem">
+			<Setter Property="Foreground" Value="{DynamicResource ControlNormalTextColor}"/>
+			<Setter Property="Background" Value="{DynamicResource ControlNormalBgColor}"/>
+			<Setter Property="Padding" Value="5 2 5 2"/>
+			<Setter Property="MinHeight" Value="10"/>
+			<Setter Property="Height" Value="20"/>
+			<Style Selector="^ ListBoxItem:selected">
+				<Setter Property="Background" Value="{DynamicResource ControlSelectionBgColor}"/>
+				<Setter Property="Foreground" Value="{DynamicResource ControlSelectionTextColor}"/>
+			</Style>
+		</Style>
+	</Style>
+</Styles>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DBMS.Classes.DataRow
+namespace DBMS.Classes
 {
     public class DataFieldString : INotifyPropertyChanged
     {
@@ -27,7 +27,13 @@ namespace DBMS.Classes.DataRow
             }
             set
             {
-                _list[key] = value;
+                if (key == _list.Count)
+                {
+                    _list.Add(value);
+                }
+                else { 
+                    _list[key] = value;
+                }
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Item[]"));
             }
         }

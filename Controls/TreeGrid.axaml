@@ -1,0 +1,76 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="500"
+		     xmlns:classes="using:DBMS.Classes"
+             xmlns:local="using:DBMS"
+ 		     x:DataType="classes:BaseUserControl"
+             x:Class="DBMS.TreeGrid">
+    <Grid RowDefinitions="30,*,4,80">
+        <Grid Grid.Row="0">
+            
+        </Grid>
+        <Grid Grid.Row="1">
+            
+            <ScrollViewer>
+                <ItemsControl x:Name="GroupsList" Margin="4" DataContext="DBMS.Controls"
+                                ItemsSource="{Binding}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="local:PropertyGroup">
+                            <StackPanel>
+                                
+                                <!-- Заголовок группы -->
+                                <Border Background="#E6E6E6"
+                                        CornerRadius="0"
+                                        Padding="0"
+                                        Margin="0"
+                                        Cursor="Hand">
+                                    <StackPanel Orientation="Horizontal"
+                                                VerticalAlignment="Center"
+                                                PointerPressed="OnGroupHeaderClick">
+                                        <TextBlock Text="{Binding IsExpanded, Converter={x:Static local:BoolToArrowConverter.Instance}}"
+                                                    FontWeight="Bold"
+                                                    Margin="0"/>
+                                        <TextBlock Text="{Binding GroupName}"
+                                                    FontWeight="Bold"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <!-- Список свойств -->
+                                <ItemsControl ItemsSource="{Binding Items}" IsVisible="{Binding IsExpanded}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate x:DataType="local:Property">
+                                            <Grid ColumnDefinitions="2*,3*" 
+                                                    Background="#FFFFFF" >
+                                                <SelectableTextBlock Text="{Binding Name}" Padding="8,4"/>
+                                                <TextBox Text="{Binding Value}" Grid.Column="1" Classes="Std"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+        
+        <Grid Grid.Row="3" RowDefinitions="20,*">
+            <TextBlock Grid.Row="0" FontWeight="Bold" Padding="5" FontSize="12" FontFamily="Arial">Имя</TextBlock>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Grid.Row="1">
+                <StackPanel Background="White">
+                    <SelectableTextBlock Padding="5" FontSize="12" FontFamily="Arial" TextWrapping="Wrap" Background="Transparent">
+                        Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя Имя
+                        <SelectableTextBlock.ContextMenu>
+							<ContextMenu>
+								<MenuItem Header="{Binding store.Lang[SelectAll]}" Click="SelectAll"/>
+                                <MenuItem Header="{Binding store.Lang[Copy]}" Click="Copy"/>
+                            </ContextMenu>
+                        </SelectableTextBlock.ContextMenu>
+                    </SelectableTextBlock>
+                </StackPanel>
+            </ScrollViewer> 
+        </Grid>
+    </Grid>
+</UserControl>

@@ -8,11 +8,16 @@ namespace DBMS.Classes.DataRow
 {
     public class DataRowColor
     {
-        public string Name { get; }
-        public List<object> Fields { get; set; }
+        private string _name;
+        public string Name { get { return _name; } }
+        public DataFieldColor Fields { get; set; }
         public DataRowColor()
         {
-            Fields = new List<object>();
+            Fields = new DataFieldColor();
+        }
+        public void SetName(string name)
+        {
+            _name = name;
         }
     }
 }
